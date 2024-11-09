@@ -17,7 +17,7 @@ Ce document de conception détaille les éléments clés du projet de site e-com
 
 Ce diagramme présente les interactions entre les différents types d’utilisateurs et les fonctionnalités principales de l'application.
 
-image::images/UC.png[UC, 80%]
+image::images/UC.png[UC, 100%]
 
 === Description des cas d'utilisation principaux
 
