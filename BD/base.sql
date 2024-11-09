@@ -4,6 +4,7 @@ DROP TABLE ACommande;
 DROP TABLE Commande;
 DROP TABLE Client;
 DROP TABLE Comporte;
+DROP TABLE Image;
 DROP TABLE Produit;
 DROP TABLE MethodePayment;
 DROP TABLE TypeProduit;
@@ -50,6 +51,14 @@ CREATE TABLE Produit {
     CONSTRAINT pk_Produit PRIMARY KEY (idNumProduit),
     CONSTRAINT fk_ Produit_TypeProduit
 		FOREIGN KEY (idTypeProduit) REFERENCES TypeProduit(idTypeProduit)
+}
+
+CREATE TABLE Image {
+    idNumProduit NUMBER(6),
+    urlImage VARCHAR(50),
+    CONSTRAINT pk_Image PRIMARY KEY (idNumProduit, urlImage),
+    CONSTRAINT fk_Image_Produit
+		FOREIGN KEY (idNumProduit) REFERENCES Produit(idNumProduit)
 }
 
 CREATE TABLE Comporte {
