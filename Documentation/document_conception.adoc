@@ -141,21 +141,21 @@ Cette section inclut les diagrammes de classe de conception pour les modules cl�
 
 Ce diagramme de classe de conception illustre le processus de recherche de produits par un client.
 
-A venir
+image::images/DCC_Recherche.png[DCC_Recherche, 100%]
 
 
 === Diagramme de conception pour la gestion du panier
 
 Ce diagramme décrit le processus d'ajout, de suppression, et de modification des produits dans le panier.
 
-A venir
+image::images/DCC_Ajout_Au_Panier.png[DCC_Ajout_Au_Panier,100%]
 
 
-=== Diagramme de conception pour l'ajout d'un avis
+=== Diagramme de conception pour la visualisation de produit
 
-Ce diagramme de classe de conception montre le processus d'ajout d'un avis pour un produit par un client.
+Ce diagramme de classe de conception montre le processus d'affichage d'un produit à un client.
 
-A venir
+image::images/DCC_Visualisation_du_produit.png[DCC_Visualisation_du_produit,100%]
 
 == Conclusion
 Ce document de conception détaille l'architecture et les choix de conception du projet, permettant une compréhension globale des interactions et des logiques métier sous-jacentes. Cette conception servira de base pour le développement et facilitera les futures évolutions.
