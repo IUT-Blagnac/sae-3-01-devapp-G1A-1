@@ -21,7 +21,7 @@ CREATE TABLE Administrateur {
     CONSTRAINT pk_Client PRIMARY KEY (idNumAdmin)
 }
 
-CREATE TABLE Employer {
+CREATE TABLE Employe {
     idNumEmployer NUMBER(5),
     nom VARCHAR(25),
 	prenom VARCHAR(15),
