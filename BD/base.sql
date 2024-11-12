@@ -9,17 +9,6 @@ DROP TABLE Produit;
 DROP TABLE MethodePayment;
 DROP TABLE TypeProduit;
 DROP TABLE Employer;
-DROP TABLE Administrateur;
-
-CREATE TABLE Administrateur {
-    idNumAdmin NUMBER(5),
-    nom VARCHAR(25),
-	prenom VARCHAR(15),
-	adressePostale VARCHAR(50),
-	email VARCHAR(20),
-	telephone CHAR(10),
-    CONSTRAINT pk_Client PRIMARY KEY (idNumAdmin)
-}
 
 CREATE TABLE Employe {
     idNumEmployer NUMBER(5),
@@ -28,6 +17,7 @@ CREATE TABLE Employe {
 	adressePostale VARCHAR(50),
 	email VARCHAR(20),
 	telephone CHAR(10),
+    administrateur BOOLEAN,
     CONSTRAINT pk_Client PRIMARY KEY (idNumEmployer)
 }
 
