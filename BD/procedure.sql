@@ -12,7 +12,7 @@ BEGIN
     UPDATE Commande
     SET panierActuel = FALSE
     WHERE idNumCli = p_idNumCli
-    AND panierActuel = TRUE
+    AND panierActuel = TRUE;
 
     INSERT INTO Commande (idCommande, idNumCli, panierActuel)VALUES (seq_id_commande.NEXTVAL, p_idNumCli, TRUE);
 
