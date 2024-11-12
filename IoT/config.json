@@ -1,0 +1,18 @@
+{
+"max": {
+"temperature_max": 21,
+"humidite_max": 46,
+"taux_max": 850
+},
+"donnee": {
+"temperature": true,
+"humidite": true,
+"taux": false
+},
+"salle": {
+"num_salle": "B006,B106,B103,B101,E105,Serveurs,E003,B234"
+},
+"lecture": {
+"frequence": 60
+}
+}
