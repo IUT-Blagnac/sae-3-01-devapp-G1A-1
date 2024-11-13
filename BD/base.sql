@@ -115,16 +115,6 @@ CREATE TABLE infoPaiement (
     CONSTRAINT fk_infoPaiement_Carte_AE FOREIGN KEY (idcarte) REFERENCES Carte_AE(idcarte)
 )
 
-CREATE TABLE MethodeEnregistrer (
-    idNumCli NUMBER(5),
-    idMethodePaiement NUMBER(6),
-    CONSTRAINT pk_MethodeEnregistrer PRIMARY KEY (idNumCli, idMethodePaiement)
-    CONSTRAINT fk_MethodeEnregistrer_Client
-		FOREIGN KEY (idNumCli) REFERENCES Client(idNumCli),
-	CONSTRAINT fk_MethodeEnregistrer_MethodePaiement
-		FOREIGN KEY (idMethodePaiement) REFERENCES MethodePaiement(idMethodePaiement)
-)
-
 CREATE TABLE Commande (
     idCommande NUMBER(6),
     idNumCli NUMBER(5),

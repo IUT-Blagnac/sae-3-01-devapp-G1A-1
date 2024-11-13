@@ -1,0 +1,130 @@
+@startuml
+
+class Employe {
+    idNumEmployer: NUMBER(5)
+    nom: VARCHAR(25)
+    prenom: VARCHAR(15)
+    adressePostale: VARCHAR(50)
+    email: VARCHAR(20)
+    telephone: CHAR(10)
+    administrateur: BOOLEAN
+}
+
+class Categorie {
+    idCategorie: NUMBER(3)
+    nomTypeCategorie: VARCHAR(30)
+    idCategoriePere: NUMBER(3)
+}
+
+class MethodePaiement {
+    idMethodePaiement: NUMBER(6)
+    nomMethodePaiement: VARCHAR(20)
+}
+
+class Paypal {
+    idcarte: NUMBER(6)
+    email: VARCHAR(50)
+    MDP: VARCHAR(25)
+}
+
+class Carte_EU {
+    idcarte: NUMBER(6)
+    numCarte: NUMBER(16)
+    dateExp: NUMBER(4)
+    nomProp: VARCHAR(50)
+}
+
+class Carte_AE {
+    idcarte: NUMBER(6)
+    numCarte: VARCHAR2(15)
+    dateExp: NUMBER(4)
+    nomProp: VARCHAR2(50)
+}
+
+class Produit {
+    idNumProduit: NUMBER(6)
+    idTypeCategorie: NUMBER(3)
+    nomProduit: VARCHAR(50)
+    prixActuel: NUMBER(5)
+}
+
+class Image {
+    idNumProduit: NUMBER(6)
+    idImage: NUMBER(6)
+    urlImage: VARCHAR(100)
+}
+
+class Comporte {
+    idNumProduit1: NUMBER(6)
+    idNumProduit2: NUMBER(6)
+}
+
+class Client {
+    idNumCli: NUMBER(5)
+    nom: VARCHAR(25)
+    prenom: VARCHAR(15)
+    adressePostale: VARCHAR(50)
+    email: VARCHAR(20)
+    telephone: CHAR(10)
+}
+
+class infoPaiement {
+    idNumCli: NUMBER(5)
+    idcarte: NUMBER(6)
+    idMethodePaiement: NUMBER(6)
+}
+
+class Commande {
+    idCommande: NUMBER(6)
+    idNumCli: NUMBER(5)
+    idMethodePaiement: NUMBER(6)
+    dateCommande: DATE
+    panierActuel: BOOLEAN
+}
+
+class ACommande {
+    idCommande: NUMBER(6)
+    idNumProduit: NUMBER(6)
+    qte: NUMBER(5)
+    prixPayer: NUMBER(5)
+}
+
+class ARegarde {
+    idNumCli: NUMBER(5)
+    idNumProduit: NUMBER(6)
+    dateRegar: DATE
+}
+
+class Avis {
+    idNumCli: NUMBER(6)
+    idNumProduit: NUMBER(6)
+    tAvis: VARCHAR(500)
+    urlImage: VARCHAR(100)
+}
+
+Categorie -right- Categorie
+Produit -up- Categorie
+
+Produit -- Produit
+(Produit, Produit) .right. Comporte
+Produit -down-Image
+
+Carte_AE -- infoPaiement
+Carte_EU -- infoPaiement
+Paypal -- infoPaiement
+Client -- infoPaiement
+MethodePaiement -- infoPaiement
+
+Client -- Produit
+Commande -- Produit
+
+Employe -- Avis
+Commande -- MethodePaiement
+Commande -- Client
+
+
+(Client, Produit) .. Avis
+(Client, Produit) .. ARegarde
+(Commande, Produit) .. ACommande
+
+@enduml
