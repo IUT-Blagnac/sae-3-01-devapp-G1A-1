@@ -7,7 +7,7 @@ DROP TABLE Client;
 DROP TABLE Comporte;
 DROP TABLE Image;
 DROP TABLE Produit;
-DROP TABLE MethodePayment;
+DROP TABLE MethodePaiment;
 DROP TABLE Categorie;
 DROP TABLE Employer;
 
@@ -31,21 +31,21 @@ CREATE TABLE Categorie {
 }
 
 CREATE TABLE infoPaiment {
-    methodePayment VARCHAR(15),
+    methodePaiment VARCHAR(15),
     idcarte Number(6)
-    idOPtPayment NUMBER(6),
-    CONSTRAINT pk_MethodePayment PRIMARY KEY (methodePayment,idcarte,idOPtPayment)
-    CONSTRAINT fk_MethodePayment_OptionPayment FOREIGN KEY (idOPtPayment) REFERENCES OptionPayment(idOPtPayment)
-    CONSTRAINT fk_MethodePayment_Paypal FOREIGN KEY (idcarte) REFERENCES Paypal(idcarte)
-    CONSTRAINT fk_MethodePayment_Carte_EU FOREIGN KEY (idcarte) REFERENCES Carte_EU(idcarte)
-    CONSTRAINT fk_MethodePayment_Carte_AE FOREIGN KEY (idcarte) REFERENCES Carte_AE(idcarte)
+    idOPtPaiment NUMBER(6),
+    CONSTRAINT pk_MethodePaiment PRIMARY KEY (methodePaiment,idcarte,idOPtPaiment)
+    CONSTRAINT fk_MethodePaiment_OptionPaiment FOREIGN KEY (idOPtPaiment) REFERENCES OptionPaiment(idOPtPaiment)
+    CONSTRAINT fk_MethodePaiment_Paypal FOREIGN KEY (idcarte) REFERENCES Paypal(idcarte)
+    CONSTRAINT fk_MethodePaiment_Carte_EU FOREIGN KEY (idcarte) REFERENCES Carte_EU(idcarte)
+    CONSTRAINT fk_MethodePaiment_Carte_AE FOREIGN KEY (idcarte) REFERENCES Carte_AE(idcarte)
 }
 
 CREATE TABLE MethodePaiment{
-    idOPtPayment Number(6),
+    idOPtPaiment Number(6),
     nomOptPayement VARCHAR(20),
-    CONSTRAINT pk_OptionPayment PRIMARY KEY (idOPtPayment)
-    CONSTRAINT ck_nomOptPayment CHECK nomOptPayement IN {"Paypal,Carte_UE,Carte_AE"}
+    CONSTRAINT pk_OptionPaiment PRIMARY KEY (idOPtPaiment)
+    CONSTRAINT ck_nomOptPaiment CHECK nomOptPayement IN {"Paypal,Carte_UE,Carte_AE"}
 }
 
 CREATE TABLE Paypal {
@@ -116,26 +116,26 @@ CREATE TABLE Client{
 
 CREATE TABLE MethodeEnregistrer {
     idNumCli NUMBER(5),
-    idMethodePayment NUMBER(6),
-    CONSTRAINT pk_MethodeEnregistrer PRIMARY KEY (idNumCli, idMethodePayment)
+    idMethodePaiment NUMBER(6),
+    CONSTRAINT pk_MethodeEnregistrer PRIMARY KEY (idNumCli, idMethodePaiment)
     CONSTRAINT fk_MethodeEnregistrer_Client
 		FOREIGN KEY (idNumCli) REFERENCES Client(idNumCli),
-	CONSTRAINT fk_MethodeEnregistrer_MethodePayment
-		FOREIGN KEY (idMethodePayment) REFERENCES MethodePayment(idMethodePayment)
+	CONSTRAINT fk_MethodeEnregistrer_MethodePaiment
+		FOREIGN KEY (idMethodePaiment) REFERENCES MethodePaiment(idMethodePaiment)
 }
 
 CREATE TABLE Commande {
     idCommande NUMBER(6),
     idNumCli NUMBER(5),
-    idMethodePayment NUMBER(6),
+    idMethodePaiment NUMBER(6),
     dateCommande DATE,
     panierActuel BOOLEAN, -- Cette variable ne peut être vrai que pour une seule commande d'un client. Elle représente le panier actuel. 
                           -- Quand elle est fausse, elle représente des commandes déjà passées ce qui constitue l'historique de commande.
     CONSTRAINT pk_Commande PRIMARY KEY (idCommande),
     CONSTRAINT fk_Commande_Client
 		FOREIGN KEY (idNumCli) REFERENCES Client(idNumCli),
-    CONSTRAINT fk_Commande_MethodePayment
-		FOREIGN KEY (idMethodePayment) REFERENCES MethodePayment(idMethodePayment)
+    CONSTRAINT fk_Commande_MethodePaiment
+		FOREIGN KEY (idMethodePaiment) REFERENCES MethodePaiment(idMethodePaiment)
 }   
 
 CREATE TABLE ACommande {
