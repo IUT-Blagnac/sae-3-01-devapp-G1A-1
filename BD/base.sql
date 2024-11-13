@@ -145,20 +145,20 @@ CREATE TABLE ACommande {
     qte NUMBER(5),
     prixPayer NUMBER(5),
     CONSTRAINT pk_ACommande PRIMARY KEY (idCommande, idNumProduit)
-    CONSTRAINT fk_Commande_Commande
+    CONSTRAINT fk_ACommande_Commande
 		FOREIGN KEY (idCommande) REFERENCES Commande(idCommande),
-	CONSTRAINT fk_ Commande_Produit
+	CONSTRAINT fk_ACommande_Produit
 		FOREIGN KEY (idNumProduit) REFERENCES Produit(idNumProduit)
 }
 
-CREATE TABLE ARegarder {
+CREATE TABLE ARegarde {
     idNumCli NUMBER(5),
     idNumProduit NUMBER(6),
     dateRegar DATE,
-    CONSTRAINT pk_ARegarder PRIMARY KEY (idNumCli, idNumProduit),
-    CONSTRAINT fk_Avis_Client 
+    CONSTRAINT pk_ARegarde PRIMARY KEY (idNumCli, idNumProduit),
+    CONSTRAINT fk_ARegarde_Client 
         FOREIGN KEY (idNumCli) REFERENCES Client(idNumCli),
-	CONSTRAINT fk_Comporte_Produit 
+	CONSTRAINT fk_ARegarde_Produit 
 		FOREIGN KEY (idNumProduit) REFERENCES Produit(idNumProduit)
 }
 
@@ -170,6 +170,6 @@ CREATE TABLE Avis {
     CONSTRAINT pk_Avis PRIMARY KEY (idNumCli, idNumProduit),
     CONSTRAINT fk_Avis_Client 
         FOREIGN KEY (idNumCli) REFERENCES Client(idNumCli),
-	CONSTRAINT fk_Comporte_Produit 
+	CONSTRAINT fk_Avis_Produit 
 		FOREIGN KEY (idNumProduit) REFERENCES Produit(idNumProduit)
 }
