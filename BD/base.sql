@@ -11,6 +11,7 @@ DROP TABLE MethodePaiement;
 DROP TABLE Categorie;
 DROP TABLE Employer;
 
+
 CREATE TABLE Employe {
     idNumEmployer NUMBER(5),
     nom VARCHAR(25),
@@ -30,22 +31,11 @@ CREATE TABLE Categorie {
     CONSTRAINT fk_Categorie_Categorie FOREIGN key (idCategoriePere) REFERENCES Categorie(idCategorie)
 }
 
-CREATE TABLE infoPaiement {
-    methodePaiement VARCHAR(15),
-    idcarte Number(6)
-    idOPtPaiement NUMBER(6),
-    CONSTRAINT pk_MethodePaiement PRIMARY KEY (methodePaiement,idcarte,idOPtPaiement)
-    CONSTRAINT fk_MethodePaiement_OptionPaiement FOREIGN KEY (idOPtPaiement) REFERENCES OptionPaiement(idOPtPaiement)
-    CONSTRAINT fk_MethodePaiement_Paypal FOREIGN KEY (idcarte) REFERENCES Paypal(idcarte)
-    CONSTRAINT fk_MethodePaiement_Carte_EU FOREIGN KEY (idcarte) REFERENCES Carte_EU(idcarte)
-    CONSTRAINT fk_MethodePaiement_Carte_AE FOREIGN KEY (idcarte) REFERENCES Carte_AE(idcarte)
-}
-
 CREATE TABLE MethodePaiement{
-    idOPtPaiement Number(6),
-    nomOptPayement VARCHAR(20),
-    CONSTRAINT pk_OptionPaiement PRIMARY KEY (idOPtPaiement)
-    CONSTRAINT ck_nomOptPaiement CHECK nomOptPayement IN {"Paypal,Carte_UE,Carte_AE"}
+    idMethodePaiement Number(6),
+    nomMethodePaiement VARCHAR(20),
+    CONSTRAINT pk_MethodePaiement PRIMARY KEY (MethodePaiement)
+    CONSTRAINT ck_MethodePaiement CHECK MethodePaiement IN {"Paypal,Carte_UE,Carte_AE"}
 }
 
 CREATE TABLE Paypal {
@@ -71,7 +61,6 @@ CREATE TABLE Carte_AE {
     CONSTRAINT pk_Carte_EU PRIMARY KEY (idcarte),
     CONSTRAINT ck_numCarte CHECK numCarte IN LIKE ("34%","37%") /*à vérifier c'est pas sur*/
 }
-
 
 CREATE TABLE Produit {
     idNumProduit NUMBER(6),
@@ -113,6 +102,18 @@ CREATE TABLE Client{
 }
 
 --INSERT INTO Client VALUES (seq_id_client.NEXTVAL,'Gabin','Jean','3 rue t''as de beaux yeux tu sais, 31700 Blagnac','gabin@free.fr','0512345678','N',1);
+
+CREATE TABLE infoPaiement {
+    idNumCli NUMBER(5),
+    idcarte Number(6),
+    idMethodePaiement NUMBER(6),
+    CONSTRAINT pk_infoPaiement PRIMARY KEY (idNumCli, idcarte,idMethodePaiement),
+    CONSTRAINT fk_infoPaiement_Client FOREIGN KEY (idNumCli) REFERENCES Client(idNumCli),
+    CONSTRAINT fk_infoPaiement_MethodePaiement FOREIGN KEY (idMethodePaiement) REFERENCES MethodePaiement(idMethodePaiement),
+    CONSTRAINT fk_infoPaiement_Paypal FOREIGN KEY (idcarte) REFERENCES Paypal(idcarte),
+    CONSTRAINT fk_infoPaiement_Carte_EU FOREIGN KEY (idcarte) REFERENCES Carte_EU(idcarte),
+    CONSTRAINT fk_infoPaiement_Carte_AE FOREIGN KEY (idcarte) REFERENCES Carte_AE(idcarte)
+}
 
 CREATE TABLE MethodeEnregistrer {
     idNumCli NUMBER(5),
