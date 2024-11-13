@@ -20,7 +20,7 @@ CREATE TABLE Employe {
     administrateur BOOLEAN,
     CONSTRAINT pk_Client PRIMARY KEY (idNumEmployer)
 }
-	
+
 CREATE TABLE Categorie {
     idCategorie NUMBER(3),
     nomTypeCategorie VARCHAR(30),
@@ -47,8 +47,9 @@ CREATE TABLE Produit {
 
 CREATE TABLE Image {
     idNumProduit NUMBER(6),
-    urlImage VARCHAR(50),
-    CONSTRAINT pk_Image PRIMARY KEY (idNumProduit, urlImage),
+    idImage NUMBER(6),
+    urlImage VARCHAR(100),
+    CONSTRAINT pk_Image PRIMARY KEY (idImage),
     CONSTRAINT fk_Image_Produit
 		FOREIGN KEY (idNumProduit) REFERENCES Produit(idNumProduit)
 }
@@ -116,6 +117,8 @@ CREATE TABLE ARegarder {
 CREATE TABLE Avis {
     idNumCli NUMBER(6),
     idNumProduit NUMBER(6),
+    tAvis VARCHAR(500),
+    urlImage VARCHAR(100),
     CONSTRAINT pk_Avis PRIMARY KEY (idNumCli, idNumProduit),
     CONSTRAINT fk_Avis_Client 
         FOREIGN KEY (idNumCli) REFERENCES Client(idNumCli),
