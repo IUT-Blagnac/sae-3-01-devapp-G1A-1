@@ -95,10 +95,12 @@ CREATE TABLE Client(
     idNumCli NUMBER(5),
     nom VARCHAR(25),
 	prenom VARCHAR(15),
-	adressePostale VARCHAR(50),
+    idAdresse NUMBER(6),
 	email VARCHAR(20),
 	telephone CHAR(10),
-    CONSTRAINT pk_Client PRIMARY KEY (idNumCli)
+    CONSTRAINT pk_Client PRIMARY KEY (idNumCli),
+    CONSTRAINT fk_Client_AdressePostale
+		FOREIGN KEY (idAdresse) REFERENCES AdressePostale(idAdresse)
 )
 
 --INSERT INTO Client VALUES (seq_id_client.NEXTVAL,'Gabin','Jean','3 rue t''as de beaux yeux tu sais, 31700 Blagnac','gabin@free.fr','0512345678','N',1);
@@ -118,6 +120,7 @@ CREATE TABLE infoPaiement (
 CREATE TABLE Commande (
     idCommande NUMBER(6),
     idNumCli NUMBER(5),
+    idAdresse NUMBER(6),
     idMethodePaiement NUMBER(6),
     dateCommande DATE,
     panierActuel BOOLEAN, -- Cette variable ne peut être vrai que pour une seule commande d'un client. Elle représente le panier actuel. 
@@ -128,6 +131,17 @@ CREATE TABLE Commande (
     CONSTRAINT fk_Commande_MethodePaiement
 		FOREIGN KEY (idMethodePaiement) REFERENCES MethodePaiement(idMethodePaiement)
 )   
+
+CREATE TABLE AdressePostale (
+    idAdresse NUMBER(6),
+    pays VARCHAR(30),
+    ville VARCHAR(30),
+    rue VARCHAR(30),
+    numero NUMBER(1000),
+    CONSTRAINT pk_AdressePostale PRIMARY KEY (idAdresse),
+    CONSTRAINT fk_Client_AdressePostale
+		FOREIGN KEY (idAdresse) REFERENCES AdressePostale(idAdresse)
+)
 
 CREATE TABLE ACommande (
     idCommande NUMBER(6),
