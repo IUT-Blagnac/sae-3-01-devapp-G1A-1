@@ -66,7 +66,6 @@ CREATE TABLE Comporte {
 
 CREATE TABLE Client{
     idNumCli NUMBER(5),
-    idCommande NUMBER(6),
     nom VARCHAR(25),
 	prenom VARCHAR(15),
 	adressePostale VARCHAR(50),
