@@ -36,6 +36,7 @@ CREATE TABLE MethodePayment {
     CONSTRAINT pk_MethodePayment PRIMARY KEY (idMethodePayment)
 }
 
+
 CREATE TABLE Produit {
     idNumProduit NUMBER(6),
     idTypeCategorie NUMBER(3),
