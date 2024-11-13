@@ -76,6 +76,16 @@ CREATE TABLE Client{
 
 --INSERT INTO Client VALUES (seq_id_client.NEXTVAL,'Gabin','Jean','3 rue t''as de beaux yeux tu sais, 31700 Blagnac','gabin@free.fr','0512345678','N',1);
 
+CREATE TABLE MethodeEnregistrer {
+    idNumCli NUMBER(5),
+    idMethodePayment NUMBER(6),
+    CONSTRAINT pk_MethodeEnregistrer PRIMARY KEY (idNumCli, idMethodePayment)
+    CONSTRAINT fk_MethodeEnregistrer_Client
+		FOREIGN KEY (idNumCli) REFERENCES Client(idNumCli),
+	CONSTRAINT fk_MethodeEnregistrer_MethodePayment
+		FOREIGN KEY (idMethodePayment) REFERENCES MethodePayment(idMethodePayment)
+}
+
 CREATE TABLE Commande {
     idCommande NUMBER(6),
     idNumCli NUMBER(5),
