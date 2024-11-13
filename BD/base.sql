@@ -12,7 +12,7 @@ DROP TABLE Categorie;
 DROP TABLE Employer;
 
 
-CREATE TABLE Employe {
+CREATE TABLE Employe (
     idNumEmployer NUMBER(5),
     nom VARCHAR(25),
 	prenom VARCHAR(15),
@@ -21,48 +21,48 @@ CREATE TABLE Employe {
 	telephone CHAR(10),
     administrateur BOOLEAN,
     CONSTRAINT pk_Client PRIMARY KEY (idNumEmployer)
-}
+)
 
-CREATE TABLE Categorie {
+CREATE TABLE Categorie (
     idCategorie NUMBER(3),
     nomTypeCategorie VARCHAR(30),
     idCategoriePere Number(3),
     CONSTRAINT pk_TypeCategorie PRIMARY KEY (idTypeCategorie),
     CONSTRAINT fk_Categorie_Categorie FOREIGN key (idCategoriePere) REFERENCES Categorie(idCategorie)
-}
+)
 
-CREATE TABLE MethodePaiement{
+CREATE TABLE MethodePaiement(
     idMethodePaiement Number(6),
     nomMethodePaiement VARCHAR(20),
     CONSTRAINT pk_MethodePaiement PRIMARY KEY (MethodePaiement)
-    CONSTRAINT ck_MethodePaiement CHECK MethodePaiement IN {"Paypal,Carte_UE,Carte_AE"}
-}
+    CONSTRAINT ck_MethodePaiement CHECK MethodePaiement IN ("Paypal,Visa,MasterCard,Carte_AE")
+)
 
-CREATE TABLE Paypal {
+CREATE TABLE Paypal (
     idcarte NUMBER(6),
     email VARCHAR(50),
     MDP VARCHAR(25),
     CONSTRAINT pk_Paypal PRIMARY KEY (idcarte)
-}
+)
 
-CREATE TABLE Carte_EU {
+CREATE TABLE Carte_EU (
     idcarte Number(6),
     numCarte Number(16),
     dateExp Number(4),
     nomProp Varchar(50),
     CONSTRAINT pk_Carte_EU PRIMARY KEY (idcarte)
-}
+)
 
-CREATE TABLE Carte_AE {
-    idcarte Number(6)
-    numCarte Number(15),
-    dateExp Number(4),
-    nomProp Varchar(50),
-    CONSTRAINT pk_Carte_EU PRIMARY KEY (idcarte),
-    CONSTRAINT ck_numCarte CHECK numCarte IN LIKE ("34%","37%") /*à vérifier c'est pas sur*/
-}
+CREATE TABLE Carte_AE (
+    idcarte NUMBER(6),
+    numCarte VARCHAR2(15),
+    dateExp NUMBER(4),
+    nomProp VARCHAR2(50),
+    CONSTRAINT pk_Carte_AE PRIMARY KEY (idcarte),
+    CONSTRAINT ck_numCarte CHECK numCarte IN LIKE ('34%', '37%')
+);
 
-CREATE TABLE Produit {
+CREATE TABLE Produit (
     idNumProduit NUMBER(6),
     idTypeCategorie NUMBER(3),
     nomProduit VARCHAR(50),
@@ -70,18 +70,18 @@ CREATE TABLE Produit {
     CONSTRAINT pk_Produit PRIMARY KEY (idNumProduit),
     CONSTRAINT fk_Produit_Categorie
 		FOREIGN KEY (idTypeCategorie) REFERENCES Categorie(idTypeCategorie)
-}
+)
 
-CREATE TABLE Image {
+CREATE TABLE Image (
     idNumProduit NUMBER(6),
     idImage NUMBER(6),
     urlImage VARCHAR(100),
     CONSTRAINT pk_Image PRIMARY KEY (idImage),
     CONSTRAINT fk_Image_Produit
 		FOREIGN KEY (idNumProduit) REFERENCES Produit(idNumProduit)
-}
+)
 
-CREATE TABLE Comporte {
+CREATE TABLE Comporte (
     idNumProduit1 NUMBER(6),
     idNumProduit2 NUMBER(6),
     CONSTRAINT pk_Comporte PRIMARY KEY (idNumProduit1, idNumProduit2)
@@ -89,9 +89,9 @@ CREATE TABLE Comporte {
 		FOREIGN KEY (idNumProduit1) REFERENCES Produit(idNumProduit),
 	CONSTRAINT fk_Comporte_Produit 
 		FOREIGN KEY (idNumProduit2) REFERENCES Produit(idNumProduit)
-}
+)
 
-CREATE TABLE Client{
+CREATE TABLE Client(
     idNumCli NUMBER(5),
     nom VARCHAR(25),
 	prenom VARCHAR(15),
@@ -99,11 +99,11 @@ CREATE TABLE Client{
 	email VARCHAR(20),
 	telephone CHAR(10),
     CONSTRAINT pk_Client PRIMARY KEY (idNumCli)
-}
+)
 
 --INSERT INTO Client VALUES (seq_id_client.NEXTVAL,'Gabin','Jean','3 rue t''as de beaux yeux tu sais, 31700 Blagnac','gabin@free.fr','0512345678','N',1);
 
-CREATE TABLE infoPaiement {
+CREATE TABLE infoPaiement (
     idNumCli NUMBER(5),
     idcarte Number(6),
     idMethodePaiement NUMBER(6),
@@ -113,9 +113,9 @@ CREATE TABLE infoPaiement {
     CONSTRAINT fk_infoPaiement_Paypal FOREIGN KEY (idcarte) REFERENCES Paypal(idcarte),
     CONSTRAINT fk_infoPaiement_Carte_EU FOREIGN KEY (idcarte) REFERENCES Carte_EU(idcarte),
     CONSTRAINT fk_infoPaiement_Carte_AE FOREIGN KEY (idcarte) REFERENCES Carte_AE(idcarte)
-}
+)
 
-CREATE TABLE MethodeEnregistrer {
+CREATE TABLE MethodeEnregistrer (
     idNumCli NUMBER(5),
     idMethodePaiement NUMBER(6),
     CONSTRAINT pk_MethodeEnregistrer PRIMARY KEY (idNumCli, idMethodePaiement)
@@ -123,9 +123,9 @@ CREATE TABLE MethodeEnregistrer {
 		FOREIGN KEY (idNumCli) REFERENCES Client(idNumCli),
 	CONSTRAINT fk_MethodeEnregistrer_MethodePaiement
 		FOREIGN KEY (idMethodePaiement) REFERENCES MethodePaiement(idMethodePaiement)
-}
+)
 
-CREATE TABLE Commande {
+CREATE TABLE Commande (
     idCommande NUMBER(6),
     idNumCli NUMBER(5),
     idMethodePaiement NUMBER(6),
@@ -137,9 +137,9 @@ CREATE TABLE Commande {
 		FOREIGN KEY (idNumCli) REFERENCES Client(idNumCli),
     CONSTRAINT fk_Commande_MethodePaiement
 		FOREIGN KEY (idMethodePaiement) REFERENCES MethodePaiement(idMethodePaiement)
-}   
+)   
 
-CREATE TABLE ACommande {
+CREATE TABLE ACommande (
     idCommande NUMBER(6),
     idNumProduit NUMBER(6),
     qte NUMBER(5),
@@ -149,9 +149,9 @@ CREATE TABLE ACommande {
 		FOREIGN KEY (idCommande) REFERENCES Commande(idCommande),
 	CONSTRAINT fk_ACommande_Produit
 		FOREIGN KEY (idNumProduit) REFERENCES Produit(idNumProduit)
-}
+)
 
-CREATE TABLE ARegarde {
+CREATE TABLE ARegarde (
     idNumCli NUMBER(5),
     idNumProduit NUMBER(6),
     dateRegar DATE,
@@ -160,9 +160,9 @@ CREATE TABLE ARegarde {
         FOREIGN KEY (idNumCli) REFERENCES Client(idNumCli),
 	CONSTRAINT fk_ARegarde_Produit 
 		FOREIGN KEY (idNumProduit) REFERENCES Produit(idNumProduit)
-}
+)
 
-CREATE TABLE Avis {
+CREATE TABLE Avis (
     idNumCli NUMBER(6),
     idNumProduit NUMBER(6),
     tAvis VARCHAR(500),
@@ -172,4 +172,4 @@ CREATE TABLE Avis {
         FOREIGN KEY (idNumCli) REFERENCES Client(idNumCli),
 	CONSTRAINT fk_Avis_Produit 
 		FOREIGN KEY (idNumProduit) REFERENCES Produit(idNumProduit)
-}
+)
