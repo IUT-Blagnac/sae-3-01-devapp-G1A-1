@@ -20,11 +20,13 @@ CREATE TABLE Employe {
     administrateur BOOLEAN,
     CONSTRAINT pk_Client PRIMARY KEY (idNumEmployer)
 }
-
+	
 CREATE TABLE Categorie {
     idCategorie NUMBER(3),
     nomTypeCategorie VARCHAR(30),
-    CONSTRAINT pk_TypeCategorie PRIMARY KEY (idTypeCategorie)
+    idCategoriePere Number(3),
+    CONSTRAINT pk_TypeCategorie PRIMARY KEY (idTypeCategorie),
+    CONSTRAINT fk_Categorie_Categorie FOREIGN key (idCategoriePere) REFERENCES Categorie(idCategorie)
 }
 
 CREATE TABLE MethodePayment {
