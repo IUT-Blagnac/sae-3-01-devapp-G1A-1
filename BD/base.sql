@@ -2,6 +2,7 @@ DROP TABLE Avis;
 DROP TABLE ARegarder;
 DROP TABLE ACommande;
 DROP TABLE Commande;
+DROP TABLE MethodeEnregistrer;
 DROP TABLE Client;
 DROP TABLE Comporte;
 DROP TABLE Image;
