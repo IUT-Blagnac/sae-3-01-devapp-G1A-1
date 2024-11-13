@@ -7,7 +7,7 @@ DROP TABLE Comporte;
 DROP TABLE Image;
 DROP TABLE Produit;
 DROP TABLE MethodePayment;
-DROP TABLE TypeProduit;
+DROP TABLE Categorie;
 DROP TABLE Employer;
 
 CREATE TABLE Employe {
@@ -21,10 +21,10 @@ CREATE TABLE Employe {
     CONSTRAINT pk_Client PRIMARY KEY (idNumEmployer)
 }
 
-CREATE TABLE TypeProduit {
-    idTypeProduit NUMBER(3),
-    nomTypeProduit VARCHAR(30),
-    CONSTRAINT pk_TypeProduit PRIMARY KEY (idTypeProduit)
+CREATE TABLE Categorie {
+    idCategorie NUMBER(3),
+    nomTypeCategorie VARCHAR(30),
+    CONSTRAINT pk_TypeCategorie PRIMARY KEY (idTypeCategorie)
 }
 
 CREATE TABLE MethodePayment {
@@ -35,12 +35,12 @@ CREATE TABLE MethodePayment {
 
 CREATE TABLE Produit {
     idNumProduit NUMBER(6),
-    idTypeProduit NUMBER(3),
+    idTypeCategorie NUMBER(3),
     nomProduit VARCHAR(50),
     prixActuel NUMBER(5),
     CONSTRAINT pk_Produit PRIMARY KEY (idNumProduit),
-    CONSTRAINT fk_ Produit_TypeProduit
-		FOREIGN KEY (idTypeProduit) REFERENCES TypeProduit(idTypeProduit)
+    CONSTRAINT fk_ Produit_Categorie
+		FOREIGN KEY (idTypeCategorie) REFERENCES Categorie(idTypeCategorie)
 }
 
 CREATE TABLE Image {
