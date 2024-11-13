@@ -30,10 +30,46 @@ CREATE TABLE Categorie {
     CONSTRAINT fk_Categorie_Categorie FOREIGN key (idCategoriePere) REFERENCES Categorie(idCategorie)
 }
 
-CREATE TABLE MethodePayment {
-    idMethodePayment NUMBER(6),
+CREATE TABLE infoPaiment {
     methodePayment VARCHAR(15),
-    CONSTRAINT pk_MethodePayment PRIMARY KEY (idMethodePayment)
+    idcarte Number(6)
+    idOPtPayment NUMBER(6),
+    CONSTRAINT pk_MethodePayment PRIMARY KEY (methodePayment,idcarte,idOPtPayment)
+    CONSTRAINT fk_MethodePayment_OptionPayment FOREIGN KEY (idOPtPayment) REFERENCES OptionPayment(idOPtPayment)
+    CONSTRAINT fk_MethodePayment_Paypal FOREIGN KEY (idcarte) REFERENCES Paypal(idcarte)
+    CONSTRAINT fk_MethodePayment_Carte_EU FOREIGN KEY (idcarte) REFERENCES Carte_EU(idcarte)
+    CONSTRAINT fk_MethodePayment_Carte_AE FOREIGN KEY (idcarte) REFERENCES Carte_AE(idcarte)
+}
+
+CREATE TABLE MethodePaiment{
+    idOPtPayment Number(6),
+    nomOptPayement VARCHAR(20),
+    CONSTRAINT pk_OptionPayment PRIMARY KEY (idOPtPayment)
+    CONSTRAINT ck_nomOptPayment CHECK nomOptPayement IN {"Paypal,Carte_UE,Carte_AE"}
+}
+
+CREATE TABLE Paypal {
+    idcarte NUMBER(6),
+    email VARCHAR(50),
+    MDP VARCHAR(25),
+    CONSTRAINT pk_Paypal PRIMARY KEY (idcarte)
+}
+
+CREATE TABLE Carte_EU {
+    idcarte Number(6),
+    numCarte Number(16),
+    dateExp Number(4),
+    nomProp Varchar(50),
+    CONSTRAINT pk_Carte_EU PRIMARY KEY (idcarte)
+}
+
+CREATE TABLE Carte_AE {
+    idcarte Number(6)
+    numCarte Number(15),
+    dateExp Number(4),
+    nomProp Varchar(50),
+    CONSTRAINT pk_Carte_EU PRIMARY KEY (idcarte),
+    CONSTRAINT ck_numCarte CHECK numCarte IN LIKE ("34%","37%") /*à vérifier c'est pas sur*/
 }
 
 
@@ -43,7 +79,7 @@ CREATE TABLE Produit {
     nomProduit VARCHAR(50),
     prixActuel NUMBER(5),
     CONSTRAINT pk_Produit PRIMARY KEY (idNumProduit),
-    CONSTRAINT fk_ Produit_Categorie
+    CONSTRAINT fk_Produit_Categorie
 		FOREIGN KEY (idTypeCategorie) REFERENCES Categorie(idTypeCategorie)
 }
 
