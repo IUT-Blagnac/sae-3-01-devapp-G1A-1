@@ -136,8 +136,8 @@ CREATE TABLE AdressePostale (
     idAdresse NUMBER(6),
     pays VARCHAR(30),
     ville VARCHAR(30),
-    rue VARCHAR(30),
-    numero NUMBER(1000),
+    Adr VARCHAR(50),
+    codePostal VARCHAR(10),
     CONSTRAINT pk_AdressePostale PRIMARY KEY (idAdresse),
     CONSTRAINT fk_Client_AdressePostale
 		FOREIGN KEY (idAdresse) REFERENCES AdressePostale(idAdresse)
