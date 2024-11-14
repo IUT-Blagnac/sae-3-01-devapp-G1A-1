@@ -129,6 +129,12 @@ ifndef::env-github[]
 ++++
 endif::[]
 
-== test
+== Télétravail Historique
 
-=== Releases
+=== Registre de télétravail
+- **jeudi 7 novembre**
+[ ] Hugo Thollon
+[ ] Pablo Marquet
+[ ] Kilian Demangel
+[ ] Romain Grasseau--Picoreau
+[ ] Titouan Gauze
