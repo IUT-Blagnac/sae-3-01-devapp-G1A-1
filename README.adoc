@@ -137,12 +137,12 @@ endif::[]
   * [x] Hugo Thollon
   * [x] Pablo Marquet
   * [x] Kilian Demangel
-  * [] Romain Grasseau--Picoreau
+  * [ ] Romain Grasseau--Picoreau
   * [x] Titouan Gauze
 
 - **jeudi 14 novembre**
-  * [] Hugo Thollon
-  * [] Pablo Marquet
-  * [] Kilian Demangel
-  * [] Romain Grasseau--Picoreau
-  * [] Titouan Gauze
+  * [ ] Hugo Thollon
+  * [ ] Pablo Marquet
+  * [ ] Kilian Demangel
+  * [ ] Romain Grasseau--Picoreau
+  * [ ] Titouan Gauze
