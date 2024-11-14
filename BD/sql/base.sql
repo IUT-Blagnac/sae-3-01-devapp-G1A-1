@@ -16,11 +16,13 @@ CREATE TABLE Employe (
     idNumEmployer NUMBER(5),
     nom VARCHAR(25),
 	prenom VARCHAR(15),
-	adressePostale VARCHAR(50),
+	idAdresse NUMBER(6),
 	email VARCHAR(20),
 	telephone CHAR(10),
     administrateur BOOLEAN,
-    CONSTRAINT pk_Client PRIMARY KEY (idNumEmployer)
+    CONSTRAINT pk_Client PRIMARY KEY (idNumEmployer),
+    CONSTRAINT fk_Employe_AdressePostale
+		FOREIGN KEY (idAdresse) REFERENCES AdressePostale(idAdresse)
 )
 
 CREATE TABLE Categorie (
@@ -73,12 +75,19 @@ CREATE TABLE Produit (
 )
 
 CREATE TABLE Image (
-    idNumProduit NUMBER(6),
     idImage NUMBER(6),
     urlImage VARCHAR(100),
-    CONSTRAINT pk_Image PRIMARY KEY (idImage),
-    CONSTRAINT fk_Image_Produit
-		FOREIGN KEY (idNumProduit) REFERENCES Produit(idNumProduit)
+    CONSTRAINT pk_Image PRIMARY KEY (idImage)
+)
+
+CREATE TABLE Contien (
+    idNumProduit NUMBER(6),
+    idImage NUMBER(6),
+    CONSTRAINT pk_Contien PRIMARY KEY (idNumProduit, idImage),
+    CONSTRAINT fk_Contien_Produit 
+        FOREIGN KEY (idNumProduit) REFERENCES Client(idNumProduit),
+	CONSTRAINT fk_Contien_Immage 
+		FOREIGN KEY (idImage) REFERENCES Immage(idImage)
 )
 
 CREATE TABLE Comporte (
@@ -106,7 +115,7 @@ CREATE TABLE Client(
 --INSERT INTO Client VALUES (seq_id_client.NEXTVAL,'Gabin','Jean','3 rue t''as de beaux yeux tu sais, 31700 Blagnac','gabin@free.fr','0512345678','N',1);
 
 CREATE TABLE infoPaiement (
-    idNumCli NUMBER(5),
+    idNumCli NUMBER(5),  
     idcarte Number(6),
     idMethodePaiement NUMBER(6),
     CONSTRAINT pk_infoPaiement PRIMARY KEY (idNumCli, idcarte,idMethodePaiement),
@@ -129,7 +138,9 @@ CREATE TABLE Commande (
     CONSTRAINT fk_Commande_Client
 		FOREIGN KEY (idNumCli) REFERENCES Client(idNumCli),
     CONSTRAINT fk_Commande_MethodePaiement
-		FOREIGN KEY (idMethodePaiement) REFERENCES MethodePaiement(idMethodePaiement)
+		FOREIGN KEY (idMethodePaiement) REFERENCES MethodePaiement(idMethodePaiement),
+    CONSTRAINT fk_Commande_AdressePostale
+		FOREIGN KEY (idAdresse) REFERENCES AdressePostale(idAdresse)
 )   
 
 CREATE TABLE AdressePostale (
@@ -146,7 +157,7 @@ CREATE TABLE ACommande (
     idNumProduit NUMBER(6),
     qte NUMBER(5),
     prixPayer NUMBER(5),
-    CONSTRAINT pk_ACommande PRIMARY KEY (idCommande, idNumProduit)
+    CONSTRAINT pk_ACommande PRIMARY KEY (idCommande, idNumProduit),
     CONSTRAINT fk_ACommande_Commande
 		FOREIGN KEY (idCommande) REFERENCES Commande(idCommande),
 	CONSTRAINT fk_ACommande_Produit
@@ -167,11 +178,13 @@ CREATE TABLE ARegarde (
 CREATE TABLE Avis (
     idNumCli NUMBER(6),
     idNumProduit NUMBER(6),
-    tAvis VARCHAR(500),
-    urlImage VARCHAR(100),
+    txtAvis VARCHAR(500),
+    idImage NUMBER(6),
     CONSTRAINT pk_Avis PRIMARY KEY (idNumCli, idNumProduit),
     CONSTRAINT fk_Avis_Client 
         FOREIGN KEY (idNumCli) REFERENCES Client(idNumCli),
 	CONSTRAINT fk_Avis_Produit 
-		FOREIGN KEY (idNumProduit) REFERENCES Produit(idNumProduit)
+		FOREIGN KEY (idNumProduit) REFERENCES Produit(idNumProduit),
+    CONSTRAINT fk_Avis_Immage 
+		FOREIGN KEY (idImage) REFERENCES Immage(idImage)
 )
