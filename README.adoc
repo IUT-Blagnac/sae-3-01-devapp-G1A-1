@@ -133,11 +133,11 @@ endif::[]
 
 === Registre de télétravail
 - **jeudi 7 novembre**
-* [ ] Hugo Thollon
-* [ ] Pablo Marquet
-* [ ] Kilian Demangel
+* [x] Hugo Thollon
+* [x] Pablo Marquet
+* [x] Kilian Demangel
 * [ ] Romain Grasseau--Picoreau
-* [ ] Titouan Gauze
+* [x] Titouan Gauze
 
 - **jeudi 14 novembre**
 * [ ] Hugo Thollon
