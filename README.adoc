@@ -142,7 +142,7 @@ endif::[]
 
 - **jeudi 14 novembre**
   * [ ] Hugo Thollon
-  * [ ] Pablo Marquet
-  * [ ] Kilian Demangel
+  * [x] Pablo Marquet
+  * [x] Kilian Demangel
   * [ ] Romain Grasseau--Picoreau
   * [ ] Titouan Gauze
