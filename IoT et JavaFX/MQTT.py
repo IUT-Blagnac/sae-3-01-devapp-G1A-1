@@ -1,107 +1,139 @@
 import paho.mqtt.client as mqtt
 import json
-import datetime
 import os
+from datetime import datetime
+import time
+import threading
 
-# Lire le fichier de configuration
-def read_config_file():
-    with open('config.json', 'r') as file:
-        config = json.load(file)
+# Lecture de la configuration depuis le fichier config.json avec os.open et os.read
+fd_config = os.open('config.json', os.O_RDONLY)
+contenu_config = os.read(fd_config, os.path.getsize('config.json')).decode('utf-8')
+os.close(fd_config)
+configuration = json.loads(contenu_config)
 
-    # Extraire les paramètres MQTT et les seuils d'alerte
-    param = config['MQTT']
-    nbValDansMoy = int(param['nombreValeursDansMoyenne'])
-    mqttServer = param['host']
-    mqttPort = param['port']
-    mqttKeepAlive = param['keepalive']
-    topics = param['topics']
-    seuils = config['seuils']
-    return nbValDansMoy, mqttServer, mqttPort, mqttKeepAlive, topics, seuils
+# Construction des topics MQTT
+num_salles = configuration['salle']['num_salle'].split(',')
+chemin_salle_mqtt = "AM107/by-room/+/data"
+chemin_solaire_mqtt = "solaredge/blagnac/overview"
 
+# Initialisation des listes et variables nécessaires
+donnees_salle = {}  # Pour les salles
+donnees_solaire = {"lastTimeData": []}  # Pour les panneaux solaires (liste des 10 dernières valeurs)
+consommation_max = configuration['max']['consommation_max']  # Nouvelle limite pour les panneaux solaires
 
-# Calculer la moyenne des valeurs pour une liste de dictionnaires
-def get_moyenne(liste):
-    moy = liste[0].copy()
-    for key in moy:
-        moy[key] = 0
-    for dico in liste:
-        for key in dico:
-            moy[key] += dico[key]
-    for key in moy:
-        moy[key] /= len(liste)
-    return moy
+valeurs_max = [
+    configuration['max']['temperature_max'],
+    configuration['max']['humidite_max'],
+    configuration['max']['taux_max']
+]
+choix_donnees = [
+    configuration['donnee']['temperature'],
+    configuration['donnee']['humidite'],
+    configuration['donnee']['taux']
+]
+frequence_lecture = configuration['lecture']['frequence']
 
-# Écrire les données dans un fichier de log
-def write_in_file(data,topic):
-    data['date'] = datetime.datetime.now().isoformat()
-    datas = json.dumps(data, indent=4)
-    os.makedirs("datas", exist_ok=True)
-    # creates "datas" folder if it doesn't already exist
-    with open("datas/"+topic+".jsonl", "a", encoding="utf-8") as outfile:
-        # I use a jsonl format to facilitate insertion of new datas as each line is a new set of datas
-        # 'a' open the file at the end for appening and creates it if it doesn't exist
-        json.dump(data,outfile)
-        outfile.write("\n")
+# Connexion au serveur MQTT
+client_mqtt = mqtt.Client()
+client_mqtt.connect("chirpstack.iut-blagnac.fr", 1883)
+client_mqtt.subscribe(chemin_salle_mqtt)
+client_mqtt.subscribe(chemin_solaire_mqtt)  # Souscription au topic des panneaux solaires
 
-# Détecter et enregistrer les alertes
-def check_alerts(data, topic, seuils):
-    alerts = {}
-    for key, value in data.items():
-        if key in seuils and value > seuils[key]:
-            alerts[key] = value
-    if alerts:
-        alerts['date'] = datetime.datetime.now().isoformat()
-        os.makedirs("alerts", exist_ok=True)
-        with open(f"alerts/{topic}_alerts.jsonl", "a", encoding="utf-8") as alert_file:
-            json.dump(alerts, alert_file)
-            alert_file.write("\n")
-        print(f"Alert triggered for {topic}: {alerts}")
+# Fonction pour mettre à jour les données de température, d'humidité et de taux de CO2
+def mise_a_jour_donnees(temp, hum, taux, salle):
+    global donnees_salle
+    # Mise à jour des données pour la salle courante
+    if str(salle) not in donnees_salle:
+        donnees_salle[str(salle)] = [[], [], [], 0, 0, 0]
+    for i in range(3):
+        donnees_salle[str(salle)][i].append(round([temp, hum, taux][i], 2))
+    # Suppression des anciennes valeurs si la liste atteint la taille maximale de 10
+    for i in range(3):
+        if len(donnees_salle[str(salle)][i]) > 10:
+            del donnees_salle[str(salle)][i][0]
+    # Calcul des nouvelles moyennes
+    for i in range(3, 6):
+        donnees_salle[str(salle)][i] = sum(donnees_salle[str(salle)][i - 3]) / len(donnees_salle[str(salle)][i - 3])
 
-# callback appele lors de la reception d'un message
-def get_data(mqttc, obj, msg):
-    print("______________")
-    topic = msg.topic.split("/")[2]
-    topic_structure = msg.topic.split("/")[0]
-        
-    # Traiter les données en fonction de la structure du topic
-    if topic_structure == "AM107":
-        data = json.loads(msg.payload)[0]  # Récupérer la case [0] dans le tableau
-        
-        print(f"Received data on topic {msg.topic}: {data}")
-        lastValues[topic] = lastValues.get(msg.topic, [])
-        lastValues[topic].append(data)
-                
-        if len(lastValues[topic]) > nbValDansMoy:
-            lastValues[topic].pop(0)
-            print("//////////\n"+str(get_moyenne(lastValues[topic])))
+# Fonction pour mettre à jour les alertes pour les salles
+def mise_a_jour_alertes(salle):
+    global donnees_salle
+    alerte_message = ""
+    for i in range(3):
+        if donnees_salle[str(salle)][i + 3] > valeurs_max[i] and choix_donnees[i] == 'True':
+            alerte_message += f"{salle}|{['TEMPERATURE', 'HUMIDITE', 'CO2'][i]}|{datetime.now()}\n"
+    if alerte_message:
+        # Ouverture et écriture de l'alerte dans LOG_ALERTE.txt avec os.open et os.write
+        fd_alerte = os.open('LOG_ALERTE.txt', os.O_WRONLY | os.O_APPEND | os.O_CREAT, 0o644)
+        os.write(fd_alerte, alerte_message.encode('utf-8'))
+        os.close(fd_alerte)
 
-        write_in_file(data,topic)
-        check_alerts(data, topic, seuils)
-            
-    elif topic_structure == "solaredge":
-        data = json.loads(msg.payload)  # Liste directe
-        
-        print(f"Received data on topic {msg.topic}: {data}")
-        write_in_file(data,topic_structure)
-        check_alerts(data, topic_structure, seuils)
-    else:
-        print(f"Structure inconnue pour le topic {msg.topic}")
-        return
-    
-# Initialisation
-lastValues = {}
-nbValDansMoy, mqttServer, mqttPort, mqttKeepAlive, topics, seuils = read_config_file()
+# Fonction pour gérer les données des panneaux solaires
+def mise_a_jour_donnees_solaires(last_time_data):
+    global donnees_solaire
+    # Ajouter la nouvelle valeur
+    donnees_solaire["lastTimeData"].append(last_time_data)
+    # Limiter à 10 valeurs maximum
+    if len(donnees_solaire["lastTimeData"]) > 10:
+        donnees_solaire["lastTimeData"].pop(0)
 
-mqttc = mqtt.Client()
-mqttc.connect(mqttServer, port=mqttPort, keepalive=mqttKeepAlive)
+# Fonction pour gérer les alertes des panneaux solaires
+def mise_a_jour_alertes_solaires():
+    moyenne = sum(donnees_solaire["lastTimeData"]) / len(donnees_solaire["lastTimeData"])
+    if moyenne > consommation_max:
+        alerte_message = f"SOLAIRE|CONSO_MAX|{datetime.now()}|{moyenne}\n"
+        # Sauvegarder dans le fichier d'alertes
+        fd_alerte = os.open('LOG_ALERTE.txt', os.O_WRONLY | os.O_APPEND | os.O_CREAT, 0o644)
+        os.write(fd_alerte, alerte_message.encode('utf-8'))
+        os.close(fd_alerte)
+        print("ALERTE SOLAIRE : CONSOMMATION TROP ÉLEVÉE")
 
-# S'abonner dynamiquement aux topics définis dans la configuration
-for topic in topics:
-    mqttc.subscribe(topic)
-    
-# mqttc.subscribe("AM107/by-deviceName/"+adrBroker+"/data", 0)
+# Fonction appelée lorsqu'un message est reçu
+def reception_message(mqttc, obj, msg):
+    global donnees_solaire
+    msg_json = json.loads(msg.payload)
+    try:
+        # Gestion des messages pour les salles
+        if msg.topic.startswith("AM107/by-room"):
+            salle = msg_json[1]["room"]
+            if salle in num_salles:
+                temp, hum, taux = [round(msg_json[0][key], 2) for key in ["temperature", "humidity", "co2"]]
+                mise_a_jour_donnees(temp, hum, taux, salle)
+                mise_a_jour_alertes(salle)
+                print("SALLE PRISE EN CHARGE")
+                # Sauvegarde des données dans le fichier
+                data_message = f"{salle}|{temp}|{hum}|{taux}\n"
+                fd_donnees = os.open('DONNEES_CAPTEUR.txt', os.O_WRONLY | os.O_APPEND | os.O_CREAT, 0o644)
+                os.write(fd_donnees, data_message.encode('utf-8'))
+                os.close(fd_donnees)
+            else:
+                print("SALLE NON PRISE EN CHARGE")
+        # Gestion des messages pour les panneaux solaires
+        elif msg.topic == "solaredge/blagnac/overview":
+            last_time_data = msg_json.get("lifeTimeData", {}).get("energy", None)
+            if last_time_data is not None:
+                mise_a_jour_donnees_solaires(last_time_data)
+                mise_a_jour_alertes_solaires()
+                print(f"DONNEES SOLAIRES RECUES : {last_time_data}")
+                # Sauvegarde des données solaires dans un fichier
+                solaire_message = f"{last_time_data}|{datetime.now()}\n"
+                fd_solaire = os.open('DONNEES_SOLAIRES.txt', os.O_WRONLY | os.O_APPEND | os.O_CREAT, 0o644)
+                os.write(fd_solaire, solaire_message.encode('utf-8'))
+                os.close(fd_solaire)
+    except KeyError as e:
+        print("MESSAGE INVALIDE")
 
-mqttc.on_message = get_data
+# Fonction appelée périodiquement pour gérer les messages MQTT
+def handler():
+    print("Alarme déclenchée!")
+    client_mqtt.on_message = reception_message
+    print('LECTURE EN COURS, AFFICHAGE DES ALERTES')
+    client_mqtt.loop_start()
+    time.sleep(2)
+    client_mqtt.loop_stop()
 
-print("Starting MQTT data handler...")
-mqttc.loop_forever()
+while True:
+    # Exécutez la fonction handler dans un thread toutes les frequence_lecture secondes
+    timer_thread = threading.Timer(frequence_lecture, handler)
+    timer_thread.start()
+    timer_thread.join()  # Attendre la fin du thread avant de passer à la prochaine itération
