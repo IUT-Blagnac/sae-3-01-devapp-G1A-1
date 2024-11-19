@@ -124,7 +124,7 @@ header {
 }
 
 .logo {
-  margin-right: 3%; 
+  margin-right: 2%;
   margin-left: 2%;
   cursor: pointer;
 }
@@ -309,7 +309,7 @@ header {
   }
 
   #menuTitle {
-    font-size: 2.5rem;
+    font-size: 2.3rem;
     font-weight: bold;
     color: #FFF;
     margin-top: 1rem;
@@ -347,19 +347,22 @@ header {
   .hidden {
     display: none;
   }
-  
+
   #backBtn {
     position: absolute;
-    top: 110px; /* Ajustez pour un alignement parfait */
-    left: 20px; /* Ajustez pour un alignement parfait */
+    top: 110px;
+    /* Ajustez pour un alignement parfait */
+    left: 20px;
+    /* Ajustez pour un alignement parfait */
     font-size: 30px;
     cursor: pointer;
     color: #FFF;
     background: none;
     border: none;
-    z-index: 1000; /* Assurez-vous qu'il reste au-dessus des menus */
+    z-index: 1000;
+    /* Assurez-vous qu'il reste au-dessus des menus */
   }
-  
+
 
 }
 
