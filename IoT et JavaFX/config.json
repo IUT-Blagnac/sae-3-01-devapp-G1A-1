@@ -1,21 +1,19 @@
 {
-  "MQTT": {
-      "host": "mqtt.iut-blagnac.fr",
-
-      "port": 1883,
-      "keepalive": 60,
-      "broker": "all",
-      "nombreValeursDansMoyenne": 10,
-      "topics": {
-        "AM107/by-deviceName/+/data": "AM107",
-        "solaredge/blagnac/overview": "solaredge"
-      }
+  "max": {
+    "temperature_max": 21,
+    "humidite_max": 46,
+    "taux_max": 850,
+    "consommation_max": 100000
   },
-
-  "seuils": {
-      "temperature": 25,
-      "co2": 1000,
-      "humidity": 45    
+  "donnee": {
+    "temperature": true,
+    "humidite": true,
+    "taux": false
+  },
+  "salle": {
+    "num_salle": "B006,B106,B103,B101,E105,Serveurs,E003,B234"
+  },
+  "lecture": {
+    "frequence": 60
   }
-  
 }
