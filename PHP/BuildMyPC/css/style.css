@@ -429,6 +429,61 @@ header {
   display: block;
 }
 
+.button-panier {
+  position: absolute;
+  padding: 0.5rem 1rem;
+  font-weight: bold;
+  background: var(--color-brand);
+  border-radius: var(--rad) var(--rad) var(--rad) var(--rad);
+  display: inline-block;
+}
+
+.text-panier {
+  font-weight: bold;
+  color: #000000;
+  font-size: 0.8vw;
+  text-align: center;
+}
+
+@media (max-width: 900px) {
+  .text-panier {
+    font-size: 0.6rem; 
+  }
+}
+
+
+/* Style du conteneur principal */
+.marquee {
+  overflow: hidden;
+  white-space: nowrap;
+  width: 100%;
+  border: 1px solid #ddd;
+}
+
+/* Style pour le contenu défilant */
+.marquee-content {
+  display: inline-flex;
+  animation: scroll-left 20s linear infinite;
+}
+
+/* Animation pour défiler vers la gauche */
+@keyframes scroll-left {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+/* Style des images */
+.marquee-content img {
+  width: 150px; /* Taille de l'image, ajustable */
+  margin-right: 10px; /* Espacement entre les images */
+  height: auto;
+}
+
+
 .search-bar:not(:placeholder-shown) {
   border-radius: var(--rad) 0 0 var(--rad);
   width: calc(100% - var(--btn-width));
