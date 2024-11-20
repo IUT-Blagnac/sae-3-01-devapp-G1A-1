@@ -41,17 +41,13 @@ toc::[]
 
 Projet est réalisé par::
 
-- https://github.com/HugoTHOLLON[Hugo Thollon] : scrum master
-- https://github.com/KilianDemangel[Kilian Demangel] : développer
-- https://github.com/RomainGrassaudPicoreau[Romain Grassaud--Picoreau] : product owner
-- https://github.com/ElPoraz[Pablo Marquet] : développer
-- https://github.com/titouangauze[Titouan Gauze] : développer
+- https://github.com/HugoTHOLLON[Hugo Thollon] : Scrum master et développeur
+- https://github.com/KilianDemangel[Kilian Demangel] : Développeur
+- https://github.com/RomainGrassaudPicoreau[Romain Grassaud--Picoreau] : Product Owner et développeur
+- https://github.com/ElPoraz[Pablo Marquet] : Développeur
+- https://github.com/titouangauze[Titouan Gauze] : Développeur
 
-Tuteur/tutrice enseignant(e) de l'équipe:: mailto:jean-michel.bruel@univ-tlse2.fr[JMB] +
-                                           mailto:andre.peninou@univ-tlse2.fr[AP] +
-                                           mailto:esther.pandaries@univ-tlse2.fr[EP] +
-                                           mailto:laurent.nonne@univ-tlse2.fr[LN] +
-                                           mailto:patricia.stolf@univ-tlse2.fr[PS]
+Tuteur/tutrice enseignant(e) de l'équipe:: mailto:jean-michel.bruel@univ-tlse2.fr[JMB]
 
 == Contexte général
 
@@ -106,7 +102,7 @@ Documentation détaillant les fonctionnalités disponibles pour les utilisateurs
 === Suivi des User Stories
 
 Les User Stories sont disponibles et suivies dans le Project Board GitHub :
-https://github.com/IUT-Blagnac/sae3-01-template/projects/1[Project Board]
+https://github.com/IUT-Blagnac/sae-3-01-devapp-G1A-1/projects?query=is%3Aopen[Project Board]
 
 === Tests et Qualité
 
