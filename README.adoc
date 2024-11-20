@@ -37,15 +37,15 @@ image:https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg[License: MP
 
 toc::[]
 
-== Equipe
+== Equipe et rôle
 
 Projet est réalisé par::
 
-- https://github.com/HugoTHOLLON[Hugo Thollon]
-- https://github.com/KilianDemangel[Kilian Demangel]
-- https://github.com/RomainGrassaudPicoreau[Romain Grassaud--Picoreau]
-- https://github.com/ElPoraz[Pablo Marquet]
-- https://github.com/titouangauze[Titouan Gauze]
+- https://github.com/HugoTHOLLON[Hugo Thollon] : scrum master
+- https://github.com/KilianDemangel[Kilian Demangel] : développer
+- https://github.com/RomainGrassaudPicoreau[Romain Grassaud--Picoreau] : product owner
+- https://github.com/ElPoraz[Pablo Marquet] : développer
+- https://github.com/titouangauze[Titouan Gauze] : développer
 
 Tuteur/tutrice enseignant(e) de l'équipe:: mailto:jean-michel.bruel@univ-tlse2.fr[JMB] +
                                            mailto:andre.peninou@univ-tlse2.fr[AP] +
