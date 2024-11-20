@@ -81,8 +81,20 @@
 
 
       <!-- Icônes utilisateur et panier -->
-      <img src="image/profil_blanc.png" alt="User Profile" class="icon-profil" width="50" height="50" loading="auto">
-      <img src="image/panier_blanc.png" alt="Shopping Cart" class="icon-panier" width="40" height="35" loading="auto">
+      <div class="double-icon">
+        <div>
+          <img src="image/profil_blanc.png" alt="User Profile" class="icon-profil" width="50" height="50"
+            loading="auto">
+          <label class="text-icon-profil">Compte</label>
+        </div>
+        <div>
+          <img src="image/panier_blanc.png" alt="Shopping Cart" class="icon-panier" width="40" height="35"
+            loading="auto" style="margin-top: 8px;">
+          <label class="text-icon-panier">
+            <div style="padding-top: 7px;">Panier</div>
+          </label>
+        </div>
+      </div>
     </div>
 
     <!-- Barre de navigation -->
@@ -133,19 +145,19 @@
         <div class="mySlides fade">
           <div class="numbertext">1 / 3</div>
           <img src="image/672c90abe063ba07604f81b9.webp" style="width:100%">
-          <div class="text">Caption Text</div>
+          <div class="text">.</div>
         </div>
 
         <div class="mySlides fade">
           <div class="numbertext">2 / 3</div>
           <img src="image/672c85704dfa52635d1e3011.webp" style="width:100%">
-          <div class="text">Caption Two</div>
+          <div class="text">.</div>
         </div>
 
         <div class="mySlides fade">
           <div class="numbertext">3 / 3</div>
           <img src="image/672b835953e1b844326b499f.webp" style="width:100%">
-          <div class="text">Caption Three</div>
+          <div class="text">.</div>
         </div>
 
         <!-- Next and previous buttons -->
@@ -161,7 +173,12 @@
         <span class="dot" onclick="currentSlide(3)"></span>
       </div>
     </section>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, expedita voluptatibus esse mollitia rem aperiam aliquam iure eaque quam neque aspernatur. Tenetur dolor ex magni quia reprehenderit, harum nihil quisquam.</p>
+
+    <button class="button-panier" type="submit">
+      <div class="text-panier">Ajouter au panier</div>
+    </button>
+
+
     <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
   </main>
 
@@ -266,6 +283,10 @@
             alt="youtube" width="159" height="30" loading="lazy" class="footer-main__social-icon">
         </a>
       </div>
+
+      <br><br><br><br>
+
+
       <div class="footer-main__separator"></div>
       <!---->
       <div class="footer-main__text">
