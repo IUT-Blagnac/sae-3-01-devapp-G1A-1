@@ -26,7 +26,9 @@ public class PythonExecuter {
      * Creates a thread and execute the python code of the filePath.
      * If a python code was already running in the process it will be destroyed.
      * 
-     * TODO finish the method by adding the thread
+     * @throws Exception error messages of all previous caught errors in the code.
+     * 
+     *                   TODO finish the method by adding the thread
      */
     public void startPython() throws Exception {
         synchronized (this.process) {
