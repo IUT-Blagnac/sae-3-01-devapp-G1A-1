@@ -146,3 +146,10 @@ endif::[]
   * [x] Kilian Demangel
   * [ ] Romain Grasseau--Picoreau
   * [ ] Titouan Gauze
+
+- **jeudi 20 novembre**
+  * [x] Hugo Thollon
+  * [x] Pablo Marquet
+  * [x] Kilian Demangel
+  * [x] Romain Grasseau--Picoreau
+  * [x] Titouan Gauze
