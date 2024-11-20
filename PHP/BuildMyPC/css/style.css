@@ -451,39 +451,6 @@ header {
   }
 }
 
-
-/* Style du conteneur principal */
-.marquee {
-  overflow: hidden;
-  white-space: nowrap;
-  width: 100%;
-  border: 1px solid #ddd;
-}
-
-/* Style pour le contenu défilant */
-.marquee-content {
-  display: inline-flex;
-  animation: scroll-left 20s linear infinite;
-}
-
-/* Animation pour défiler vers la gauche */
-@keyframes scroll-left {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-100%);
-  }
-}
-
-/* Style des images */
-.marquee-content img {
-  width: 150px; /* Taille de l'image, ajustable */
-  margin-right: 10px; /* Espacement entre les images */
-  height: auto;
-}
-
-
 .search-bar:not(:placeholder-shown) {
   border-radius: var(--rad) 0 0 var(--rad);
   width: calc(100% - var(--btn-width));
