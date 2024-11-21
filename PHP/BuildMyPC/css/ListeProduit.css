@@ -9,7 +9,7 @@ main {
 /* Selection part */
 
 div.selection {
-  font-size: 1.2rem;
+  font-size: 1rem;
   width: 25%;
   float: left;
   background-color: black;
@@ -26,6 +26,8 @@ li.selection {
   width: 100%;
   padding-top: 7px;
   padding-bottom: 7px;
+  color: white;
+  list-style: none;
 }
 
 label.selection {
@@ -34,13 +36,28 @@ label.selection {
   align-items: center;
   width: 100%;
   color: white;
-  /* background-color: red; */
+  cursor: pointer;
 }
 
 input[type="checkbox"].selection {
   width: 1.5em;
   height: 1.5em;
   accent-color: #62ffca;
+}
+
+li.selection.title {
+  font-weight: bold;
+  font-size: larger;
+  border-bottom: 2px solid white;
+}
+
+li.selection.content {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+ul.selection ul.parent {
+  padding: 0px;
 }
 
 /* Product part */
@@ -61,7 +78,7 @@ input[type="checkbox"].selection {
   text-align: center;
   align-items: center;
   padding: 20px;
-  font-size: 30px;
+  font-size: 1.5rem;
 }
 
 .item1 {
@@ -76,8 +93,28 @@ input[type="checkbox"].selection {
   grid-column: 3;
 }
 
-@media screen and (max-width: 1180px) {
+@media screen and (max-width: 1200px) {
+  /* A 1200px, n'affiche plus que 2 produits par ligne */
   .item3 {
-    grid-column: 2;
+    grid-column: 1;
+  }
+}
+
+@media screen and (max-width: 950px) {
+  /* A 950px, la selection disparait */
+  .selection {
+    display: none;
+  }
+
+  .grid-container {
+    width: 100%;
+    margin-left: 0;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  /* A 650px, n'affiche plus que 1 produit par ligne */
+  .item2 {
+    grid-column: 1;
   }
 }
