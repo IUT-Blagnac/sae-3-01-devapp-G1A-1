@@ -2,11 +2,14 @@
   box-sizing: border-box;
 }
 
-/* main {
-  padding: 5%;
-} */
+main {
+  padding: 5vw;
+}
+
+/* Selection part */
 
 div.selection {
+  font-size: 1.2rem;
   width: 25%;
   float: left;
   background-color: black;
@@ -15,8 +18,14 @@ div.selection {
 form.selection {
 }
 
+ul.selection {
+  padding: 15px;
+}
+
 li.selection {
   width: 100%;
+  padding-top: 7px;
+  padding-bottom: 7px;
 }
 
 label.selection {
@@ -28,12 +37,18 @@ label.selection {
   /* background-color: red; */
 }
 
-input.selection {
+input[type="checkbox"].selection {
+  width: 1.5em;
+  height: 1.5em;
+  accent-color: #62ffca;
 }
 
+/* Product part */
+
 .grid-container {
-  width: 75%;
+  width: 70%;
   float: left;
+  margin-left: 5%;
   display: grid;
   gap: 10px;
   background-color: #2196f3;
@@ -44,6 +59,7 @@ input.selection {
 .grid-item {
   background-color: rgba(255, 255, 255, 0.8);
   text-align: center;
+  align-items: center;
   padding: 20px;
   font-size: 30px;
 }
@@ -58,4 +74,10 @@ input.selection {
 
 .item3 {
   grid-column: 3;
+}
+
+@media screen and (max-width: 1180px) {
+  .item3 {
+    grid-column: 2;
+  }
 }
