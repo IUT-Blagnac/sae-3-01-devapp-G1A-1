@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page de création de compte</title>
+    <link href="css/formulaire.css" rel="stylesheet">
+</head>
+<body>
+
+    <div class="form-container-2">
+        <h1>Page de création de compte</h1>
+
+        <form method="post" id="creaCompte" action="nondefini.html">
+            <label for="nom">Nom* :</label>
+            <input type="nom" id="nom" name="nom" placeholder="Nom" required>
+            <label for="prenom">Prenom* :</label>
+            <input type="prenom" id="prenom" name="prenom" placeholder="Prenom" required>
+
+            <label for="genre">Genre* :</label>
+                <input type="radio" id="homme" name="genre" value="homme">
+                <label for="homme">Homme</label>
+                <input type="radio" id="femme" name="genre" value="femme">
+                <label for="femme">Femme</label>
+                <input type="radio" id="autre" name="genre" value="autre">
+                <label for="autre">Autre</label>
+            <label for="pays">Pays* :</label>
+            <input type="pays" id="pays" name="pays" placeholder="Pays" required>
+            <label for="cdpostal">Code postal* :</label>
+            <input type="cdpostal" id="cdpostal" name="cdpostal" placeholder="Code postal" required>
+            <label for="ville">Ville* :</label>
+            <input type="ville" id="ville" name="ville" placeholder="Ville" required>
+            <label for="adr">Adresse* :</label>
+            <input type="adr" id="adr" name="adr" placeholder="Rue et n° de rue" required>
+            <label for="numtel">Numéro de téléphone* :</label>
+            <input type="tel" id="numtel" name="numtel" placeholder="+00 0 00 00 00 00" required>
+            <label for="mail">Adresse mail* :</label>
+            <input type="email" id="mail" name="mail" placeholder="Exemple@typemail.com" required>
+            <label for="mdp">Mot de passe* :</label>
+            <input type="password" id="mdp" name="mdp" placeholder="Minimum 8 caractères, 1 majuscule et 1 chiffre" required>
+
+            <div class="remember-container">
+                <input type="checkbox" id="remember" name="remember">
+                <span class="checkbox-container"></span>
+                <label for="remember">Se souvenir de moi</label>
+            </div>
+
+            <button type="submit" id="submitButton">Soumettre</button>
+
+        </form>
+        <div class="redirection">
+            <p> Vous avez déjà un compte ? Cliquez  <a href="formConnexion.html">ici pour vous connecter.</a> </p>
+        </div>
+    </div>
+
+</body>
+</html>

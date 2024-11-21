@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page de Connexion</title>
+    <link href="css/formulaire.css" rel="stylesheet">
+</head>
+<body>
+
+    <div class="form-container">
+        <h1>Page de création de compte</h1>
+
+        <form method="post" id="ConecCompte" action="nondefini.html">
+            <label for="login">Entrez vos identifiants de connexion :</label>
+            <input type="login" id="login" name="login" placeholder="Adresse mail" required>
+            <input type="password" id="mdp" name="mdp" placeholder="Mot de passe" required>
+
+            <div class="remember-container">
+                <input type="checkbox" id="remember" name="remember">
+                <label for="remember">Se souvenir de moi</label>
+            </div>
+
+            <button type="submit" id="submitButton">Soumettre</button>
+
+        </form>
+        <div class="redirection">
+            <p> Pour créer un compte, cliquez  <a href="formCreation.html">ici</a> </p>
+        </div>
+    </div>
+
+</body>
+</html>
