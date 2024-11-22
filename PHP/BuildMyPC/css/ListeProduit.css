@@ -32,6 +32,7 @@ div.selection {
   width: 25%;
   float: left;
   background-color: #212121;
+  border-radius: 10px;
   font: "Roboto", "Lato", sans-serif;
 }
 
