@@ -130,6 +130,16 @@
   color: #74FFA9;
 }
 
+/* Petites animations */
+
+.column-right:hover {
+  box-shadow: 0px 0px 15px rgba(4, 4, 4, 0.3);
+}
+
+.column-left:hover {
+  box-shadow: 0px 0px 15px #74ffa948;
+}
+
 /* /////////////////////////////////////////////////////// */
 /* Partie produit */
 /* /////////////////////////////////////////////////////// */
@@ -223,6 +233,8 @@
     font-size: 0.8rem;
   }
 }
+
+
 
 /* /////////////////////////////////////////////////////// */
 /* Fin des styles */
