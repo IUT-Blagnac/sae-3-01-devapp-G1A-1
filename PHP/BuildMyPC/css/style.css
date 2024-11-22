@@ -110,7 +110,7 @@ html {
 }
 
 body {
-  background: #4b4b4b;
+  background: #363636;
 }
 
 header {
@@ -127,8 +127,8 @@ header {
 }
 
 .logo {
-  margin-right: 2%;
-  margin-left: 2%;
+  margin-right: 2.5rem;
+  margin-left: 2rem;
   cursor: pointer;
 }
 
@@ -434,7 +434,7 @@ header {
   font-family: var(--font-fam);
   border: 0;
   color: var(--color-dark);
-  font-size: 1.8rem;
+  font-size: 1.7rem;
 }
 
 .search-bar {
@@ -459,6 +459,12 @@ header {
   background: var(--color-brand);
   border-radius: 0 var(--rad) var(--rad) 0;
   display: block;
+  cursor: pointer;
+}
+
+.search-button img {
+  margin: 0.37rem;
+  margin-right: 0.5rem;
 }
 
 .button-panier {
@@ -538,7 +544,7 @@ header {
 
 main {
   overflow: auto;
-  margin-top: 200px;
+  margin-top: 150px;
   /* Correspond à la hauteur du header */
   margin-bottom: 100px;
   /* Correspond à la hauteur du footer */
