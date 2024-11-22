@@ -96,29 +96,14 @@
 /* Fin des styles */
 /* /////////////////////////////////////////////////////// */
 
-/* /////////////////////////////////////////////////////// */
-/* Notification */
-/* /////////////////////////////////////////////////////// */
-
-span.badge {
-  position: absolute;
-  top: 18px; 
-  right: -40px; 
-  transform: translate(-50%, -50%);
-  border-radius: 50%;
-  background: #26FEFE; 
-  color: black; 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 1.6rem;
-  padding-left: 7px; 
-  padding-right: 13px;
-  padding-top: 20px;
-  padding-bottom: 20px;
+.grid-container {
+  width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;
+  display: grid;
+  gap: 100px;
+  padding: 10px;
+  column-count: 3;
+  grid-auto-columns: 1fr;
+  justify-content: space-between;
 }
-
-
-/* /////////////////////////////////////////////////////// */
-/* Fin notification */
-/* /////////////////////////////////////////////////////// */
