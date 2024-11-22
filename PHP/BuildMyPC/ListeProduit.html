@@ -213,26 +213,60 @@
       <div class="selection">
         <form action="#" class="selection">
           <ul class="selection parent">
-            <li class="selection title">Hum oui oui fromage</li>
+            <!-- Première catégorie de tri -->
+            <li class="selection title">
+              <label class="selection title" for="toggle-list1"
+                >Catégorie</label
+              >
+              <input
+                class="selection title"
+                type="checkbox"
+                name="toggle-list1"
+                id="toggle-list1"
+                checked
+              />
+            </li>
             <li class="selection content">
               <ul class="selection">
                 <li class="selection">
-                  <label class="selection" for="something">
-                    This something
+                  <label class="selection" for="categ1">
+                    PC Gaming
                     <input
-                      name="something"
-                      id="something"
+                      name="categ1"
+                      id="categ1"
                       class="selection"
                       type="checkbox"
                     />
                   </label>
                 </li>
                 <li class="selection">
-                  <label class="selection" for="else">
-                    Maybe you need else
+                  <label class="selection" for="categ2">
+                    PC Bureautique
                     <input
-                      name="else"
-                      id="else"
+                      name="categ2"
+                      id="categ2"
+                      class="selection"
+                      type="checkbox"
+                    />
+                  </label>
+                </li>
+                <li class="selection">
+                  <label class="selection" for="categ3">
+                    Carte Graphique
+                    <input
+                      name="categ3"
+                      id="categ3"
+                      class="selection"
+                      type="checkbox"
+                    />
+                  </label>
+                </li>
+                <li class="selection">
+                  <label class="selection" for="categ4">
+                    Processeur
+                    <input
+                      name="categ4"
+                      id="categ4"
                       class="selection"
                       type="checkbox"
                     />
@@ -241,32 +275,131 @@
               </ul>
             </li>
             <!-- Seconde catégorie de tri -->
-            <li class="selection title">Hummmm monkey</li>
+            <li class="selection title">
+              <label class="selection title" for="toggle-list2">Marque</label>
+              <input
+                class="selection title"
+                type="checkbox"
+                name="toggle-list2"
+                id="toggle-list2"
+                checked
+              />
+            </li>
             <li class="selection content">
               <ul class="selection">
                 <li class="selection">
-                  <label class="selection" for="ouga">
-                    Ouga
+                  <label class="selection" for="marque1">
+                    Asus
                     <input
-                      name="ouga"
-                      id="ouga"
+                      name="marque1"
+                      id="marque1"
                       class="selection"
                       type="checkbox"
                     />
                   </label>
                 </li>
                 <li class="selection">
-                  <label class="selection" for="booga">
-                    Booga
+                  <label class="selection" for="marque2">
+                    MSI
                     <input
-                      name="booga"
-                      id="booga"
+                      name="marque2"
+                      id="marque2"
+                      class="selection"
+                      type="checkbox"
+                    />
+                  </label>
+                </li>
+                <li class="selection">
+                  <label class="selection" for="marque3">
+                    Lenovo
+                    <input
+                      name="marque3"
+                      id="marque3"
+                      class="selection"
+                      type="checkbox"
+                    />
+                  </label>
+                </li>
+                <li class="selection">
+                  <label class="selection" for="marque4">
+                    HP
+                    <input
+                      name="marque4"
+                      id="marque4"
+                      class="selection"
+                      type="checkbox"
+                    />
+                  </label>
+                </li>
+                <li class="selection">
+                  <label class="selection" for="marque5">
+                    AMD
+                    <input
+                      name="marque5"
+                      id="marque5"
+                      class="selection"
+                      type="checkbox"
+                    />
+                  </label>
+                </li>
+                <li class="selection">
+                  <label class="selection" for="marque6">
+                    NVIDIA
+                    <input
+                      name="marque6"
+                      id="marque6"
                       class="selection"
                       type="checkbox"
                     />
                   </label>
                 </li>
               </ul>
+            </li>
+            <!-- Troisième catégorie de tri -->
+            <li class="selection title">
+              <label class="selection title" for="toggle-list3">Prix</label>
+              <input
+                class="selection title"
+                type="checkbox"
+                name="toggle-list3"
+                id="toggle-list3"
+                checked
+              />
+            </li>
+            <li class="selection content">
+              <ul class="selection">
+                <li class="selection">
+                  <label class="selection" for="minimum">Minimum :</label>
+                  <input
+                    name="minimum"
+                    id="minimum"
+                    class="selection"
+                    type="number"
+                    min="0"
+                    placeholder="0"
+                  />
+                  <span class="selection price">€</span>
+                </li>
+                <li class="selection">
+                  <label class="selection" for="maximum">Maximum :</label>
+                  <input
+                    name="maximum"
+                    id="maximum"
+                    class="selection"
+                    type="number"
+                    min="0"
+                    placeholder="10000"
+                  />
+                  <span class="selection price">€</span>
+                </li>
+              </ul>
+            </li>
+            <!-- Quatrième catégorie de tri -->
+            <!-- Boutton submit -->
+            <li class="selection">
+              <button type="submit" id="submitButton" class="selection affiner">
+                Affiner la recherche
+              </button>
             </li>
           </ul>
         </form>
@@ -668,6 +801,40 @@
         mainMenu.classList.remove("hidden"); // Affiche le menu principal
         backBtn.classList.add("hidden"); // Masque le bouton retour
         menuTitle.textContent = "Catégories"; // Réinitialise le titre
+      });
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        // On récupère toutes les checkbox de titre
+        const checkboxes = document.querySelectorAll(
+          'input[type="checkbox"].selection.title'
+        );
+        // On récupere tous les éléments 'contenu'
+        const contentItems = document.querySelectorAll("li.selection.content");
+        // On itère à travers les checkbox pour placer des listener
+        checkboxes.forEach((checkbox) => {
+          const contentItem =
+            checkbox.closest("li.selection.title").nextElementSibling;
+
+          // On vérifie qu'on a bien les bonnes balises avec les bonnes classes
+          if (
+            contentItem &&
+            contentItem.classList.contains("selection") &&
+            contentItem.classList.contains("content")
+          ) {
+            // Au départ on affiche le contenu
+            const contentUl = contentItem.querySelector("ul.selection");
+            if (contentUl) contentUl.style.display = "block";
+            // On ajoute le listener qui va changer la visibilité
+            checkbox.addEventListener("change", () => {
+              if (checkbox.checked) {
+                contentUl.style.display = "block";
+              } else {
+                contentUl.style.display = "none";
+              }
+            });
+          }
+        });
       });
     </script>
   </body>

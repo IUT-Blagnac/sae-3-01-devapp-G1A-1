@@ -7,6 +7,7 @@ main {
   margin-top: 150px;
   margin-bottom: 100px;
   padding: 5vw;
+  font-family: var(--font-fam);
 }
 
 @media (max-width: 1220px) {
@@ -26,10 +27,12 @@ main {
 /* Selection part */
 
 div.selection {
+  position: relative;
   font-size: 1rem;
   width: 25%;
   float: left;
   background-color: #212121;
+  font: "Roboto", "Lato", sans-serif;
 }
 
 ul.selection {
@@ -42,6 +45,7 @@ li.selection {
   padding-bottom: 7px;
   color: white;
   list-style: none;
+  display: inline-flex;
 }
 
 label.selection {
@@ -59,9 +63,19 @@ input[type="checkbox"].selection {
   accent-color: #62ffca;
 }
 
+input[type="number"].selection {
+  width: 80%;
+  font-size: 1rem;
+}
+
+span.selection.price {
+  font-size: 1.2rem;
+  padding-left: 5px;
+}
+
 li.selection.title {
   font-weight: bold;
-  font-size: larger;
+  font-size: 115%;
   border-bottom: 2px solid white;
 }
 
@@ -73,6 +87,38 @@ li.selection.content {
 ul.selection ul.parent {
   padding: 0px;
 }
+
+button.selection.affiner {
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 0.4rem;
+  background: var(--color-brand);
+  border-radius: 45px;
+  cursor: pointer;
+  border: none;
+  width: 90%;
+  text-align: center;
+  margin: auto;
+  margin-top: 30px;
+  margin-bottom: 3%;
+}
+
+/* Reducing animation */
+
+/* li.selection.content ul.selection {
+
+  max-height: 0px;
+  overflow: hidden;
+  padding: 0px;
+}*/
+
+input[type="checkbox"].selection.title {
+  display: none;
+}
+/*
+input[type="checkbox"].selection.title:checked:has(+ li.selection.content) {
+  max-height: fit-content;
+} */
 
 /* Product part */
 /* Grid */
@@ -95,7 +141,7 @@ ul.selection ul.parent {
   text-align: center;
   align-items: center;
   padding: 20px;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   /* margin: auto; */
   display: flex;
   flex-direction: column;
@@ -146,21 +192,21 @@ span.product.badge {
   color: black;
   background-color: #26fefe;
   border-radius: 50%;
-  font-size: 1.6rem;
-  padding-left: 7px;
-  padding-right: 13px;
+  font-size: 1.4rem;
+  padding-left: 9px;
+  padding-right: 11px;
   padding-top: 20px;
   padding-bottom: 20px;
 }
 
 div.product.name {
-  font-size: 1.6rem;
+  font-size: 1.3rem;
   margin-top: 2%;
   margin-bottom: 5%;
 }
 
 div.product.components {
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: normal;
   color: #aaa;
   width: 100%;
@@ -168,14 +214,14 @@ div.product.components {
 }
 
 div.product.category {
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   font-weight: normal;
-  margin-bottom: 4%;
+  margin-bottom: 6%;
   margin-top: auto;
 }
 
 div.product.price {
-  font-size: 1.7rem;
+  font-size: 1.6rem;
   /* font-weight: bold; */
   margin-bottom: 5%;
 }
@@ -188,7 +234,7 @@ div.product.normal-price {
 }
 
 div.product.promotion {
-  font-size: 1.7rem;
+  font-size: 1.6rem;
   font-weight: bold;
   margin-bottom: 5%;
   background: var(--color-brand);
@@ -197,9 +243,9 @@ div.product.promotion {
 }
 
 button.product.btnPanier {
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   font-weight: bold;
-  padding: 0.8rem 0;
+  padding: 0.6rem 0;
   background: var(--color-brand);
   border-radius: 45px;
   cursor: pointer;
@@ -216,81 +262,9 @@ button.product.btnPanier {
   box-shadow: 0px 0px 15px rgba(4, 4, 4, 0.3);
 }
 
-button.product.btnPanier:hover {
+button.product.btnPanier:hover,
+button.selection.affiner:hover {
   box-shadow: 0px 0px 5px #62ffca;
-}
-
-/* Titouan */
-
-.product-card {
-  background-color: #282828;
-  color: #fff;
-  width: 20vw;
-  border-radius: 2vw;
-  overflow: hidden;
-  margin: auto;
-  text-align: center;
-  padding: 2vw;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.discount-badge {
-  background-color: #00d084;
-  color: #000;
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  padding: 5px 10px;
-  font-weight: bold;
-  border-radius: 50%;
-}
-
-.product-image {
-  width: 90%;
-  border-radius: 1vw;
-  margin-bottom: 1vw;
-  background: #00d084;
-}
-
-.product-title {
-  font-size: 1.2vw;
-  margin: 1vw 0;
-  width: 100%;
-}
-
-.product-description {
-  font-size: 1vw;
-  color: #aaa;
-  margin-bottom: 1vw;
-  width: 100%;
-}
-
-.original-price {
-  text-decoration: line-through;
-  color: #ff4d4f;
-  font-size: 1vw;
-  margin-bottom: 0.5vw;
-}
-
-.discounted-price {
-  font-size: 1.2vw;
-  font-weight: bold;
-  color: #00d084;
-  margin-bottom: 1vw;
-}
-
-.button-panier {
-  padding: 0.8rem 0;
-  font-weight: bold;
-  background: var(--color-brand);
-  border-radius: 2vw 2vw 2vw 2vw;
-  cursor: pointer;
-  border: none;
-  width: 15%;
-  text-align: center;
 }
 
 /* Responsive */
@@ -299,6 +273,11 @@ button.product.btnPanier:hover {
   /* A 1200px, n'affiche plus que 2 produits par ligne */
   .item3 {
     grid-column: 1;
+  }
+
+  button.selection.affiner {
+    font-size: 1rem;
+    width: 100%;
   }
 }
 
