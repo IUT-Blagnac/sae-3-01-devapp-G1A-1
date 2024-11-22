@@ -1,11 +1,143 @@
 /* /////////////////////////////////////////////////////// */
+/* Partie Catégories populaires */
+/* /////////////////////////////////////////////////////// */
+
+.popular-categ {
+  color: #FFF;
+  margin-left: 10%;
+  margin-bottom: 20px;
+  font-size: 2em;
+}
+
+.row {
+  display: flex;
+  gap: 20px;
+  /* Espacement entre colonnes */
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.column {
+  padding: 10px;
+  border-radius: 15px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  /* Par défaut en colonne */
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+  /* Garde tout contenu dans les limites */
+}
+
+/* Colonne de gauche */
+.column-left {
+  display: flex;
+  flex-direction: row;
+  flex: 2;
+  /* La colonne gauche occupe 50% */
+  gap: 20px;
+  /* Espacement entre image et texte */
+  background-color: #74FFA9;
+  align-items: center;
+  /* Aligne l'image en haut */
+  height: 300px;
+  /* Hauteur uniforme */
+  overflow: hidden;
+  padding: 10px;
+}
+
+.column-left img {
+  flex-shrink: 0;
+  /* Empêche l'image de se redimensionner automatiquement */
+  width: 40%;
+  /* L'image occupe 40% de la largeur */
+  height: auto;
+  /* L'image conserve son ratio */
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  /* Maintient le ratio sans déborder */
+  align-self: center;
+  /* Garde l'image alignée au début du conteneur */
+}
+
+.column-left .text-container {
+  flex-grow: 1;
+  /* Texte prend tout l'espace restant */
+  display: flex;
+  flex-direction: column;
+  /* Aligne titre et texte verticalement */
+  justify-content: center;
+  /* Centre verticalement */
+  gap: 10px;
+  overflow: hidden;
+  /* Empêche débordements */
+}
+
+.column-left h2 {
+  margin: 0;
+  font-size: 1.8em;
+  color: #000;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.column-left p {
+  margin: 0;
+  color: #333;
+  font-size: 1em;
+  line-height: 1.5;
+  overflow: hidden;
+  /* Évite que le texte déborde */
+  text-overflow: ellipsis;
+  /* Ajoute "..." si le texte dépasse */
+}
+
+/* Masquer le paragraphe sur petits écrans */
+@media (max-width: 768px) {
+  .column-left p {
+    display: none;
+  }
+}
+
+/* Colonnes de droite */
+.column-right {
+  flex: 1;
+  /* Chaque colonne droite occupe 25% */
+  background-color: #212121;
+  text-align: center;
+  padding: 10px;
+  height: 300px;
+  /* Hauteur uniforme */
+}
+
+.column-right img {
+  width: 100%;
+  /* L'image occupe toute la largeur */
+  max-height: 200px;
+  /* Limite la hauteur */
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  margin-bottom: 10px;
+  /* Espacement avec le titre */
+}
+
+.column-right h2 {
+  margin: 0;
+  margin-top: auto;
+  /* Place le titre en bas de la colonne */
+  font-size: 1.5em;
+  color: #74FFA9;
+}
+
+/* /////////////////////////////////////////////////////// */
 /* Partie produit */
 /* /////////////////////////////////////////////////////// */
 
 .product-card {
   background-color: #282828;
   color: #fff;
-  width: 20vw; 
+  width: 20vw;
   border-radius: 2vw;
   overflow: hidden;
   margin: auto;
@@ -15,7 +147,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  
+
 }
 
 .discount-badge {
@@ -30,23 +162,23 @@
 }
 
 .product-image {
-  width: 90%; 
+  width: 90%;
   border-radius: 1vw;
   margin-bottom: 1vw;
-  background : #00d084;
+  background: #00d084;
 }
 
 .product-title {
   font-size: 1.2vw;
   margin: 1vw 0;
-  width: 100%; 
+  width: 100%;
 }
 
 .product-description {
   font-size: 1vw;
   color: #aaa;
   margin-bottom: 1vw;
-  width: 100%; 
+  width: 100%;
 }
 
 .original-price {
@@ -72,11 +204,11 @@
 .button-panier {
   padding: 0.8rem 0;
   font-weight: bold;
-  background: var(--color-brand); 
-  border-radius: 2vw 2vw 2vw 2vw; 
+  background: var(--color-brand);
+  border-radius: 2vw 2vw 2vw 2vw;
   cursor: pointer;
   border: none;
-  width:15%; 
+  width: 15%;
   text-align: center;
 }
 
@@ -88,7 +220,7 @@
 
 @media (max-width: 900px) {
   .text-panier {
-    font-size: 0.8rem; 
+    font-size: 0.8rem;
   }
 }
 
@@ -96,20 +228,14 @@
 /* Fin des styles */
 /* /////////////////////////////////////////////////////// */
 
-/* /////////////////////////////////////////////////////// */
-/* Notification */
-/* /////////////////////////////////////////////////////// */
-
-.notification .badge {
-  position: absolute;
-  top: -10px;
-  right: -10px;
-  padding: 5px 10px;
-  border-radius: 50%;
-  background: red;
-  color: white;
+.grid-container {
+  width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;
+  display: grid;
+  gap: 100px;
+  padding: 10px;
+  column-count: 3;
+  grid-auto-columns: 1fr;
+  justify-content: space-between;
 }
-
-/* /////////////////////////////////////////////////////// */
-/* Fin notification */
-/* /////////////////////////////////////////////////////// */

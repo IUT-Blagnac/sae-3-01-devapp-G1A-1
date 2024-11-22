@@ -1,0 +1,168 @@
+/* /////////////////////////////////////////////////////// */
+/* Partie Footer */
+/* /////////////////////////////////////////////////////// */
+
+.footer-main {
+    background: #1a1c20;
+    color: #fff;
+    font-size: 12px;
+    padding-bottom: 50px;
+  }
+  
+  .footer-main__wrapper {
+    margin: 0 auto;
+    max-width: 1740px;
+    padding: 15px 15px 90px;
+  }
+  
+  .footer-main__links {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  
+  .footer-main__link {
+    color: var(--white_color);
+    line-height: 30px;
+    -webkit-text-decoration: none;
+    text-decoration: none;
+  }
+  
+  .footer-main__link:hover {
+    background: var(--color-brand);
+    background-clip: text;
+    color: transparent;
+    -webkit-text-decoration: none;
+    text-decoration: none;
+  }
+  
+  .footer-main__separator {
+    border-bottom: var(--separator);
+    margin: 20px 0;
+  }
+  
+  .footer-main__payements {
+    max-width: 400px;
+    width: 100%;
+  }
+  
+  .footer-main__socials {
+    align-items: center;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+  }
+  
+  .footer-main__social-icon {
+    width: 40px;
+  }
+  
+  .footer-main__social-icon--portrait {
+    height: 40px;
+    width: auto;
+  }
+  
+  .footer-main__text {
+    font-size: 13px;
+    text-align: center;
+  }
+  
+  .footer-main__text a {
+    background: var(--color-brand);
+    background-clip: text;
+    color: transparent;
+  }
+  
+  .footer-main__text a:hover {
+    background: var(--color-brand);
+    background-clip: text;
+    color: transparent;
+    -webkit-text-decoration: underline;
+    text-decoration: underline;
+  }
+  
+  .footer-main__last-products {
+    grid-column-gap: 15px;
+    -moz-column-gap: 15px;
+    column-gap: 15px;
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  
+  .footer-main__last-products-link {
+    color: var(--white_color);
+    display: inline;
+    line-height: 1.2rem;
+    width: fit-content;
+  }
+  
+  .footer-main__last-products-link:hover {
+    background: var(--color-brand);
+    background-clip: text;
+    color: transparent;
+    -webkit-text-decoration: none;
+    text-decoration: none;
+  }
+  
+  @media screen and (min-width: 768px) {
+    .footer-main__last-products {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  
+  @media screen and (min-width: 1024px) {
+    .footer-main__links {
+      grid-template-columns: 1fr 1fr;
+    }
+  
+    .footer-main__last-products {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+  }
+  
+  @media screen and (min-width: 1366px) {
+    .footer-main__wrapper {
+      padding: 20px;
+    }
+  
+    .footer-main__links {
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+  
+    .footer-main__payements {
+      width: 300px;
+    }
+  
+    .footer-main__last-products {
+      -moz-column-gap: 20px;
+      column-gap: 20px;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+  }
+  
+  .footer-cms-part {
+    text-align: center;
+  }
+  
+  .footer-cms-part a {
+    color: #fff;
+    -webkit-text-decoration: none;
+    text-decoration: none;
+  }
+  
+  .footer-cms-part a:hover {
+    background: var(--color-brand);
+    background-clip: text;
+    color: transparent;
+    -webkit-text-decoration: none;
+    text-decoration: none;
+  }
+  
+  footer {
+    bottom: 0;
+    z-index: 100;
+    width: 100%;
+  }
+  
+  /* /////////////////////////////////////////////////////// */
+  /* Fin  Footer */
+  /* /////////////////////////////////////////////////////// */

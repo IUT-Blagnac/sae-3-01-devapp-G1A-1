@@ -4,7 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>BuildMyPC</title>
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/header.css" />
+    <link rel="stylesheet" href="css/search-bar.css" />
+    <link rel="stylesheet" href="css/footer.css" />
     <link rel="stylesheet" href="css/ListeProduit.css" />
   </head>
 
@@ -24,25 +26,34 @@
             <!-- Menu principal -->
             <ul class="navbar-side" id="mainMenu">
               <li class="nav-item">
-                <a href="#" class="nav-link">Nouveautés</a>
+                <a href="ListeProduit.html" class="nav-link">Nouveautés</a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link" data-target="pc-gaming"
+                <a
+                  href="ListeProduit.html"
+                  class="nav-link"
+                  data-target="pc-gaming"
                   >PC Gaming</a
                 >
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link" data-target="pc-bureautique"
+                <a
+                  href="ListeProduit.html"
+                  class="nav-link"
+                  data-target="pc-bureautique"
                   >PC Bureautique</a
                 >
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link" data-target="composants"
+                <a
+                  href="ListeProduit.html"
+                  class="nav-link"
+                  data-target="composants"
                   >Composants</a
                 >
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="ListeProduit.html" class="nav-link">
                   <div class="colored">Promotions</div>
                 </a>
               </li>
@@ -52,17 +63,35 @@
             <div id="backBtn" class="hidden">&larr;</div>
             <!-- Sous-menus -->
             <ul class="navbar-side hidden" id="pc-gaming">
-              <li><a href="#" class="dropdown-item">Gaming Laptop</a></li>
-              <li><a href="#" class="dropdown-item">Gaming Desktop</a></li>
+              <li>
+                <a href="ListeProduit.html" class="dropdown-item"
+                  >Gaming Laptop</a
+                >
+              </li>
+              <li>
+                <a href="ListeProduit.html" class="dropdown-item"
+                  >Gaming Desktop</a
+                >
+              </li>
             </ul>
             <ul class="navbar-side hidden" id="pc-bureautique">
               <li>
-                <a href="#" class="dropdown-item">Ordinateurs Professionnels</a>
+                <a href="ListeProduit.html" class="dropdown-item"
+                  >Ordinateurs Professionnels</a
+                >
               </li>
             </ul>
             <ul class="navbar-side hidden" id="composants">
-              <li><a href="#" class="dropdown-item">Processeurs</a></li>
-              <li><a href="#" class="dropdown-item">Cartes Graphiques</a></li>
+              <li>
+                <a href="ListeProduit.html" class="dropdown-item"
+                  >Processeurs</a
+                >
+              </li>
+              <li>
+                <a href="ListeProduit.html" class="dropdown-item"
+                  >Cartes Graphiques</a
+                >
+              </li>
             </ul>
           </nav>
         </div>
@@ -79,15 +108,15 @@
             loading="auto"
           />
         </button>
-
-        <img
-          src="image/BuildMyPc.png"
-          alt="Logo BuildMyPC"
-          class="logo"
-          width="200"
-          height="52"
-          loading="auto"
-        />
+        <a href="index.html"
+          ><img
+            src="image/BuildMyPC.png"
+            alt="Logo BuildMyPC"
+            class="logo"
+            width="200"
+            height="52"
+            loading="auto"
+        /></a>
 
         <!-- Formulaire de recherche -->
         <form action="#" class="search-form" role="search" style="flex-grow: 1">
@@ -107,22 +136,34 @@
         </form>
 
         <!-- Icônes utilisateur et panier -->
-        <img
-          src="image/profil_blanc.png"
-          alt="User Profile"
-          class="icon-profil"
-          width="50"
-          height="50"
-          loading="auto"
-        />
-        <img
-          src="image/panier_blanc.png"
-          alt="Shopping Cart"
-          class="icon-panier"
-          width="40"
-          height="35"
-          loading="auto"
-        />
+        <div class="double-icon">
+          <div>
+            <a href="formConnexion.html"
+              ><img
+                src="image/profil_blanc.png"
+                alt="User Profile"
+                class="icon-profil"
+                width="50"
+                height="50"
+                loading="auto"
+            /></a>
+            <label class="text-icon-profil">Compte</label>
+          </div>
+          <div>
+            <img
+              src="image/panier_blanc.png"
+              alt="Shopping Cart"
+              class="icon-panier"
+              width="40"
+              height="35"
+              loading="auto"
+              style="margin-top: 8px"
+            />
+            <label class="text-icon-panier">
+              <div style="padding-top: 7px">Panier</div>
+            </label>
+          </div>
+        </div>
       </div>
 
       <!-- Barre de navigation -->
@@ -130,29 +171,35 @@
         <ul class="navbar">
           <!-- Menu principal avec dropdown -->
           <li class="nav-item">
-            <a href="#" class="nav-link">Nouveautés</a>
+            <a href="ListeProduit.html" class="nav-link">Nouveautés</a>
             <ul class="dropdown-menu"></ul>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">PC Gaming</a>
+            <a href="ListeProduit.html" class="nav-link">PC Gaming</a>
             <ul class="dropdown-menu">
-              <li><a href="#" class="dropdown-item">Test1</a></li>
+              <li>
+                <a href="ListeProduit.html" class="dropdown-item">Test1</a>
+              </li>
             </ul>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">PC Bureautique</a>
+            <a href="ListeProduit.html" class="nav-link">PC Bureautique</a>
             <ul class="dropdown-menu">
-              <li><a href="#" class="dropdown-item">Test2</a></li>
+              <li>
+                <a href="ListeProduit.html" class="dropdown-item">Test2</a>
+              </li>
             </ul>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">Composants</a>
+            <a href="ListeProduit.html" class="nav-link">Composants</a>
             <ul class="dropdown-menu">
-              <li><a href="#" class="dropdown-item">Test3</a></li>
+              <li>
+                <a href="ListeProduit.html" class="dropdown-item">Test3</a>
+              </li>
             </ul>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="ListeProduit.html" class="nav-link">
               <div class="colored">Promotions</div>
             </a>
             <ul class="dropdown-menu"></ul>
