@@ -3,7 +3,24 @@
 }
 
 main {
+  overflow: auto;
+  margin-top: 150px;
+  margin-bottom: 100px;
   padding: 5vw;
+}
+
+@media (max-width: 1220px) {
+  main {
+    margin-top: 120px;
+    margin-bottom: 100px;
+  }
+}
+
+@media (max-width: 900px) {
+  main {
+    margin-top: 180px;
+    margin-bottom: 100px;
+  }
 }
 
 /* Selection part */
