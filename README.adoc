@@ -47,11 +47,7 @@ Projet est réalisé par::
 - https://github.com/ElPoraz[Pablo Marquet] : développer
 - https://github.com/titouangauze[Titouan Gauze] : développer
 
-Tuteur/tutrice enseignant(e) de l'équipe:: mailto:jean-michel.bruel@univ-tlse2.fr[JMB] +
-                                           mailto:andre.peninou@univ-tlse2.fr[AP] +
-                                           mailto:esther.pandaries@univ-tlse2.fr[EP] +
-                                           mailto:laurent.nonne@univ-tlse2.fr[LN] +
-                                           mailto:patricia.stolf@univ-tlse2.fr[PS]
+Tuteur/tutrice enseignant(e) de l'équipe:: mailto:jean-michel.bruel@univ-tlse2.fr[JMB]
 
 == Contexte général
 
