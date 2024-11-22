@@ -15,6 +15,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  
 }
 
 .discount-badge {
@@ -58,7 +59,9 @@
 .discounted-price {
   font-size: 1.2vw;
   font-weight: bold;
-  color: #00d084;
+  background: var(--color-brand);
+  background-clip: text;
+  color: transparent;
   margin-bottom: 1vw;
 }
 
