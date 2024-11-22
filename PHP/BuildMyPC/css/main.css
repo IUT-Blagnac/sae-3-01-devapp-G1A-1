@@ -29,10 +29,10 @@
 }
 
 .product-image {
-  width: 80%; 
+  width: 90%; 
   border-radius: 1vw;
   margin-bottom: 1vw;
-  background-image : #00d084;
+  background : #00d084;
 }
 
 .product-title {
