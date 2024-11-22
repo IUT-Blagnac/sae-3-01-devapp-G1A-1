@@ -12,7 +12,7 @@ div.selection {
   font-size: 1rem;
   width: 25%;
   float: left;
-  background-color: black;
+  background-color: #212121;
 }
 
 form.selection {
@@ -61,20 +61,21 @@ ul.selection ul.parent {
 }
 
 /* Product part */
-
+/* Grid */
 .grid-container {
   width: 70%;
   float: left;
   margin-left: 5%;
   display: grid;
   gap: 10px;
-  background-color: #2196f3;
   padding: 10px;
   column-count: 3;
 }
 
 .grid-item {
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: #212121;
+  color: white;
+  border-radius: 45px;
   text-align: center;
   align-items: center;
   padding: 20px;
@@ -91,6 +92,27 @@ ul.selection ul.parent {
 
 .item3 {
   grid-column: 3;
+}
+
+/* Product */
+img.product {
+  margin: 3%;
+  border-radius: 20px;
+  padding: 15px;
+  width: 94%;
+  aspect-ratio: 1/1;
+  object-fit: contain;
+  background-color: #59ec91;
+}
+
+div.product.name {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+div.product.components {
+  font-size: 1rem;
+  font-weight: normal;
 }
 
 @media screen and (max-width: 1200px) {
