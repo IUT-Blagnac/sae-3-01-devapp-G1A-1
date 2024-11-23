@@ -73,6 +73,10 @@ Cette section regroupe tous les documents liés à la conception, au développem
                                                                http://192.168.224.139/~SOON/index.php[SOON - Lien vers le site web interne à l'IUT]
 |===
 
+==== Backlog Produit
+
+Voici le lien vers le https://docs.google.com/document/d/1-Zlu1r8tdu_4MKUdvEXSIp5SxSWzvL6TWAJxxputSHw/edit?usp=sharing[Backlog Produit Site Web]
+
 ==== Documentation de Conception
 
 Ces documents détaillent les aspects architecturaux et fonctionnels du projet.
