@@ -53,14 +53,6 @@ Tuteur/tutrice enseignant(e) de l'équipe:: mailto:jean-michel.bruel@univ-tlse2.
 
 Le projet a pour objectif de développer une solution e-commerce pour l’entreprise BuildMyPC, spécialisée dans la vente de composants informatiques et d’ordinateurs montés. L’entreprise souhaite élargir son marché en passant d’un modèle B2B à une offre B2C, ciblant les particuliers pour augmenter sa visibilité et sa part de marché en Europe.
 
-[[liensUtiles]]
-=== Liens utiles
-
-- Cours Moodle : https://webetud.iut-blagnac.fr/course/view.php?id=841[SAE 3.01]
-- Dépôt template : https://github.com/IUT-Blagnac/sae3-01-template
-- GitHub Classroom : https://classroom.github.com/a/fePVlfpN
-- Discord pour les questions techniques et la collaboration en équipe.
-
 == Réalisations 
 
 Cette section regroupe tous les documents liés à la conception, au développement et à l’utilisation de l'application, organisés par catégories principales.
@@ -72,7 +64,7 @@ Ces documents détaillent les aspects architecturaux et fonctionnels du projet.
 - **Document de Conception** : Lien vers le document de conception avec les diagrammes de use case, classe métier, et classe de conception.
   - Lien : link:Documentation/document_conception.adoc[Document de Conception]
 - **Diagrammes UML** : Ensemble des diagrammes pour la modélisation de l’application.
-  - link:Documentation/TODO.adoc[SOON - Diagrammes UML]
+  - Lien : link:Documentation/TODO.adoc[SOON - Diagrammes UML]
 
 === Documentation Technique
 
@@ -112,8 +104,22 @@ Les tests unitaires et les indicateurs de qualité (dette technique) sont access
 
 - Indicateurs de qualité : SOON - résultat des tests et couverture de code via GitHub Actions.
 
+=== Registre de télétravail
 
-Voici un exemple d'évaluation :
+- **jeudi 7 novembre**
+  * [x] Hugo Thollon, Pablo Marquet, Kilian Demangel, Titouan Gauze
+  * [ ] Romain Grasseau--Picoreau
+
+- **jeudi 14 novembre**
+  * [x] Pablo Marquet, Kilian Demangel
+  * [ ] Romain Grasseau--Picoreau, Hugo Thollon, Titouan Gauze
+
+- **jeudi 20 novembre**
+  * [x] Hugo Thollon, Pablo Marquet, Kilian Demangel, Titouan Gauze, Romain Grasseau--Picoreau
+
+== Évaluations hebdomadaires
+
+Evaluation bi-hedomadaire:
 
 ifdef::env-github[]
 image:https://docs.google.com/spreadsheets/d/e/2PACX-1vTc3HJJ9iSI4aa2I9a567wX1AUEmgGrQsPl7tHGSAJ_Z-lzWXwYhlhcVIhh5vCJxoxHXYKjSLetP6NS/pubchart?oid=1850914734&amp;format=image[link=https://docs.google.com/spreadsheets/d/e/2PACX-1vTc3HJJ9iSI4aa2I9a567wX1AUEmgGrQsPl7tHGSAJ_Z-lzWXwYhlhcVIhh5vCJxoxHXYKjSLetP6NS/pubchart?oid=1850914734&amp;format=image]
@@ -124,28 +130,3 @@ ifndef::env-github[]
 <iframe width="786" height="430" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTc3HJJ9iSI4aa2I9a567wX1AUEmgGrQsPl7tHGSAJ_Z-lzWXwYhlhcVIhh5vCJxoxHXYKjSLetP6NS/pubchart?oid=1850914734&amp;format=image"></iframe>
 ++++
 endif::[]
-
-== Télétravail Historique
-
-=== Registre de télétravail
-
-- **jeudi 7 novembre**
-  * [x] Hugo Thollon
-  * [x] Pablo Marquet
-  * [x] Kilian Demangel
-  * [ ] Romain Grasseau--Picoreau
-  * [x] Titouan Gauze
-
-- **jeudi 14 novembre**
-  * [ ] Hugo Thollon
-  * [x] Pablo Marquet
-  * [x] Kilian Demangel
-  * [ ] Romain Grasseau--Picoreau
-  * [ ] Titouan Gauze
-
-- **jeudi 20 novembre**
-  * [x] Hugo Thollon
-  * [x] Pablo Marquet
-  * [x] Kilian Demangel
-  * [x] Romain Grasseau--Picoreau
-  * [x] Titouan Gauze
