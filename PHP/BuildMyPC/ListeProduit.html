@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BuildMyPC</title>
+    <link rel="stylesheet" href="css/header.css" />
+    <link rel="stylesheet" href="css/search-bar.css" />
+    <link rel="stylesheet" href="css/footer.css" />
+    <link rel="stylesheet" href="css/ListeProduit.css" />
+  </head>
+
+  <body>
+    <!-- Header principal -->
+    <header>
+      <div class="header-top" style="display: flex; align-items: center">
+        <!-- Logo du site -->
+
+        <!-- Menu latéral -->
+        <div id="overlay"></div>
+        <div id="sideMenu">
+          <h2 id="menuTitle">Catégories</h2>
+          <button id="closeBtn">&times;</button>
+          <div class="footer-main__separator"></div>
+          <nav class="main-nav-side">
+            <!-- Menu principal -->
+            <ul class="navbar-side" id="mainMenu">
+              <li class="nav-item">
+                <a href="ListeProduit.html" class="nav-link">Nouveautés</a>
+              </li>
+              <li class="nav-item">
+                <a
+                  href="ListeProduit.html"
+                  class="nav-link"
+                  data-target="pc-gaming"
+                  >PC Gaming</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  href="ListeProduit.html"
+                  class="nav-link"
+                  data-target="pc-bureautique"
+                  >PC Bureautique</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  href="ListeProduit.html"
+                  class="nav-link"
+                  data-target="composants"
+                  >Composants</a
+                >
+              </li>
+              <li class="nav-item">
+                <a href="ListeProduit.html" class="nav-link">
+                  <div class="colored">Promotions</div>
+                </a>
+              </li>
+            </ul>
+
+            <!-- Bouton retour -->
+            <div id="backBtn" class="hidden">&larr;</div>
+            <!-- Sous-menus -->
+            <ul class="navbar-side hidden" id="pc-gaming">
+              <li>
+                <a href="ListeProduit.html" class="dropdown-item"
+                  >Gaming Laptop</a
+                >
+              </li>
+              <li>
+                <a href="ListeProduit.html" class="dropdown-item"
+                  >Gaming Desktop</a
+                >
+              </li>
+            </ul>
+            <ul class="navbar-side hidden" id="pc-bureautique">
+              <li>
+                <a href="ListeProduit.html" class="dropdown-item"
+                  >Ordinateurs Professionnels</a
+                >
+              </li>
+            </ul>
+            <ul class="navbar-side hidden" id="composants">
+              <li>
+                <a href="ListeProduit.html" class="dropdown-item"
+                  >Processeurs</a
+                >
+              </li>
+              <li>
+                <a href="ListeProduit.html" class="dropdown-item"
+                  >Cartes Graphiques</a
+                >
+              </li>
+            </ul>
+          </nav>
+        </div>
+
+        <!-- Fin de menu Latéral -->
+
+        <!-- Bouton Menu -->
+        <button class="menu-icon">
+          <img
+            src="image/menu.jpg"
+            alt="Menu Icon"
+            width="40"
+            height="40"
+            loading="auto"
+          />
+        </button>
+        <a href="index.html"
+          ><img
+            src="image/BuildMyPC.png"
+            alt="Logo BuildMyPC"
+            class="logo"
+            width="200"
+            height="52"
+            loading="auto"
+        /></a>
+
+        <!-- Formulaire de recherche -->
+        <form action="#" class="search-form" role="search" style="flex-grow: 1">
+          <label class="search-bar-label" for="search-bar"
+            >Search for stuff</label
+          >
+          <input
+            class="search-bar"
+            type="search"
+            placeholder="Cherche un produit, une marque..."
+            autofocus
+            required
+          />
+          <button class="search-button" type="submit">
+            <img src="image/loupe.png" alt="Search Icon" width="40%" />
+          </button>
+        </form>
+
+        <!-- Icônes utilisateur et panier -->
+        <div class="double-icon">
+          <div>
+            <a href="formConnexion.html"
+              ><img
+                src="image/profil_blanc.png"
+                alt="User Profile"
+                class="icon-profil"
+                width="50"
+                height="50"
+                loading="auto"
+            /></a>
+            <label class="text-icon-profil">Compte</label>
+          </div>
+          <div>
+            <img
+              src="image/panier_blanc.png"
+              alt="Shopping Cart"
+              class="icon-panier"
+              width="40"
+              height="35"
+              loading="auto"
+              style="margin-top: 8px"
+            />
+            <label class="text-icon-panier">
+              <div style="padding-top: 7px">Panier</div>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Barre de navigation -->
+      <nav class="main-nav">
+        <ul class="navbar">
+          <!-- Menu principal avec dropdown -->
+          <li class="nav-item">
+            <a href="ListeProduit.html" class="nav-link">Nouveautés</a>
+            <ul class="dropdown-menu"></ul>
+          </li>
+          <li class="nav-item">
+            <a href="ListeProduit.html" class="nav-link">PC Gaming</a>
+            <ul class="dropdown-menu">
+              <li>
+                <a href="ListeProduit.html" class="dropdown-item">Test1</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="ListeProduit.html" class="nav-link">PC Bureautique</a>
+            <ul class="dropdown-menu">
+              <li>
+                <a href="ListeProduit.html" class="dropdown-item">Test2</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="ListeProduit.html" class="nav-link">Composants</a>
+            <ul class="dropdown-menu">
+              <li>
+                <a href="ListeProduit.html" class="dropdown-item">Test3</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="ListeProduit.html" class="nav-link">
+              <div class="colored">Promotions</div>
+            </a>
+            <ul class="dropdown-menu"></ul>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Contenu principal -->
+    <main>
+      <div class="selection">
+        <form action="#" class="selection">
+          <ul class="selection parent">
+            <!-- Première catégorie de tri -->
+            <li class="selection title">
+              <label class="selection title" for="toggle-list1"
+                >Catégorie</label
+              >
+              <input
+                class="selection title"
+                type="checkbox"
+                name="toggle-list1"
+                id="toggle-list1"
+                checked
+              />
+            </li>
+            <li class="selection content">
+              <ul class="selection">
+                <li class="selection">
+                  <label class="selection" for="categ1">
+                    PC Gaming
+                    <input
+                      name="categ1"
+                      id="categ1"
+                      class="selection"
+                      type="checkbox"
+                    />
+                  </label>
+                </li>
+                <li class="selection">
+                  <label class="selection" for="categ2">
+                    PC Bureautique
+                    <input
+                      name="categ2"
+                      id="categ2"
+                      class="selection"
+                      type="checkbox"
+                    />
+                  </label>
+                </li>
+                <li class="selection">
+                  <label class="selection" for="categ3">
+                    Carte Graphique
+                    <input
+                      name="categ3"
+                      id="categ3"
+                      class="selection"
+                      type="checkbox"
+                    />
+                  </label>
+                </li>
+                <li class="selection">
+                  <label class="selection" for="categ4">
+                    Processeur
+                    <input
+                      name="categ4"
+                      id="categ4"
+                      class="selection"
+                      type="checkbox"
+                    />
+                  </label>
+                </li>
+              </ul>
+            </li>
+            <!-- Seconde catégorie de tri -->
+            <li class="selection title">
+              <label class="selection title" for="toggle-list2">Marque</label>
+              <input
+                class="selection title"
+                type="checkbox"
+                name="toggle-list2"
+                id="toggle-list2"
+                checked
+              />
+            </li>
+            <li class="selection content">
+              <ul class="selection">
+                <li class="selection">
+                  <label class="selection" for="marque1">
+                    Asus
+                    <input
+                      name="marque1"
+                      id="marque1"
+                      class="selection"
+                      type="checkbox"
+                    />
+                  </label>
+                </li>
+                <li class="selection">
+                  <label class="selection" for="marque2">
+                    MSI
+                    <input
+                      name="marque2"
+                      id="marque2"
+                      class="selection"
+                      type="checkbox"
+                    />
+                  </label>
+                </li>
+                <li class="selection">
+                  <label class="selection" for="marque3">
+                    Lenovo
+                    <input
+                      name="marque3"
+                      id="marque3"
+                      class="selection"
+                      type="checkbox"
+                    />
+                  </label>
+                </li>
+                <li class="selection">
+                  <label class="selection" for="marque4">
+                    HP
+                    <input
+                      name="marque4"
+                      id="marque4"
+                      class="selection"
+                      type="checkbox"
+                    />
+                  </label>
+                </li>
+                <li class="selection">
+                  <label class="selection" for="marque5">
+                    AMD
+                    <input
+                      name="marque5"
+                      id="marque5"
+                      class="selection"
+                      type="checkbox"
+                    />
+                  </label>
+                </li>
+                <li class="selection">
+                  <label class="selection" for="marque6">
+                    NVIDIA
+                    <input
+                      name="marque6"
+                      id="marque6"
+                      class="selection"
+                      type="checkbox"
+                    />
+                  </label>
+                </li>
+              </ul>
+            </li>
+            <!-- Troisième catégorie de tri -->
+            <li class="selection title">
+              <label class="selection title" for="toggle-list3">Prix</label>
+              <input
+                class="selection title"
+                type="checkbox"
+                name="toggle-list3"
+                id="toggle-list3"
+                checked
+              />
+            </li>
+            <li class="selection content">
+              <ul class="selection">
+                <li class="selection">
+                  <label class="selection" for="minimum">Minimum :</label>
+                  <input
+                    name="minimum"
+                    id="minimum"
+                    class="selection"
+                    type="number"
+                    min="0"
+                    placeholder="0"
+                  />
+                  <span class="selection price">€</span>
+                </li>
+                <li class="selection">
+                  <label class="selection" for="maximum">Maximum :</label>
+                  <input
+                    name="maximum"
+                    id="maximum"
+                    class="selection"
+                    type="number"
+                    min="0"
+                    placeholder="10000"
+                  />
+                  <span class="selection price">€</span>
+                </li>
+              </ul>
+            </li>
+            <!-- Quatrième catégorie de tri -->
+            <!-- Boutton submit -->
+            <li class="selection">
+              <button type="submit" id="submitButton" class="selection affiner">
+                Affiner la recherche
+              </button>
+            </li>
+          </ul>
+        </form>
+      </div>
+      <!-- /////////////////////////////////
+       /////////////// Grid ////////////////
+       ///////////////////////////////// -->
+      <div class="main grid-container">
+        <div class="grid-item item1">
+          <a href="#" class="product image">
+            <img
+              src="image/produits/pcGaming2.png"
+              alt="imgProduit"
+              class="product"
+            />
+            <span class="product badge">-20%</span>
+          </a>
+          <div class="product name">PC GAMER ARMOR</div>
+          <div class="product components">
+            AMD Ryzen 7 - 32Go - AMD Radeon RX7900XT
+          </div>
+          <div class="product category">PC Gaming</div>
+          <div class="product normal-price">2079€99</div>
+          <div class="product promotion">1663€99</div>
+          <button class="product btnPanier" type="submit">
+            <div class="product btnPanier">Ajouter au panier</div>
+          </button>
+        </div>
+        <div class="grid-item item2">
+          <a href="#" class="product image">
+            <img
+              src="image/produits/pcGaming4.webp"
+              alt="imgProduit"
+              class="product"
+            />
+          </a>
+          <div class="product name">PC Gamer 4070 super powa</div>
+          <div class="product components">
+            Intel Core i5 - 16Go - RTX 4070 SUPER
+          </div>
+          <div class="product category">PC Gaming</div>
+          <div class="product price">1399€99</div>
+          <button class="product btnPanier" type="submit">
+            <div class="product btnPanier">Ajouter au panier</div>
+          </button>
+        </div>
+        <div class="grid-item item3">
+          <a href="#" class="product image">
+            <img
+              src="image/produits/carteGraphique.webp"
+              alt="imgProduit"
+              class="product"
+            />
+          </a>
+          <div class="product name">
+            MSI GeForce RTX 4080 SUPER 16G VENTUS 3X OC
+          </div>
+          <div class="product category">Carte graphique</div>
+          <div class="product price">1000€99</div>
+          <button class="product btnPanier" type="submit">
+            <div class="product btnPanier">Ajouter au panier</div>
+          </button>
+        </div>
+        <div class="grid-item">
+          <a href="#" class="product image">
+            <img
+              src="image/produits/carteGraphique3.webp"
+              alt="imgProduit"
+              class="product"
+            />
+          </a>
+          <div class="product name">
+            Sapphire Pulse Radeon RX 7800 XT GAMING 16GB
+          </div>
+          <div class="product category">Carte graphique</div>
+          <div class="product price">569€99</div>
+          <button class="product btnPanier" type="submit">
+            <div class="product btnPanier">Ajouter au panier</div>
+          </button>
+        </div>
+        <div class="grid-item">
+          <a href="#" class="product image">
+            <img
+              src="image/produits/processeurIntel.webp"
+              alt="imgProduit"
+              class="product"
+            />
+            <span class="product badge">-30%</span>
+          </a>
+          <div class="product name">
+            Intel Core Ultra 7 265K - LGA1851/Sans boite
+          </div>
+          <div class="product category">Processeur</div>
+          <div class="product normal-price">479€99</div>
+          <div class="product promotion">335€99</div>
+          <button class="product btnPanier" type="submit">
+            <div class="product btnPanier">Ajouter au panier</div>
+          </button>
+        </div>
+        <div class="grid-item">
+          <a href="#" class="product image">
+            <img
+              src="image/produits/pcGaming3.png"
+              alt="imgProduit"
+              class="product"
+            />
+          </a>
+          <div class="product name">PC GAMER THUNDER</div>
+          <div class="product components">
+            Intel Core i7 - 32Go - nVidia GF RTX 4080 SUPER
+          </div>
+          <div class="product category">PC Gaming</div>
+          <div class="product price">2349€99</div>
+          <button class="product btnPanier" type="submit">
+            <div class="product btnPanier">Ajouter au panier</div>
+          </button>
+        </div>
+        <div class="grid-item">
+          <a href="#" class="product image">
+            <img
+              src="image/produits/pcBureautique.png"
+              alt="imgProduit"
+              class="product"
+            />
+          </a>
+          <div class="product name">PC FIXE PRO BUREAUTIQUE I3</div>
+          <div class="product components">
+            Intel Core i3 - 4Go - COOLER MASTER
+          </div>
+          <div class="product category">PC Bureautique</div>
+          <div class="product price">489€99</div>
+          <button class="product btnPanier" type="submit">
+            <div class="product btnPanier">Ajouter au panier</div>
+          </button>
+        </div>
+      </div>
+
+      <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+    </main>
+
+    <footer class="footer-main">
+      <div class="footer-main__wrapper">
+        <div class="footer-main__links">
+          <div class="footer-main__bloc">
+            <a href="#" class="footer-main__link">Pourquoi choisir BuildMyPC</a>
+            <br />
+            <a href="#" class="footer-main__link"
+              >Besoin d'aide ? Contacte nous</a
+            >
+            <br />
+            <a href="#" class="footer-main__link"
+              >Conditions Générales de vente</a
+            >
+            <a href="#" class="footer-main__link">CGU</a>
+            <br />
+            <a href="#" class="footer-main__link">Mentions légales</a>
+            <br />
+            <a href="#" class="footer-main__link"
+              >Comment sont collectés les avis ?</a
+            >
+          </div>
+          <div class="footer-main__bloc">
+            <a href="#" class="footer-main__link">Livraison</a>
+            <br />
+            <a href="#" class="footer-main__link"
+              >Code promo / Offre de remboursement</a
+            >
+            <br />
+            <a href="#" class="footer-main__link">Vie Privée</a>
+            <br />
+            <a href="#" class="footer-main__link">Cookies et trackers</a>
+            <br />
+            <a href="#" class="footer-main__link"
+              >Accessibilité : non conforme</a
+            >
+            <br />
+          </div>
+          <div class="footer-main__bloc">
+            <a href="#" class="footer-main__link">Plan du site</a>
+            <br />
+            <a href="#" class="footer-main__link">Signaler un bug </a>
+            <br />
+            <a href="#" class="footer-main__link">Recherche par marque</a>
+            <br />
+            <a href="#" class="footer-main__link">Toutes nos ventes flash</a>
+            <br />
+          </div>
+          <div class="footer-main__bloc">
+            <a href="#" class="footer-main__link">Nouveautés du jour</a>
+            <br />
+            <a href="#" class="footer-main__link">Soldes</a>
+            <br />
+            <a href="#" class="footer-main__link">Paiements sécurisés</a>
+            <br />
+            <img
+              src="image/méthode-paiement.png"
+              alt="Moyens de paiement"
+              width="435"
+              height="27"
+              loading="lazy"
+              class="footer-main__payements"
+            />
+          </div>
+        </div>
+        <div class="footer-cms-part">
+          <div class="footer-main__separator"></div>
+          <span>
+            <p>
+              BuildMyPC : <a href="#">Nouveautés</a> -
+              <a href="#">PC Gamer</a> - <a href="#">Ecran PC</a> -
+              <a href="#">Processeur</a> - <a href="#">Fauteuil Gamer</a> -
+              <a href="#">SSD</a> - <a href="#">PC portable</a> -
+              <a href="#">Carte graphique</a> -
+              <a href="#">Périphériques Gamer</a> -
+              <a href="#">Alimentation PC</a> - <a href="#">Carte Mère</a>
+            </p>
+          </span>
+          <div class="footer-main__separator"></div>
+        </div>
+        <div class="footer-main__socials">
+          <a href="#" class="footer-main__social-link">
+            <img
+              src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwMCIgaGVpZ2h0PSIxMjI3IiB2aWV3Qm94PSIwIDAgMTIwMCAxMjI3IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cGF0aCBkPSJNNzE0LjE2MyA1MTkuMjg0TDExNjAuODkgMEgxMDU1LjAzTDY2Ny4xMzcgNDUwLjg4N0wzNTcuMzI4IDBIMEw0NjguNDkyIDY4MS44MjFMMCAxMjI2LjM3SDEwNS44NjZMNTE1LjQ5MSA3NTAuMjE4TDg0Mi42NzIgMTIyNi4zN0gxMjAwTDcxNC4xMzcgNTE5LjI4NEg3MTQuMTYzWk01NjkuMTY1IDY4Ny44MjhMNTIxLjY5NyA2MTkuOTM0TDE0NC4wMTEgNzkuNjk0NEgzMDYuNjE1TDYxMS40MTIgNTE1LjY4NUw2NTguODggNTgzLjU3OUwxMDU1LjA4IDExNTAuM0g4OTIuNDc2TDU2OS4xNjUgNjg3Ljg1NFY2ODcuODI4WiIgZmlsbD0id2hpdGUiLz4KPC9zdmc+Cg=="
+              alt="Twitter"
+              width="36"
+              height="36"
+              loading="lazy"
+              class="footer-main__social-icon"
+            />
+          </a>
+          <a href="#" class="footer-main__social-link">
+            <img
+              src="image/tiktok.a6474de.svg"
+              alt="tiktok"
+              width="40"
+              height="40"
+              loading="lazy"
+              class="footer-main__social-icon"
+            />
+          </a>
+          <a href="#" class="footer-main__social-link">
+            <img
+              src="image/instagram.6ad1ecf.svg"
+              alt="instagram"
+              width="40"
+              height="40"
+              loading="lazy"
+              class="footer-main__social-icon"
+            />
+          </a>
+          <a href="#" class="footer-main__social-link">
+            <img
+              src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiByeD0iMTAiIGZpbGw9IiMzQjU5OTgiLz4KPHBhdGggZD0iTTI1LjUxMDUgOC4wMDQ3OUwyMi4zOTIzIDhDMTguODg5MyA4IDE2LjYyNTQgMTAuMjIxNyAxNi42MjU0IDEzLjY2MDNWMTYuMjcwMUgxMy40OTAzQzEzLjIxOTQgMTYuMjcwMSAxMyAxNi40ODAyIDEzIDE2LjczOTNWMjAuNTIwNkMxMyAyMC43Nzk4IDEzLjIxOTYgMjAuOTg5NiAxMy40OTAzIDIwLjk4OTZIMTYuNjI1NFYzMC41MzFDMTYuNjI1NCAzMC43OTAyIDE2Ljg0NDggMzEgMTcuMTE1NyAzMUgyMS4yMDYxQzIxLjQ3NzEgMzEgMjEuNjk2NCAzMC43ODk5IDIxLjY5NjQgMzAuNTMxVjIwLjk4OTZIMjUuMzYyMUMyNS42MzMgMjAuOTg5NiAyNS44NTI0IDIwLjc3OTggMjUuODUyNCAyMC41MjA2TDI1Ljg1MzkgMTYuNzM5M0MyNS44NTM5IDE2LjYxNDkgMjUuODAyMSAxNi40OTU4IDI1LjcxMDMgMTYuNDA3N0MyNS42MTg1IDE2LjMxOTcgMjUuNDkzNCAxNi4yNzAxIDI1LjM2MzQgMTYuMjcwMUgyMS42OTY0VjE0LjA1NzhDMjEuNjk2NCAxMi45OTQ0IDIxLjk2MTMgMTIuNDU0NiAyMy40MDk1IDEyLjQ1NDZMMjUuNTEgMTIuNDUzOUMyNS43ODA2IDEyLjQ1MzkgMjYgMTIuMjQzOCAyNiAxMS45ODQ5VjguNDczNzdDMjYgOC4yMTUxMSAyNS43ODA5IDguMDA1MjYgMjUuNTEwNSA4LjAwNDc5WiIgZmlsbD0id2hpdGUiLz4KPC9zdmc+Cg=="
+              alt="Facebook"
+              width="40"
+              height="40"
+              loading="lazy"
+              class="footer-main__social-icon"
+            />
+          </a>
+          <a href="#" class="footer-main__social-link">
+            <img
+              src="image/discord.1a0c3dc.svg"
+              alt="discord"
+              width="71"
+              height="55"
+              loading="lazy"
+              class="footer-main__social-icon"
+            />
+          </a>
+          <a href="#" class="footer-main__social-link">
+            <img
+              src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDIzLjAuNiwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IgoJIHZpZXdCb3g9IjAgMCAyNDAwIDI4MDAiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDI0MDAgMjgwMDsiIHhtbDpzcGFjZT0icHJlc2VydmUiPgo8c3R5bGUgdHlwZT0idGV4dC9jc3MiPgoJLnN0MHtmaWxsOiNGRkZGRkY7fQoJLnN0MXtmaWxsOiM5MTQ2RkY7fQo8L3N0eWxlPgo8dGl0bGU+QXNzZXQgMjwvdGl0bGU+CjxnPgoJPHBvbHlnb24gY2xhc3M9InN0MCIgcG9pbnRzPSIyMjAwLDEzMDAgMTgwMCwxNzAwIDE0MDAsMTcwMCAxMDUwLDIwNTAgMTA1MCwxNzAwIDYwMCwxNzAwIDYwMCwyMDAgMjIwMCwyMDAgCSIvPgoJPGc+CgkJPGcgaWQ9IkxheWVyXzEtMiI+CgkJCTxwYXRoIGNsYXNzPSJzdDEiIGQ9Ik01MDAsMEwwLDUwMHYxODAwaDYwMHY1MDBsNTAwLTUwMGg0MDBsOTAwLTkwMFYwSDUwMHogTTIyMDAsMTMwMGwtNDAwLDQwMGgtNDAwbC0zNTAsMzUwdi0zNTBINjAwVjIwMGgxNjAwCgkJCQlWMTMwMHoiLz4KCQkJPHJlY3QgeD0iMTcwMCIgeT0iNTUwIiBjbGFzcz0ic3QxIiB3aWR0aD0iMjAwIiBoZWlnaHQ9IjYwMCIvPgoJCQk8cmVjdCB4PSIxMTUwIiB5PSI1NTAiIGNsYXNzPSJzdDEiIHdpZHRoPSIyMDAiIGhlaWdodD0iNjAwIi8+CgkJPC9nPgoJPC9nPgo8L2c+Cjwvc3ZnPgo="
+              alt="twitch"
+              width="40"
+              height="47"
+              loading="lazy"
+              class="footer-main__social-icon"
+            />
+          </a>
+          <a href="#" class="footer-main__social-link">
+            <img
+              src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTU5IiBoZWlnaHQ9IjExMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJtMTU0IDE3LjVjLTEuODItNi43My03LjA3LTEyLTEzLjgtMTMuOC05LjA0LTMuNDktOTYuNi01LjItMTIyIDAuMS02LjczIDEuODItMTIgNy4wNy0xMy44IDEzLjgtNC4wOCAxNy45LTQuMzkgNTYuNiAwLjEgNzQuOSAxLjgyIDYuNzMgNy4wNyAxMiAxMy44IDEzLjggMTcuOSA0LjEyIDEwMyA0LjcgMTIyIDAgNi43My0xLjgyIDEyLTcuMDcgMTMuOC0xMy44IDQuMzUtMTkuNSA0LjY2LTU1LjgtMC4xLTc1eiIgZmlsbD0iI2YwMCIvPjxwYXRoIGQ9Im0xMDUgNTUtNDAuOC0yMy40djQ2Ljh6IiBmaWxsPSIjZmZmIi8+PC9zdmc+"
+              alt="youtube"
+              width="159"
+              height="30"
+              loading="lazy"
+              class="footer-main__social-icon"
+            />
+          </a>
+        </div>
+
+        <br /><br /><br /><br />
+
+        <div class="footer-main__separator"></div>
+        <!---->
+        <div class="footer-main__text">
+          BuildMyPC, site de vente en ligne spécialiste en informatique. Nous te
+          proposons des produits high-tech et gamer avec un tas de
+          <a href="#">nouveautés</a>
+          chaque jour et un outil pour réaliser ton
+          <a href="#">PC sur mesure</a>
+          ! Les photos des produits ne sont pas contractuelles; le produit ne
+          comprend pas forcément tous les éléments de la photo. Se référer à la
+          fiche détaillée du produit pour plus d'informations.<br />© 2015-2024
+          / BuildMyPC
+        </div>
+      </div>
+    </footer>
+
+    <!-- Lien vers le fichier JavaScript -->
+    <script src="js/icon_navbar.js"></script>
+
+    <script>
+      let slideIndex = 1;
+      showSlides(slideIndex);
+
+      // Next/previous controls
+      function plusSlides(n) {
+        showSlides((slideIndex += n));
+      }
+
+      // Thumbnail image controls
+      function currentSlide(n) {
+        showSlides((slideIndex = n));
+      }
+
+      function showSlides(n) {
+        let i;
+        let slides = document.getElementsByClassName("mySlides");
+        let dots = document.getElementsByClassName("dot");
+        if (n > slides.length) {
+          slideIndex = 1;
+        }
+        if (n < 1) {
+          slideIndex = slides.length;
+        }
+        for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+          dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+      }
+    </script>
+
+    <script>
+      const menuBtn = document.querySelector(".menu-icon"); // Bouton menu
+      const sideMenu = document.getElementById("sideMenu"); // Menu latéral
+      const closeBtn = document.getElementById("closeBtn"); // Bouton de fermeture
+      const overlay = document.getElementById("overlay"); // Overlay
+
+      // Ouvrir le menu
+      menuBtn.addEventListener("click", () => {
+        sideMenu.style.left = "0";
+        overlay.style.display = "block";
+      });
+
+      // Fermer le menu avec le bouton de fermeture
+      closeBtn.addEventListener("click", () => {
+        sideMenu.style.left = "-300px";
+        overlay.style.display = "none";
+      });
+
+      // Fermer le menu en cliquant sur l'overlay
+      overlay.addEventListener("click", () => {
+        sideMenu.style.left = "-300px";
+        overlay.style.display = "none";
+      });
+    </script>
+
+    <script>
+      // Sélection des éléments
+      const mainMenu = document.getElementById("mainMenu");
+      const subMenus = document.querySelectorAll(".navbar-side.hidden");
+      const backBtn = document.getElementById("backBtn");
+      const menuTitle = document.getElementById("menuTitle");
+
+      // Gérer l'affichage du sous-menu
+      document.querySelectorAll(".nav-link[data-target]").forEach((link) => {
+        link.addEventListener("click", (e) => {
+          e.preventDefault(); // Empêche le rechargement de la page
+          const targetId = e.target.dataset.target; // Récupère l'ID du sous-menu
+
+          if (targetId) {
+            mainMenu.classList.add("hidden"); // Masque le menu principal
+            backBtn.classList.remove("hidden"); // Affiche le bouton retour
+            document.getElementById(targetId).classList.remove("hidden"); // Affiche le sous-menu
+            menuTitle.textContent = e.target.textContent; // Met à jour le titre
+          }
+        });
+      });
+
+      // Revenir au menu principal
+      backBtn.addEventListener("click", () => {
+        subMenus.forEach((menu) => menu.classList.add("hidden")); // Cache tous les sous-menus
+        mainMenu.classList.remove("hidden"); // Affiche le menu principal
+        backBtn.classList.add("hidden"); // Masque le bouton retour
+        menuTitle.textContent = "Catégories"; // Réinitialise le titre
+      });
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        // On récupère toutes les checkbox de titre
+        const checkboxes = document.querySelectorAll(
+          'input[type="checkbox"].selection.title'
+        );
+        // On récupere tous les éléments 'contenu'
+        const contentItems = document.querySelectorAll("li.selection.content");
+        // On itère à travers les checkbox pour placer des listener
+        checkboxes.forEach((checkbox) => {
+          const contentItem =
+            checkbox.closest("li.selection.title").nextElementSibling;
+
+          // On vérifie qu'on a bien les bonnes balises avec les bonnes classes
+          if (
+            contentItem &&
+            contentItem.classList.contains("selection") &&
+            contentItem.classList.contains("content")
+          ) {
+            // Au départ on affiche le contenu
+            const contentUl = contentItem.querySelector("ul.selection");
+            if (contentUl) contentUl.style.display = "block";
+            // On ajoute le listener qui va changer la visibilité
+            checkbox.addEventListener("change", () => {
+              if (checkbox.checked) {
+                contentUl.style.display = "block";
+              } else {
+                contentUl.style.display = "none";
+              }
+            });
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
