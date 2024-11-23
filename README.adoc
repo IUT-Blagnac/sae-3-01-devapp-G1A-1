@@ -131,22 +131,34 @@ Les tests unitaires et les indicateurs de qualité (dette technique) sont access
 
 - Indicateurs de qualité : link:tests/TODO.adoc[SOON - résultat des tests et couverture de code via GitHub Actions]
 
+== Travail d'équipe
+
+=== ODJ/CR
+
+|===
+| Date  |  Lien
+| Semaine 45  | https://github.com/IUT-Blagnac/sae-3-01-devapp-G1A-1/blob/master/Communication/Ordre%20du%20jour%20reunion%20du%2008-11-2024.pdf[Lien vers l'ODJ]
+              
+                https://github.com/IUT-Blagnac/sae-3-01-devapp-G1A-1/blob/master/Communication/Compte%20rendu%20de%20r%C3%A9union%20du%2008-11-2024.pdf[Lien vers le CR]
+| Semaine 47  | https://github.com/IUT-Blagnac/sae-3-01-devapp-G1A-1/blob/master/Communication/Ordre%20du%20jour%20reunion%20du%2019-11-2024.pdf[Lien vers le CR]
+
+                https://github.com/IUT-Blagnac/sae-3-01-devapp-G1A-1/blob/master/Communication/Compte%20rendu%20de%20r%C3%A9union%20du%2019-11-2024.pdf[Lien vers le CR]
+|===
+
 === Registre de télétravail
 
-- **jeudi 7 novembre**
+- **Jeudi 7 novembre**
   * [x] Hugo Thollon, Pablo Marquet, Kilian Demangel, Titouan Gauze
   * [ ] Romain Grasseau--Picoreau
 
-- **jeudi 14 novembre**
+- **Jeudi 14 novembre**
   * [x] Pablo Marquet, Kilian Demangel
   * [ ] Romain Grasseau--Picoreau, Hugo Thollon, Titouan Gauze
 
-- **jeudi 20 novembre**
+- **Jeudi 20 novembre**
   * [x] Hugo Thollon, Pablo Marquet, Kilian Demangel, Titouan Gauze, Romain Grasseau--Picoreau
 
-== Évaluations hebdomadaires
-
-Evaluation bi-hedomadaire:
+== Évaluations bi-hedomadaire
 
 ifdef::env-github[]
 image:https://docs.google.com/spreadsheets/d/e/2PACX-1vTc3HJJ9iSI4aa2I9a567wX1AUEmgGrQsPl7tHGSAJ_Z-lzWXwYhlhcVIhh5vCJxoxHXYKjSLetP6NS/pubchart?oid=1850914734&amp;format=image[link=https://docs.google.com/spreadsheets/d/e/2PACX-1vTc3HJJ9iSI4aa2I9a567wX1AUEmgGrQsPl7tHGSAJ_Z-lzWXwYhlhcVIhh5vCJxoxHXYKjSLetP6NS/pubchart?oid=1850914734&amp;format=image]
