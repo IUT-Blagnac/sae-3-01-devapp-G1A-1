@@ -29,7 +29,7 @@ ifdef::env-github[]
 endif::[]
 
 // /!\ A MODIFIER !!!
-:baseURL: https://github.com/IUT-Blagnac/sae3-01-template
+:baseURL: https://github.com/IUT-Blagnac/sae-3-01-devapp-G1A-1
 
 // Tags
 image:https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg[License: MPL-2.0, link="https://opensource.org/licenses/MPL-2.0"]
@@ -39,85 +39,126 @@ toc::[]
 
 == Equipe et rôle
 
-Projet est réalisé par::
+Projet réalisé par:
 
-- https://github.com/HugoTHOLLON[Hugo Thollon] : scrum master
-- https://github.com/KilianDemangel[Kilian Demangel] : développer
-- https://github.com/RomainGrassaudPicoreau[Romain Grassaud--Picoreau] : product owner
-- https://github.com/ElPoraz[Pablo Marquet] : développer
-- https://github.com/titouangauze[Titouan Gauze] : développer
+|=== 
+| Nom | Rôle 
 
-Tuteur/tutrice enseignant(e) de l'équipe:: mailto:jean-michel.bruel@univ-tlse2.fr[JMB] +
-                                           mailto:andre.peninou@univ-tlse2.fr[AP] +
-                                           mailto:esther.pandaries@univ-tlse2.fr[EP] +
-                                           mailto:laurent.nonne@univ-tlse2.fr[LN] +
-                                           mailto:patricia.stolf@univ-tlse2.fr[PS]
+| https://github.com/HugoTHOLLON[Hugo Thollon] | Scrum master et développeur  
+| https://github.com/KilianDemangel[Kilian Demangel] | Développeur  
+| https://github.com/RomainGrassaudPicoreau[Romain Grasseau--Picoreau] | Product Owner et développeur  
+| https://github.com/ElPoraz[Pablo Marquet] | Développeur  
+| https://github.com/titouangauze[Titouan Gauze] | Développeur  
+|===
+
+
+Tuteur enseignant de l'équipe: mailto:jean-michel.bruel@univ-tlse2.fr[Jean-Michel Bruel]
 
 == Contexte général
 
 Le projet a pour objectif de développer une solution e-commerce pour l’entreprise BuildMyPC, spécialisée dans la vente de composants informatiques et d’ordinateurs montés. L’entreprise souhaite élargir son marché en passant d’un modèle B2B à une offre B2C, ciblant les particuliers pour augmenter sa visibilité et sa part de marché en Europe.
 
-[[liensUtiles]]
-=== Liens utiles
-
-- Cours Moodle : https://webetud.iut-blagnac.fr/course/view.php?id=841[SAE 3.01]
-- Dépôt template : https://github.com/IUT-Blagnac/sae3-01-template
-- GitHub Classroom : https://classroom.github.com/a/fePVlfpN
-- Utilisation de Discord pour les questions techniques et la collaboration en équipe.
-
 == Réalisations 
 
 Cette section regroupe tous les documents liés à la conception, au développement et à l’utilisation de l'application, organisés par catégories principales.
 
-=== Documentation de Conception
+=== Solution E-Commerce
+
+==== Site Web
+
+|===
+| Nom du document | Description | Version |  Lien
+| Site Web "BuildMyPC" | URL pour consulter le site | V0.1.2 | http://193.54.227.164/~SOON/index.php[SOON - Lien vers le site web extérieur à l'IUT]
+                                                               
+                                                               http://192.168.224.139/~SOON/index.php[SOON - Lien vers le site web interne à l'IUT]
+|===
+
+==== Documentation de Conception
 
 Ces documents détaillent les aspects architecturaux et fonctionnels du projet.
 
 - **Document de Conception** : Lien vers le document de conception avec les diagrammes de use case, classe métier, et classe de conception.
   - Lien : link:Documentation/document_conception.adoc[Document de Conception]
 - **Diagrammes UML** : Ensemble des diagrammes pour la modélisation de l’application.
-  - link:Documentation/TODO.adoc[Diagrammes UML]
+  - Lien : link:Documentation/TODO.adoc[SOON - Diagrammes UML]
 
-=== Documentation Technique
+==== Documentation Technique
 
 Cette section inclut les informations techniques nécessaires pour la compréhension et le développement du projet.
 
 - **Documentation Technique** : Détails de l'architecture, des technologies utilisées, des choix de conception, et des fonctionnalités principales.
-  - Lien : link:Documentation/TODO.adoc[Documentation Technique]
+  - Lien : link:Documentation/TODO.adoc[SOON - Documentation Technique]
 - **Base de Données** : Schéma de la base de données et script de création.
-  - Lien : link:Documentation/TODO.adoc[Base de Données]
+  - Lien : link:Documentation/TODO.adoc[SOON - Base de Données]
   
-=== Documentation Utilisateur
+==== Documentation Utilisateur
 
 Documentation détaillant les fonctionnalités disponibles pour les utilisateurs finaux.
 
 - **Guide Utilisateur** : Instructions pour les clients du site, incluant la création de compte, la gestion du panier, le passage de commandes, et la consultation de l’historique.
-  - Lien : link:Documentation/TODO.adoc[Guide Utilisateur]
+  - Lien : link:Documentation/TODO.adoc[SOON - Guide Utilisateur]
 - **Guide Administrateur et Employé** : Guide des fonctionnalités accessibles aux administrateurs et employés, telles que la gestion des produits, promotions et utilisateurs.
-  - Lien : link:Documentation/TODO.adoc[Guide Administrateur et Employé]
+  - Lien : link:Documentation/TODO.adoc[SOON - Guide Administrateur et Employé]
 
+=== Solution IOT/Java
+
+==== Documentation
+
+|===
+| Nom du document | Description        |  Lien
+| Document de Conception | Ces documents détaillent les aspects architecturaux et fonctionnels du projet | link:Documentation/document_conception.adoc[SOON - Lien vers le document de conception]
+| Documentation Technique | Détails de l'architecture, des technologies utilisées, des choix de conception, et des fonctionnalités principales | link:Documentation/TODO.adoc[SOON - Lien vers la documentation technique]
+| Documentation Utilisateur | Documentation détaillant les fonctionnalités disponibles pour les utilisateurs finaux et comment les réaliser | link:Documentation/TODO.adoc[SOON - Lien vers le guide administrateur et employé(e)]
+| Documentation des TESTS | Documentation détaillant les différents tests réalisés pour vérifier son bon fonctionnement | link:Documentation/TODO.adoc[SOON - Lien vers le dossier des tests]
+|===
 
 == Gestion de projet & Qualité
 
 === Releases
 
-- Version actuelle : https://github.com/IUT-Blagnac/sae3-01-template/releases/tag/v0.1.2[v0.1.2]
+- Version actuelle : https://github.com/IUT-Blagnac/sae3-01-template/releases/tag/v0.1.2[v0.1.2 - SOON V1]
 
 === Suivi des User Stories
 
 Les User Stories sont disponibles et suivies dans le Project Board GitHub :
-https://github.com/IUT-Blagnac/sae3-01-template/projects/1[Project Board]
+https://github.com/IUT-Blagnac/sae-3-01-devapp-G1A-1/projects?query=is%3Aopen[Project Board]
 
 === Tests et Qualité
 
 Les tests unitaires et les indicateurs de qualité (dette technique) sont accessibles ici :
 
-- Plan de test : link:tests/TODO.adoc[Disponible ici]
+- Plan de test : link:tests/document_test_web.adoc[Disponible ici]
 
-- Indicateurs de qualité : résultat des tests et couverture de code via GitHub Actions.
+- Indicateurs de qualité : link:tests/TODO.adoc[SOON - résultat des tests et couverture de code via GitHub Actions]
 
+== Travail d'équipe
 
-Voici un exemple d'évaluation :
+=== ODJ/CR
+
+|===
+| Date  |  Lien
+| Semaine 45  | https://github.com/IUT-Blagnac/sae-3-01-devapp-G1A-1/blob/master/Communication/Ordre%20du%20jour%20reunion%20du%2008-11-2024.pdf[Lien vers l'ODJ]
+              
+                https://github.com/IUT-Blagnac/sae-3-01-devapp-G1A-1/blob/master/Communication/Compte%20rendu%20de%20r%C3%A9union%20du%2008-11-2024.pdf[Lien vers le CR]
+| Semaine 47  | https://github.com/IUT-Blagnac/sae-3-01-devapp-G1A-1/blob/master/Communication/Ordre%20du%20jour%20reunion%20du%2019-11-2024.pdf[Lien vers le CR]
+
+                https://github.com/IUT-Blagnac/sae-3-01-devapp-G1A-1/blob/master/Communication/Compte%20rendu%20de%20r%C3%A9union%20du%2019-11-2024.pdf[Lien vers le CR]
+|===
+
+=== Registre de télétravail
+
+- **Jeudi 7 novembre**
+  * [x] Hugo Thollon, Pablo Marquet, Kilian Demangel, Titouan Gauze
+  * [ ] Romain Grasseau--Picoreau
+
+- **Jeudi 14 novembre**
+  * [x] Pablo Marquet, Kilian Demangel
+  * [ ] Romain Grasseau--Picoreau, Hugo Thollon, Titouan Gauze
+
+- **Jeudi 20 novembre**
+  * [x] Hugo Thollon, Pablo Marquet, Kilian Demangel, Titouan Gauze, Romain Grasseau--Picoreau
+
+== Évaluations bi-hedomadaire
 
 ifdef::env-github[]
 image:https://docs.google.com/spreadsheets/d/e/2PACX-1vTc3HJJ9iSI4aa2I9a567wX1AUEmgGrQsPl7tHGSAJ_Z-lzWXwYhlhcVIhh5vCJxoxHXYKjSLetP6NS/pubchart?oid=1850914734&amp;format=image[link=https://docs.google.com/spreadsheets/d/e/2PACX-1vTc3HJJ9iSI4aa2I9a567wX1AUEmgGrQsPl7tHGSAJ_Z-lzWXwYhlhcVIhh5vCJxoxHXYKjSLetP6NS/pubchart?oid=1850914734&amp;format=image]
@@ -128,21 +169,3 @@ ifndef::env-github[]
 <iframe width="786" height="430" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTc3HJJ9iSI4aa2I9a567wX1AUEmgGrQsPl7tHGSAJ_Z-lzWXwYhlhcVIhh5vCJxoxHXYKjSLetP6NS/pubchart?oid=1850914734&amp;format=image"></iframe>
 ++++
 endif::[]
-
-== Télétravail Historique
-
-=== Registre de télétravail
-
-- **jeudi 7 novembre**
-  * [x] Hugo Thollon
-  * [x] Pablo Marquet
-  * [x] Kilian Demangel
-  * [ ] Romain Grasseau--Picoreau
-  * [x] Titouan Gauze
-
-- **jeudi 14 novembre**
-  * [ ] Hugo Thollon
-  * [x] Pablo Marquet
-  * [x] Kilian Demangel
-  * [ ] Romain Grasseau--Picoreau
-  * [ ] Titouan Gauze
