@@ -62,7 +62,18 @@ Le projet a pour objectif de développer une solution e-commerce pour l’entrep
 
 Cette section regroupe tous les documents liés à la conception, au développement et à l’utilisation de l'application, organisés par catégories principales.
 
-=== Documentation de Conception
+=== Solution E-Commerce
+
+==== Site Web
+
+|===
+| Nom du document | Description | Version |  Lien
+| Site Web "BuildMyPC" | URL pour consulter le site | V0.1.2 | http://193.54.227.164/~SOON/index.php[SOON - Lien vers le site web extérieur à l'IUT]
+                                                               
+                                                               http://192.168.224.139/~SOON/index.php[SOON - Lien vers le site web interne à l'IUT]
+|===
+
+==== Documentation de Conception
 
 Ces documents détaillent les aspects architecturaux et fonctionnels du projet.
 
@@ -71,7 +82,7 @@ Ces documents détaillent les aspects architecturaux et fonctionnels du projet.
 - **Diagrammes UML** : Ensemble des diagrammes pour la modélisation de l’application.
   - Lien : link:Documentation/TODO.adoc[SOON - Diagrammes UML]
 
-=== Documentation Technique
+==== Documentation Technique
 
 Cette section inclut les informations techniques nécessaires pour la compréhension et le développement du projet.
 
@@ -80,7 +91,7 @@ Cette section inclut les informations techniques nécessaires pour la compréhen
 - **Base de Données** : Schéma de la base de données et script de création.
   - Lien : link:Documentation/TODO.adoc[SOON - Base de Données]
   
-=== Documentation Utilisateur
+==== Documentation Utilisateur
 
 Documentation détaillant les fonctionnalités disponibles pour les utilisateurs finaux.
 
@@ -89,6 +100,17 @@ Documentation détaillant les fonctionnalités disponibles pour les utilisateurs
 - **Guide Administrateur et Employé** : Guide des fonctionnalités accessibles aux administrateurs et employés, telles que la gestion des produits, promotions et utilisateurs.
   - Lien : link:Documentation/TODO.adoc[SOON - Guide Administrateur et Employé]
 
+=== Solution IOT/Java
+
+==== Documentation
+
+|===
+| Nom du document | Description        |  Lien
+| Document de Conception | Ces documents détaillent les aspects architecturaux et fonctionnels du projet | link:Documentation/document_conception.adoc[SOON - Lien vers le document de conception]
+| Documentation Technique | Détails de l'architecture, des technologies utilisées, des choix de conception, et des fonctionnalités principales | link:Documentation/TODO.adoc[SOON - Lien vers la documentation technique]
+| Documentation Utilisateur | Documentation détaillant les fonctionnalités disponibles pour les utilisateurs finaux et comment les réaliser | link:Documentation/TODO.adoc[SOON - Lien vers le guide administrateur et employé(e)]
+| Documentation des TESTS | Documentation détaillant les différents tests réalisés pour vérifier son bon fonctionnement | link:Documentation/TODO.adoc[SOON - Lien vers le dossier des tests]
+|===
 
 == Gestion de projet & Qualité
 
