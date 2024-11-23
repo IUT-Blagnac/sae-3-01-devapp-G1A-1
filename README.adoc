@@ -39,15 +39,20 @@ toc::[]
 
 == Equipe et rôle
 
-Projet est réalisé par::
+Projet réalisé par:
 
-- https://github.com/HugoTHOLLON[Hugo Thollon] : Scrum master et développeur
-- https://github.com/KilianDemangel[Kilian Demangel] : Développeur
-- https://github.com/RomainGrassaudPicoreau[Romain Grassaud--Picoreau] : Product Owner et développeur
-- https://github.com/ElPoraz[Pablo Marquet] : Développeur
-- https://github.com/titouangauze[Titouan Gauze] : Développeur
+|=== 
+| Nom | Rôle 
 
-Tuteur/tutrice enseignant(e) de l'équipe:: mailto:jean-michel.bruel@univ-tlse2.fr[JMB]
+| https://github.com/HugoTHOLLON[Hugo Thollon] | Scrum master et développeur  
+| https://github.com/KilianDemangel[Kilian Demangel] | Développeur  
+| https://github.com/RomainGrassaudPicoreau[Romain Grasseau--Picoreau] | Product Owner et développeur  
+| https://github.com/ElPoraz[Pablo Marquet] | Développeur  
+| https://github.com/titouangauze[Titouan Gauze] | Développeur  
+|===
+
+
+Tuteur enseignant de l'équipe: mailto:jean-michel.bruel@univ-tlse2.fr[Jean-Michel Bruel]
 
 == Contexte général
 
@@ -102,7 +107,7 @@ Les tests unitaires et les indicateurs de qualité (dette technique) sont access
 
 - Plan de test : link:tests/TODO.adoc[SOON - Disponible ici]
 
-- Indicateurs de qualité : SOON - résultat des tests et couverture de code via GitHub Actions.
+- Indicateurs de qualité : link:tests/TODO.adoc[SOON - résultat des tests et couverture de code via GitHub Actions]
 
 === Registre de télétravail
 
