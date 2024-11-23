@@ -1,0 +1,70 @@
+= Documentation des tests web
+:icons: font
+:models: models
+:experimental:
+:incremental:
+:numbered:
+:toc: macro
+:window: _blank
+:correction!:
+
+toc::[]
+
+== Description du projet
+
+=== Équipe
+
+L'équipe était composée de cinq membres avec les rôles suivants :
+* *Romain* : Product Owner
+* *Kilian* : Développeur
+* *Titouan* : Développeur
+* *Pablo* : Développeur
+* *Hugo* : Scrum Master
+
+=== Contexte du projet
+
+Le projet a pour objectif de développer une solution e-commerce pour l’entreprise **BuildMyPC**, spécialisée dans la vente de composants informatiques et d’ordinateurs montés. L’entreprise souhaite élargir son marché en passant d’un modèle B2B à une offre B2C, ciblant les particuliers pour augmenter sa visibilité et sa part de marché en Europe.
+
+=== Objectifs du projet
+
+**Problématique :**  
+TODO
+
+**Objectif :**  
+TODO
+
+== Fonctionnement du projet Web
+
+Pour des informations supplémentaires :  
+- Documentation technique : link:documentation_technique_web.adoc[SOON]
+- Documentation utilisateur : link:documentation_utilisateur_web.adoc[SOON]
+
+== Tests
+
+=== Connexion/Déconnexion
+
+TODO
+
+=== Création de compte
+
+TODO
+
+=== Espace membre : Modification des informations
+
+TODO
+
+=== Espace Produit
+
+==== Afficher les produits
+
+TODO
+
+=== Avis sur les produits
+
+TODO
+
+=== Commande et paiement
+
+TODO
+
+A COMPLETER
