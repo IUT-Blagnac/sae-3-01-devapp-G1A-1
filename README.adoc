@@ -127,7 +127,7 @@ https://github.com/IUT-Blagnac/sae-3-01-devapp-G1A-1/projects?query=is%3Aopen[Pr
 
 Les tests unitaires et les indicateurs de qualité (dette technique) sont accessibles ici :
 
-- Plan de test : link:tests/TODO.adoc[SOON - Disponible ici]
+- Plan de test : link:tests/document_test_web.adoc[Disponible ici]
 
 - Indicateurs de qualité : link:tests/TODO.adoc[SOON - résultat des tests et couverture de code via GitHub Actions]
 
