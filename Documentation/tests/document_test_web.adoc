@@ -15,11 +15,12 @@ toc::[]
 === Équipe
 
 L'équipe était composée de cinq membres avec les rôles suivants :
-* *Romain* : Product Owner
-* *Kilian* : Développeur
-* *Titouan* : Développeur
-* *Pablo* : Développeur
-* *Hugo* : Scrum Master
+
+- *Romain* : Product Owner et Développeur
+- *Kilian* : Développeur
+- *Titouan* : Développeur
+- *Pablo* : Développeur
+- *Hugo* : Scrum Master et Développeur
 
 === Contexte du projet
 
@@ -35,17 +36,22 @@ TODO
 
 == Fonctionnement du projet Web
 
-Pour des informations supplémentaires :  
+Pour des informations supplémentaires :
+
 - Documentation technique : link:documentation_technique_web.adoc[SOON]
 - Documentation utilisateur : link:documentation_utilisateur_web.adoc[SOON]
 
 == Tests
 
-=== Connexion/Déconnexion
+=== Accès à la page d'acceuil
 
 TODO
 
 === Création de compte
+
+TODO
+
+=== Connexion/Déconnexion
 
 TODO
 
