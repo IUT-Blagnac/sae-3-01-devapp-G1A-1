@@ -11,8 +11,8 @@
 
 .row {
   display: flex;
+  flex-wrap: wrap; /* Enable wrapping for smaller screens */
   gap: 20px;
-  /* Espacement entre colonnes */
   margin-left: 10%;
   margin-right: 10%;
 }
@@ -23,55 +23,40 @@
   height: auto;
   display: flex;
   flex-direction: column;
-  /* Par défaut en colonne */
   justify-content: space-between;
   align-items: center;
   overflow: hidden;
-  /* Garde tout contenu dans les limites */
 }
 
-/* Colonne de gauche */
+/* Left Column */
 .column-left {
   display: flex;
   flex-direction: row;
   flex: 2;
-  /* La colonne gauche occupe 50% */
   gap: 20px;
-  /* Espacement entre image et texte */
   background-color: #74FFA9;
   align-items: center;
-  /* Aligne l'image en haut */
   height: 300px;
-  /* Hauteur uniforme */
   overflow: hidden;
   padding: 10px;
 }
 
 .column-left img {
   flex-shrink: 0;
-  /* Empêche l'image de se redimensionner automatiquement */
   width: 40%;
-  /* L'image occupe 40% de la largeur */
   height: auto;
-  /* L'image conserve son ratio */
   aspect-ratio: 1 / 1;
   object-fit: contain;
-  /* Maintient le ratio sans déborder */
   align-self: center;
-  /* Garde l'image alignée au début du conteneur */
 }
 
 .column-left .text-container {
   flex-grow: 1;
-  /* Texte prend tout l'espace restant */
   display: flex;
   flex-direction: column;
-  /* Aligne titre et texte verticalement */
   justify-content: center;
-  /* Centre verticalement */
   gap: 10px;
   overflow: hidden;
-  /* Empêche débordements */
 }
 
 .column-left h2 {
@@ -88,57 +73,89 @@
   font-size: 1em;
   line-height: 1.5;
   overflow: hidden;
-  /* Évite que le texte déborde */
   text-overflow: ellipsis;
-  /* Ajoute "..." si le texte dépasse */
 }
 
-/* Masquer le paragraphe sur petits écrans */
+/* Hide paragraph text on smaller screens */
 @media (max-width: 768px) {
+  .column-left {
+    flex-direction: column; /* Stack image and text vertically */
+    height: auto; /* Adjust height */
+  }
+
+  .column-left img {
+    width: 80%; /* Center and resize image */
+    margin-bottom: 10px;
+  }
+
   .column-left p {
     display: none;
   }
 }
 
-/* Colonnes de droite */
+/* Right Columns */
 .column-right {
   flex: 1;
-  /* Chaque colonne droite occupe 25% */
   background-color: #212121;
   text-align: center;
   padding: 10px;
   height: 300px;
-  /* Hauteur uniforme */
 }
 
 .column-right img {
   width: 100%;
-  /* L'image occupe toute la largeur */
   max-height: 200px;
-  /* Limite la hauteur */
   aspect-ratio: 1 / 1;
   object-fit: contain;
   margin-bottom: 10px;
-  /* Espacement avec le titre */
 }
 
 .column-right h2 {
   margin: 0;
-  margin-top: auto;
-  /* Place le titre en bas de la colonne */
   font-size: 1.5em;
   color: #74FFA9;
 }
 
-/* Petites animations */
+/* Adjust layout for smaller screens */
+@media (max-width: 768px) {
+  .row {
+    flex-direction: column; /* Stack all columns vertically */
+    margin-left: 5%; /* Reduce margin */
+    margin-right: 5%;
+  }
 
-.column-right:hover {
-  box-shadow: 0px 0px 15px rgba(4, 4, 4, 0.3);
+  .column-right {
+    flex: none; /* Allow full width on smaller screens */
+    width: 100%; /* Full width */
+    height: auto; /* Adjust height */
+  }
+
+  .column-right img {
+    max-height: 150px; /* Adjust image height */
+  }
+
+  .column-right h2 {
+    font-size: 1.2em; /* Adjust font size */
+  }
 }
 
-.column-left:hover {
-  box-shadow: 0px 0px 15px #74ffa948;
+/* Additional adjustments for very small screens */
+@media (max-width: 480px) {
+  .popular-categ {
+    margin-left: 5%;
+    margin-bottom: 10px;
+    font-size: 1.5em; /* Smaller title */
+  }
+
+  .column-left h2 {
+    font-size: 1.5em; /* Adjust font size */
+  }
+
+  .column-left img {
+    width: 90%;
+  }
 }
+
 
 /* /////////////////////////////////////////////////////// */
 /* Partie produit */
