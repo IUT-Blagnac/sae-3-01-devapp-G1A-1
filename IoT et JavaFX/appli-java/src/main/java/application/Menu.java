@@ -6,7 +6,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
-public class MainFrame extends Application {
+public class Menu extends Application {
 
 	// Lancement classique d'un application JavaFX
 	@Override
@@ -16,16 +16,16 @@ public class MainFrame extends Application {
 
 		try {
 			FXMLLoader loader = new FXMLLoader(
-					MainFrameController.class.getResource("mainFrame.fxml"));
+					MenuController.class.getResource("mainFrame.fxml"));
 			BorderPane root = loader.load();
 
 			Scene scene = new Scene(root, root.getPrefWidth() + 20, root.getPrefHeight() + 10);
-			scene.getStylesheets().add(MainFrame.class.getResource("application.css").toExternalForm());
+			scene.getStylesheets().add(Menu.class.getResource("application.css").toExternalForm());
 
 			primaryStage.setScene(scene);
 			primaryStage.setTitle("Fenêtre Principale");
 
-			MainFrameController mfc = loader.getController();
+			MenuController mfc = loader.getController();
 			mfc.initContext(primaryStage);
 
 			mfc.displayDialog();

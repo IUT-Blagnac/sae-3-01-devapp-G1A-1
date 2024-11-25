@@ -15,7 +15,7 @@ import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
-public class MainFrameController implements Initializable {
+public class MenuController implements Initializable {
 
 	// Fenêtre physique
 	private Stage primaryStage;

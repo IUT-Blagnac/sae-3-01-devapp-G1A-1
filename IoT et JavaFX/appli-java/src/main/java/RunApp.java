@@ -1,10 +1,10 @@
-import application.MainFrame;
+import application.Menu;
 
 public class RunApp {
 
 	public static void main(String[] args) {
 
-		MainFrame.runApp();
+		Menu.runApp();
 
 	}
 }
