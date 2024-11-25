@@ -16,7 +16,7 @@ public class Menu extends Application {
 
 		try {
 			FXMLLoader loader = new FXMLLoader(
-					MenuController.class.getResource("mainFrame.fxml"));
+					MenuController.class.getResource("menu.fxml"));
 			BorderPane root = loader.load();
 
 			Scene scene = new Scene(root, root.getPrefWidth() + 20, root.getPrefHeight() + 10);
