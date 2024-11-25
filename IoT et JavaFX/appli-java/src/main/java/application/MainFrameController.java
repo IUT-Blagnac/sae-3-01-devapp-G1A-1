@@ -7,6 +7,7 @@ import java.util.Timer;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.chart.PieChart;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
@@ -20,18 +21,18 @@ public class MainFrameController implements Initializable {
 	private Stage primaryStage;
 
 	// Timer
-	private TaskBackground tb;
-	private Timer timer;
+	// private TaskBackground tb;
+	// private Timer timer;
 
 	// Thread
-	private RunBackground rb;
+	// private RunBackground rb;
 
 	// Manipulation de la fenêtre
 
 	public void initContext(Stage _containingStage) {
 		this.primaryStage = _containingStage;
 		this.configure();
-		this.validateComponentState();
+		// this.validateComponentState();
 	}
 
 	public void displayDialog() {
@@ -39,22 +40,22 @@ public class MainFrameController implements Initializable {
 		this.primaryStage.show();
 
 		// Création des données initiales du Diagramme "camemberts" (PieChart)
-		PieChart.Data slice1 = new PieChart.Data("Desktop", 213);
-		PieChart.Data slice2 = new PieChart.Data("Phone", 67);
-		PieChart.Data slice3 = new PieChart.Data("Tablet", 36);
+		// PieChart.Data slice1 = new PieChart.Data("Desktop", 213);
+		// PieChart.Data slice2 = new PieChart.Data("Phone", 67);
+		// PieChart.Data slice3 = new PieChart.Data("Tablet", 36);
 
-		ObservableList<PieChart.Data> l = this.piec.getData();
-		l.add(slice1);
-		l.add(slice2);
-		l.add(slice3);
+		// ObservableList<PieChart.Data> l = this.piec.getData();
+		// l.add(slice1);
+		// l.add(slice2);
+		// l.add(slice3);
 
 		// Mise à jour PieChart par Thread
 
 		// Création du "code" à exécuter en thread (un Runnable)
-		this.rb = new RunBackground(this, l.size());
+		// this.rb = new RunBackground(this, l.size());
 
 		// Création d'un thread pour exécuter notre code de rb (rb.run())
-		Thread t = new Thread(this.rb);
+		// Thread t = new Thread(this.rb);
 
 		// Démarrage du thread
 		// t.start();
@@ -62,25 +63,25 @@ public class MainFrameController implements Initializable {
 		// Mise à jour PieChart par Timer
 
 		// Crétation de la tâche à réaliser périodiquement
-		this.tb = new TaskBackground(this, l.size());
+		// this.tb = new TaskBackground(this, l.size());
 
 		// Création du timer qui va lancer la tâche tb régulièrement
-		this.timer = new Timer();
+		// this.timer = new Timer();
 
 		// Démarrage du timer avec le délai de première exécution et l'intervalle de
 		// répétition
-		this.timer.scheduleAtFixedRate(
-				this.tb,
-				1000L, // delay before first execution
-				2000L); // time between executions
+		// this.timer.scheduleAtFixedRate(
+		// 		this.tb,
+		// 		1000L, // delay before first execution
+		// 		2000L); // time between executions
 	}
 
 	// Fonctions internes de gestion de fenêtre
-	private void validateComponentState() {
-		this.lblUn.setText("");
-		this.lblDeux.setText("");
-		this.lblTrois.setText("");
-	}
+	// private void validateComponentState() {
+	// 	this.lblUn.setText("");
+	// 	this.lblDeux.setText("");
+	// 	this.lblTrois.setText("");
+	// }
 
 	private void configure() {
 		this.primaryStage.setOnCloseRequest(e -> this.closeWindow(e));
@@ -95,63 +96,82 @@ public class MainFrameController implements Initializable {
 
 	// Attributs de la scene + actions
 	// 3 Label pour afficher les valeurs numériques
+	// @FXML
+	// private Label lblUn;
+	// @FXML
+	// private Label lblDeux;
+	// @FXML
+	// private Label lblTrois;
+
 	@FXML
-	private Label lblUn;
+	private Button btnTest;
+
 	@FXML
-	private Label lblDeux;
+	private Button btnConfig;
+
 	@FXML
-	private Label lblTrois;
+	private Button btnShow;
+
+	@FXML
+	private Button btnChart;
 
 	@FXML
 	private Button btnQuit;
 
+	private Scene testScene;
+
 	// Un PieChart (Diagramme "camemberts")
-	@FXML
-	private PieChart piec;
+	// @FXML
+	// private PieChart piec;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 	}
 
 	@FXML
-	private void doQuit() {
+	private void doTest() { //Bouton qui mène à la page de test
+		this.primaryStage.hide();
+		this.primaryStage.setScene(this.testScene);
+		this.primaryStage.show();
+	}
+
+	@FXML
+	private void doQuit() { // Gestion de la fermeture de la fenêtre
 		if (AlertUtilities.confirmYesCancel(this.primaryStage, "Quitter Appli Principale",
 				"Etes vous sur de vouloir quitter l'appli ?", null, AlertType.CONFIRMATION)) {
 
 			// Arrêt "propre" du thread de mise à jour
-			this.rb.stopIt();
+			// this.rb.stopIt();
 
 			// Arrêt du timer
-			this.timer.cancel();
+			// this.timer.cancel();
 
 			this.primaryStage.close();
-
-			// Optionnel : arrêt de l'application (ici tout s'arrête proprement)
-			// System.exit(0);
+			System.exit(0);
 		}
 	}
 
 	// Méthode de mise à jour de la fenêtre : appelée par le thread rb ou la tâche
 	// du timer tb
-	public void miseAJourPieChart(int _valueToAdd, int _colOfPieChart) {
-		PieChart.Data pied;
-		ObservableList<PieChart.Data> l;
+	// public void miseAJourPieChart(int _valueToAdd, int _colOfPieChart) {
+	// 	PieChart.Data pied;
+	// 	ObservableList<PieChart.Data> l;
 
-		l = this.piec.getData();
+	// 	l = this.piec.getData();
 
-		// Mise à jour d'un des camemberts affichés
-		pied = l.get(_colOfPieChart);
-		pied.setPieValue(pied.getPieValue() + _valueToAdd);
+	// 	// Mise à jour d'un des camemberts affichés
+	// 	pied = l.get(_colOfPieChart);
+	// 	pied.setPieValue(pied.getPieValue() + _valueToAdd);
 
-		// Mise à jour des labels
-		pied = l.get(0);
-		this.lblUn.setText(pied.getName() + " : " + pied.getPieValue());
-		pied = l.get(1);
-		this.lblDeux.setText(pied.getName() + " : " + pied.getPieValue());
-		pied = l.get(2);
-		this.lblTrois.setText(pied.getName() + " : " + pied.getPieValue());
+	// 	// Mise à jour des labels
+	// 	pied = l.get(0);
+	// 	this.lblUn.setText(pied.getName() + " : " + pied.getPieValue());
+	// 	pied = l.get(1);
+	// 	this.lblDeux.setText(pied.getName() + " : " + pied.getPieValue());
+	// 	pied = l.get(2);
+	// 	this.lblTrois.setText(pied.getName() + " : " + pied.getPieValue());
 
-		pied = l.get(_colOfPieChart);
-		System.out.println("Mise à jour de : " + pied.getName() + " : " + _valueToAdd);
-	}
+	// 	pied = l.get(_colOfPieChart);
+	// 	System.out.println("Mise à jour de : " + pied.getName() + " : " + _valueToAdd);
+	// }
 }
