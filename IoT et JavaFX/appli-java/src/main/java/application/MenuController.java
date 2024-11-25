@@ -4,10 +4,12 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
@@ -67,16 +69,16 @@ public class MenuController implements Initializable {
 		// Démarrage du timer avec le délai de première exécution et l'intervalle de
 		// répétition
 		// this.timer.scheduleAtFixedRate(
-		// 		this.tb,
-		// 		1000L, // delay before first execution
-		// 		2000L); // time between executions
+		// this.tb,
+		// 1000L, // delay before first execution
+		// 2000L); // time between executions
 	}
 
 	// Fonctions internes de gestion de fenêtre
 	// private void validateComponentState() {
-	// 	this.lblUn.setText("");
-	// 	this.lblDeux.setText("");
-	// 	this.lblTrois.setText("");
+	// this.lblUn.setText("");
+	// this.lblDeux.setText("");
+	// this.lblTrois.setText("");
 	// }
 
 	private void configure() {
@@ -116,16 +118,40 @@ public class MenuController implements Initializable {
 	@FXML
 	private Button btnQuit;
 
-	private Scene testScene;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 	}
 
 	@FXML
-	private void doTest() { //Bouton qui mène à la page de test
+	private void doTest() { // Bouton qui mène à la page de test 
+	}
+
+	@FXML
+	private void doCourbe() { // Bouton qui mène à la page de choix des courbes (menuCourbe.fxml)
 		this.primaryStage.hide();
-		this.primaryStage.setScene(this.testScene);
+
+		try {
+			FXMLLoader loader = new FXMLLoader(
+					MenuController.class.getResource("menuCourbe.fxml"));
+			BorderPane root = loader.load();
+
+			Scene scene = new Scene(root, root.getPrefWidth() + 20, root.getPrefHeight() + 10);
+			scene.getStylesheets().add(Menu.class.getResource("application.css").toExternalForm());
+
+			primaryStage.setScene(scene);
+			primaryStage.setTitle("Fenêtre Menu Courbe");
+
+			MenuController mfc = loader.getController();
+			mfc.initContext(primaryStage);
+
+			mfc.displayDialog();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.exit(-1);
+		}
+
 		this.primaryStage.show();
 	}
 
@@ -142,24 +168,25 @@ public class MenuController implements Initializable {
 	// Méthode de mise à jour de la fenêtre : appelée par le thread rb ou la tâche
 	// du timer tb
 	// public void miseAJourPieChart(int _valueToAdd, int _colOfPieChart) {
-	// 	PieChart.Data pied;
-	// 	ObservableList<PieChart.Data> l;
+	// PieChart.Data pied;
+	// ObservableList<PieChart.Data> l;
 
-	// 	l = this.piec.getData();
+	// l = this.piec.getData();
 
-	// 	// Mise à jour d'un des camemberts affichés
-	// 	pied = l.get(_colOfPieChart);
-	// 	pied.setPieValue(pied.getPieValue() + _valueToAdd);
+	// // Mise à jour d'un des camemberts affichés
+	// pied = l.get(_colOfPieChart);
+	// pied.setPieValue(pied.getPieValue() + _valueToAdd);
 
-	// 	// Mise à jour des labels
-	// 	pied = l.get(0);
-	// 	this.lblUn.setText(pied.getName() + " : " + pied.getPieValue());
-	// 	pied = l.get(1);
-	// 	this.lblDeux.setText(pied.getName() + " : " + pied.getPieValue());
-	// 	pied = l.get(2);
-	// 	this.lblTrois.setText(pied.getName() + " : " + pied.getPieValue());
+	// // Mise à jour des labels
+	// pied = l.get(0);
+	// this.lblUn.setText(pied.getName() + " : " + pied.getPieValue());
+	// pied = l.get(1);
+	// this.lblDeux.setText(pied.getName() + " : " + pied.getPieValue());
+	// pied = l.get(2);
+	// this.lblTrois.setText(pied.getName() + " : " + pied.getPieValue());
 
-	// 	pied = l.get(_colOfPieChart);
-	// 	System.out.println("Mise à jour de : " + pied.getName() + " : " + _valueToAdd);
+	// pied = l.get(_colOfPieChart);
+	// System.out.println("Mise à jour de : " + pied.getName() + " : " +
+	// _valueToAdd);
 	// }
 }
