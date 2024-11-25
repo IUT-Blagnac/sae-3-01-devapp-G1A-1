@@ -104,61 +104,24 @@ button.selection.affiner {
   margin-bottom: 3%;
 }
 
+/* Reducing animation */
+
+/* li.selection.content ul.selection {
+
+  max-height: 0px;
+  overflow: hidden;
+  padding: 0px;
+}*/
+
 input[type="checkbox"].selection.title {
   display: none;
 }
+/*
+input[type="checkbox"].selection.title:checked:has(+ li.selection.content) {
+  max-height: fit-content;
+} */
 
 /* Product part */
-/* Sorting button */
-div.sorting {
-  float: right;
-  margin-right: 1%;
-  margin-bottom: 1%;
-}
-
-select.sorting {
-  /* styling */
-  background-color: white;
-  border: thin solid blue;
-  border-radius: 4px;
-  display: inline-block;
-  font: inherit;
-  line-height: 1.5em;
-  padding: 0.5em 3.5em 0.5em 1em;
-
-  /* reset */
-
-  margin: 0;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-
-  background-image: linear-gradient(45deg, transparent 50%, gray 50%),
-    linear-gradient(135deg, gray 50%, transparent 50%),
-    linear-gradient(to right, #ccc, #ccc);
-  background-position: calc(100% - 20px) calc(1em + 2px),
-    calc(100% - 15px) calc(1em + 2px), calc(100% - 2.5em) 0.5em;
-  background-size: 5px 5px, 5px 5px, 1px 1.5em;
-  background-repeat: no-repeat;
-}
-
-select.sorting:focus {
-  background-image: linear-gradient(45deg, green 50%, transparent 50%),
-    linear-gradient(135deg, transparent 50%, green 50%),
-    linear-gradient(to right, #ccc, #ccc);
-  background-position: calc(100% - 15px) 1em, calc(100% - 20px) 1em,
-    calc(100% - 2.5em) 0.5em;
-  background-size: 5px 5px, 5px 5px, 1px 1.5em;
-  background-repeat: no-repeat;
-  border-color: green;
-  outline: 0;
-}
-
-option.sorting {
-}
-
 /* Grid */
 .grid-container {
   width: 70%;
@@ -329,19 +292,11 @@ button.selection.affiner:hover {
     width: 100%;
     margin-left: 0;
   }
-
-  div.sorting {
-    margin-right: 2%;
-  }
 }
 
 @media screen and (max-width: 650px) {
   /* A 650px, n'affiche plus que 1 produit par ligne */
   .item2 {
     grid-column: 1;
-  }
-
-  div.sorting {
-    margin-right: 3%;
   }
 }
