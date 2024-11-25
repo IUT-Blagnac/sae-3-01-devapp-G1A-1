@@ -2,16 +2,12 @@ package application;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.Timer;
 
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
-import javafx.scene.chart.PieChart;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
@@ -95,13 +91,6 @@ public class MenuController implements Initializable {
 	}
 
 	// Attributs de la scene + actions
-	// 3 Label pour afficher les valeurs numériques
-	// @FXML
-	// private Label lblUn;
-	// @FXML
-	// private Label lblDeux;
-	// @FXML
-	// private Label lblTrois;
 
 	@FXML
 	private Button btnTest;
@@ -116,13 +105,18 @@ public class MenuController implements Initializable {
 	private Button btnChart;
 
 	@FXML
+	private Button btnStart;
+
+	@FXML
+	private Button btnSolar;
+
+	@FXML
+	private Button btnAlert;
+
+	@FXML
 	private Button btnQuit;
 
 	private Scene testScene;
-
-	// Un PieChart (Diagramme "camemberts")
-	// @FXML
-	// private PieChart piec;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -139,12 +133,6 @@ public class MenuController implements Initializable {
 	private void doQuit() { // Gestion de la fermeture de la fenêtre
 		if (AlertUtilities.confirmYesCancel(this.primaryStage, "Quitter Appli Principale",
 				"Etes vous sur de vouloir quitter l'appli ?", null, AlertType.CONFIRMATION)) {
-
-			// Arrêt "propre" du thread de mise à jour
-			// this.rb.stopIt();
-
-			// Arrêt du timer
-			// this.timer.cancel();
 
 			this.primaryStage.close();
 			System.exit(0);
