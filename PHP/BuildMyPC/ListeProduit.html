@@ -405,6 +405,45 @@
         </form>
       </div>
       <!-- /////////////////////////////////
+       /////////// Btn sorting /////////////
+       ///////////////////////////////// -->
+      <div class="sorting">
+        <!-- We will be using SQL to sort the list -->
+        <form
+          class="sorting"
+          action="ListeProduit.html"
+          name="sortingForm"
+          method="GET"
+        >
+          <!-- TODO, change method to POST when php is implemented -->
+          <select
+            class="sorting"
+            name="sorting-mode"
+            id="sorting-mode"
+            onchange="sortingForm.submit()"
+          >
+            <option class="sorting" selected disabled>Trier par</option>
+            <option class="sorting" value="pertinence">Pertinence</option>
+            <option class="sorting" value="nomProduit ASC">
+              Nom Croissant
+            </option>
+            <option class="sorting" value="nomProduit DESC">
+              Nom Décroissant
+            </option>
+            <option class="sorting" value="prixActuel ASC">
+              Prix Croissant
+            </option>
+            <option class="sorting" value="prixActuel DESC">
+              Prix Décroissant
+            </option>
+            <option class="sorting" value="best ventes">
+              Meilleures Ventes
+            </option>
+            <option class="sorting" value="best notes">Meilleures Notes</option>
+          </select>
+        </form>
+      </div>
+      <!-- /////////////////////////////////
        /////////////// Grid ////////////////
        ///////////////////////////////// -->
       <div class="main grid-container">
@@ -691,8 +730,6 @@
             />
           </a>
         </div>
-
-        <br /><br /><br /><br />
 
         <div class="footer-main__separator"></div>
         <!---->
