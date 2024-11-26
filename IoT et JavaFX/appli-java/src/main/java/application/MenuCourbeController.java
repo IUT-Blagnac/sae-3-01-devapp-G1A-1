@@ -100,6 +100,28 @@ public class MenuCourbeController implements Initializable {
     private void doSolar() { // Bouton qui mène à la page de choix des courbes pour le solaire
                              // (menuCourbeSolaire.fxml)
         this.primaryStage.hide();
+
+        try {
+            FXMLLoader loader = new FXMLLoader(
+                    MenuCourbeController.class.getResource("showSolar.fxml"));
+            BorderPane root = loader.load();
+
+            Scene scene = new Scene(root, root.getPrefWidth() + 20, root.getPrefHeight() + 10);
+            scene.getStylesheets().add(Menu.class.getResource("application.css").toExternalForm());
+
+            primaryStage.setScene(scene);
+            primaryStage.setTitle("Fenêtre Menu Principal");
+
+            showSolarController mfc = loader.getController();
+            mfc.initContext(primaryStage);
+
+            mfc.displayDialog();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.exit(-1);
+        }
+
         this.primaryStage.show();
     }
 
