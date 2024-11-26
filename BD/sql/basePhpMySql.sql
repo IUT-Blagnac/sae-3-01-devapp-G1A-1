@@ -1,4 +1,4 @@
--- Suppression des tables existantes
+-- Suppression des tables existantes --
 DROP TABLE IF EXISTS Avis;
 DROP TABLE IF EXISTS ARegarde;
 DROP TABLE IF EXISTS ACommande;
@@ -17,7 +17,7 @@ DROP TABLE IF EXISTS Carte_EU;
 DROP TABLE IF EXISTS Paypal;
 DROP TABLE IF EXISTS MethodePaiement;
 
--- Création des tables
+-- Création des tables --
 CREATE TABLE MethodePaiement (
     idMethodePaiement INT AUTO_INCREMENT,
     nomMethodePaiement VARCHAR(20) NOT NULL,
