@@ -19,3 +19,10 @@
 .borderred {
 	-fx-text-fill: red;
 }
+
+.salle-box {
+    -fx-border-color: black;
+    -fx-border-width: 2px;
+    -fx-padding: 10px;
+    -fx-background-color: #f9f9f9;
+}

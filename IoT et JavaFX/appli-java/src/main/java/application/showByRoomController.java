@@ -116,44 +116,32 @@ public class showByRoomController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        // Liste statique des noms de salles (remplacer par JSON plus tard)
         String[] salles = { "Salle A", "Salle B", "Salle C" };
 
         for (String salle : salles) {
+            // Ajouter chaque salle à la HashMap avec un état visible par défaut
+            salleVisibility.put(salle, true);
 
-            salleVisibility.put(salle, true); // Par défaut, les salles sont visibles
-
-            // Création d'un TitledPane pour chaque salle
             TitledPane titledPane = new TitledPane();
+            titledPane.setText(""); // On ne veut pas de texte supplémentaire
 
-            // Conteneur horizontal pour le titre et l'œil
-            HBox titleHBox = new HBox(50); // Pas de largeur fixe
-            titleHBox.setAlignment(Pos.CENTER_LEFT); // Alignement global
+            HBox titleHBox = new HBox(50);
+            titleHBox.setAlignment(Pos.CENTER_LEFT);
 
-            // Titre de la salle
             Label titleLabel = new Label(salle);
             titleLabel.setStyle("-fx-font-weight: bold; -fx-font-size: 14px;");
 
-            // Stocker le titre dans les propriétés utilisateur du TitledPane
-            titledPane.setUserData(titleLabel);
-
-            // Espaceur flexible entre le titre et le bouton œil
             Region spacer = new Region();
-            HBox.setHgrow(spacer, Priority.ALWAYS); // Le spacer prend tout l'espace disponible
+            HBox.setHgrow(spacer, Priority.ALWAYS);
 
-            // Bouton "œil" pour afficher/cacher la salle
-            Button eyeButton = new Button("👁"); // Initialisation de l'icône à un œil ouvert
+            Button eyeButton = new Button("👁");
             eyeButton.setStyle("-fx-background-color: transparent; -fx-cursor: hand;");
             eyeButton.setOnAction(event -> toggleVisibility(salle, eyeButton));
 
-            // Ajouter le titre, le spacer et le bouton œil dans le HBox
             titleHBox.getChildren().addAll(titleLabel, spacer, eyeButton);
-
-            // Définir le HBox comme graphique du TitledPane
             titledPane.setGraphic(titleHBox);
 
-            // Contenu du TitledPane (VBox)
-            VBox optionsVBox = new VBox(5); // Espacement vertical
+            VBox optionsVBox = new VBox(5);
             CheckBox checkBoxCO2 = new CheckBox("CO2");
             CheckBox checkBoxHumidity = new CheckBox("Humidité");
             CheckBox checkBoxTemperature = new CheckBox("Température");
@@ -162,21 +150,24 @@ public class showByRoomController implements Initializable {
             checkBoxHumidity.setOnAction(event -> updateRightScrollPane());
             checkBoxTemperature.setOnAction(event -> updateRightScrollPane());
 
-            // Ajouter les cases à cocher au contenu
             optionsVBox.getChildren().addAll(checkBoxCO2, checkBoxHumidity, checkBoxTemperature);
-
-            // Définir le contenu
             titledPane.setContent(optionsVBox);
 
-            // Ajouter le TitledPane au conteneur principal
             contentLeftVBox.getChildren().add(titledPane);
         }
 
+        updateRightScrollPane();
     }
 
     // Méthode pour afficher/cacher une salle (fonctionnalité future)
     private void toggleVisibility(String salle, Button eyeButton) {
-        // Inverser l'état de visibilité de la salle
+        // Vérifier que la salle existe dans la HashMap
+        if (!salleVisibility.containsKey(salle)) {
+            System.err.println("Salle non trouvée : " + salle);
+            return;
+        }
+
+        // Inverser l'état de visibilité
         boolean isVisible = salleVisibility.get(salle);
         salleVisibility.put(salle, !isVisible);
 
@@ -187,6 +178,19 @@ public class showByRoomController implements Initializable {
         } else {
             eyeButton.setText("🙈");
             System.out.println("Cacher la salle: " + salle);
+            // Fermer ou ouvrir le menu déroulant de la salle
+            for (Node node : contentLeftVBox.getChildren()) {
+                if (node instanceof TitledPane) {
+                    TitledPane titledPane = (TitledPane) node;
+                    Label titleLabel = getTitleLabel(titledPane);
+                    if (titleLabel != null && titleLabel.getText().equals(salle)) {
+                        // Si la salle est masquée, fermer le TitledPane
+                        titledPane.setExpanded(!isVisible); // Si invisible, fermer le menu
+                        titledPane.setExpanded(false); // Ferme le menu latéral
+                        break;
+                    }
+                }
+            }
         }
 
         // Mettre à jour l'affichage des graphiques
@@ -195,32 +199,37 @@ public class showByRoomController implements Initializable {
 
     private void updateRightScrollPane() {
         contentRightVBox.getChildren().clear();
-    
+
         for (Node node : contentLeftVBox.getChildren()) {
             if (node instanceof TitledPane) {
                 TitledPane titledPane = (TitledPane) node;
-                String salle = titledPane.getText();
-    
-                // Vérifier si la salle est visible
-                if (!salleVisibility.get(salle)) {
-                    continue; // Ne pas afficher si la salle est masquée
+                Label titleLabel = getTitleLabel(titledPane);
+                String salle = titleLabel != null ? titleLabel.getText() : "";
+
+                // Vérifier que la salle existe dans la HashMap
+                if (!salleVisibility.containsKey(salle) || !salleVisibility.get(salle)) {
+                    continue; // Sauter les salles qui sont masquées ou inexistantes
                 }
-    
+
                 if (titledPane.getContent() instanceof VBox) {
                     VBox optionsVBox = (VBox) titledPane.getContent();
                     CheckBox checkBoxCO2 = (CheckBox) optionsVBox.getChildren().get(0);
                     CheckBox checkBoxHumidity = (CheckBox) optionsVBox.getChildren().get(1);
                     CheckBox checkBoxTemperature = (CheckBox) optionsVBox.getChildren().get(2);
-    
+
+                    // Boîte pour chaque salle (avec une taille fixe)
                     VBox salleRightVBox = new VBox(10);
                     salleRightVBox.setAlignment(Pos.TOP_CENTER);
-    
+                    salleRightVBox.setPrefSize(400, 300); // Taille fixe (largeur, hauteur)
+                    salleRightVBox.setMinSize(400, 300);
+                    salleRightVBox.setStyle("-fx-border-color: black; -fx-border-width: 2px; -fx-padding: 15px;");
+                    salleRightVBox.getStyleClass().add("salle-box");
+
                     Label rightSalleLabel = new Label("Salle : " + salle);
                     rightSalleLabel.setStyle("-fx-font-weight: bold; -fx-font-size: 16px;");
-    
+
                     LineChart<Number, Number> lineChart = createEmptyChart();
-    
-                    // Ajouter les séries même si aucune case n'est cochée
+
                     if (checkBoxCO2.isSelected() || checkBoxHumidity.isSelected() || checkBoxTemperature.isSelected()) {
                         if (checkBoxCO2.isSelected()) {
                             lineChart.getData().add(createSeries("CO2", new double[] { 10, 20, 30, 40, 50 }));
@@ -232,29 +241,15 @@ public class showByRoomController implements Initializable {
                             lineChart.getData().add(createSeries("Température", new double[] { 15, 17, 19, 21, 23 }));
                         }
                     } else {
-                        // Graphique vide mais toujours affiché
                         lineChart.setTitle("Aucune donnée sélectionnée pour cette salle.");
                     }
-    
+
+                    // Ajouter le label et le graphique dans la boîte
                     salleRightVBox.getChildren().addAll(rightSalleLabel, lineChart);
                     contentRightVBox.getChildren().add(salleRightVBox);
                 }
             }
         }
-    }
-    
-
-    // Créer un graphique avec un titre
-    private LineChart<Number, Number> createChartWithTitle(String salleName) {
-        NumberAxis xAxis = new NumberAxis();
-        xAxis.setLabel("Temps");
-        NumberAxis yAxis = new NumberAxis();
-        yAxis.setLabel("Valeur");
-
-        LineChart<Number, Number> chart = new LineChart<>(xAxis, yAxis);
-        chart.setTitle("Salle : " + salleName); // Définir le nom de la salle comme titre du graphique
-
-        return chart;
     }
 
     // Créer un graphique vide
@@ -278,6 +273,19 @@ public class showByRoomController implements Initializable {
             series.getData().add(new XYChart.Data<>(i, data[i]));
         }
         return series;
+    }
+
+    public Label getTitleLabel(TitledPane titledPane) {
+        Node graphic = titledPane.getGraphic();
+        if (graphic instanceof HBox) {
+            HBox hbox = (HBox) graphic;
+            for (Node child : hbox.getChildren()) {
+                if (child instanceof Label) {
+                    return (Label) child; // Retourne le premier Label trouvé
+                }
+            }
+        }
+        return null; // Si aucun Label trouvé
     }
 
 }
