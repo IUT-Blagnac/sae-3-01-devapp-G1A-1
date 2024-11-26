@@ -13,9 +13,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="561.0" prefWidth="912.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MenuController">
+<BorderPane prefHeight="561.0" prefWidth="912.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MenuCourbeController">
    <center>
-      <GridPane alignment="CENTER" prefHeight="293.0" prefWidth="732.0" BorderPane.alignment="CENTER">
+      <GridPane alignment="CENTER" prefHeight="146.0" prefWidth="731.0" BorderPane.alignment="CENTER">
          <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -23,24 +23,10 @@
          <rowConstraints>
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <Button fx:id="btnTest" mnemonicParsing="false" prefHeight="35.0" prefWidth="240.0" text="Tester la connexion" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
-            <Button fx:id="btnStart" mnemonicParsing="false" prefHeight="35.0" prefWidth="240.0" text="Relancer le programme python" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
-               <GridPane.margin>
-                  <Insets />
-               </GridPane.margin>
-            </Button>
-            <Button fx:id="btnSolar" mnemonicParsing="false" prefHeight="35.0" prefWidth="240.0" text="Panneaux solaires" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
-               <GridPane.margin>
-                  <Insets />
-               </GridPane.margin>
-            </Button>
-            <Button fx:id="btnConfig" mnemonicParsing="false" prefHeight="35.0" prefWidth="240.0" text="Parametrer le config python" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
-            <Button fx:id="btnShow" mnemonicParsing="false" prefHeight="35.0" prefWidth="240.0" text="Visualiser les données" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
-            <Button fx:id="btnChart" mnemonicParsing="false" prefHeight="35.0" prefWidth="240.0" text="Voir les courbes" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
+            <Button fx:id="btnByRoom" mnemonicParsing="false" onAction="#doByRoom" prefHeight="35.0" prefWidth="240.0" text="Affichage par salle" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+            <Button fx:id="btnByData" mnemonicParsing="false" onAction="#doByData" prefHeight="35.0" prefWidth="240.0" text="Affichage par données" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
          </children>
       </GridPane>
    </center>
@@ -50,9 +36,9 @@
             <Insets bottom="10.0" top="10.0" />
          </BorderPane.margin>
          <children>
-            <FlowPane alignment="CENTER" columnHalignment="CENTER" prefHeight="111.0" prefWidth="912.0">
+            <FlowPane alignment="TOP_CENTER" columnHalignment="CENTER" prefHeight="206.0" prefWidth="912.0">
                <children>
-                  <Button fx:id="btnAlert" mnemonicParsing="false" prefHeight="35.0" prefWidth="240.0" text="Historique des alertes" />
+                  <Button fx:id="btnSolar" mnemonicParsing="false" onAction="#doSolar" prefHeight="35.0" prefWidth="240.0" text="Affichage panneaux solaires" />
                </children>
             </FlowPane>
             <FlowPane alignment="CENTER" columnHalignment="CENTER" prefHeight="34.0" prefWidth="912.0">
@@ -66,21 +52,38 @@
    <top>
       <HBox prefHeight="74.0" prefWidth="912.0" BorderPane.alignment="CENTER">
          <children>
-            <Label prefHeight="109.0" prefWidth="173.0" text="Etat python: ">
+            <Label prefHeight="200.0" prefWidth="200.0" text="Etat python: ">
                <padding>
                   <Insets left="10.0" />
                </padding>
             </Label>
-            <Label alignment="CENTER" prefHeight="74.0" prefWidth="561.0" text="Application BuildMyPC">
-               <font>
-                  <Font name="System Bold" size="32.0" />
-               </font>
-            </Label>
+            <VBox alignment="CENTER" prefHeight="200.0">
+               <children>
+                  <Label alignment="CENTER" prefHeight="134.0" prefWidth="514.0" text="Application BuildMyPC">
+                     <font>
+                        <Font name="System Bold" size="32.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="18.0" prefWidth="272.0" text="Afficher des courbes">
+                     <font>
+                        <Font name="System Bold Italic" size="19.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <Pane prefHeight="200.0" prefWidth="200.0" />
          </children>
       </HBox>
    </top>
    <left>
-      <Pane prefHeight="442.0" prefWidth="90.0" BorderPane.alignment="CENTER" />
+      <Pane prefHeight="442.0" prefWidth="90.0" BorderPane.alignment="CENTER">
+         <children>
+            <VBox alignment="TOP_CENTER" layoutY="28.0" prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <Button fx:id="btnBack" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#doBack" prefHeight="26.0" prefWidth="82.0" text="Retour" />
+               </children>
+            </VBox>
+         </children></Pane>
    </left>
    <right>
       <Pane prefHeight="442.0" prefWidth="90.0" BorderPane.alignment="CENTER" />
