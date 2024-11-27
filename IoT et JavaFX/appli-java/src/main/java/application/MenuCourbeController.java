@@ -93,6 +93,28 @@ public class MenuCourbeController implements Initializable {
     private void doByData() { // Bouton qui mène à la page de choix des courbes par type de données
                               // (menuCourbeData.fxml)
         this.primaryStage.hide();
+
+        try {
+            FXMLLoader loader = new FXMLLoader(
+                    MenuCourbeController.class.getResource("showByData.fxml"));
+            BorderPane root = loader.load();
+
+            Scene scene = new Scene(root, root.getPrefWidth() + 20, root.getPrefHeight() + 10);
+            scene.getStylesheets().add(Menu.class.getResource("application.css").toExternalForm());
+
+            primaryStage.setScene(scene);
+            primaryStage.setTitle("Fenêtre Courbes par Type de Données");
+
+            showByDataController mfc = loader.getController();
+            mfc.initContext(primaryStage);
+
+            mfc.displayDialog();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.exit(-1);
+        }
+
         this.primaryStage.show();
     }
 
@@ -149,12 +171,6 @@ public class MenuCourbeController implements Initializable {
             System.exit(-1);
         }
 
-        this.primaryStage.show();
-    }
-
-    @FXML
-    private void doCourbe() { // Bouton qui mène à la page de choix des courbes (menuCourbe.fxml)
-        this.primaryStage.hide();
         this.primaryStage.show();
     }
 
