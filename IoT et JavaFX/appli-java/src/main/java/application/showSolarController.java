@@ -1,21 +1,24 @@
 package application;
 
+import java.net.URL;
+import java.util.ResourceBundle;
+
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.chart.BarChart;
-import javafx.scene.chart.CategoryAxis;
+import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
-
-import java.net.URL;
-import java.util.ResourceBundle;
 
 public class showSolarController implements Initializable {
 
@@ -43,8 +46,13 @@ public class showSolarController implements Initializable {
         return null;
     }
 
+    // Attributs de la scene + actions
+
     @FXML
-    private void doBack() {
+    private Button btnBack;
+
+    @FXML
+    private void doBack() { // Bouton qui mène à la page précédente (menu.fxml)
         this.primaryStage.hide();
 
         try {
@@ -58,7 +66,6 @@ public class showSolarController implements Initializable {
             primaryStage.setScene(scene);
             primaryStage.setTitle("Fenêtre Menu Courbe");
 
-            // Initialisation du contrôleur showSolarController avec le primaryStage
             MenuCourbeController mfc = loader.getController();
             mfc.initContext(primaryStage);
 
@@ -82,64 +89,65 @@ public class showSolarController implements Initializable {
         }
     }
 
+    // Attributs de la scene + actions
     @FXML
-    private BarChart<String, Number> energyBarChart; // Graphique à barres
+    private BorderPane contentBorderPane;
 
     @FXML
-    private Label lblCurrentPower; // Label pour afficher la puissance actuelle
-
-    // Exemple de données, à remplacer par les données réelles de vos panneaux
-    // solaires
-    private double energyToday = 10700; // Energie du jour (Wh)
-    private double energyLastMonth = 195784; // Energie du mois dernier (Wh)
-    private double energyLastYear = 245001; // Energie de l'année dernière (Wh)
-    private double currentPower = 15; // Puissance actuelle (W)
+    private HBox contentHBox;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        // S'assurer que primaryStage est initialisé avant de mettre à jour le graphique
-        if (this.primaryStage != null) {
-            updateEnergyGraph();
-            lblCurrentPower.setText("Puissance actuelle: " + currentPower + "W");
-        } else {
-            System.err.println("primaryStage is not initialized in initialize()");
-        }
+        setupHBox();
+        setupCenterChart();
     }
 
-    private void updateEnergyGraph() {
-        // Créer les axes du graphique
-        CategoryAxis xAxis = new CategoryAxis();
-        xAxis.setLabel("Période");
+    // Méthode pour configurer le HBox
+    private void setupHBox() {
+        String[] titles = { "Production Actuelle", "Production Journalière", "Production Mensuelle", "Production Annuelle" };
+        double[] values = { 200.5, 5000.3, 150000.7, 1800000.4 }; // Valeurs fictives, remplacez par vos données
 
+        for (int i = 0; i < titles.length; i++) {
+            VBox vbox = new VBox(5);
+            vbox.setAlignment(Pos.CENTER);
+
+            Label titleLabel = new Label(titles[i]);
+            titleLabel.setStyle("-fx-font-weight: bold; -fx-font-size: 14px;");
+
+            Label valueLabel = new Label(String.format("%.2f", values[i]) + " kW");
+            valueLabel.setStyle("-fx-font-size: 12px;");
+            vbox.setStyle("-fx-border-color: black; -fx-border-width: 2px; -fx-padding: 1px;");
+
+            vbox.getChildren().addAll(titleLabel, valueLabel);
+            contentHBox.getChildren().add(vbox);
+        }
+
+        contentHBox.setSpacing(20); // Espacement entre les cases
+    }
+
+    // Méthode pour configurer le graphique dans le center
+    private void setupCenterChart() {
+        NumberAxis xAxis = new NumberAxis();
         NumberAxis yAxis = new NumberAxis();
-        yAxis.setLabel("Energie (Wh)");
+        xAxis.setLabel("Date et Heure");
+        yAxis.setLabel("Valeur (kW)");
 
-        // Créer le graphique à barres
-        energyBarChart = new BarChart<>(xAxis, yAxis);
-        energyBarChart.setTitle("Evolution de l'énergie produite");
+        LineChart<Number, Number> lineChart = new LineChart<>(xAxis, yAxis);
+        lineChart.setTitle("Production en fonction du temps"); 
 
-        // Créer les séries de données pour différentes périodes
-        XYChart.Series<String, Number> series = new XYChart.Series<>();
-        series.setName("Energie produite");
+        // Ajout de séries de données fictives
+        XYChart.Series<Number, Number> series = new XYChart.Series<>();
+        series.setName("Production actuelle");
+        series.getData().add(new XYChart.Data<>(0, 200));
+        series.getData().add(new XYChart.Data<>(1, 210));
+        series.getData().add(new XYChart.Data<>(2, 220));
+        series.getData().add(new XYChart.Data<>(3, 215));
+        series.getData().add(new XYChart.Data<>(4, 230));
 
-        // Ajouter les données pour chaque période
-        series.getData().add(new XYChart.Data<>("Aujourd'hui", energyToday));
-        series.getData().add(new XYChart.Data<>("Mois dernier", energyLastMonth));
-        series.getData().add(new XYChart.Data<>("Année dernière", energyLastYear));
+        lineChart.getData().add(series);
 
-        // Ajouter la série de données au graphique
-        energyBarChart.getData().add(series);
-
-        // Assurez-vous que primaryStage n'est pas nul avant de définir la scène
-        if (this.primaryStage != null) {
-            BorderPane root = new BorderPane();
-            root.setCenter(energyBarChart);
-
-            Scene scene = new Scene(root, 800, 600);
-            this.primaryStage.setScene(scene); // Définit la scène
-            this.primaryStage.show();
-        } else {
-            System.err.println("primaryStage is not initialized in updateEnergyGraph()");
-        }
+        // Ajouter le graphique à la partie centrale du BorderPane
+        contentBorderPane.setCenter(lineChart);
     }
+
 }

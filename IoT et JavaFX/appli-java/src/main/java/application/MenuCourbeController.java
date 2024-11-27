@@ -74,7 +74,7 @@ public class MenuCourbeController implements Initializable {
             scene.getStylesheets().add(Menu.class.getResource("application.css").toExternalForm());
 
             primaryStage.setScene(scene);
-            primaryStage.setTitle("Fenêtre Menu Principal");
+            primaryStage.setTitle("Fenêtre Courbes par Pièce");
 
             showByRoomController mfc = loader.getController();
             mfc.initContext(primaryStage);
@@ -98,7 +98,6 @@ public class MenuCourbeController implements Initializable {
 
     @FXML
     private void doSolar() { // Bouton qui mène à la page de choix des courbes pour le solaire
-                             // (menuCourbeSolaire.fxml)
         this.primaryStage.hide();
 
         try {
@@ -110,7 +109,7 @@ public class MenuCourbeController implements Initializable {
             scene.getStylesheets().add(Menu.class.getResource("application.css").toExternalForm());
 
             primaryStage.setScene(scene);
-            primaryStage.setTitle("Fenêtre Menu Principal");
+            primaryStage.setTitle("Fenêtre Panneaux Solaires");
 
             showSolarController mfc = loader.getController();
             mfc.initContext(primaryStage);

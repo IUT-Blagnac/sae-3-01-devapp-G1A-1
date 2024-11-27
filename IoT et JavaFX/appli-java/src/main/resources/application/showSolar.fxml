@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.chart.BarChart?>
-<?import javafx.scene.chart.CategoryAxis?>
-<?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.BorderPane?>
@@ -39,8 +36,22 @@
          </children>
       </HBox>
    </top>
+   <center>
+      <BorderPane fx:id="contentBorderPane" prefHeight="486.0" prefWidth="693.0" BorderPane.alignment="CENTER">
+         <top>
+            <BorderPane prefHeight="78.0" prefWidth="778.0" BorderPane.alignment="CENTER">
+               <center>
+                  <HBox fx:id="contentHBox" alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+               </center>
+               <top>
+                  <Pane prefHeight="24.0" prefWidth="778.0" BorderPane.alignment="CENTER" />
+               </top>
+            </BorderPane>
+         </top>
+      </BorderPane>
+   </center>
    <left>
-      <VBox alignment="TOP_CENTER" prefHeight="486.0" prefWidth="221.0" BorderPane.alignment="CENTER">
+      <VBox alignment="TOP_CENTER" prefHeight="486.0" prefWidth="133.0" BorderPane.alignment="CENTER">
          <children>
             <Button fx:id="btnBack" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#doBack" prefHeight="35.0" prefWidth="82.0" text="Retour">
                <VBox.margin>
@@ -49,27 +60,4 @@
          </children>
       </VBox>
    </left>
-   <center>
-      <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-         <center>
-            <VBox>
-                <!-- Affichage de la puissance actuelle -->
-                <Label fx:id="lblCurrentPower" text="Puissance actuelle: 0W" />
-
-                <!-- Affichage des graphiques énergétiques -->
-                <BarChart fx:id="energyBarChart" prefWidth="600" prefHeight="300">
-                    <xAxis>
-                        <CategoryAxis label="Périodes" />
-                    </xAxis>
-                    <yAxis>
-                        <NumberAxis label="Energie (Wh)" />
-                    </yAxis>
-                </BarChart>
-            </VBox>
-         </center>
-         <top>
-            <Pane prefHeight="34.0" prefWidth="691.0" BorderPane.alignment="CENTER" />
-         </top>
-      </BorderPane>
-   </center>
 </BorderPane>

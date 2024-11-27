@@ -62,9 +62,6 @@ public class showByRoomController implements Initializable {
     private Button btnBack;
 
     @FXML
-    private Button btnQuit;
-
-    @FXML
     private void doBack() { // Bouton qui mène à la page précédente (menu.fxml)
         this.primaryStage.hide();
 
