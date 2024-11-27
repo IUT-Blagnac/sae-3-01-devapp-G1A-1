@@ -94,10 +94,7 @@ public class MenuController implements Initializable {
 			testController testController = loader.getController();
 			testController.initContext(testStage);
 
-			testController.displayDialog();
-
-			// Afficher la fenêtre
-			testStage.showAndWait(); // Attend que cette fenêtre se ferme avant de rendre la main
+			testController.displayDialog(); // Affichage de la fenêtre
 
 		} catch (Exception e) {
 			e.printStackTrace();
