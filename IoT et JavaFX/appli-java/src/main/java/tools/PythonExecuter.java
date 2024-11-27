@@ -5,13 +5,21 @@ import java.io.InputStreamReader;
 
 public class PythonExecuter {
 
+    private static PythonExecuter instance;
     private final int NBTRIES = 3;
     private String filePath;
     private Process process;
 
-    public PythonExecuter(String filePath) {
+    private PythonExecuter(String filePath) {
         // TODO pour les tests, utiliser "../HelloWorldPrinter2.py" ou "../MQTT.py"
         this.filePath = filePath;
+    }
+
+    public static PythonExecuter getInstance() {
+        if (instance == null) {
+            instance = new PythonExecuter(GlobalVariables.pythonFilePath);
+        }
+        return instance;
     }
 
     public String getFilePath() {
