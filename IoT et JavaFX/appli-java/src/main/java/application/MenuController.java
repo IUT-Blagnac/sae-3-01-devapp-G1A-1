@@ -71,7 +71,37 @@ public class MenuController implements Initializable {
 	}
 
 	@FXML
-	private void doTest() { // Bouton qui mène à la page de test
+	private void doTest() {
+		try {
+			// Chargement de la nouvelle fenêtre (FXML)
+			FXMLLoader loader = new FXMLLoader(
+					MenuController.class.getResource("test.fxml"));
+			BorderPane root = loader.load();
+
+			// Création d'un nouveau Stage
+			Stage testStage = new Stage();
+			Scene scene = new Scene(root, root.getPrefWidth() - 300, root.getPrefHeight() - 150);
+			scene.getStylesheets().add(Menu.class.getResource("application.css").toExternalForm());
+
+			testStage.setScene(scene);
+			testStage.setTitle("Fenêtre de Test");
+
+			// Rendre la fenêtre modale (bloque les interactions avec la fenêtre parent)
+			testStage.initModality(javafx.stage.Modality.APPLICATION_MODAL);
+			testStage.initOwner(this.primaryStage); // Définit la fenêtre principale comme parent
+
+			// Configuration du contrôleur
+			testController testController = loader.getController();
+			testController.initContext(testStage);
+
+			testController.displayDialog();
+
+			// Afficher la fenêtre
+			testStage.showAndWait(); // Attend que cette fenêtre se ferme avant de rendre la main
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	@FXML
@@ -90,6 +120,34 @@ public class MenuController implements Initializable {
 			primaryStage.setTitle("Fenêtre Menu Courbe");
 
 			MenuCourbeController mfc = loader.getController();
+			mfc.initContext(primaryStage);
+
+			mfc.displayDialog();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.exit(-1);
+		}
+
+		this.primaryStage.show();
+	}
+
+	@FXML
+	private void doSolar() { // Bouton qui mène à la page de choix des courbes pour le solaire
+		this.primaryStage.hide();
+
+		try {
+			FXMLLoader loader = new FXMLLoader(
+					MenuCourbeController.class.getResource("showSolar.fxml"));
+			BorderPane root = loader.load();
+
+			Scene scene = new Scene(root, root.getPrefWidth() + 20, root.getPrefHeight() + 10);
+			scene.getStylesheets().add(Menu.class.getResource("application.css").toExternalForm());
+
+			primaryStage.setScene(scene);
+			primaryStage.setTitle("Fenêtre Panneaux Solaires");
+
+			showSolarController mfc = loader.getController();
 			mfc.initContext(primaryStage);
 
 			mfc.displayDialog();
