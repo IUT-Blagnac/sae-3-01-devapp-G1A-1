@@ -15,6 +15,21 @@ DROP TABLE Carte_AE;
 DROP TABLE Carte_EU;
 DROP TABLE Paypal;
 DROP TABLE MethodePaiement;
+DROP TABLE Promotion;
+DROP TABLE Marque;
+
+CREATE TABLE Marque(
+    idMarque Number(6),
+    nomMarque VARCHAR(20),
+    CONSTRAINT pk_Marque PRIMARY KEY (idMarque)
+);
+
+CREATE TABLE Promotion(
+    idPromotion Number(6),
+    nomPromotion VARCHAR(20),
+    pourcentageReduction NUMBER(2),
+    CONSTRAINT pk_Promotion PRIMARY KEY (idPromotion)
+);
 
 CREATE TABLE MethodePaiement(
     idMethodePaiement Number(6),
@@ -146,7 +161,7 @@ CREATE TABLE Commande (
     idAdresse NUMBER(6),
     idMethodePaiement NUMBER(6),
     dateCommande DATE,
-    panierActuel BOOLEAN, -- Cette variable ne peut être vrai que pour une seule commande d'un client. Elle représente le panier actuel. 
+    etPanierActuel BOOLEAN, -- Cette variable ne peut être vrai que pour une seule commande d'un client. Elle représente le panier actuel. 
                           -- Quand elle est fausse, elle représente des commandes déjà passées ce qui constitue l'historique de commande.
     CONSTRAINT pk_Commande PRIMARY KEY (idCommande),
     CONSTRAINT fk_Commande_Client
