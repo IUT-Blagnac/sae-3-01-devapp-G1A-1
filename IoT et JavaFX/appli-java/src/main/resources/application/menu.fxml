@@ -33,7 +33,7 @@
                   <Insets />
                </GridPane.margin>
             </Button>
-            <Button fx:id="btnSolar" mnemonicParsing="false" prefHeight="35.0" prefWidth="240.0" text="Panneaux solaires" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+            <Button fx:id="btnSolar" mnemonicParsing="false" onAction="#doSolar" prefHeight="35.0" prefWidth="240.0" text="Panneaux solaires" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
                <GridPane.margin>
                   <Insets />
                </GridPane.margin>
