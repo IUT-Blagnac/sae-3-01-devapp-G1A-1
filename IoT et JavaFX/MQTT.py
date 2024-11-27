@@ -35,9 +35,16 @@ frequence_lecture = configuration['lecture']['frequence']
 
 # Connexion au serveur MQTT
 client_mqtt = mqtt.Client()
-client_mqtt.connect("mqtt.iut-blagnac.fr", 1883)
+client_mqtt.connect("chirpstack.iut-blagnac.fr", 1883)
 client_mqtt.subscribe(chemin_salle_mqtt)
 client_mqtt.subscribe(chemin_solaire_mqtt)  # Souscription au topic des panneaux solaires
+
+# Fonction pour écrire dans un fichier JSONL
+def ecrire_jsonl(nom_fichier, data):
+    data_line = json.dumps(data) + "\n"
+    fd = os.open(nom_fichier, os.O_WRONLY | os.O_APPEND | os.O_CREAT, 0o644)
+    os.write(fd, data_line.encode('utf-8'))
+    os.close(fd)
 
 # Fonction pour mettre à jour les données de température, d'humidité et de taux de CO2
 def mise_a_jour_donnees(temp, hum, taux, salle):
@@ -58,15 +65,17 @@ def mise_a_jour_donnees(temp, hum, taux, salle):
 # Fonction pour mettre à jour les alertes pour les salles
 def mise_a_jour_alertes(salle):
     global donnees_salle
-    alerte_message = ""
+    alerte_message = []
     for i in range(3):
         if donnees_salle[str(salle)][i + 3] > valeurs_max[i] and choix_donnees[i] == 'True':
-            alerte_message += f"{salle}|{['TEMPERATURE', 'HUMIDITE', 'CO2'][i]}|{datetime.now()}\n"
+            alerte_message.append({
+                "salle": salle,
+                "type": ["TEMPERATURE", "HUMIDITE", "CO2"][i],
+                "timestamp": datetime.now().isoformat()
+            })
     if alerte_message:
-        # Ouverture et écriture de l'alerte dans LOG_ALERTE.txt avec os.open et os.write
-        fd_alerte = os.open('LOG_ALERTE.txt', os.O_WRONLY | os.O_APPEND | os.O_CREAT, 0o644)
-        os.write(fd_alerte, alerte_message.encode('utf-8'))
-        os.close(fd_alerte)
+        for alerte in alerte_message:
+            ecrire_jsonl("LOG_ALERTE.jsonl", alerte)
 
 # Fonction pour gérer les données des panneaux solaires
 def mise_a_jour_donnees_solaires(last_time_data):
@@ -81,11 +90,13 @@ def mise_a_jour_donnees_solaires(last_time_data):
 def mise_a_jour_alertes_solaires():
     moyenne = sum(donnees_solaire["lastTimeData"]) / len(donnees_solaire["lastTimeData"])
     if moyenne > consommation_max:
-        alerte_message = f"SOLAIRE|CONSO_MAX|{datetime.now()}|{moyenne}\n"
-        # Sauvegarder dans le fichier d'alertes
-        fd_alerte = os.open('LOG_ALERTE.txt', os.O_WRONLY | os.O_APPEND | os.O_CREAT, 0o644)
-        os.write(fd_alerte, alerte_message.encode('utf-8'))
-        os.close(fd_alerte)
+        alerte_message = {
+            "type": "SOLAIRE",
+            "alert": "CONSO_MAX",
+            "timestamp": datetime.now().isoformat(),
+            "moyenne": moyenne
+        }
+        ecrire_jsonl("LOG_ALERTE.jsonl", alerte_message)
         print("ALERTE SOLAIRE : CONSOMMATION TROP ÉLEVÉE")
 
 # Fonction appelée lorsqu'un message est reçu
@@ -101,11 +112,15 @@ def reception_message(mqttc, obj, msg):
                 mise_a_jour_donnees(temp, hum, taux, salle)
                 mise_a_jour_alertes(salle)
                 print("SALLE PRISE EN CHARGE")
-                # Sauvegarde des données dans le fichier
-                data_message = f"{salle}|{temp}|{hum}|{taux}\n"
-                fd_donnees = os.open('DONNEES_CAPTEUR.txt', os.O_WRONLY | os.O_APPEND | os.O_CREAT, 0o644)
-                os.write(fd_donnees, data_message.encode('utf-8'))
-                os.close(fd_donnees)
+                # Sauvegarde des données dans un fichier JSONL spécifique à la salle
+                fichier_salle = f"{salle}.jsonl"
+                data_message = {
+                    "temperature": temp,
+                    "humidite": hum,
+                    "co2": taux,
+                    "timestamp": datetime.now().isoformat()
+                }
+                ecrire_jsonl(fichier_salle, data_message)
             else:
                 print("SALLE NON PRISE EN CHARGE")
         # Gestion des messages pour les panneaux solaires
@@ -115,11 +130,12 @@ def reception_message(mqttc, obj, msg):
                 mise_a_jour_donnees_solaires(last_time_data)
                 mise_a_jour_alertes_solaires()
                 print(f"DONNEES SOLAIRES RECUES : {last_time_data}")
-                # Sauvegarde des données solaires dans un fichier
-                solaire_message = f"{last_time_data}|{datetime.now()}\n"
-                fd_solaire = os.open('DONNEES_SOLAIRES.txt', os.O_WRONLY | os.O_APPEND | os.O_CREAT, 0o644)
-                os.write(fd_solaire, solaire_message.encode('utf-8'))
-                os.close(fd_solaire)
+                # Sauvegarde des données solaires dans un fichier JSONL
+                solaire_message = {
+                    "lifeTimeData": last_time_data,
+                    "timestamp": datetime.now().isoformat()
+                }
+                ecrire_jsonl("DONNEES_SOLAIRES.jsonl", solaire_message)
     except KeyError as e:
         print("MESSAGE INVALIDE")
 
@@ -132,7 +148,7 @@ def handler():
     time.sleep(2)
     client_mqtt.loop_stop()
 
-print("OK java", flush=True)
+print('OK java', flush=True)
 
 while True:
     # Exécutez la fonction handler dans un thread toutes les frequence_lecture secondes
