@@ -14,7 +14,8 @@ public class PythonExecuter {
 
     public PythonExecuter(String filePath) {
         this.filePath = filePath;
-        this.state = GlobalVariables.pythonState.DISCONNECTED;
+        this.state = (this.process != null && this.process.isAlive()) ? GlobalVariables.pythonState.RUNNING
+                : GlobalVariables.pythonState.DISCONNECTED;
     }
 
     public String getFilePath() {
@@ -27,6 +28,11 @@ public class PythonExecuter {
 
     public GlobalVariables.pythonState getState() {
         return this.state;
+    }
+
+    private void updateState() {
+        this.state = (this.process != null && this.process.isAlive()) ? GlobalVariables.pythonState.RUNNING
+                : GlobalVariables.pythonState.DISCONNECTED;
     }
 
     /**
@@ -75,7 +81,6 @@ public class PythonExecuter {
                     while (!pythonWorks && (line = inputReader.readLine()) != null) {
                         if (line.equals(acknowledgementSentence)) {
                             pythonWorks = true;
-                            state = GlobalVariables.pythonState.RUNNING;
                         }
                     }
                 } catch (Exception e) {
@@ -86,8 +91,8 @@ public class PythonExecuter {
             }
         }
 
+        updateState();
         if (!pythonWorks) {
-            state = GlobalVariables.pythonState.DISCONNECTED;
             throw new Exception("Failed to start Python script.");
         }
     }
@@ -103,6 +108,6 @@ public class PythonExecuter {
                 }
             }
         }
-        state = GlobalVariables.pythonState.DISCONNECTED;
+        updateState();
     }
 }
