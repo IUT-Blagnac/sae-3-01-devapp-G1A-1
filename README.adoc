@@ -68,7 +68,7 @@ Cette section regroupe tous les documents liés à la conception, au développem
 
 |===
 | Nom du document | Description | Version |  Lien
-| Site Web "BuildMyPC" | URL pour consulter le site | V0.1.2 | http://193.54.227.164/~SOON/index.php[SOON - Lien vers le site web extérieur à l'IUT]
+| Site Web "BuildMyPC" | URL pour consulter le site | V1.0 | http://193.54.227.164/~SOON/index.php[SOON - Lien vers le site web extérieur à l'IUT]
                                                                
                                                                http://192.168.224.139/~SOON/index.php[SOON - Lien vers le site web interne à l'IUT]
 |===
@@ -81,30 +81,39 @@ Voici le lien vers le https://docs.google.com/document/d/1-Zlu1r8tdu_4MKUdvEXSIp
 
 Ces documents détaillent les aspects architecturaux et fonctionnels du projet.
 
-- **Document de Conception** : Lien vers le document de conception avec les diagrammes de use case, classe métier, et classe de conception.
-  - Lien : link:Documentation/document_conception.adoc[Document de Conception]
-- **Diagrammes UML** : Ensemble des diagrammes pour la modélisation de l’application.
-  - Lien : link:Documentation/TODO.adoc[SOON - Diagrammes UML]
+- **link:Documentation/document_conception.adoc[Document de Conception]** : Lien vers le document de conception avec les diagrammes de use case, classe métier, et classe de conception.
+- **link:Documentation/TODO.adoc[SOON - Diagrammes UML]** : Ensemble des diagrammes pour la modélisation de l’application.
 
 ==== Documentation Technique
 
 Cette section inclut les informations techniques nécessaires pour la compréhension et le développement du projet.
 
-- **Documentation Technique** : Détails de l'architecture, des technologies utilisées, des choix de conception, et des fonctionnalités principales.
-  - Lien : link:Documentation/TODO.adoc[SOON - Documentation Technique]
-- **Base de Données** : Schéma de la base de données et script de création.
-  - Lien : link:Documentation/TODO.adoc[SOON - Base de Données]
+- **link:Documentation/TODO.adoc[SOON - Documentation Technique]** : Détails de l'architecture, des technologies utilisées, des choix de conception, et des fonctionnalités principales.
+- **link:Documentation/TODO.adoc[SOON - Base de Données]** : Schéma de la base de données et script de création.
   
 ==== Documentation Utilisateur
 
 Documentation détaillant les fonctionnalités disponibles pour les utilisateurs finaux.
 
-- **Guide Utilisateur** : Instructions pour les clients du site, incluant la création de compte, la gestion du panier, le passage de commandes, et la consultation de l’historique.
-  - Lien : link:Documentation/TODO.adoc[SOON - Guide Utilisateur]
-- **Guide Administrateur et Employé** : Guide des fonctionnalités accessibles aux administrateurs et employés, telles que la gestion des produits, promotions et utilisateurs.
-  - Lien : link:Documentation/TODO.adoc[SOON - Guide Administrateur et Employé]
+- **link:Documentation/TODO.adoc[SOON - Guide Utilisateur]** : Instructions pour les clients du site, incluant la création de compte, la gestion du panier, le passage de commandes, et la consultation de l’historique.
+- **link:Documentation/TODO.adoc[SOON - Guide Administrateur et Employé]** : Guide des fonctionnalités accessibles aux administrateurs et employés, telles que la gestion des produits, promotions et utilisateurs.
+
+==== Gestion de projet & Qualité
+
+|===
+| Nom | Description        |  Lien
+| Releases | Version actuelle du site | https://github.com/IUT-Blagnac/sae-3-01-devapp-G1A-1/releases/tag/V1.0[v1.0]
+| Suivi des User Stories | Les User Stories sont disponibles et suivies dans le Project Board GitHub | https://github.com/IUT-Blagnac/sae-3-01-devapp-G1A-1/projects?query=is%3Aopen[Project Board]
+| Tests et Qualité |Les tests unitaires et les indicateurs de qualité (dette technique) sont accessibles ici | link:Documentation/tests/document_test_web.adoc[Cahier des tests]
+                                                                                                              
+                                                                                                                link:tests/TODO.adoc[SOON - résultat des tests de qualité]  
+|===
 
 === Solution IOT/Java
+
+==== Backlog de l'application
+
+Voici le lien vers le https://docs.google.com/document/d/1JXWsYDaT89UOSjPgRJJcoX_hJl9s8yGz245gTCCFsdI/edit?usp=sharing[Backlog Produit Application]
 
 ==== Documentation
 
@@ -116,24 +125,16 @@ Documentation détaillant les fonctionnalités disponibles pour les utilisateurs
 | Documentation des TESTS | Documentation détaillant les différents tests réalisés pour vérifier son bon fonctionnement | link:Documentation/TODO.adoc[SOON - Lien vers le dossier des tests]
 |===
 
-== Gestion de projet & Qualité
+==== Gestion de projet & Qualité
 
-=== Releases
-
-- Version actuelle : https://github.com/IUT-Blagnac/sae3-01-template/releases/tag/v0.1.2[v0.1.2 - SOON V1]
-
-=== Suivi des User Stories
-
-Les User Stories sont disponibles et suivies dans le Project Board GitHub :
-https://github.com/IUT-Blagnac/sae-3-01-devapp-G1A-1/projects?query=is%3Aopen[Project Board]
-
-=== Tests et Qualité
-
-Les tests unitaires et les indicateurs de qualité (dette technique) sont accessibles ici :
-
-- Plan de test : link:tests/document_test_web.adoc[Disponible ici]
-
-- Indicateurs de qualité : link:tests/TODO.adoc[SOON - résultat des tests et couverture de code via GitHub Actions]
+|===
+| Nom | Description        |  Lien
+| Releases | Version actuelle de l'application | https://github.com/IUT-Blagnac/sae-3-01-devapp-G1A-1/releases/tag/V1.0[v1.0]
+| Suivi des User Stories | Les User Stories sont disponibles et suivies dans le Project Board GitHub | https://github.com/IUT-Blagnac/sae-3-01-devapp-G1A-1/projects?query=is%3Aopen[SOON - Project Board]
+| Tests et Qualité |Les tests unitaires et les indicateurs de qualité (dette technique) sont accessibles ici | link:Documentation/tests/document_test_web.adoc[SOON - Cahier des tests]
+                                                                                                              
+                                                                                                                link:tests/TODO.adoc[SOON - résultat des tests de qualité]  
+|===
 
 == Travail d'équipe
 
@@ -144,9 +145,12 @@ Les tests unitaires et les indicateurs de qualité (dette technique) sont access
 | Semaine 45  | https://github.com/IUT-Blagnac/sae-3-01-devapp-G1A-1/blob/master/Communication/Ordre%20du%20jour%20reunion%20du%2008-11-2024.pdf[Lien vers l'ODJ]
               
                 https://github.com/IUT-Blagnac/sae-3-01-devapp-G1A-1/blob/master/Communication/Compte%20rendu%20de%20r%C3%A9union%20du%2008-11-2024.pdf[Lien vers le CR]
-| Semaine 47  | https://github.com/IUT-Blagnac/sae-3-01-devapp-G1A-1/blob/master/Communication/Ordre%20du%20jour%20reunion%20du%2019-11-2024.pdf[Lien vers le CR]
+| Semaine 47  | https://github.com/IUT-Blagnac/sae-3-01-devapp-G1A-1/blob/master/Communication/Ordre%20du%20jour%20reunion%20du%2019-11-2024.pdf[Lien vers l'ODJ]
 
                 https://github.com/IUT-Blagnac/sae-3-01-devapp-G1A-1/blob/master/Communication/Compte%20rendu%20de%20r%C3%A9union%20du%2019-11-2024.pdf[Lien vers le CR]
+| Semaine 48  | https://github.com/IUT-Blagnac/sae-3-01-devapp-G1A-1/blob/master/Communication/Ordre%20du%20jour%20reunion%20du%2025-11-2024.pdf[Lien vers l'ODJ]
+
+                https://github.com/IUT-Blagnac/sae-3-01-devapp-G1A-1/blob/master/Communication/Compte%20rendu%20de%20r%C3%A9union%20du%2025-11-2024.pdf[Lien vers le CR]
 |===
 
 === Registre de télétravail
@@ -160,6 +164,9 @@ Les tests unitaires et les indicateurs de qualité (dette technique) sont access
   * [ ] Romain Grasseau--Picoreau, Hugo Thollon, Titouan Gauze
 
 - **Jeudi 20 novembre**
+  * [x] Hugo Thollon, Pablo Marquet, Kilian Demangel, Titouan Gauze, Romain Grasseau--Picoreau
+
+- **A venir Jeudi 28 novembre**
   * [x] Hugo Thollon, Pablo Marquet, Kilian Demangel, Titouan Gauze, Romain Grasseau--Picoreau
 
 == Évaluations bi-hedomadaire
