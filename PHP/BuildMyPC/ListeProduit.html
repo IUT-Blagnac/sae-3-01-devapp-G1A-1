@@ -407,12 +407,24 @@
       <!-- /////////////////////////////////
        /////////// Btn sorting /////////////
        ///////////////////////////////// -->
+      <div class="selection small button">
+        <label class="selection title small button" for="toggle-list-small">
+          Affiner <span class="arrow">&#11206;</span>
+        </label>
+        <input
+          class="selection title small button"
+          type="checkbox"
+          name="toggle-list-small"
+          id="toggle-list-small"
+        />
+      </div>
       <div class="sorting">
         <!-- We will be using SQL to sort the list -->
         <form
           class="sorting"
           action="ListeProduit.html"
           name="sortingForm"
+          id="sortingForm"
           method="GET"
         >
           <!-- TODO, change method to POST when php is implemented -->
@@ -441,6 +453,212 @@
             </option>
             <option class="sorting" value="best notes">Meilleures Notes</option>
           </select>
+        </form>
+      </div>
+      <div class="selection small">
+        <form action="#" class="selection small">
+          <ul class="selection small parent">
+            <!-- Première catégorie de tri -->
+            <li class="selection small title">
+              <label class="selection small title" for="toggle-list-small1">
+                Catégorie
+              </label>
+              <input
+                class="selection small title"
+                type="checkbox"
+                name="toggle-list-small1"
+                id="toggle-list-small1"
+                checked
+              />
+            </li>
+            <li class="selection small content">
+              <ul class="selection small">
+                <li class="selection small">
+                  <label class="selection small" for="categ-small1">
+                    PC Gaming
+                    <input
+                      name="categ-small1"
+                      id="categ-small1"
+                      class="selection small"
+                      type="checkbox"
+                    />
+                  </label>
+                </li>
+                <li class="selection small">
+                  <label class="selection small" for="categ-small2">
+                    PC Bureautique
+                    <input
+                      name="categ-small2"
+                      id="categ-small2"
+                      class="selection small"
+                      type="checkbox"
+                    />
+                  </label>
+                </li>
+                <li class="selection small">
+                  <label class="selection small" for="categ-small3">
+                    Carte Graphique
+                    <input
+                      name="categ-small3"
+                      id="categ-small3"
+                      class="selection small"
+                      type="checkbox"
+                    />
+                  </label>
+                </li>
+                <li class="selection small">
+                  <label class="selection small" for="categ-small4">
+                    Processeur
+                    <input
+                      name="categ-small4"
+                      id="categ-small4"
+                      class="selection small"
+                      type="checkbox"
+                    />
+                  </label>
+                </li>
+              </ul>
+            </li>
+            <!-- Seconde catégorie de tri -->
+            <li class="selection small title">
+              <label class="selection small title" for="toggle-list-small2">
+                Marque
+              </label>
+              <input
+                class="selection small title"
+                type="checkbox"
+                name="toggle-list-small2"
+                id="toggle-list-small2"
+                checked
+              />
+            </li>
+            <li class="selection small content">
+              <ul class="selection small">
+                <li class="selection small">
+                  <label class="selection small" for="marque-small1">
+                    Asus
+                    <input
+                      name="marque-small1"
+                      id="marque-small1"
+                      class="selection small"
+                      type="checkbox"
+                    />
+                  </label>
+                </li>
+                <li class="selection small">
+                  <label class="selection small" for="marque-small2">
+                    MSI
+                    <input
+                      name="marque-small2"
+                      id="marque-small2"
+                      class="selection small"
+                      type="checkbox"
+                    />
+                  </label>
+                </li>
+                <li class="selection small">
+                  <label class="selection small" for="marque-small3">
+                    Lenovo
+                    <input
+                      name="marque-small3"
+                      id="marque-small3"
+                      class="selection small"
+                      type="checkbox"
+                    />
+                  </label>
+                </li>
+                <li class="selection small">
+                  <label class="selection small" for="marque-small4">
+                    HP
+                    <input
+                      name="marque-small4"
+                      id="marque-small4"
+                      class="selection small"
+                      type="checkbox"
+                    />
+                  </label>
+                </li>
+                <li class="selection small">
+                  <label class="selection small" for="marque-small5">
+                    AMD
+                    <input
+                      name="marque-small5"
+                      id="marque-small5"
+                      class="selection small"
+                      type="checkbox"
+                    />
+                  </label>
+                </li>
+                <li class="selection small">
+                  <label class="selection small" for="marque-small6">
+                    NVIDIA
+                    <input
+                      name="marque-small6"
+                      id="marque-small6"
+                      class="selection small"
+                      type="checkbox"
+                    />
+                  </label>
+                </li>
+              </ul>
+            </li>
+            <!-- Troisième catégorie de tri -->
+            <li class="selection small title">
+              <label class="selection small title" for="toggle-list-small3">
+                Prix
+              </label>
+              <input
+                class="selection small title"
+                type="checkbox"
+                name="toggle-list-small3"
+                id="toggle-list-small3"
+                checked
+              />
+            </li>
+            <li class="selection small content">
+              <ul class="selection small">
+                <li class="selection small">
+                  <label class="selection small" for="minimum-small">
+                    Minimum :
+                  </label>
+                  <input
+                    name="minimum-small"
+                    id="minimum-small"
+                    class="selection small"
+                    type="number"
+                    min="0"
+                    placeholder="0"
+                  />
+                  <span class="selection small price">€</span>
+                </li>
+                <li class="selection small">
+                  <label class="selection small" for="maximum-small">
+                    Maximum :
+                  </label>
+                  <input
+                    name="maximum-small"
+                    id="maximum-small"
+                    class="selection small"
+                    type="number"
+                    min="0"
+                    placeholder="10000"
+                  />
+                  <span class="selection small price">€</span>
+                </li>
+              </ul>
+            </li>
+            <!-- Quatrième catégorie de tri -->
+            <!-- Boutton submit -->
+            <li class="selection small">
+              <button
+                type="submit"
+                id="submitButton"
+                class="selection small affiner"
+              >
+                Affiner la recherche
+              </button>
+            </li>
+          </ul>
         </form>
       </div>
       <!-- /////////////////////////////////
@@ -841,6 +1059,10 @@
       });
     </script>
     <script>
+      /* -----------------------------------------------------
+      Script qui permet de réduire les catégories de séléction
+      pour le bloc .selection.
+      ----------------------------------------------------- */
       document.addEventListener("DOMContentLoaded", () => {
         // On récupère toutes les checkbox de titre
         const checkboxes = document.querySelectorAll(
@@ -872,6 +1094,112 @@
             });
           }
         });
+      });
+    </script>
+    <script>
+      /* ---------------------------------------------------------------------
+      Script qui affiche le bloc .selection.small lorsque la checkbox "Affiner" 
+      de .selection.small.button est cochée 
+      --------------------------------------------------------------------- */
+      document.addEventListener("DOMContentLoaded", () => {
+        // On va chercher la checkbox qui agit comme une sorte de bouton
+        const smallButtonCheckbox = document.querySelector(
+          'input[type="checkbox"].selection.title.small.button'
+        );
+        // On va chercher le div.selection.small qui contient tout le bloc de selection
+        const smallDivSelection = document.querySelectorAll(
+          "div.selection.small:not(div.selection.small.button)"
+        );
+        if (smallButtonCheckbox && smallDivSelection) {
+          // Ajout d'un event listener à la checkbox
+          smallButtonCheckbox.addEventListener("change", () => {
+            // il ne devrait y avoir qu'un élément mais on fait une boucle dans le doute
+            smallDivSelection.forEach((element) => {
+              element.style.display = smallButtonCheckbox.checked
+                ? "block"
+                : "none";
+            });
+          });
+          // On applique un état initial au div en fonction de la checkbox
+          smallDivSelection.forEach((element) => {
+            element.style.display = smallButtonCheckbox.checked
+              ? "block"
+              : "none";
+          });
+        }
+      });
+    </script>
+    <script>
+      /* -----------------------------------------------------
+      Script qui permet de réduire les catégories de séléction
+      pour le bloc .selection.small.
+      ----------------------------------------------------- */
+      document.addEventListener("DOMContentLoaded", () => {
+        // On récupère toutes les checkbox de titre
+        const checkboxes = document.querySelectorAll(
+          'input[type="checkbox"].selection.title.small:not(input[type="checkbox"].selection.title.small.button)'
+        );
+
+        // On itère à travers les checkbox pour placer des listener
+        checkboxes.forEach((checkbox) => {
+          // On va chercher notre parent et prendre l'élement suivant càd li.select.small.content
+          const contentItem = checkbox.closest(
+            "li.selection.small.title"
+          ).nextElementSibling;
+          // On vérifie qu'on a pris le bon élément en regardant ses classes
+          if (
+            contentItem &&
+            contentItem.classList.contains("selection") &&
+            contentItem.classList.contains("content") &&
+            contentItem.classList.contains("small")
+          ) {
+            // On va prendre l'élément ul.selection.small (qui est dans li.select.small.content)
+            // et on va lui mettre une visibilité par défaut
+            const contentUl = contentItem.querySelector("ul.selection.small");
+            if (contentUl) contentUl.style.display = "block";
+            // On ajoute le listener qui va changer sa visibilité
+            checkbox.addEventListener("change", () => {
+              if (checkbox.checked) {
+                contentUl.style.display = "block";
+              } else {
+                contentUl.style.display = "none";
+              }
+            });
+          }
+        });
+      });
+    </script>
+    <script>
+      /* -----------------------------------------------------
+      Script qui permet de uncheck la checkbox .selection.title.small.button
+      quand la taille de l'écran est > 950px. Permet d'éviter que
+      les éléments .selection.small restent visibles alors qu'ils sont
+      sensé être remplacé par leur version .selection normale.
+      ----------------------------------------------------- */
+      document.addEventListener("DOMContentLoaded", () => {
+        const smallButtonCheckbox = document.querySelector(
+          'input[type="checkbox"].selection.title.small.button'
+        );
+
+        if (smallButtonCheckbox) {
+          const handleResize = () => {
+            if (window.innerWidth > 950) {
+              smallButtonCheckbox.checked = false;
+              const smallDivSelectionElements = document.querySelectorAll(
+                "div.selection.small:not(div.selection.small.button)"
+              );
+              // On s'assure que le container principal soit bien caché
+              smallDivSelectionElements.forEach((element) => {
+                element.style.display = "none";
+              });
+            }
+          };
+          // On ajoute l'event listener
+          window.addEventListener("resize", handleResize);
+
+          // On lance le handle resize une fois pour prendre en compte la taille initiale de l'écran
+          handleResize();
+        }
       });
     </script>
   </body>
