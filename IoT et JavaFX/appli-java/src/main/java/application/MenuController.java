@@ -12,6 +12,7 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
+import tools.GlobalVariables;
 
 public class MenuController implements Initializable {
 
@@ -65,13 +66,12 @@ public class MenuController implements Initializable {
 	@FXML
 	private Button btnQuit;
 
-
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 	}
 
 	@FXML
-	private void doTest() { // Bouton qui mène à la page de test 
+	private void doTest() { // Bouton qui mène à la page de test
 	}
 
 	@FXML
@@ -106,7 +106,7 @@ public class MenuController implements Initializable {
 	private void doQuit() { // Gestion de la fermeture de la fenêtre
 		if (AlertUtilities.confirmYesCancel(this.primaryStage, "Quitter Appli Principale",
 				"Etes vous sur de vouloir quitter l'appli ?", null, AlertType.CONFIRMATION)) {
-
+			GlobalVariables.mqttPython.stopPython();
 			this.primaryStage.close();
 			System.exit(0);
 		}

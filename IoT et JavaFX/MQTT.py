@@ -35,7 +35,7 @@ frequence_lecture = configuration['lecture']['frequence']
 
 # Connexion au serveur MQTT
 client_mqtt = mqtt.Client()
-client_mqtt.connect("chirpstack.iut-blagnac.fr", 1883)
+client_mqtt.connect("mqtt.iut-blagnac.fr", 1883)
 client_mqtt.subscribe(chemin_salle_mqtt)
 client_mqtt.subscribe(chemin_solaire_mqtt)  # Souscription au topic des panneaux solaires
 
@@ -131,6 +131,8 @@ def handler():
     client_mqtt.loop_start()
     time.sleep(2)
     client_mqtt.loop_stop()
+
+print("OK java", flush=True)
 
 while True:
     # Exécutez la fonction handler dans un thread toutes les frequence_lecture secondes

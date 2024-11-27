@@ -4,22 +4,17 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
 public class PythonExecuter {
+    // Note : to execute the MQTT python file, please use the PythonExecuter object
+    // in GlobalVariables and don't create a new one
 
-    private static PythonExecuter instance;
     private final int NBTRIES = 3;
     private String filePath;
+    private GlobalVariables.pythonState state;
     private Process process;
 
-    private PythonExecuter(String filePath) {
-        // TODO pour les tests, utiliser "../HelloWorldPrinter2.py" ou "../MQTT.py"
+    public PythonExecuter(String filePath) {
         this.filePath = filePath;
-    }
-
-    public static PythonExecuter getInstance() {
-        if (instance == null) {
-            instance = new PythonExecuter(GlobalVariables.pythonFilePath);
-        }
-        return instance;
+        this.state = GlobalVariables.pythonState.DISCONNECTED;
     }
 
     public String getFilePath() {
@@ -30,55 +25,70 @@ public class PythonExecuter {
         this.filePath = filePath;
     }
 
+    public GlobalVariables.pythonState getState() {
+        return this.state;
+    }
+
     /**
-     * Creates a thread and execute the python code of the filePath.
-     * If a python code was already running in the process it will be destroyed.
+     * Executes the python code of the of the python file in filePath.
+     * If the python code was already running in the process, it will be destroyed.
+     * Sets a default acknowledgementSentence as "OK java".
      * 
-     * @throws Exception error messages of all previous caught errors in the code.
-     * 
-     *                   TODO finish the method by adding the thread
+     * @throws Exception when the python script failed to launch.
      */
     public void startPython() throws Exception {
-        synchronized (this.process) {
-            if (this.process != null && this.process.isAlive()) {
-                this.process.destroy();
-            }
-        }
+        startPython("OK java");
+    }
+
+    /**
+     * Executes the python code of the of the python file in filePath.
+     * If the python code was already running in the process, it will be destroyed.
+     *
+     * @param acknowledgementSentence a sentence that signals that the python code
+     *                                is running correctly and that the startPython
+     *                                function can move on and let the python code
+     *                                run without supervision
+     * 
+     * @throws Exception when the python script failed to launch.
+     */
+    public void startPython(String acknowledgementSentence) throws Exception {
+        stopPython();
+
         boolean pythonWorks = false;
         int attempts = 0;
-        String exceptionList = "";
+        state = GlobalVariables.pythonState.PENDING;
 
-        // on essaie de lancer le programme 3 fois
-        while (!pythonWorks && attempts < this.NBTRIES) {
+        while (!pythonWorks && attempts < NBTRIES) {
             attempts++;
             try {
-                ProcessBuilder processBuilder = new ProcessBuilder();
-                processBuilder.command("python", this.filePath);
-                this.process = processBuilder.start();
+                this.state = GlobalVariables.pythonState.PENDING;
 
-                // Lecture des erreurs dans le script
-                BufferedReader errorReader = new BufferedReader(new InputStreamReader(this.process.getErrorStream()));
-                // le try/catch ne s'occupe pas des erreurs envoyées par le code python,
-                // seulement de celles des classes java quand elles essaient d'appeler le
-                // python. Il faut donc lire nous meme les erreurs et générer une exception
-                // quand il y en a une dans le code python.
-                String error = "";
-                String line = errorReader.readLine();
-                while (line != null) {
-                    error += line + "\n";
-                    line = errorReader.readLine();
+                ProcessBuilder processBuilder = new ProcessBuilder("python", filePath);
+                // Redirect error stream to input stream
+                processBuilder.redirectErrorStream(true);
+                process = processBuilder.start();
+
+                // Read
+                try (BufferedReader inputReader = new BufferedReader(
+                        new InputStreamReader(process.getInputStream()))) {
+                    String line;
+                    while (!pythonWorks && (line = inputReader.readLine()) != null) {
+                        if (line.equals(acknowledgementSentence)) {
+                            pythonWorks = true;
+                            state = GlobalVariables.pythonState.RUNNING;
+                        }
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
-                if (!error.isEmpty()) {
-                    throw new Exception(error);
-                }
-                pythonWorks = true;
             } catch (Exception e) {
-                exceptionList += e.getMessage() + "\n";
                 e.printStackTrace();
             }
         }
-        if (!pythonWorks && attempts >= this.NBTRIES) {
-            throw new Exception("Erreur lors du lancement du programme :\n" + exceptionList);
+
+        if (!pythonWorks) {
+            state = GlobalVariables.pythonState.DISCONNECTED;
+            throw new Exception("Failed to start Python script.");
         }
     }
 
@@ -86,10 +96,13 @@ public class PythonExecuter {
      * Kills the python process
      */
     public void stopPython() {
-        synchronized (this.process) {
-            if (this.process != null && this.process.isAlive()) {
-                this.process.destroy();
+        if (process != null) {
+            synchronized (process) {
+                if (process.isAlive()) {
+                    process.destroy();
+                }
             }
         }
+        state = GlobalVariables.pythonState.DISCONNECTED;
     }
 }
