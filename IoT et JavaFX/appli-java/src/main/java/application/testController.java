@@ -41,7 +41,8 @@ public class testController implements Initializable {
     private void configure() {
         // On laisse la possibilité de fermer la fenêtre en cliquant sur la croix
         this.primaryStage.setOnCloseRequest(e -> {
-            // Optionnel : Si tu veux afficher une confirmation de fermeture, tu peux la gérer ici.
+            // Optionnel : Si tu veux afficher une confirmation de fermeture, tu peux la
+            // gérer ici.
         });
     }
 
@@ -72,28 +73,28 @@ public class testController implements Initializable {
     private boolean testPythonConnection() {
         try {
             // Commande pour exécuter le script Python
-            ProcessBuilder pb = new ProcessBuilder("python", getClass().getResource("/TestConnexion.py").getPath());
+            ProcessBuilder pb = new ProcessBuilder("python", "IoT et JavaFX/appli-java/src/main/resources/TestConnexion.py");
             Process process = pb.start();
-            
+
             // Lire la sortie standard du script Python
             BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
             String result = "";
             String line;
             while ((line = reader.readLine()) != null) {
-                result += line + "\n";  // Capture toute la sortie standard
-                System.out.println("Output from Python: " + line);  // Affiche la sortie
+                result += line + "\n"; // Capture toute la sortie standard
+                System.out.println("Output from Python: " + line); // Affiche la sortie
             }
-            
+
             // Lire la sortie d'erreur (au cas où Python génère des erreurs)
             BufferedReader errorReader = new BufferedReader(new InputStreamReader(process.getErrorStream()));
             while ((line = errorReader.readLine()) != null) {
-                System.err.println("Error from Python: " + line);  // Affiche les erreurs
+                System.err.println("Error from Python: " + line); // Affiche les erreurs
             }
-            
+
             // Attendre la fin du processus Python
             int exitCode = process.waitFor();
-            System.out.println("Python script exit code: " + exitCode);  // Affiche le code de sortie
-            
+            System.out.println("Python script exit code: " + exitCode); // Affiche le code de sortie
+
             // Vérifie la sortie de Python et renvoie true ou false
             return "OK".equals(result.trim()); // "OK" attendu si connexion réussie
         } catch (Exception e) {
@@ -101,23 +102,21 @@ public class testController implements Initializable {
             return false; // Erreur dans le script ou problème
         }
     }
-    
-    
 
     private void showResult(boolean isConnected) {
         System.out.println("Affichage du résultat de connexion : " + (isConnected ? "Réussi" : "Échoué"));
-        
+
         // Mise à jour de l'interface graphique sur le thread principal
         Platform.runLater(() -> {
             spinner.setVisible(false); // Cache le spinner
             resultIcon.setVisible(true); // Affiche l'icône
-    
+
             if (isConnected) {
-                resultIcon.setImage(new Image(getClass().getResource("/check.png").toExternalForm()));
+                resultIcon.setImage(new Image(getClass().getResource("../check.png").toExternalForm()));
             } else {
-                resultIcon.setImage(new Image(getClass().getResource("/cross.png").toExternalForm()));
+                resultIcon.setImage(new Image(getClass().getResource("../cross.png").toExternalForm()));
             }
-    
+
             // Fermer la fenêtre après 5 secondes
             new Thread(() -> {
                 try {
@@ -129,7 +128,6 @@ public class testController implements Initializable {
             }).start();
         });
     }
-    
 
     @FXML
     private void closeWindow() {
