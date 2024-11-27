@@ -1,3 +1,7 @@
+--/////////////////////////////////////////////////////////////////////////////////////--
+--                                   insert marque                     
+--/////////////////////////////////////////////////////////////////////////////////////--
+
 INSERT INTO Marque(idMarque, nomMarque) VALUES (seq_id_Marque.NEXTVAL, MSI);        -- Watercooling, Carte Mère, Boitier PC, Carte graphique, PC portable 
 INSERT INTO Marque(idMarque, nomMarque) VALUES (seq_id_Marque.NEXTVAL, Acer);       -- Carte graphique, PC portable
 INSERT INTO Marque(idMarque, nomMarque) VALUES (seq_id_Marque.NEXTVAL, Corsair);    -- Mémoire, Ventilateur boitier, Boitier PC
