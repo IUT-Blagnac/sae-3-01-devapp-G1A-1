@@ -65,8 +65,7 @@ input[type="checkbox"].selection {
 }
 
 input[type="number"].selection {
-  width: 80%;
-  font-size: 1rem;
+  width: auto;
 }
 
 span.selection.price {
@@ -83,6 +82,10 @@ li.selection.title {
 li.selection.content {
   padding-top: 0;
   padding-bottom: 0;
+}
+
+li.selection:not(li.selection.content) {
+  width: 100%;
 }
 
 ul.selection ul.parent {
@@ -108,35 +111,79 @@ input[type="checkbox"].selection.title {
   display: none;
 }
 
+/* Selection small part */
+
+input[type="number"].selection.small {
+  font-size: 1rem;
+}
+
+div.selection.small.button {
+  display: none;
+  float: left;
+  width: fit-content;
+  margin-left: 4%;
+  padding-left: 1.5em;
+  padding-right: 1.3em;
+  padding-top: 0.65em;
+  padding-bottom: 0.6em;
+  border-radius: 5px;
+}
+
+input[type="checkbox"].selection.title.small.button {
+  display: none;
+}
+
+span.arrow {
+  font-size: 0.67rem;
+  margin-top: -3px;
+  margin-left: 0.7rem;
+}
+
+div.selection.small {
+  display: none;
+  width: 100%;
+}
+
+li.selection.small.title {
+  font-size: 125%;
+}
+
+li.selection.small.content {
+  font-size: 1.2rem;
+  display: inline-block;
+}
+
+li.selection.small.content ul.selection.small {
+  width: 100%;
+}
+
 /* Product part */
 /* Sorting button */
 div.sorting {
+  display: inline;
   float: right;
   margin-right: 1%;
   margin-bottom: 1%;
 }
 
 select.sorting {
-  /* styling */
-  background-color: white;
-  border: thin solid blue;
+  color: white;
+  background-color: #282828;
+  border: thin solid #282828;
   border-radius: 4px;
   display: inline-block;
   font: inherit;
-  line-height: 1.5em;
-  padding: 0.5em 3.5em 0.5em 1em;
-
-  /* reset */
-
+  font-size: 1rem;
+  line-height: 1.3em;
+  padding: 0.5em 3em 0.5em 1em;
   margin: 0;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-
-  background-image: linear-gradient(45deg, transparent 50%, gray 50%),
-    linear-gradient(135deg, gray 50%, transparent 50%),
+  appearance: none;
+  /* image = fleche */
+  background-image: linear-gradient(45deg, transparent 50%, white 50%),
+    linear-gradient(135deg, white 50%, transparent 50%),
     linear-gradient(to right, #ccc, #ccc);
   background-position: calc(100% - 20px) calc(1em + 2px),
     calc(100% - 15px) calc(1em + 2px), calc(100% - 2.5em) 0.5em;
@@ -145,18 +192,15 @@ select.sorting {
 }
 
 select.sorting:focus {
-  background-image: linear-gradient(45deg, green 50%, transparent 50%),
-    linear-gradient(135deg, transparent 50%, green 50%),
+  background-color: #282828;
+  background-image: linear-gradient(45deg, white 50%, transparent 50%),
+    linear-gradient(135deg, transparent 50%, white 50%),
     linear-gradient(to right, #ccc, #ccc);
   background-position: calc(100% - 15px) 1em, calc(100% - 20px) 1em,
     calc(100% - 2.5em) 0.5em;
   background-size: 5px 5px, 5px 5px, 1px 1.5em;
   background-repeat: no-repeat;
-  border-color: green;
   outline: 0;
-}
-
-option.sorting {
 }
 
 /* Grid */
@@ -320,9 +364,18 @@ button.selection.affiner:hover {
 }
 
 @media screen and (max-width: 950px) {
-  /* A 950px, la selection disparait */
-  .selection {
+  /* A 950px, la selection disparait et le bouton "affiner" apparait */
+  div.selection:not(div.selection.small) {
     display: none;
+  }
+
+  div.selection.small.button {
+    display: inline-block;
+  }
+
+  button.selection.affiner {
+    font-size: 1.4rem;
+    width: 50%;
   }
 
   .grid-container {
@@ -332,6 +385,10 @@ button.selection.affiner:hover {
 
   div.sorting {
     margin-right: 2%;
+  }
+
+  option.sorting {
+    font-size: 0.9rem;
   }
 }
 
@@ -343,5 +400,26 @@ button.selection.affiner:hover {
 
   div.sorting {
     margin-right: 3%;
+  }
+
+  select.sorting {
+    padding-right: 1em;
+  }
+}
+
+@media screen and (max-width: 330px) {
+  div.selection.small {
+    margin-left: 3%;
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-top: 0.65em;
+    padding-bottom: 0.6em;
+    border-radius: 5px;
+  }
+
+  span.arrow {
+    font-size: 0.67rem;
+    margin-top: -3px;
+    margin-left: 0.7rem;
   }
 }

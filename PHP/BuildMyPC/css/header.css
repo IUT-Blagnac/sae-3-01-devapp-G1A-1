@@ -219,7 +219,7 @@ header {
   position: sticky;
   left: 1000px;
   font-family: var(--font-fam);
-  font-size: smaller;
+  font-size: 0.95rem;
 }
 
 #overlay,
