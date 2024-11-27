@@ -1,157 +1,463 @@
-DROP TABLE IF EXISTS Avis;
-DROP TABLE IF EXISTS ARegarde;
-DROP TABLE IF EXISTS ACommande;
-DROP TABLE IF EXISTS Commande;
-DROP TABLE IF EXISTS MethodeEnregistrer;
-DROP TABLE IF EXISTS Client;
-DROP TABLE IF EXISTS Comporte;
-DROP TABLE IF EXISTS Image;
-DROP TABLE IF EXISTS Produit;
-DROP TABLE IF EXISTS MethodePaiement;
-DROP TABLE IF EXISTS Categorie;
-DROP TABLE IF EXISTS Employe;
+DROP DATABASE IF EXISTS MLR6;
 
-CREATE TABLE Employe (
-    idNumEmployer INT(5),
-    nom VARCHAR(25),
-    prenom VARCHAR(15),
-    adressePostale VARCHAR(50),
-    email VARCHAR(20),
-    telephone CHAR(10),
-    administrateur TINYINT(1),
-    CONSTRAINT pk_Employe PRIMARY KEY (idNumEmployer)
-);
+CREATE DATABASE IF NOT EXISTS MLR6;
+USE MLR6;
+# -----------------------------------------------------------------------------
+#       TABLE : CARTE_AE
+# -----------------------------------------------------------------------------
 
-CREATE TABLE Categorie (
-    idCategorie INT(3),
-    nomTypeCategorie VARCHAR(30),
-    idCategoriePere INT(3),
-    CONSTRAINT pk_Categorie PRIMARY KEY (idCategorie),
-    CONSTRAINT fk_Categorie_Categorie FOREIGN KEY (idCategoriePere) REFERENCES Categorie(idCategorie)
-);
+CREATE TABLE IF NOT EXISTS CARTE_AE
+ (
+   IDCARTE CHAR(32) NOT NULL  ,
+   NUMCARTE CHAR(32) NULL  ,
+   DATEEXP CHAR(32) NULL  ,
+   NOMPROP CHAR(32) NULL  
+   , PRIMARY KEY (IDCARTE) 
+ ) 
 
-CREATE TABLE MethodePaiement (
-    idMethodePaiement INT(6),
-    nomMethodePaiement VARCHAR(20),
-    CONSTRAINT pk_MethodePaiement PRIMARY KEY (idMethodePaiement),
-    CONSTRAINT ck_MethodePaiement CHECK (nomMethodePaiement IN ('Paypal', 'Visa', 'Mastercard', 'Carte_AE'))
-);
+# -----------------------------------------------------------------------------
+#       TABLE : PAYPAL
+# -----------------------------------------------------------------------------
 
-CREATE TABLE Paypal (
-    idcarte INT(6),
-    email VARCHAR(50),
-    MDP VARCHAR(25),
-    CONSTRAINT pk_Paypal PRIMARY KEY (idcarte)
-);
+CREATE TABLE IF NOT EXISTS PAYPAL
+ (
+   IDCARTE CHAR(32) NOT NULL  ,
+   EMAIL CHAR(32) NULL  ,
+   MDP CHAR(32) NULL  
+   , PRIMARY KEY (IDCARTE) 
+ ) 
 
-CREATE TABLE Carte_EU (
-    idcarte INT(6),
-    numCarte BIGINT(16),
-    dateExp INT(4),
-    nomProp VARCHAR(50),
-    CONSTRAINT pk_Carte_EU PRIMARY KEY (idcarte)
-);
+# -----------------------------------------------------------------------------
+#       TABLE : PROMOTION
+# -----------------------------------------------------------------------------
 
-CREATE TABLE Carte_AE (
-    idcarte INT(6),
-    numCarte BIGINT(15),
-    dateExp INT(4),
-    nomProp VARCHAR(50),
-    CONSTRAINT pk_Carte_AE PRIMARY KEY (idcarte)
-    /* Note: MySQL cannot enforce pattern matching in CHECK constraints directly. */
-);
+CREATE TABLE IF NOT EXISTS PROMOTION
+ (
+   IDPROMOTION CHAR(32) NOT NULL  ,
+   PROMO CHAR(32) NULL  
+   , PRIMARY KEY (IDPROMOTION) 
+ ) 
 
-CREATE TABLE Produit (
-    idNumProduit INT(6),
-    idTypeCategorie INT(3),
-    nomProduit VARCHAR(50),
-    prixActuel INT(5),
-    CONSTRAINT pk_Produit PRIMARY KEY (idNumProduit),
-    CONSTRAINT fk_Produit_Categorie FOREIGN KEY (idTypeCategorie) REFERENCES Categorie(idCategorie)
-);
+# -----------------------------------------------------------------------------
+#       TABLE : EMPLOYE
+# -----------------------------------------------------------------------------
 
-CREATE TABLE Image (
-    idNumProduit INT(6),
-    idImage INT(6),
-    urlImage VARCHAR(100),
-    CONSTRAINT pk_Image PRIMARY KEY (idImage),
-    CONSTRAINT fk_Image_Produit FOREIGN KEY (idNumProduit) REFERENCES Produit(idNumProduit)
-);
+CREATE TABLE IF NOT EXISTS EMPLOYE
+ (
+   IDNUMEMPLOYE CHAR(32) NOT NULL  ,
+   IDADRESSE CHAR(32) NOT NULL  ,
+   NOM CHAR(32) NULL  ,
+   PRENOM CHAR(32) NULL  ,
+   EMAIL CHAR(32) NULL  ,
+   TELEPHONE CHAR(32) NULL  ,
+   ADMINISTRATEUR CHAR(32) NULL  
+   , PRIMARY KEY (IDNUMEMPLOYE) 
+ ) 
 
-CREATE TABLE Comporte (
-    idNumProduit1 INT(6),
-    idNumProduit2 INT(6),
-    CONSTRAINT pk_Comporte PRIMARY KEY (idNumProduit1, idNumProduit2),
-    CONSTRAINT fk_Comporte_Produit1 FOREIGN KEY (idNumProduit1) REFERENCES Produit(idNumProduit),
-    CONSTRAINT fk_Comporte_Produit2 FOREIGN KEY (idNumProduit2) REFERENCES Produit(idNumProduit)
-);
+# -----------------------------------------------------------------------------
+#       INDEX DE LA TABLE EMPLOYE
+# -----------------------------------------------------------------------------
 
-CREATE TABLE Client (
-    idNumCli INT(5),
-    nom VARCHAR(25),
-    prenom VARCHAR(15),
-    adressePostale VARCHAR(50),
-    email VARCHAR(20),
-    telephone CHAR(10),
-    CONSTRAINT pk_Client PRIMARY KEY (idNumCli)
-);
 
-CREATE TABLE infoPaiement (
-    idNumCli INT(5),
-    idcarte INT(6),
-    idMethodePaiement INT(6),
-    CONSTRAINT pk_infoPaiement PRIMARY KEY (idNumCli, idcarte, idMethodePaiement),
-    CONSTRAINT fk_infoPaiement_Client FOREIGN KEY (idNumCli) REFERENCES Client(idNumCli),
-    CONSTRAINT fk_infoPaiement_MethodePaiement FOREIGN KEY (idMethodePaiement) REFERENCES MethodePaiement(idMethodePaiement),
-    CONSTRAINT fk_infoPaiement_Paypal FOREIGN KEY (idcarte) REFERENCES Paypal(idcarte),
-    CONSTRAINT fk_infoPaiement_Carte_EU FOREIGN KEY (idcarte) REFERENCES Carte_EU(idcarte),
-    CONSTRAINT fk_infoPaiement_Carte_AE FOREIGN KEY (idcarte) REFERENCES Carte_AE(idcarte)
-);
+CREATE  INDEX I_FK_EMPLOYE_ADRESSEPOSTALE
+     ON EMPLOYE (IDADRESSE ASC);
 
-CREATE TABLE MethodeEnregistrer (
-    idNumCli INT(5),
-    idMethodePaiement INT(6),
-    CONSTRAINT pk_MethodeEnregistrer PRIMARY KEY (idNumCli, idMethodePaiement),
-    CONSTRAINT fk_MethodeEnregistrer_Client FOREIGN KEY (idNumCli) REFERENCES Client(idNumCli),
-    CONSTRAINT fk_MethodeEnregistrer_MethodePaiement FOREIGN KEY (idMethodePaiement) REFERENCES MethodePaiement(idMethodePaiement)
-);
+# -----------------------------------------------------------------------------
+#       TABLE : CATEGORIE
+# -----------------------------------------------------------------------------
 
-CREATE TABLE Commande (
-    idCommande INT(6),
-    idNumCli INT(5),
-    idMethodePaiement INT(6),
-    dateCommande DATE,
-    panierActuel TINYINT(1),
-    CONSTRAINT pk_Commande PRIMARY KEY (idCommande),
-    CONSTRAINT fk_Commande_Client FOREIGN KEY (idNumCli) REFERENCES Client(idNumCli),
-    CONSTRAINT fk_Commande_MethodePaiement FOREIGN KEY (idMethodePaiement) REFERENCES MethodePaiement(idMethodePaiement)
-);
+CREATE TABLE IF NOT EXISTS CATEGORIE
+ (
+   IDCATEGORIE CHAR(32) NOT NULL  ,
+   IDCATEGORIE_SOUS_CATEGORIE CHAR(32) NOT NULL  ,
+   NOMCATEGORIE CHAR(32) NULL  
+   , PRIMARY KEY (IDCATEGORIE) 
+ ) 
 
-CREATE TABLE ACommande (
-    idCommande INT(6),
-    idNumProduit INT(6),
-    qte INT(5),
-    prixPayer INT(5),
-    CONSTRAINT pk_ACommande PRIMARY KEY (idCommande, idNumProduit),
-    CONSTRAINT fk_ACommande_Commande FOREIGN KEY (idCommande) REFERENCES Commande(idCommande),
-    CONSTRAINT fk_ACommande_Produit FOREIGN KEY (idNumProduit) REFERENCES Produit(idNumProduit)
-);
+# -----------------------------------------------------------------------------
+#       INDEX DE LA TABLE CATEGORIE
+# -----------------------------------------------------------------------------
 
-CREATE TABLE ARegarde (
-    idNumCli INT(5),
-    idNumProduit INT(6),
-    dateRegar DATE,
-    CONSTRAINT pk_ARegarde PRIMARY KEY (idNumCli, idNumProduit),
-    CONSTRAINT fk_ARegarde_Client FOREIGN KEY (idNumCli) REFERENCES Client(idNumCli),
-    CONSTRAINT fk_ARegarde_Produit FOREIGN KEY (idNumProduit) REFERENCES Produit(idNumProduit)
-);
 
-CREATE TABLE Avis (
-    idNumCli INT(5),
-    idNumProduit INT(6),
-    tAvis VARCHAR(500),
-    urlImage VARCHAR(100),
-    CONSTRAINT pk_Avis PRIMARY KEY (idNumCli, idNumProduit),
-    CONSTRAINT fk_Avis_Client FOREIGN KEY (idNumCli) REFERENCES Client(idNumCli),
-    CONSTRAINT fk_Avis_Produit FOREIGN KEY (idNumProduit) REFERENCES Produit(idNumProduit)
-);
+CREATE  INDEX I_FK_CATEGORIE_CATEGORIE
+     ON CATEGORIE (IDCATEGORIE_SOUS_CATEGORIE ASC);
+
+# -----------------------------------------------------------------------------
+#       TABLE : COMMANDE
+# -----------------------------------------------------------------------------
+
+CREATE TABLE IF NOT EXISTS COMMANDE
+ (
+   IDCOMMANDE CHAR(32) NOT NULL  ,
+   IDMETHODEPAIEMENT CHAR(32) NOT NULL  ,
+   IDNUMCLI CHAR(32) NOT NULL  ,
+   IDADRESSE CHAR(32) NOT NULL  ,
+   DATECOMMANDE CHAR(32) NULL  ,
+   ETPANIERACTUEL CHAR(32) NULL  
+   , PRIMARY KEY (IDCOMMANDE) 
+ ) 
+
+# -----------------------------------------------------------------------------
+#       INDEX DE LA TABLE COMMANDE
+# -----------------------------------------------------------------------------
+
+
+CREATE  INDEX I_FK_COMMANDE_METHODEPAIEMENT
+     ON COMMANDE (IDMETHODEPAIEMENT ASC);
+
+CREATE  INDEX I_FK_COMMANDE_CLIENT
+     ON COMMANDE (IDNUMCLI ASC);
+
+CREATE  INDEX I_FK_COMMANDE_ADRESSEPOSTALE
+     ON COMMANDE (IDADRESSE ASC);
+
+# -----------------------------------------------------------------------------
+#       TABLE : IMAGE
+# -----------------------------------------------------------------------------
+
+CREATE TABLE IF NOT EXISTS IMAGE
+ (
+   IDIMAGE CHAR(32) NOT NULL  ,
+   IDNUMPRODUIT CHAR(32) NOT NULL  ,
+   URLIMAGE CHAR(32) NULL  
+   , PRIMARY KEY (IDIMAGE) 
+ ) 
+
+# -----------------------------------------------------------------------------
+#       INDEX DE LA TABLE IMAGE
+# -----------------------------------------------------------------------------
+
+
+CREATE  INDEX I_FK_IMAGE_PRODUIT
+     ON IMAGE (IDNUMPRODUIT ASC);
+
+# -----------------------------------------------------------------------------
+#       TABLE : CLIENT
+# -----------------------------------------------------------------------------
+
+CREATE TABLE IF NOT EXISTS CLIENT
+ (
+   IDNUMCLI CHAR(32) NOT NULL  ,
+   IDADRESSE CHAR(32) NOT NULL  ,
+   NOM CHAR(32) NULL  ,
+   PRENOM CHAR(32) NULL  ,
+   EMAIL CHAR(32) NULL  ,
+   TELEPHONE CHAR(32) NULL  
+   , PRIMARY KEY (IDNUMCLI) 
+ ) 
+
+# -----------------------------------------------------------------------------
+#       INDEX DE LA TABLE CLIENT
+# -----------------------------------------------------------------------------
+
+
+CREATE  INDEX I_FK_CLIENT_ADRESSEPOSTALE
+     ON CLIENT (IDADRESSE ASC);
+
+# -----------------------------------------------------------------------------
+#       TABLE : MARQUE
+# -----------------------------------------------------------------------------
+
+CREATE TABLE IF NOT EXISTS MARQUE
+ (
+   IDMARQUE CHAR(32) NOT NULL  ,
+   NOMMARQUE CHAR(32) NULL  
+   , PRIMARY KEY (IDMARQUE) 
+ ) 
+
+# -----------------------------------------------------------------------------
+#       TABLE : INFOPAIEMENT
+# -----------------------------------------------------------------------------
+
+CREATE TABLE IF NOT EXISTS INFOPAIEMENT
+ (
+   IDINFOPAIEMENT CHAR(32) NOT NULL  ,
+   IDCARTE CHAR(32) NULL  ,
+   IDMETHODEPAIEMENT CHAR(32) NOT NULL  ,
+   IDNUMCLI CHAR(32) NOT NULL  
+   , PRIMARY KEY (IDINFOPAIEMENT) 
+ ) 
+
+# -----------------------------------------------------------------------------
+#       INDEX DE LA TABLE INFOPAIEMENT
+# -----------------------------------------------------------------------------
+
+
+CREATE  INDEX I_FK_INFOPAIEMENT_PAYPAL
+     ON INFOPAIEMENT (IDCARTE ASC);
+
+CREATE  INDEX I_FK_INFOPAIEMENT_METHODEPAIEMENT
+     ON INFOPAIEMENT (IDMETHODEPAIEMENT ASC);
+
+CREATE  INDEX I_FK_INFOPAIEMENT_CLIENT
+     ON INFOPAIEMENT (IDNUMCLI ASC);
+
+# -----------------------------------------------------------------------------
+#       TABLE : ADRESSEPOSTALE
+# -----------------------------------------------------------------------------
+
+CREATE TABLE IF NOT EXISTS ADRESSEPOSTALE
+ (
+   IDADRESSE CHAR(32) NOT NULL  ,
+   PAYS CHAR(32) NULL  ,
+   VILLE CHAR(32) NULL  ,
+   ADR CHAR(32) NULL  ,
+   CODEPOSTAL CHAR(32) NULL  
+   , PRIMARY KEY (IDADRESSE) 
+ ) 
+
+# -----------------------------------------------------------------------------
+#       TABLE : METHODEPAIEMENT
+# -----------------------------------------------------------------------------
+
+CREATE TABLE IF NOT EXISTS METHODEPAIEMENT
+ (
+   IDMETHODEPAIEMENT CHAR(32) NOT NULL  ,
+   NOMMETHODEPAIEMENT CHAR(32) NULL  
+   , PRIMARY KEY (IDMETHODEPAIEMENT) 
+ ) 
+
+# -----------------------------------------------------------------------------
+#       TABLE : PRODUIT
+# -----------------------------------------------------------------------------
+
+CREATE TABLE IF NOT EXISTS PRODUIT
+ (
+   IDNUMPRODUIT CHAR(32) NOT NULL  ,
+   IDCATEGORIE CHAR(32) NOT NULL  ,
+   IDPROMOTION CHAR(32) NULL  ,
+   IDMARQUE CHAR(32) NULL  ,
+   NOMPRODUIT CHAR(32) NULL  ,
+   PRIXACTUEL CHAR(32) NULL  
+   , PRIMARY KEY (IDNUMPRODUIT) 
+ ) 
+
+# -----------------------------------------------------------------------------
+#       INDEX DE LA TABLE PRODUIT
+# -----------------------------------------------------------------------------
+
+
+CREATE  INDEX I_FK_PRODUIT_CATEGORIE
+     ON PRODUIT (IDCATEGORIE ASC);
+
+CREATE  INDEX I_FK_PRODUIT_PROMOTION
+     ON PRODUIT (IDPROMOTION ASC);
+
+CREATE  INDEX I_FK_PRODUIT_MARQUE
+     ON PRODUIT (IDMARQUE ASC);
+
+# -----------------------------------------------------------------------------
+#       TABLE : CARTE_EU
+# -----------------------------------------------------------------------------
+
+CREATE TABLE IF NOT EXISTS CARTE_EU
+ (
+   IDCARTE CHAR(32) NOT NULL  ,
+   NUMCARTE CHAR(32) NULL  ,
+   DATEEXP CHAR(32) NULL  ,
+   NOMPROP CHAR(32) NULL  
+   , PRIMARY KEY (IDCARTE) 
+ ) 
+
+# -----------------------------------------------------------------------------
+#       TABLE : AREGARDE
+# -----------------------------------------------------------------------------
+
+CREATE TABLE IF NOT EXISTS AREGARDE
+ (
+   IDNUMPRODUIT CHAR(32) NOT NULL  ,
+   IDNUMCLI CHAR(32) NOT NULL  ,
+   DATECONSULTATION CHAR(32) NULL  
+   , PRIMARY KEY (IDNUMPRODUIT,IDNUMCLI) 
+ ) 
+
+# -----------------------------------------------------------------------------
+#       INDEX DE LA TABLE AREGARDE
+# -----------------------------------------------------------------------------
+
+
+CREATE  INDEX I_FK_AREGARDE_PRODUIT
+     ON AREGARDE (IDNUMPRODUIT ASC);
+
+CREATE  INDEX I_FK_AREGARDE_CLIENT
+     ON AREGARDE (IDNUMCLI ASC);
+
+# -----------------------------------------------------------------------------
+#       TABLE : AVIS
+# -----------------------------------------------------------------------------
+
+CREATE TABLE IF NOT EXISTS AVIS
+ (
+   IDNUMCLI CHAR(32) NOT NULL  ,
+   IDNUMPRODUIT CHAR(32) NOT NULL  ,
+   TXTAVIS CHAR(32) NULL  
+   , PRIMARY KEY (IDNUMCLI,IDNUMPRODUIT) 
+ ) 
+
+# -----------------------------------------------------------------------------
+#       INDEX DE LA TABLE AVIS
+# -----------------------------------------------------------------------------
+
+
+CREATE  INDEX I_FK_AVIS_CLIENT
+     ON AVIS (IDNUMCLI ASC);
+
+CREATE  INDEX I_FK_AVIS_PRODUIT
+     ON AVIS (IDNUMPRODUIT ASC);
+
+# -----------------------------------------------------------------------------
+#       TABLE : ACOMMANDE
+# -----------------------------------------------------------------------------
+
+CREATE TABLE IF NOT EXISTS ACOMMANDE
+ (
+   IDNUMPRODUIT CHAR(32) NOT NULL  ,
+   IDCOMMANDE CHAR(32) NOT NULL  ,
+   QTE CHAR(32) NULL  ,
+   PRIX CHAR(32) NULL  
+   , PRIMARY KEY (IDNUMPRODUIT,IDCOMMANDE) 
+ ) 
+
+# -----------------------------------------------------------------------------
+#       INDEX DE LA TABLE ACOMMANDE
+# -----------------------------------------------------------------------------
+
+
+CREATE  INDEX I_FK_ACOMMANDE_PRODUIT
+     ON ACOMMANDE (IDNUMPRODUIT ASC);
+
+CREATE  INDEX I_FK_ACOMMANDE_COMMANDE
+     ON ACOMMANDE (IDCOMMANDE ASC);
+
+# -----------------------------------------------------------------------------
+#       TABLE : COMPORTE
+# -----------------------------------------------------------------------------
+
+CREATE TABLE IF NOT EXISTS COMPORTE
+ (
+   IDNUMPRODUIT CHAR(32) NOT NULL  ,
+   IDNUMPRODUIT_1 CHAR(32) NOT NULL  
+   , PRIMARY KEY (IDNUMPRODUIT,IDNUMPRODUIT_1) 
+ ) 
+
+# -----------------------------------------------------------------------------
+#       INDEX DE LA TABLE COMPORTE
+# -----------------------------------------------------------------------------
+
+
+CREATE  INDEX I_FK_COMPORTE_PRODUIT
+     ON COMPORTE (IDNUMPRODUIT ASC);
+
+CREATE  INDEX I_FK_COMPORTE_PRODUIT1
+     ON COMPORTE (IDNUMPRODUIT_1 ASC);
+
+
+# -----------------------------------------------------------------------------
+#       CREATION DES REFERENCES DE TABLE
+# -----------------------------------------------------------------------------
+
+
+ALTER TABLE EMPLOYE 
+  ADD FOREIGN KEY FK_EMPLOYE_ADRESSEPOSTALE (IDADRESSE)
+      REFERENCES ADRESSEPOSTALE (IDADRESSE) ;
+
+
+ALTER TABLE CATEGORIE 
+  ADD FOREIGN KEY FK_CATEGORIE_CATEGORIE (IDCATEGORIE_SOUS_CATEGORIE)
+      REFERENCES CATEGORIE (IDCATEGORIE) ;
+
+
+ALTER TABLE COMMANDE 
+  ADD FOREIGN KEY FK_COMMANDE_METHODEPAIEMENT (IDMETHODEPAIEMENT)
+      REFERENCES METHODEPAIEMENT (IDMETHODEPAIEMENT) ;
+
+
+ALTER TABLE COMMANDE 
+  ADD FOREIGN KEY FK_COMMANDE_CLIENT (IDNUMCLI)
+      REFERENCES CLIENT (IDNUMCLI) ;
+
+
+ALTER TABLE COMMANDE 
+  ADD FOREIGN KEY FK_COMMANDE_ADRESSEPOSTALE (IDADRESSE)
+      REFERENCES ADRESSEPOSTALE (IDADRESSE) ;
+
+
+ALTER TABLE IMAGE 
+  ADD FOREIGN KEY FK_IMAGE_PRODUIT (IDNUMPRODUIT)
+      REFERENCES PRODUIT (IDNUMPRODUIT) ;
+
+
+ALTER TABLE CLIENT 
+  ADD FOREIGN KEY FK_CLIENT_ADRESSEPOSTALE (IDADRESSE)
+      REFERENCES ADRESSEPOSTALE (IDADRESSE) ;
+
+
+ALTER TABLE INFOPAIEMENT 
+  ADD FOREIGN KEY FK_INFOPAIEMENT_PAYPAL (IDCARTE)
+      REFERENCES PAYPAL (IDCARTE) ;
+
+
+ALTER TABLE INFOPAIEMENT 
+  ADD FOREIGN KEY FK_INFOPAIEMENT_METHODEPAIEMENT (IDMETHODEPAIEMENT)
+      REFERENCES METHODEPAIEMENT (IDMETHODEPAIEMENT) ;
+
+
+ALTER TABLE INFOPAIEMENT 
+  ADD FOREIGN KEY FK_INFOPAIEMENT_CLIENT (IDNUMCLI)
+      REFERENCES CLIENT (IDNUMCLI) ;
+
+
+ALTER TABLE PRODUIT 
+  ADD FOREIGN KEY FK_PRODUIT_CATEGORIE (IDCATEGORIE)
+      REFERENCES CATEGORIE (IDCATEGORIE) ;
+
+
+ALTER TABLE PRODUIT 
+  ADD FOREIGN KEY FK_PRODUIT_PROMOTION (IDPROMOTION)
+      REFERENCES PROMOTION (IDPROMOTION) ;
+
+
+ALTER TABLE PRODUIT 
+  ADD FOREIGN KEY FK_PRODUIT_MARQUE (IDMARQUE)
+      REFERENCES MARQUE (IDMARQUE) ;
+
+
+ALTER TABLE AREGARDE 
+  ADD FOREIGN KEY FK_AREGARDE_PRODUIT (IDNUMPRODUIT)
+      REFERENCES PRODUIT (IDNUMPRODUIT) ;
+
+
+ALTER TABLE AREGARDE 
+  ADD FOREIGN KEY FK_AREGARDE_CLIENT (IDNUMCLI)
+      REFERENCES CLIENT (IDNUMCLI) ;
+
+
+ALTER TABLE AVIS 
+  ADD FOREIGN KEY FK_AVIS_CLIENT (IDNUMCLI)
+      REFERENCES CLIENT (IDNUMCLI) ;
+
+
+ALTER TABLE AVIS 
+  ADD FOREIGN KEY FK_AVIS_PRODUIT (IDNUMPRODUIT)
+      REFERENCES PRODUIT (IDNUMPRODUIT) ;
+
+
+ALTER TABLE ACOMMANDE 
+  ADD FOREIGN KEY FK_ACOMMANDE_PRODUIT (IDNUMPRODUIT)
+      REFERENCES PRODUIT (IDNUMPRODUIT) ;
+
+
+ALTER TABLE ACOMMANDE 
+  ADD FOREIGN KEY FK_ACOMMANDE_COMMANDE (IDCOMMANDE)
+      REFERENCES COMMANDE (IDCOMMANDE) ;
+
+
+ALTER TABLE COMPORTE 
+  ADD FOREIGN KEY FK_COMPORTE_PRODUIT (IDNUMPRODUIT)
+      REFERENCES PRODUIT (IDNUMPRODUIT) ;
+
+
+ALTER TABLE COMPORTE 
+  ADD FOREIGN KEY FK_COMPORTE_PRODUIT1 (IDNUMPRODUIT_1)
+      REFERENCES PRODUIT (IDNUMPRODUIT) ;
+
