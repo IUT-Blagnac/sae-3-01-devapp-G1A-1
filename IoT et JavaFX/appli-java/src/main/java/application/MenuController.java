@@ -34,8 +34,8 @@ public class MenuController implements Initializable {
         stackPane.getChildren().addAll(root, alertOverlay);
         primaryStage.getScene().setRoot(stackPane);
 
-        // Associer un comportement au bouton d'alerte
-        btnAlert.setOnAction(e -> showNotification());
+        // // Associer un comportement au bouton d'alerte
+        // btnAlert.setOnAction(e -> showNotification());
 	}
 
 	public void displayDialog() {
@@ -127,6 +127,30 @@ public class MenuController implements Initializable {
 
 		} catch (Exception e) {
 			e.printStackTrace();
+		}
+	}
+
+	@FXML
+	private void doHistorique() {
+		try {
+			FXMLLoader loader = new FXMLLoader(
+					MenuController.class.getResource("alerteHistorique.fxml"));
+			BorderPane root = loader.load();
+
+			Scene scene = new Scene(root, root.getPrefWidth() + 20, root.getPrefHeight() + 10);
+			scene.getStylesheets().add(Menu.class.getResource("application.css").toExternalForm());
+
+			primaryStage.setScene(scene);
+			primaryStage.setTitle("Fenêtre d'historique des alertes");
+
+			alerteHistoriqueController mfc = loader.getController();
+			mfc.initContext(primaryStage);
+
+			mfc.displayDialog();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.exit(-1);
 		}
 	}
 

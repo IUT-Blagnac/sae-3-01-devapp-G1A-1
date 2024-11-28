@@ -6,8 +6,8 @@ import time
 import threading
 
 # Lecture de la configuration depuis le fichier config.json avec os.open et os.read
-fd_config = os.open('config.json', os.O_RDONLY)
-contenu_config = os.read(fd_config, os.path.getsize('config.json')).decode('utf-8')
+fd_config = os.open('IoT et JavaFX\config.json', os.O_RDONLY)
+contenu_config = os.read(fd_config, os.path.getsize('IoT et JavaFX\config.json')).decode('utf-8')
 os.close(fd_config)
 configuration = json.loads(contenu_config)
 
@@ -35,7 +35,7 @@ frequence_lecture = configuration['lecture']['frequence']
 
 # Connexion au serveur MQTT
 client_mqtt = mqtt.Client()
-client_mqtt.connect("chirpstack.iut-blagnac.fr", 1883)
+client_mqtt.connect("mqtt.iut-blagnac.fr", 1883)
 client_mqtt.subscribe(chemin_salle_mqtt)
 client_mqtt.subscribe(chemin_solaire_mqtt)  # Souscription au topic des panneaux solaires
 

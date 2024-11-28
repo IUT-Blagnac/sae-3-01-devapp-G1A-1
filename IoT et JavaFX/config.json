@@ -15,6 +15,6 @@
     "num_salle": "B006,B106,B103,B101,E105,Serveurs,E003,B234"
   },
   "lecture": {
-    "frequence": 60
+    "frequence": 10
   }
 }

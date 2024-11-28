@@ -52,7 +52,7 @@
          <children>
             <FlowPane alignment="CENTER" columnHalignment="CENTER" prefHeight="111.0" prefWidth="912.0">
                <children>
-                  <Button fx:id="btnAlert" mnemonicParsing="false" prefHeight="35.0" prefWidth="240.0" text="Historique des alertes" />
+                  <Button fx:id="btnAlert" mnemonicParsing="false" onAction="#doHistorique" prefHeight="35.0" prefWidth="240.0" text="Historique des alertes" />
                </children>
             </FlowPane>
             <FlowPane alignment="CENTER" columnHalignment="CENTER" prefHeight="34.0" prefWidth="912.0">
