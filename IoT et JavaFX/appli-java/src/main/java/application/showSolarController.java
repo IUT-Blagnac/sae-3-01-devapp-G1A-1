@@ -25,6 +25,16 @@ public class showSolarController implements Initializable {
     // Fenêtre physique
     private Stage primaryStage;
 
+    private String previousPage;
+
+    public void setPreviousPage(String previousPage) {
+        this.previousPage = previousPage;
+    }
+
+    public String getPreviousPage() {
+        return this.previousPage;
+    }
+
     public void initContext(Stage _containingStage) {
         this.primaryStage = _containingStage;
         this.configure();
@@ -54,21 +64,37 @@ public class showSolarController implements Initializable {
     @FXML
     private void doBack() { // Bouton qui mène à la page précédente (menu.fxml)
         try {
-            FXMLLoader loader = new FXMLLoader(
-                    showByRoomController.class.getResource("menuCourbe.fxml"));
-            BorderPane root = loader.load();
+            if (this.previousPage.equals("menuCourbe.fxml")) {
+                FXMLLoader loader = new FXMLLoader(
+                        showByRoomController.class.getResource("menuCourbe.fxml"));
+                BorderPane root = loader.load();
 
-            Scene scene = new Scene(root, root.getPrefWidth() + 20, root.getPrefHeight() + 10);
-            scene.getStylesheets().add(Menu.class.getResource("application.css").toExternalForm());
+                Scene scene = new Scene(root, root.getPrefWidth() + 20, root.getPrefHeight() + 10);
+                scene.getStylesheets().add(Menu.class.getResource("application.css").toExternalForm());
 
-            primaryStage.setScene(scene);
-            primaryStage.setTitle("Fenêtre Menu Courbe");
+                primaryStage.setScene(scene);
+                primaryStage.setTitle("Fenêtre Menu Courbe");
 
-            MenuCourbeController mfc = loader.getController();
-            mfc.initContext(primaryStage);
+                MenuCourbeController mfc = loader.getController();
+                mfc.initContext(primaryStage);
 
-            mfc.displayDialog();
+                mfc.displayDialog();
+            } else {
+                FXMLLoader loader = new FXMLLoader(
+                        showByRoomController.class.getResource("menu.fxml"));
+                BorderPane root = loader.load();
 
+                Scene scene = new Scene(root, root.getPrefWidth() + 20, root.getPrefHeight() + 10);
+                scene.getStylesheets().add(Menu.class.getResource("application.css").toExternalForm());
+
+                primaryStage.setScene(scene);
+                primaryStage.setTitle("Fenêtre Menu Principal");
+
+                MenuController mfc = loader.getController();
+                mfc.initContext(primaryStage);
+
+                mfc.displayDialog();
+            }
         } catch (Exception e) {
             e.printStackTrace();
             System.exit(-1);
@@ -100,7 +126,8 @@ public class showSolarController implements Initializable {
 
     // Méthode pour configurer le HBox
     private void setupHBox() {
-        String[] titles = { "Production Actuelle", "Production Journalière", "Production Mensuelle", "Production Annuelle" };
+        String[] titles = { "Production Actuelle", "Production Journalière", "Production Mensuelle",
+                "Production Annuelle" };
         double[] values = { 200.5, 5000.3, 150000.7, 1800000.4 }; // Valeurs fictives, remplacez par vos données
 
         for (int i = 0; i < titles.length; i++) {
@@ -129,7 +156,7 @@ public class showSolarController implements Initializable {
         yAxis.setLabel("Valeur (kW)");
 
         LineChart<Number, Number> lineChart = new LineChart<>(xAxis, yAxis);
-        lineChart.setTitle("Production en fonction du temps"); 
+        lineChart.setTitle("Production en fonction du temps");
 
         // Ajout de séries de données fictives
         XYChart.Series<Number, Number> series = new XYChart.Series<>();

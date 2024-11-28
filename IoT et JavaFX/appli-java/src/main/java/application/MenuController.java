@@ -194,6 +194,8 @@ public class MenuController implements Initializable {
 			showSolarController mfc = loader.getController();
 			mfc.initContext(primaryStage);
 
+			mfc.setPreviousPage("menu.fxml");
+
 			mfc.displayDialog();
 
 		} catch (Exception e) {

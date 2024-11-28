@@ -126,6 +126,8 @@ public class MenuCourbeController implements Initializable {
             showSolarController mfc = loader.getController();
             mfc.initContext(primaryStage);
 
+            mfc.setPreviousPage("menuCourbe.fxml");
+
             mfc.displayDialog();
 
         } catch (Exception e) {
