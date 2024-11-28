@@ -63,8 +63,6 @@ public class showByRoomController implements Initializable {
 
     @FXML
     private void doBack() { // Bouton qui mène à la page précédente (menu.fxml)
-        this.primaryStage.hide();
-
         try {
             FXMLLoader loader = new FXMLLoader(
                     showByRoomController.class.getResource("menuCourbe.fxml"));
@@ -85,8 +83,6 @@ public class showByRoomController implements Initializable {
             e.printStackTrace();
             System.exit(-1);
         }
-
-        this.primaryStage.show();
     }
 
     @FXML

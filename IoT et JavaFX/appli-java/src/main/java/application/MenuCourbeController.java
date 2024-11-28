@@ -63,8 +63,6 @@ public class MenuCourbeController implements Initializable {
     @FXML
     private void doByRoom() { // Bouton qui mène à la page de choix des courbes par pièce
                               // (menuCourbePiece.fxml)
-        this.primaryStage.hide();
-
         try {
             FXMLLoader loader = new FXMLLoader(
                     MenuCourbeController.class.getResource("showByRoom.fxml"));
@@ -85,15 +83,11 @@ public class MenuCourbeController implements Initializable {
             e.printStackTrace();
             System.exit(-1);
         }
-
-        this.primaryStage.show();
     }
 
     @FXML
     private void doByData() { // Bouton qui mène à la page de choix des courbes par type de données
                               // (menuCourbeData.fxml)
-        this.primaryStage.hide();
-
         try {
             FXMLLoader loader = new FXMLLoader(
                     MenuCourbeController.class.getResource("showByData.fxml"));
@@ -114,14 +108,10 @@ public class MenuCourbeController implements Initializable {
             e.printStackTrace();
             System.exit(-1);
         }
-
-        this.primaryStage.show();
     }
 
     @FXML
     private void doSolar() { // Bouton qui mène à la page de choix des courbes pour le solaire
-        this.primaryStage.hide();
-
         try {
             FXMLLoader loader = new FXMLLoader(
                     MenuCourbeController.class.getResource("showSolar.fxml"));
@@ -142,14 +132,10 @@ public class MenuCourbeController implements Initializable {
             e.printStackTrace();
             System.exit(-1);
         }
-
-        this.primaryStage.show();
     }
 
     @FXML
     private void doBack() { // Bouton qui mène à la page précédente (menu.fxml)
-        this.primaryStage.hide();
-
         try {
             FXMLLoader loader = new FXMLLoader(
                     MenuCourbeController.class.getResource("menu.fxml"));
@@ -170,8 +156,6 @@ public class MenuCourbeController implements Initializable {
             e.printStackTrace();
             System.exit(-1);
         }
-
-        this.primaryStage.show();
     }
 
     @FXML

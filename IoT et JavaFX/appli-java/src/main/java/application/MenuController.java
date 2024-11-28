@@ -10,8 +10,10 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
+import tools.AlertOverlay;
 import tools.GlobalVariables;
 
 public class MenuController implements Initializable {
@@ -19,9 +21,21 @@ public class MenuController implements Initializable {
 	// Fenêtre physique
 	private Stage primaryStage;
 
+	// Zone de notification
+    private AlertOverlay alertOverlay;
+
 	public void initContext(Stage _containingStage) {
 		this.primaryStage = _containingStage;
 		this.configure();
+
+		// Ajouter l'overlay à la scène existante
+        BorderPane root = (BorderPane) primaryStage.getScene().getRoot();
+        StackPane stackPane = new StackPane();
+        stackPane.getChildren().addAll(root, alertOverlay);
+        primaryStage.getScene().setRoot(stackPane);
+
+        // Associer un comportement au bouton d'alerte
+        btnAlert.setOnAction(e -> showNotification());
 	}
 
 	public void displayDialog() {
@@ -68,7 +82,22 @@ public class MenuController implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		// Initialiser l'overlay des alertes
+        alertOverlay = new AlertOverlay();
 	}
+
+	private void showNotification() {
+        alertOverlay.addAlert("Nouvelle alerte reçue !", () -> {
+            System.out.println("Voir détails cliqué !");
+            // Vous pouvez ici naviguer vers une page d'historique des alertes
+            doShowAlertHistory();
+        });
+    }
+
+	private void doShowAlertHistory() {
+        // Logique pour afficher l'historique des alertes (par exemple, charger une autre page)
+        System.out.println("Naviguer vers l'historique des alertes.");
+    }
 
 	@FXML
 	private void doTest() {
@@ -103,8 +132,6 @@ public class MenuController implements Initializable {
 
 	@FXML
 	private void doCourbe() { // Bouton qui mène à la page de choix des courbes (menuCourbe.fxml)
-		this.primaryStage.hide();
-
 		try {
 			FXMLLoader loader = new FXMLLoader(
 					MenuController.class.getResource("menuCourbe.fxml"));
@@ -125,14 +152,10 @@ public class MenuController implements Initializable {
 			e.printStackTrace();
 			System.exit(-1);
 		}
-
-		this.primaryStage.show();
 	}
 
 	@FXML
 	private void doSolar() { // Bouton qui mène à la page de choix des courbes pour le solaire
-		this.primaryStage.hide();
-
 		try {
 			FXMLLoader loader = new FXMLLoader(
 					MenuCourbeController.class.getResource("showSolar.fxml"));
@@ -153,8 +176,6 @@ public class MenuController implements Initializable {
 			e.printStackTrace();
 			System.exit(-1);
 		}
-
-		this.primaryStage.show();
 	}
 
 	@FXML
