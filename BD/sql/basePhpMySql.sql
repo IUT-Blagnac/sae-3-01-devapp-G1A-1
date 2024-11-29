@@ -1,22 +1,4 @@
-DROP TABLE IF EXISTS Avis;
-DROP TABLE IF EXISTS AConsulte;
-DROP TABLE IF EXISTS ACommande;
-DROP TABLE IF EXISTS Commande;
-DROP TABLE IF EXISTS infoPaiement;
-DROP TABLE IF EXISTS Client;
-DROP TABLE IF EXISTS Employe;
-DROP TABLE IF EXISTS AdressePostale;
-DROP TABLE IF EXISTS Comporte;
-DROP TABLE IF EXISTS Contient;
-DROP TABLE IF EXISTS Produit;
-DROP TABLE IF EXISTS Categorie;
-DROP TABLE IF EXISTS Image;
-DROP TABLE IF EXISTS Carte_AE;
-DROP TABLE IF EXISTS Carte_EU;
-DROP TABLE IF EXISTS Paypal;
-DROP TABLE IF EXISTS MethodePaiement;
-DROP TABLE IF EXISTS Promotion;
-DROP TABLE IF EXISTS Marque;
+DROP TABLE `ACommande`, `AdressePostale`, `Aconsulte`, `Avis`, `Carte_AE`, `Carte_EU`, `Categorie`, `Client`, `Commande`, `Comporte`, `Contient`, `Employe`, `Image`, `infoPaiement`, `Marque`, `MethodePaiement`, `Paypal`, `Produit`, `Promotion`;
 
 CREATE TABLE Marque (
     idMarque INT PRIMARY KEY AUTO_INCREMENT,
