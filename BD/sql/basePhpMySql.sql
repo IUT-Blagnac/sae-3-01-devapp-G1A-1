@@ -1,5 +1,5 @@
 DROP TABLE IF EXISTS Avis;
-DROP TABLE IF EXISTS ARegarde;
+DROP TABLE IF EXISTS AConsulte;
 DROP TABLE IF EXISTS ACommande;
 DROP TABLE IF EXISTS Commande;
 DROP TABLE IF EXISTS infoPaiement;
@@ -26,12 +26,14 @@ CREATE TABLE Marque (
 CREATE TABLE Promotion (
     idPromotion INT PRIMARY KEY AUTO_INCREMENT,
     nomPromotion VARCHAR(20) NOT NULL,
-    pourcentageReduction INT NOT NULL
+    pourcentageReduction INT NOT NULL,
+    CHECK(pourcentageReduction > 0 AND pourcentageReduction < 100)
 );
 
 CREATE TABLE MethodePaiement (
     idMethodePaiement INT PRIMARY KEY AUTO_INCREMENT,
-    nomMethodePaiement VARCHAR(20) NOT NULL
+    nomMethodePaiement VARCHAR(20) NOT NULL,
+    CHECK(nomMethodePaiement IN ("Paypal","Visa","MasterCard","Carte_AE"))
 );
 
 CREATE TABLE Paypal (
@@ -42,21 +44,22 @@ CREATE TABLE Paypal (
 
 CREATE TABLE Carte_EU (
     idCarte INT PRIMARY KEY AUTO_INCREMENT,
-    numCarte BIGINT NOT NULL,
-    dateExp INT NOT NULL,
-    nomProp VARCHAR(50) NOT NULL
+    numCarte CHAR(15) NOT NULL,
+    dateExp DATE NOT NULL,
+    nomProprietaire VARCHAR(50) NOT NULL
 );
 
 CREATE TABLE Carte_AE (
     idCarte INT PRIMARY KEY AUTO_INCREMENT,
-    numCarte VARCHAR(15) NOT NULL,
-    dateExp INT NOT NULL,
-    nomProp VARCHAR(50) NOT NULL
+    numCarte CHAR(15) NOT NULL,
+    dateExp DATE NOT NULL,
+    nomProprietaire VARCHAR(50) NOT NULL,
+    CHECK (numCarte LIKE ('34%') OR numCarte LIKE ('37%'))
 );
 
 CREATE TABLE Image (
     idImage INT PRIMARY KEY AUTO_INCREMENT,
-    urlImage VARCHAR(100) NOT NULL
+    nomImage VARCHAR(100) NOT NULL
 );
 
 CREATE TABLE Categorie (
@@ -70,7 +73,8 @@ CREATE TABLE Produit (
     idNumProduit INT PRIMARY KEY AUTO_INCREMENT,
     idCategorie INT,
     nomProduit VARCHAR(50) NOT NULL,
-    prixActuel DECIMAL(10, 2) NOT NULL,
+    prix DECIMAL(10, 2) NOT NULL,
+    descriptionProduit VARCHAR(5000) NOT NULL,
     FOREIGN KEY (idCategorie) REFERENCES Categorie(idCategorie)
 );
 
@@ -87,14 +91,15 @@ CREATE TABLE Comporte (
     idNumProduitComporte INT,
     PRIMARY KEY (idNumProduitComportant, idNumProduitComporte),
     FOREIGN KEY (idNumProduitComportant) REFERENCES Produit(idNumProduit),
-    FOREIGN KEY (idNumProduitComporte) REFERENCES Produit(idNumProduit)
+    FOREIGN KEY (idNumProduitComporte) REFERENCES Produit(idNumProduit),
+    CHECK(idNumProduitComportant != idNumProduitComporte)
 );
 
 CREATE TABLE AdressePostale (
     idAdresse INT PRIMARY KEY AUTO_INCREMENT,
     pays VARCHAR(30) NOT NULL,
-    ville VARCHAR(30) NOT NULL,
-    Adr VARCHAR(50) NOT NULL,
+    ville VARCHAR(60) NOT NULL,
+    numNomRue VARCHAR(50) NOT NULL,
     codePostal VARCHAR(10) NOT NULL
 );
 
@@ -102,11 +107,9 @@ CREATE TABLE Employe (
     idNumEmploye INT PRIMARY KEY AUTO_INCREMENT,
     nom VARCHAR(25) NOT NULL,
     prenom VARCHAR(15) NOT NULL,
-    idAdresse INT,
     email VARCHAR(320) NOT NULL,
     telephone CHAR(10),
-    administrateur TINYINT(1) NOT NULL,
-    FOREIGN KEY (idAdresse) REFERENCES AdressePostale(idAdresse)
+    administrateur BOOLEAN NOT NULL
 );
 
 CREATE TABLE Client (
@@ -120,10 +123,10 @@ CREATE TABLE Client (
 );
 
 CREATE TABLE infoPaiement (
-    idNumCli INT,
-    idCarte INT,
-    idMethodePaiement INT,
-    PRIMARY KEY (idNumCli, idCarte, idMethodePaiement),
+    idInfoPaiement INT PRIMARY KEY AUTO_INCREMENT,
+    idNumCli INT NOT NULL,
+    idCarte INT NOT NULL,
+    idMethodePaiement INT NOT NULL,
     FOREIGN KEY (idNumCli) REFERENCES Client(idNumCli),
     FOREIGN KEY (idMethodePaiement) REFERENCES MethodePaiement(idMethodePaiement)
 );
@@ -133,8 +136,8 @@ CREATE TABLE Commande (
     idNumCli INT,
     idAdresse INT,
     idMethodePaiement INT,
-    dateCommande DATE NOT NULL,
-    etPanierActuel TINYINT(1),
+    dateCommande DATE,
+    estPanierActuel BOOLEAN NOT NULL,
     FOREIGN KEY (idNumCli) REFERENCES Client(idNumCli),
     FOREIGN KEY (idAdresse) REFERENCES AdressePostale(idAdresse),
     FOREIGN KEY (idMethodePaiement) REFERENCES MethodePaiement(idMethodePaiement)
@@ -144,13 +147,14 @@ CREATE TABLE ACommande (
     idCommande INT,
     idNumProduit INT,
     qte INT,
-    prix DECIMAL(10, 2),
+    prixAchat DECIMAL(10, 2),
     PRIMARY KEY (idCommande, idNumProduit),
     FOREIGN KEY (idCommande) REFERENCES Commande(idCommande),
-    FOREIGN KEY (idNumProduit) REFERENCES Produit(idNumProduit)
+    FOREIGN KEY (idNumProduit) REFERENCES Produit(idNumProduit),
+    CHECK(prixAchat > 0 AND qte > 0)
 );
 
-CREATE TABLE ARegarde (
+CREATE TABLE AConsulte (
     idNumCli INT,
     idNumProduit INT,
     dateConsultation DATE,
@@ -162,10 +166,13 @@ CREATE TABLE ARegarde (
 CREATE TABLE Avis (
     idNumCli INT,
     idNumProduit INT,
-    txtAvis VARCHAR(500),
+    idNumEmploye INT,
+    txtAvis VARCHAR(500) NOT NULL,
+    txtReponse VARCHAR(500),
     idImage INT,
     PRIMARY KEY (idNumCli, idNumProduit),
     FOREIGN KEY (idNumCli) REFERENCES Client(idNumCli),
     FOREIGN KEY (idNumProduit) REFERENCES Produit(idNumProduit),
+    FOREIGN KEY (idNumEmploye) REFERENCES Employe(idNumEmploye),
     FOREIGN KEY (idImage) REFERENCES Image(idImage)
 );
