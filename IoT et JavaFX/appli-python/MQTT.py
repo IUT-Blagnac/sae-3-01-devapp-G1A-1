@@ -6,8 +6,8 @@ import time
 import threading
 
 # Lecture de la configuration depuis le fichier config.json avec os.open et os.read
-fd_config = os.open('IoT et JavaFX\config.json', os.O_RDONLY)
-contenu_config = os.read(fd_config, os.path.getsize('IoT et JavaFX\config.json')).decode('utf-8')
+fd_config = os.open('IoT et JavaFX/appli-python/config.json', os.O_RDONLY)
+contenu_config = os.read(fd_config, os.path.getsize('IoT et JavaFX/appli-python/config.json')).decode('utf-8')
 os.close(fd_config)
 configuration = json.loads(contenu_config)
 
@@ -22,7 +22,7 @@ donnees_solaire = {"currentPower": [],
                   "lastYearData": [],
                    "lastMonthData": [],
                    "lastDayData": []}  # Pour les panneaux solaires (liste des 10 dernières valeurs)
-consommation_max = configuration['max']['consommation_max']  # Nouvelle limite pour les panneaux solaires
+# consommation_max = configuration['max']['consommation_max']  # Nouvelle limite pour les panneaux solaires
 
 valeurs_max = [
     configuration['max']['temperature_max'],
@@ -70,7 +70,7 @@ def mise_a_jour_alertes(salle):
     global donnees_salle
     alerte_message = []
     for i in range(3):
-        if donnees_salle[str(salle)][i + 3] > valeurs_max[i] and choix_donnees[i] == 'True':
+        if donnees_salle[str(salle)][i + 3] > valeurs_max[i] and choix_donnees[i]:
             alerte_message.append({
                 "salle": salle,
                 "type": ["TEMPERATURE", "HUMIDITE", "CO2"][i],
@@ -78,7 +78,7 @@ def mise_a_jour_alertes(salle):
             })
     if alerte_message:
         for alerte in alerte_message:
-            ecrire_jsonl("LOG_ALERTE.jsonl", alerte)
+            ecrire_jsonl("IoT et JavaFX/appli-python/alerts/LOG_ALERTE.jsonl", alerte)
 
 # Fonction pour gérer les données des panneaux solaires
 def mise_a_jour_donnees_solaires(currentPower, last_year_data, last_month_data, last_day_data):
@@ -93,17 +93,17 @@ def mise_a_jour_donnees_solaires(currentPower, last_year_data, last_month_data, 
         donnees_solaire["currentPower"].pop(0)
 
 # Fonction pour gérer les alertes des panneaux solaires
-def mise_a_jour_alertes_solaires():
-    moyenne = sum(donnees_solaire["currentPower"]) / len(donnees_solaire["currentPower"])
-    if moyenne > consommation_max:
-        alerte_message = {
-            "type": "SOLAIRE",
-            "alert": "CONSO_MAX",
-            "timestamp": datetime.now().isoformat(),
-            "moyenne": moyenne
-        }
-        ecrire_jsonl("LOG_ALERTE_SOLAIRE.jsonl", alerte_message)
-        print("ALERTE SOLAIRE : CONSOMMATION TROP ÉLEVÉE")
+# def mise_a_jour_alertes_solaires():
+#     moyenne = sum(donnees_solaire["currentPower"]) / len(donnees_solaire["currentPower"])
+#     if moyenne > consommation_max:
+#         alerte_message = {
+#             "type": "SOLAIRE",
+#             "alert": "CONSO_MAX",
+#             "timestamp": datetime.now().isoformat(),
+#             "moyenne": moyenne
+#         }
+#         ecrire_jsonl("IoT et JavaFX/LOG_ALERTE_SOLAIRE.jsonl", alerte_message)
+#         print("ALERTE SOLAIRE : CONSOMMATION TROP ÉLEVÉE")
 
 # Fonction appelée lorsqu'un message est reçu
 def reception_message(mqttc, obj, msg):
@@ -119,7 +119,7 @@ def reception_message(mqttc, obj, msg):
                 mise_a_jour_alertes(salle)
                 print("SALLE PRISE EN CHARGE")
                 # Sauvegarde des données dans un fichier JSONL spécifique à la salle
-                fichier_salle = f"{salle}.jsonl"
+                fichier_salle = f"IoT et JavaFX/appli-python/datas/{salle}.jsonl"
                 data_message = {
                     "temperature": temp,
                     "humidite": hum,
@@ -137,7 +137,7 @@ def reception_message(mqttc, obj, msg):
             currentPower = msg_json.get("currentPower", {}).get("power", None)
             if currentPower is not None:
                 mise_a_jour_donnees_solaires(currentPower, last_year_data, last_month_data, last_day_data)
-                mise_a_jour_alertes_solaires()
+                # mise_a_jour_alertes_solaires()
                 print(f"DONNEES SOLAIRES RECUES : {currentPower, last_year_data, last_month_data, last_day_data}")
                 # Sauvegarde des données solaires dans un fichier JSONL
                 solaire_message = {
@@ -147,7 +147,7 @@ def reception_message(mqttc, obj, msg):
                     "currentPower": currentPower,
                     "timestamp": datetime.now().isoformat()
                 }
-                ecrire_jsonl("DONNEES_SOLAIRES.jsonl", solaire_message)
+                ecrire_jsonl("IoT et JavaFX/appli-python/datas/DONNEES_SOLAIRES.jsonl", solaire_message)
     except KeyError as e:
         print("MESSAGE INVALIDE")
 

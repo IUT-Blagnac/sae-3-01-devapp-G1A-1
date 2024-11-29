@@ -28,6 +28,16 @@ import javafx.scene.Node;
 import java.util.HashMap;
 import java.util.Map;
 
+/*
+ * Contrôleur pour afficher les données par salle
+ * avec des graphiques pour chaque salle
+ * et des options pour afficher les données
+ * de CO2, d'humidité et de température
+ * pour chaque salle
+ * Les salles peuvent être affichées ou masquées
+ * et les graphiques sont mis à jour en conséquence
+ * en fonction des options sélectionnées
+ */
 public class showByRoomController implements Initializable {
 
     // Fenêtre physique

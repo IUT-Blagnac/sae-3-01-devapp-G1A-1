@@ -16,6 +16,11 @@ import javafx.stage.WindowEvent;
 import tools.AlertOverlay;
 import tools.GlobalVariables;
 
+/*
+ * Contrôleur pour le menu principal
+ * Permet de naviguer vers les différentes pages de l'application
+ * Permet de quitter l'application
+ */
 public class MenuController implements Initializable {
 
 	// Fenêtre physique

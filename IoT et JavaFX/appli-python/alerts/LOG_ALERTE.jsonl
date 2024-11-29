@@ -1,0 +1,10 @@
+{"salle": "E001", "type": "TEMPERATURE", "timestamp": "2024-11-29T18:56:26.337133"}
+{"salle": "E001", "type": "HUMIDITE", "timestamp": "2024-11-29T18:56:26.337133"}
+{"salle": "E007", "type": "TEMPERATURE", "timestamp": "2024-11-29T18:57:27.348922"}
+{"salle": "E007", "type": "HUMIDITE", "timestamp": "2024-11-29T18:57:27.348922"}
+{"salle": "amphi1", "type": "TEMPERATURE", "timestamp": "2024-11-29T18:58:03.487810"}
+{"salle": "amphi1", "type": "HUMIDITE", "timestamp": "2024-11-29T18:58:03.487810"}
+{"salle": "B103", "type": "TEMPERATURE", "timestamp": "2024-11-29T18:58:27.565358"}
+{"salle": "B103", "type": "HUMIDITE", "timestamp": "2024-11-29T18:58:27.565358"}
+{"salle": "hall-amphi", "type": "TEMPERATURE", "timestamp": "2024-11-29T18:59:28.344988"}
+{"salle": "hall-amphi", "type": "HUMIDITE", "timestamp": "2024-11-29T18:59:28.344988"}

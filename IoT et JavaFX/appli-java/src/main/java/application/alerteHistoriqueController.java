@@ -25,6 +25,15 @@ import java.util.List;
 import java.util.ResourceBundle;
 import java.util.stream.Collectors;
 
+/**
+ * Contrôleur pour l'historique des alertes
+ * Permet de filtrer les alertes par salle et par type
+ * Permet de revenir au menu principal ou de quitter l'application
+ * Permet de réinitialiser les filtres
+ * Affiche les alertes dans un tableau
+ * Les alertes sont chargées depuis un fichier
+ * Les alertes sont filtrées en fonction des critères de filtrage
+ */
 public class alerteHistoriqueController implements Initializable {
 
     private Stage primaryStage;

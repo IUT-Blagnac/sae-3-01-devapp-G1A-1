@@ -28,6 +28,12 @@ import javafx.scene.Node;
 import java.util.HashMap;
 import java.util.Map;
 
+/*
+ * Contrôleur pour afficher les données par salle
+ * avec des graphiques pour chaque type de donnée
+ * et des options pour afficher/cacher les salles
+ * et les types de données
+ */
 public class showByDataController implements Initializable {
 
     // Fenêtre physique

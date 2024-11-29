@@ -20,6 +20,10 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
+/* Contrôleur pour afficher les données solaires
+ *Affiche les données de production actuelle, journalière, mensuelle et annuelle
+ *Affiche un graphique de production en fonction du temps
+ */
 public class showSolarController implements Initializable {
 
     // Fenêtre physique

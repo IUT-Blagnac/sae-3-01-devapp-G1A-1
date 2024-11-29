@@ -6,6 +6,10 @@ import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
+/**
+ * Classe principale de l'application
+ * Permet de lancer l'application
+ */
 public class Menu extends Application {
 
 	// Lancement classique d'un application JavaFX

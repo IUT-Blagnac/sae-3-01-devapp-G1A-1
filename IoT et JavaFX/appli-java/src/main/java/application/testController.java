@@ -15,6 +15,11 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * Contrôleur pour le test de connexion Python
+ * Affiche un spinner pendant le test et un check ou une croix à la fin
+ * Ferme la fenêtre après 5 secondes
+ */
 public class testController implements Initializable {
 
     @FXML

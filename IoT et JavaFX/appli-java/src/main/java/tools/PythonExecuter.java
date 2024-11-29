@@ -3,6 +3,9 @@ package tools;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
+/**
+ * Class to execute a python file and manage its state
+ */
 public class PythonExecuter {
     // Note : to execute the MQTT python file, please use the PythonExecuter object
     // in GlobalVariables and don't create a new one

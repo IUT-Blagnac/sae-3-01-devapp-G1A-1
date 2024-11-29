@@ -3,16 +3,15 @@
   "max": {
     "temperature_max": 17,
     "humidite_max": 40,
-    "taux_max": 850,
-    "consommation_max": 100000
+    "taux_max": 850
   },
   "donnee": {
     "temperature": true,
     "humidite": true,
-    "taux": false
+    "taux": true
   },
   "salle": {
-    "num_salle": "B006,B106,B105,B103,B101,E105,Serveurs,E003,B234,B104,B115,B004,B005,B006,B219"
+    "num_salle": "B006,B106,B105,B103,B101,E105,Serveurs,E003,B234,B104,B115,B004,B005,B006,B219,E006,E209,E001,E007,amphi1,hall-amphi"
   },
   "lecture": {
     "frequence": 10

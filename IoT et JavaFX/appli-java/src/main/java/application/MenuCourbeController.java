@@ -13,6 +13,12 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
+/*
+ * Contrôleur pour le menu de choix des courbes
+ * Permet de choisir entre les courbes par pièce, par type de données ou pour le solaire
+ * Redirige vers les pages correspondantes
+ * Permet de revenir au menu principal ou de quitter l'application
+ */
 public class MenuCourbeController implements Initializable {
 
     // Fenêtre physique

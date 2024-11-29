@@ -6,6 +6,11 @@ import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
 
+
+/*
+ * Composant JavaFX pour afficher une alerte
+ * avec un message et un bouton pour voir les détails
+ */
 public class AlertBox extends HBox {
     private String message;
     private Runnable onDetailsClicked;

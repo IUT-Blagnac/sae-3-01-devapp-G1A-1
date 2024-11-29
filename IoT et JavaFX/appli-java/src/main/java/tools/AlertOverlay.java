@@ -3,6 +3,13 @@ import javafx.animation.TranslateTransition;
 import javafx.scene.layout.VBox;
 import javafx.util.Duration;
 
+/*
+ * Composant JavaFX pour afficher une liste d'alertes
+ * superposées en bas à droite de l'écran
+ * avec un message et un bouton pour voir les détails
+ * Les alertes disparaissent automatiquement après un certain temps
+ * et peuvent être ajoutées dynamiquement
+ */
 public class AlertOverlay extends VBox {
 
     public AlertOverlay() {

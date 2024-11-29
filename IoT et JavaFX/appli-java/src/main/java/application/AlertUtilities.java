@@ -7,6 +7,10 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
 
+/**
+ * Classe utilitaire pour les alertes
+ * Permet de gérer les alertes de confirmation et d'information
+ */
 public class AlertUtilities {
 
 	public static boolean confirmYesCancel(Stage _fen, String _title, String _message, String _content, AlertType _al) {
