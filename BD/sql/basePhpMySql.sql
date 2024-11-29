@@ -134,7 +134,7 @@ CREATE TABLE Commande (
     idAdresse INT,
     idMethodePaiement INT,
     dateCommande DATE NOT NULL,
-    etPanierActuel TINYINT(1),
+    estPanierActuel TINYINT(1),
     FOREIGN KEY (idNumCli) REFERENCES Client(idNumCli),
     FOREIGN KEY (idAdresse) REFERENCES AdressePostale(idAdresse),
     FOREIGN KEY (idMethodePaiement) REFERENCES MethodePaiement(idMethodePaiement)

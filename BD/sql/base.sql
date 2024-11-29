@@ -111,7 +111,7 @@ CREATE TABLE AdressePostale (
     idAdresse NUMBER(6),
     pays VARCHAR(30),
     ville VARCHAR(30),
-    Adr VARCHAR(50),
+    numNomRue VARCHAR(50),
     codePostal VARCHAR(10),
     CONSTRAINT pk_AdressePostale PRIMARY KEY (idAdresse)
 );
