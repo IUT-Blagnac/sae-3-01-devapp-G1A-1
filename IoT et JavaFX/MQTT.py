@@ -18,7 +18,10 @@ chemin_solaire_mqtt = "solaredge/blagnac/overview"
 
 # Initialisation des listes et variables nécessaires
 donnees_salle = {}  # Pour les salles
-donnees_solaire = {"lastTimeData": []}  # Pour les panneaux solaires (liste des 10 dernières valeurs)
+donnees_solaire = {"currentPower": [], 
+                  "lastYearData": [],
+                   "lastMonthData": [],
+                   "lastDayData": []}  # Pour les panneaux solaires (liste des 10 dernières valeurs)
 consommation_max = configuration['max']['consommation_max']  # Nouvelle limite pour les panneaux solaires
 
 valeurs_max = [
@@ -78,17 +81,20 @@ def mise_a_jour_alertes(salle):
             ecrire_jsonl("LOG_ALERTE.jsonl", alerte)
 
 # Fonction pour gérer les données des panneaux solaires
-def mise_a_jour_donnees_solaires(last_time_data):
+def mise_a_jour_donnees_solaires(currentPower, last_year_data, last_month_data, last_day_data):
     global donnees_solaire
     # Ajouter la nouvelle valeur
-    donnees_solaire["lastTimeData"].append(last_time_data)
+    donnees_solaire["currentPower"].append(currentPower)
+    donnees_solaire["lastYearData"].append(last_year_data)
+    donnees_solaire["lastMonthData"].append(last_month_data)
+    donnees_solaire["lastDayData"].append(last_day_data)
     # Limiter à 10 valeurs maximum
-    if len(donnees_solaire["lastTimeData"]) > 10:
-        donnees_solaire["lastTimeData"].pop(0)
+    if len(donnees_solaire["currentPower"]) > 10:
+        donnees_solaire["currentPower"].pop(0)
 
 # Fonction pour gérer les alertes des panneaux solaires
 def mise_a_jour_alertes_solaires():
-    moyenne = sum(donnees_solaire["lastTimeData"]) / len(donnees_solaire["lastTimeData"])
+    moyenne = sum(donnees_solaire["currentPower"]) / len(donnees_solaire["currentPower"])
     if moyenne > consommation_max:
         alerte_message = {
             "type": "SOLAIRE",
@@ -96,7 +102,7 @@ def mise_a_jour_alertes_solaires():
             "timestamp": datetime.now().isoformat(),
             "moyenne": moyenne
         }
-        ecrire_jsonl("LOG_ALERTE.jsonl", alerte_message)
+        ecrire_jsonl("LOG_ALERTE_SOLAIRE.jsonl", alerte_message)
         print("ALERTE SOLAIRE : CONSOMMATION TROP ÉLEVÉE")
 
 # Fonction appelée lorsqu'un message est reçu
@@ -125,14 +131,20 @@ def reception_message(mqttc, obj, msg):
                 print("SALLE NON PRISE EN CHARGE")
         # Gestion des messages pour les panneaux solaires
         elif msg.topic == "solaredge/blagnac/overview":
-            last_time_data = msg_json.get("lifeTimeData", {}).get("energy", None)
-            if last_time_data is not None:
-                mise_a_jour_donnees_solaires(last_time_data)
+            last_year_data = msg_json.get("lastYearData", {}).get("energy", None)
+            last_month_data = msg_json.get("lastMonthData", {}).get("energy", None)
+            last_day_data = msg_json.get("lastDayData", {}).get("energy", None)
+            currentPower = msg_json.get("currentPower", {}).get("power", None)
+            if currentPower is not None:
+                mise_a_jour_donnees_solaires(currentPower, last_year_data, last_month_data, last_day_data)
                 mise_a_jour_alertes_solaires()
-                print(f"DONNEES SOLAIRES RECUES : {last_time_data}")
+                print(f"DONNEES SOLAIRES RECUES : {currentPower, last_year_data, last_month_data, last_day_data}")
                 # Sauvegarde des données solaires dans un fichier JSONL
                 solaire_message = {
-                    "lifeTimeData": last_time_data,
+                    "lastYearData": last_year_data,
+                    "lastMonthData": last_month_data,
+                    "lastDayData": last_day_data,
+                    "currentPower": currentPower,
                     "timestamp": datetime.now().isoformat()
                 }
                 ecrire_jsonl("DONNEES_SOLAIRES.jsonl", solaire_message)
