@@ -1,4 +1,4 @@
-DROP TABLE `ACommande`, `AdressePostale`, `Aconsulte`, `Avis`, `Carte_AE`, `Carte_EU`, `Categorie`, `Client`, `Commande`, `Comporte`, `Contient`, `Employe`, `Image`, `infoPaiement`, `Marque`, `MethodePaiement`, `Paypal`, `Produit`, `Promotion`;
+DROP TABLE IF EXISTS `ACommande`, `AConsulte`, `AdressePostale`, `Avis`, `Carte_AE`, `Carte_EU`, `Categorie`, `Client`, `Commande`, `Comporte`, `Contient`, `Employe`, `Image`, `infoPaiement`, `Marque`, `MethodePaiement`, `Paypal`, `Produit`, `Promotion`;
 
 CREATE TABLE Marque (
     idMarque INT PRIMARY KEY AUTO_INCREMENT,

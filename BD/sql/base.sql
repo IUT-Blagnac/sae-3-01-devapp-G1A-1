@@ -120,13 +120,10 @@ CREATE TABLE Employe (
     idNumEmploye NUMBER(5),
     nom VARCHAR(25),
 	prenom VARCHAR(15),
-	idAdresse NUMBER(6),
 	email VARCHAR(320),
 	telephone CHAR(10),
     administrateur BOOLEAN,
-    CONSTRAINT pk_Employe PRIMARY KEY (idNumEmploye),
-    CONSTRAINT fk_Employe_AdressePostale
-		FOREIGN KEY (idAdresse) REFERENCES AdressePostale(idAdresse)
+    CONSTRAINT pk_Employe PRIMARY KEY (idNumEmploye)
 );
 
 CREATE TABLE Client(
