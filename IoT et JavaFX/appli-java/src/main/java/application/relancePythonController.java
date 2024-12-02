@@ -9,9 +9,8 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+import tools.GlobalVariables;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -20,7 +19,7 @@ import java.util.ResourceBundle;
  * Affiche un spinner pendant le test et un check ou une croix à la fin
  * Ferme la fenêtre après 5 secondes
  */
-public class testController implements Initializable {
+public class relancePythonController implements Initializable {
 
     @FXML
     private StackPane mainPane;
@@ -40,7 +39,7 @@ public class testController implements Initializable {
 
     public void displayDialog() {
         this.primaryStage.show();
-        this.startConnectionTest(); // Lance le test au démarrage
+        this.startRelaunch();
     }
 
     private void configure() {
@@ -51,73 +50,46 @@ public class testController implements Initializable {
         });
     }
 
-    private void startConnectionTest() {
+    private void startRelaunch() {
         // Task pour exécuter le script Python
-        Task<Boolean> connectionTask = new Task<>() {
+        Task<Boolean> launchTask = new Task<>() {
             @Override
             protected Boolean call() {
-                return testPythonConnection();
+                GlobalVariables.mqttPython.stopPython();
+                try {
+                    GlobalVariables.mqttPython.startPython();
+                } catch (Exception e) {
+                    // il y toujours a une erreur si le lancement a échoué
+                    return false;
+                }
+                return true;
             }
         };
 
         // Quand le résultat arrive
-        connectionTask.setOnSucceeded(event -> {
-            boolean isConnected = connectionTask.getValue();
-            showResult(isConnected);
+        launchTask.setOnSucceeded(event -> {
+            boolean isRunning = launchTask.getValue();
+            showResult(isRunning);
         });
 
         // Quand la tâche échoue
-        connectionTask.setOnFailed(event -> {
+        launchTask.setOnFailed(event -> {
             showResult(false);
         });
 
         // Démarre la tâche en arrière-plan
-        new Thread(connectionTask).start();
+        new Thread(launchTask).start();
     }
 
-    private boolean testPythonConnection() {
-        try {
-            // Commande pour exécuter le script Python
-            ProcessBuilder pb = new ProcessBuilder("python",
-                    "IoT et JavaFX/appli-java/src/main/resources/TestConnexion.py");
-            Process process = pb.start();
-
-            // Lire la sortie standard du script Python
-            BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
-            String result = "";
-            String line;
-            while ((line = reader.readLine()) != null) {
-                result += line + "\n"; // Capture toute la sortie standard
-                System.out.println("Output from Python: " + line); // Affiche la sortie
-            }
-
-            // Lire la sortie d'erreur (au cas où Python génère des erreurs)
-            BufferedReader errorReader = new BufferedReader(new InputStreamReader(process.getErrorStream()));
-            while ((line = errorReader.readLine()) != null) {
-                System.err.println("Error from Python: " + line); // Affiche les erreurs
-            }
-
-            // Attendre la fin du processus Python
-            int exitCode = process.waitFor();
-            System.out.println("Python script exit code: " + exitCode); // Affiche le code de sortie
-
-            // Vérifie la sortie de Python et renvoie true ou false
-            return "OK".equals(result.trim()); // "OK" attendu si connexion réussie
-        } catch (Exception e) {
-            e.printStackTrace();
-            return false; // Erreur dans le script ou problème
-        }
-    }
-
-    private void showResult(boolean isConnected) {
-        System.out.println("Affichage du résultat de connexion : " + (isConnected ? "Réussi" : "Échoué"));
+    private void showResult(boolean isRunning) {
+        System.out.println("Affichage du résultat de relance : " + (isRunning ? "actif" : "echec"));
 
         // Mise à jour de l'interface graphique sur le thread principal
         Platform.runLater(() -> {
             spinner.setVisible(false); // Cache le spinner
             resultIcon.setVisible(true); // Affiche l'icône
 
-            if (isConnected) {
+            if (isRunning) {
                 resultIcon.setImage(new Image(getClass().getResource("../check.png").toExternalForm()));
             } else {
                 resultIcon.setImage(new Image(getClass().getResource("../cross.png").toExternalForm()));
@@ -126,7 +98,7 @@ public class testController implements Initializable {
             // Fermer la fenêtre après 5 secondes
             new Thread(() -> {
                 try {
-                    Thread.sleep(5000); // Attente
+                    Thread.sleep(2000); // Attente
                     Platform.runLater(this::closeWindow); // Fermer la fenêtre
                 } catch (InterruptedException e) {
                     e.printStackTrace();

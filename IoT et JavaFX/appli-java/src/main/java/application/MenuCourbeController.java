@@ -7,11 +7,11 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
+import tools.GlobalVariables;
 
 /*
  * Contrôleur pour le menu de choix des courbes
@@ -168,11 +168,6 @@ public class MenuCourbeController implements Initializable {
 
     @FXML
     private void doQuit() { // Gestion de la fermeture de la fenêtre
-        if (AlertUtilities.confirmYesCancel(this.primaryStage, "Quitter Appli Principale",
-                "Etes vous sur de vouloir quitter l'appli ?", null, AlertType.CONFIRMATION)) {
-
-            this.primaryStage.close();
-            System.exit(0);
-        }
+        GlobalVariables.exitApp(this.primaryStage);
     }
 }

@@ -28,7 +28,7 @@
          </rowConstraints>
          <children>
             <Button fx:id="btnTest" mnemonicParsing="false" onAction="#doTest" prefHeight="35.0" prefWidth="240.0" text="Tester la connexion" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
-            <Button fx:id="btnStart" mnemonicParsing="false" prefHeight="35.0" prefWidth="240.0" text="Relancer le programme python" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+            <Button fx:id="btnStart" mnemonicParsing="false" onAction="#doRelancePython" prefHeight="35.0" prefWidth="240.0" text="Relancer le programme python" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
                <GridPane.margin>
                   <Insets />
                </GridPane.margin>
@@ -66,11 +66,12 @@
    <top>
       <HBox prefHeight="74.0" prefWidth="912.0" BorderPane.alignment="CENTER">
          <children>
-            <Label prefHeight="109.0" prefWidth="173.0" text="Etat python: ">
+            <Label prefHeight="109.0" prefWidth="115.0" text="Etat python : ">
                <padding>
                   <Insets left="10.0" />
                </padding>
             </Label>
+            <Label fx:id="lblPythonState" prefHeight="109.0" prefWidth="90.0" text="en démarrage" />
             <Label alignment="CENTER" prefHeight="74.0" prefWidth="561.0" text="Application BuildMyPC">
                <font>
                   <Font name="System Bold" size="32.0" />

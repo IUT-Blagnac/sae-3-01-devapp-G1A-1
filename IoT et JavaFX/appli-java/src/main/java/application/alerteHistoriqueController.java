@@ -7,7 +7,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
@@ -19,6 +18,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
+import tools.GlobalVariables;
 
 import java.net.URL;
 import java.util.List;
@@ -47,7 +47,7 @@ public class alerteHistoriqueController implements Initializable {
     private ComboBox<String> typeFilter;
     private Button btnBack;
     private Button btnApplyFilter;
-    private Button btnResetFilter;  // Nouveau bouton pour réinitialiser les filtres
+    private Button btnResetFilter; // Nouveau bouton pour réinitialiser les filtres
     private TableView<List<String>> alertesTable;
     private ObservableList<List<String>> alertesList;
 
@@ -94,11 +94,7 @@ public class alerteHistoriqueController implements Initializable {
     @FXML
     private void doQuit() {
         // Action de fermeture de l'application
-        if (AlertUtilities.confirmYesCancel(this.primaryStage, "Quitter Appli Principale",
-                "Etes vous sur de vouloir quitter l'appli ?", null, AlertType.CONFIRMATION)) {
-            this.primaryStage.close();
-            System.exit(0);
-        }
+        GlobalVariables.exitApp(this.primaryStage);
     }
 
     @Override
@@ -130,10 +126,11 @@ public class alerteHistoriqueController implements Initializable {
         btnApplyFilter = new Button("Appliquer Filtre");
         btnApplyFilter.setOnAction(e -> appliquerFiltre());
 
-        btnResetFilter = new Button("Réinitialiser Filtre");  // Nouveau bouton
-        btnResetFilter.setOnAction(e -> resetFilters());  // Action pour réinitialiser les filtres
+        btnResetFilter = new Button("Réinitialiser Filtre"); // Nouveau bouton
+        btnResetFilter.setOnAction(e -> resetFilters()); // Action pour réinitialiser les filtres
 
-        filterBox.getChildren().addAll(salleFilter, typeFilter, btnApplyFilter, btnResetFilter);  // Ajouter le bouton de réinitialisation
+        filterBox.getChildren().addAll(salleFilter, typeFilter, btnApplyFilter, btnResetFilter); // Ajouter le bouton de
+                                                                                                 // réinitialisation
 
         // TableView to show the alerts
         alertesTable = new TableView<>();
@@ -160,12 +157,11 @@ public class alerteHistoriqueController implements Initializable {
 
         // Initializing alertesList with manually generated data
         alertesList = FXCollections.<List<String>>observableArrayList(
-            List.of("Salle 101", "TEMPERATURE", "2024-11-28 10:00:00"),
-            List.of("Salle 102", "HUMIDITE", "2024-11-28 10:05:00"),
-            List.of("Salle 103", "CO2", "2024-11-28 10:10:00"),
-            List.of("Salle 101", "TEMPERATURE", "2024-11-28 10:15:00"),
-            List.of("Salle 102", "HUMIDITE", "2024-11-28 10:20:00")
-        );
+                List.of("Salle 101", "TEMPERATURE", "2024-11-28 10:00:00"),
+                List.of("Salle 102", "HUMIDITE", "2024-11-28 10:05:00"),
+                List.of("Salle 103", "CO2", "2024-11-28 10:10:00"),
+                List.of("Salle 101", "TEMPERATURE", "2024-11-28 10:15:00"),
+                List.of("Salle 102", "HUMIDITE", "2024-11-28 10:20:00"));
 
         alertesTable.setItems(alertesList);
     }

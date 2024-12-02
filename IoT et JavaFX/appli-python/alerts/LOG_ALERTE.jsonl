@@ -406,3 +406,4 @@
 {"salle": "E100", "type": "HUMIDITE", "timestamp": "2024-12-02T14:59:38.547521"}
 {"salle": "hall-amphi", "type": "TEMPERATURE", "timestamp": "2024-12-02T14:59:38.548530"}
 {"salle": "hall-amphi", "type": "HUMIDITE", "timestamp": "2024-12-02T14:59:38.548530"}
+{"salle": "B106", "type": "CO2", "timestamp": "2024-12-02T18:01:09.772527"}
