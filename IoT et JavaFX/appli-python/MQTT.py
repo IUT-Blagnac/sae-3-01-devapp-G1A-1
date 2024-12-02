@@ -117,7 +117,7 @@ def reception_message(mqttc, obj, msg):
                 temp, hum, taux = [round(msg_json[0][key], 2) for key in ["temperature", "humidity", "co2"]]
                 mise_a_jour_donnees(temp, hum, taux, salle)
                 mise_a_jour_alertes(salle)
-                print("SALLE PRISE EN CHARGE")
+                print(f"SALLE {salle} PRISE EN CHARGE")
                 # Sauvegarde des données dans un fichier JSONL spécifique à la salle
                 fichier_salle = f"IoT et JavaFX/appli-python/datas/{salle}.jsonl"
                 data_message = {
@@ -128,7 +128,7 @@ def reception_message(mqttc, obj, msg):
                 }
                 ecrire_jsonl(fichier_salle, data_message)
             else:
-                print("SALLE NON PRISE EN CHARGE")
+                print(f"SALLE {salle} NON PRISE EN CHARGE")
         # Gestion des messages pour les panneaux solaires
         elif msg.topic == "solaredge/blagnac/overview":
             last_year_data = msg_json.get("lastYearData", {}).get("energy", None)
@@ -153,6 +153,7 @@ def reception_message(mqttc, obj, msg):
 
 # Fonction appelée périodiquement pour gérer les messages MQTT
 def handler():
+    print("-------------------------------")
     print("Alarme déclenchée!")
     client_mqtt.on_message = reception_message
     print('LECTURE EN COURS, AFFICHAGE DES ALERTES')

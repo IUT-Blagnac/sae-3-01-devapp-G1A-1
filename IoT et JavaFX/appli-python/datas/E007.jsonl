@@ -7,4 +7,8 @@
 {"temperature": 22.7, "humidite": 42, "co2": 2047, "timestamp": "2024-11-29T18:58:27.567335"}
 {"temperature": 22.7, "humidite": 42, "co2": 2044, "timestamp": "2024-11-29T18:48:26.518807"}
 {"temperature": 22.7, "humidite": 42, "co2": 2047, "timestamp": "2024-11-29T18:58:27.567335"}
-{"temperature": 22.7, "humidite": 42, "co2": 2044, "timestamp": "2024-11-29T18:48:26.518807"}
+{"temperature": 22.7, "humidite": 42, "co2": 2044, "timestamp": "2024-11-29T18:48:26.518807"}{"temperature": 20.7, "humidite": 55, "co2": 615, "timestamp": "2024-12-02T14:18:13.498757"}
+{"temperature": 20.7, "humidite": 56, "co2": 705, "timestamp": "2024-12-02T14:27:33.152264"}
+{"temperature": 20.7, "humidite": 57, "co2": 781, "timestamp": "2024-12-02T14:37:53.868278"}
+{"temperature": 20.8, "humidite": 58, "co2": 859, "timestamp": "2024-12-02T14:48:14.981982"}
+{"temperature": 20.9, "humidite": 58, "co2": 872, "timestamp": "2024-12-02T14:57:34.394295"}

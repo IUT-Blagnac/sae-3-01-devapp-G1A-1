@@ -1,8 +1,14 @@
 package application;
 
 import java.net.URL;
+import java.time.LocalTime;
+import java.util.HashMap;
 import java.util.ResourceBundle;
 
+import java.util.List;
+import java.util.Map;
+
+import javafx.util.StringConverter;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -19,12 +25,17 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
+import tools.SolarDataReader;
 
 /* Contrôleur pour afficher les données solaires
  *Affiche les données de production actuelle, journalière, mensuelle et annuelle
  *Affiche un graphique de production en fonction du temps
  */
 public class showSolarController implements Initializable {
+
+    private static final String DATA_FILE_PATH = "IOT et JavaFX/appli-python/datas/DONNEES_SOLAIRES.jsonl";
+
+    private List<HashMap<String, Object>> solarData; // Liste des données solaires
 
     // Fenêtre physique
     private Stage primaryStage;
@@ -130,9 +141,12 @@ public class showSolarController implements Initializable {
 
     // Méthode pour configurer le HBox
     private void setupHBox() {
+
+        Map<String, Double> summaryData = SolarDataReader.loadSummaryData();
+
         String[] titles = { "Production Actuelle", "Production Journalière", "Production Mensuelle",
                 "Production Annuelle" };
-        double[] values = { 200.5, 5000.3, 150000.7, 1800000.4 }; // Valeurs fictives, remplacez par vos données
+        String[] keys = { "currentPower", "lastDayData", "lastMonthData", "lastYearData" };
 
         for (int i = 0; i < titles.length; i++) {
             VBox vbox = new VBox(5);
@@ -141,7 +155,7 @@ public class showSolarController implements Initializable {
             Label titleLabel = new Label(titles[i]);
             titleLabel.setStyle("-fx-font-weight: bold; -fx-font-size: 14px;");
 
-            Label valueLabel = new Label(String.format("%.2f", values[i]) + " kW");
+            Label valueLabel = new Label(String.format("%.2f", summaryData.get(keys[i])) + " kW");
             valueLabel.setStyle("-fx-font-size: 12px;");
             vbox.setStyle("-fx-border-color: black; -fx-border-width: 2px; -fx-padding: 1px;");
 
@@ -149,31 +163,75 @@ public class showSolarController implements Initializable {
             contentHBox.getChildren().add(vbox);
         }
 
-        contentHBox.setSpacing(20); // Espacement entre les cases
+        contentHBox.setSpacing(20);
     }
 
     // Méthode pour configurer le graphique dans le center
     private void setupCenterChart() {
+        List<Map.Entry<LocalTime, Double>> graphData = SolarDataReader.loadGraphData();
+    
+        if (graphData.isEmpty()) {
+            System.err.println("Aucune donnée disponible pour le graphique.");
+            return;
+        }
+    
+        // S'assurer que les données sont triées par heure
+        graphData.sort(Map.Entry.comparingByKey());
+    
+        // Déterminer le premier et le dernier timestamp en secondes depuis minuit
+        int startSeconds = graphData.get(0).getKey().toSecondOfDay();
+        int endSeconds = graphData.get(graphData.size() - 1).getKey().toSecondOfDay();
+    
+        // Configuration des axes
         NumberAxis xAxis = new NumberAxis();
         NumberAxis yAxis = new NumberAxis();
-        xAxis.setLabel("Date et Heure");
+        xAxis.setLabel("Heure");
         yAxis.setLabel("Valeur (kW)");
-
+    
+        // Désactiver le réajustement automatique et définir les bornes manuellement
+        xAxis.setAutoRanging(false);
+        xAxis.setLowerBound(startSeconds);
+        xAxis.setUpperBound(endSeconds);
+    
+        // Définir l'unité des ticks à 1800 secondes (30 minutes)
+        xAxis.setTickUnit(1800); // 30 minutes
+    
+        // Configurer les labels pour n'afficher que les heures principales
+        xAxis.setTickLabelFormatter(new StringConverter<Number>() {
+            @Override
+            public String toString(Number object) {
+                int seconds = object.intValue();
+                int hours = seconds / 3600;
+                int minutes = (seconds % 3600) / 60;
+        
+                // Pour débogage : Affiche tous les labels
+                System.out.println("Label généré : " + String.format("%02d:%02d", hours, minutes));
+                return String.format("%02d:%02d", hours, minutes); // Affiche tout pour test
+            }
+        
+            @Override
+            public Number fromString(String string) {
+                return null; // Non utilisé
+            }
+        });
+    
+        // Créer le LineChart
         LineChart<Number, Number> lineChart = new LineChart<>(xAxis, yAxis);
         lineChart.setTitle("Production en fonction du temps");
-
-        // Ajout de séries de données fictives
+    
+        // Créer la série de données
         XYChart.Series<Number, Number> series = new XYChart.Series<>();
         series.setName("Production actuelle");
-        series.getData().add(new XYChart.Data<>(0, 200));
-        series.getData().add(new XYChart.Data<>(1, 210));
-        series.getData().add(new XYChart.Data<>(2, 220));
-        series.getData().add(new XYChart.Data<>(3, 215));
-        series.getData().add(new XYChart.Data<>(4, 230));
-
+    
+        // Ajouter les données à la série
+        for (Map.Entry<LocalTime, Double> point : graphData) {
+            series.getData().add(new XYChart.Data<>(point.getKey().toSecondOfDay(), point.getValue()));
+        }
+    
+        // Ajouter la série au graphique
         lineChart.getData().add(series);
-
-        // Ajouter le graphique à la partie centrale du BorderPane
+    
+        // Ajouter le graphique au BorderPane central
         contentBorderPane.setCenter(lineChart);
     }
 
