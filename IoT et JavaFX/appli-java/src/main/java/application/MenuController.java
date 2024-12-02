@@ -243,6 +243,11 @@ public class MenuController implements Initializable {
 	}
 
 	@FXML
+	private void doVisuDonnees() {
+		System.out.println("TODO");
+	}
+
+	@FXML
 	private void doHistorique() {
 		try {
 			FXMLLoader loader = new FXMLLoader(
