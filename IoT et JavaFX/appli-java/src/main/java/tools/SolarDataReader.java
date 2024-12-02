@@ -12,7 +12,7 @@ import org.json.JSONObject;
 
 public class SolarDataReader {
 
-    private static final String FILE_PATH = "IOT et JavaFX/appli-python/datas/DONNEES_SOLAIRES.jsonl";
+    private static final String FILE_PATH = "IOT et JavaFX/appli-python/datas/solar/DONNEES_SOLAIRES.jsonl";
 
     public static Map<String, Double> loadSummaryData() {
         Map<String, Double> summaryData = new HashMap<>();

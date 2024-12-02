@@ -90,7 +90,7 @@ public class showSolarController implements Initializable {
                 primaryStage.setScene(scene);
                 primaryStage.setTitle("Fenêtre Menu Courbe");
 
-                MenuCourbeController mfc = loader.getController();
+                menuCourbeController mfc = loader.getController();
                 mfc.initContext(primaryStage);
 
                 mfc.displayDialog();
@@ -105,7 +105,7 @@ public class showSolarController implements Initializable {
                 primaryStage.setScene(scene);
                 primaryStage.setTitle("Fenêtre Menu Principal");
 
-                MenuController mfc = loader.getController();
+                menuController mfc = loader.getController();
                 mfc.initContext(primaryStage);
 
                 mfc.displayDialog();

@@ -20,7 +20,7 @@ public class Menu extends Application {
 
 		try {
 			FXMLLoader loader = new FXMLLoader(
-					MenuController.class.getResource("menu.fxml"));
+					menuController.class.getResource("menu.fxml"));
 			BorderPane root = loader.load();
 
 			Scene scene = new Scene(root, root.getPrefWidth() + 20, root.getPrefHeight() + 10);
@@ -29,7 +29,7 @@ public class Menu extends Application {
 			primaryStage.setScene(scene);
 			primaryStage.setTitle("Fenêtre Principale");
 
-			MenuController mfc = loader.getController();
+			menuController mfc = loader.getController();
 			mfc.initContext(primaryStage);
 
 			mfc.displayDialog();
