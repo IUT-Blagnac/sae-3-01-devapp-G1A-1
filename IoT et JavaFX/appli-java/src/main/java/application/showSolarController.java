@@ -33,7 +33,7 @@ import tools.SolarDataReader;
  */
 public class showSolarController implements Initializable {
 
-    private static final String DATA_FILE_PATH = "IOT et JavaFX/appli-python/datas/DONNEES_SOLAIRES.jsonl";
+    private static final String DATA_FILE_PATH = "IOT et JavaFX/appli-python/datas/solar/DONNEES_SOLAIRES.jsonl";
 
     private List<HashMap<String, Object>> solarData; // Liste des données solaires
 
@@ -85,12 +85,12 @@ public class showSolarController implements Initializable {
                 BorderPane root = loader.load();
 
                 Scene scene = new Scene(root, root.getPrefWidth() + 20, root.getPrefHeight() + 10);
-                scene.getStylesheets().add(Menu.class.getResource("application.css").toExternalForm());
+                scene.getStylesheets().add(menu.class.getResource("application.css").toExternalForm());
 
                 primaryStage.setScene(scene);
                 primaryStage.setTitle("Fenêtre Menu Courbe");
 
-                MenuCourbeController mfc = loader.getController();
+                menuCourbeController mfc = loader.getController();
                 mfc.initContext(primaryStage);
 
                 mfc.displayDialog();
@@ -100,12 +100,12 @@ public class showSolarController implements Initializable {
                 BorderPane root = loader.load();
 
                 Scene scene = new Scene(root, root.getPrefWidth() + 20, root.getPrefHeight() + 10);
-                scene.getStylesheets().add(Menu.class.getResource("application.css").toExternalForm());
+                scene.getStylesheets().add(menu.class.getResource("application.css").toExternalForm());
 
                 primaryStage.setScene(scene);
                 primaryStage.setTitle("Fenêtre Menu Principal");
 
-                MenuController mfc = loader.getController();
+                menuController mfc = loader.getController();
                 mfc.initContext(primaryStage);
 
                 mfc.displayDialog();

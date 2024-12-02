@@ -82,7 +82,7 @@ public class alerteHistoriqueController implements Initializable {
             primaryStage.setScene(new Scene(root));
             primaryStage.setTitle("Fenêtre Menu Principal");
 
-            MenuController mfc = loader.getController();
+            menuController mfc = loader.getController();
             mfc.initContext(primaryStage);
             mfc.displayDialog();
         } catch (Exception e) {
