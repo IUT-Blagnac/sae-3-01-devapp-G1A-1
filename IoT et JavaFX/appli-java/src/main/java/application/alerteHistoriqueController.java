@@ -57,7 +57,6 @@ public class AlerteHistoriqueController implements Initializable {
         Scene scene = new Scene(root, 912, 561);
         primaryStage.setScene(scene);
         primaryStage.setTitle("Application BuildMyPC");
-        System.out.println("TODO - Delete this sout");
     }
 
     public void displayDialog() {

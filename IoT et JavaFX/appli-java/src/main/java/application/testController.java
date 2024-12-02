@@ -36,7 +36,6 @@ public class TestController implements Initializable {
     public void initContext(Stage _containingStage) {
         this.primaryStage = _containingStage;
         this.configure();
-        System.out.println("TODO - Delete this sout");
 
     }
 
