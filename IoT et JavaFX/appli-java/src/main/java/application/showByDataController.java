@@ -24,8 +24,12 @@ import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
+import tools.DataReader;
 import javafx.scene.Node;
+
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /*
@@ -115,6 +119,16 @@ public class showByDataController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        // Salles à afficher
+        String filePath = "IoT et JavaFX/appli-python/config.json";
+        DataReader dataReader = new DataReader();
+        HashMap<String, Object> jsonMap = dataReader.readJsonFile(filePath);
+
+        // Récupérer les valeurs sous l'objet "salle"
+        HashMap<String, Object> salleValues = (HashMap<String, Object>) jsonMap.get("salle");
+        String numSalle = (String) salleValues.get("num_salle");
+        List<String> sallesSelectionnees = Arrays.asList(numSalle.split(","));
+
         String[] salles = { "Température", "CO2", "Humidité" };
 
         for (String salle : salles) {
@@ -141,15 +155,20 @@ public class showByDataController implements Initializable {
             titledPane.setGraphic(titleHBox);
 
             VBox optionsVBox = new VBox(5);
-            CheckBox checkBoxCO2 = new CheckBox("Salle A");
-            CheckBox checkBoxHumidity = new CheckBox("Salle B");
-            CheckBox checkBoxTemperature = new CheckBox("Salle C");
+            for (String salleSelectionnee : sallesSelectionnees) {
+                CheckBox checkBox = new CheckBox(salleSelectionnee);
+                checkBox.setOnAction(event -> updateRightScrollPane());
+                optionsVBox.getChildren().add(checkBox);
+            }
+            // CheckBox checkBoxCO2 = new CheckBox("Salle A");
+            // CheckBox checkBoxHumidity = new CheckBox("Salle B");
+            // CheckBox checkBoxTemperature = new CheckBox("Salle C");
 
-            checkBoxCO2.setOnAction(event -> updateRightScrollPane());
-            checkBoxHumidity.setOnAction(event -> updateRightScrollPane());
-            checkBoxTemperature.setOnAction(event -> updateRightScrollPane());
+            // checkBoxCO2.setOnAction(event -> updateRightScrollPane());
+            // checkBoxHumidity.setOnAction(event -> updateRightScrollPane());
+            // checkBoxTemperature.setOnAction(event -> updateRightScrollPane());
 
-            optionsVBox.getChildren().addAll(checkBoxCO2, checkBoxHumidity, checkBoxTemperature);
+            // optionsVBox.getChildren().addAll(checkBoxCO2, checkBoxHumidity, checkBoxTemperature);
             titledPane.setContent(optionsVBox);
 
             contentLeftVBox.getChildren().add(titledPane);
@@ -212,9 +231,13 @@ public class showByDataController implements Initializable {
 
                 if (titledPane.getContent() instanceof VBox) {
                     VBox optionsVBox = (VBox) titledPane.getContent();
-                    CheckBox checkBoxCO2 = (CheckBox) optionsVBox.getChildren().get(0);
-                    CheckBox checkBoxHumidity = (CheckBox) optionsVBox.getChildren().get(1);
-                    CheckBox checkBoxTemperature = (CheckBox) optionsVBox.getChildren().get(2);
+                    
+                    //Obtenir le nombre de checkbox dans la VBox
+                    int nbCheckBox = optionsVBox.getChildren().size();
+
+                    // CheckBox checkBoxCO2 = (CheckBox) optionsVBox.getChildren().get(0);
+                    // CheckBox checkBoxHumidity = (CheckBox) optionsVBox.getChildren().get(1);
+                    // CheckBox checkBoxTemperature = (CheckBox) optionsVBox.getChildren().get(2);
 
                     // Boîte pour chaque salle (avec une taille fixe)
                     VBox salleRightVBox = new VBox(10);
@@ -229,19 +252,28 @@ public class showByDataController implements Initializable {
 
                     LineChart<Number, Number> lineChart = createEmptyChart();
 
-                    if (checkBoxCO2.isSelected() || checkBoxHumidity.isSelected() || checkBoxTemperature.isSelected()) {
-                        if (checkBoxCO2.isSelected()) {
-                            lineChart.getData().add(createSeries("Salle A", new double[] { 10, 20, 30, 40, 50 }));
+                    for (int i = 0; i < nbCheckBox; i++) {
+                        CheckBox checkBox = (CheckBox) optionsVBox.getChildren().get(i);
+                        if (checkBox.isSelected()) {
+                            lineChart.getData().add(createSeries(checkBox.getText(), new double[] { 10, 20, 30, 40, 50 }));
+                        }else {
+                            lineChart.setTitle("Aucune salle sélectionnée pour cette donnée.");
                         }
-                        if (checkBoxHumidity.isSelected()) {
-                            lineChart.getData().add(createSeries("Salle B", new double[] { 60, 50, 70, 80, 90 }));
-                        }
-                        if (checkBoxTemperature.isSelected()) {
-                            lineChart.getData().add(createSeries("Salle C", new double[] { 15, 17, 19, 21, 23 }));
-                        }
-                    } else {
-                        lineChart.setTitle("Aucune salle sélectionnée pour cette donnée.");
                     }
+                    
+                    // if (checkBoxCO2.isSelected() || checkBoxHumidity.isSelected() || checkBoxTemperature.isSelected()) {
+                    //     if (checkBoxCO2.isSelected()) {
+                    //         lineChart.getData().add(createSeries("Salle A", new double[] { 10, 20, 30, 40, 50 }));
+                    //     }
+                    //     if (checkBoxHumidity.isSelected()) {
+                    //         lineChart.getData().add(createSeries("Salle B", new double[] { 60, 50, 70, 80, 90 }));
+                    //     }
+                    //     if (checkBoxTemperature.isSelected()) {
+                    //         lineChart.getData().add(createSeries("Salle C", new double[] { 15, 17, 19, 21, 23 }));
+                    //     }
+                    // } else {
+                    //     lineChart.setTitle("Aucune salle sélectionnée pour cette donnée.");
+                    // }
 
                     // Ajouter le label et le graphique dans la boîte
                     salleRightVBox.getChildren().addAll(rightSalleLabel, lineChart);
