@@ -23,9 +23,13 @@ import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
+import tools.DataReader;
 import tools.GlobalVariables;
 import javafx.scene.Node;
+
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /*
@@ -115,9 +119,25 @@ public class ShowByRoomController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        String[] salles = { "Salle A", "Salle B", "Salle C" };
+        // Salles à afficher
+        String filePath = "IoT et JavaFX/appli-python/config.json";
+        DataReader dataReader = new DataReader();
+        HashMap<String, Object> jsonMap = dataReader.readJsonFile(filePath);
 
-        for (String salle : salles) {
+        // Récupérer les valeurs sous l'objet "salle"
+        HashMap<String, Object> salleValues = (HashMap<String, Object>) jsonMap.get("salle");
+        String numSalle = (String) salleValues.get("num_salle");
+        List<String> sallesSelectionnees = Arrays.asList(numSalle.split(","));
+
+        String[] sallesConfig = {};
+        for (String salle : sallesSelectionnees) {
+            sallesConfig = Arrays.copyOf(sallesConfig, sallesConfig.length + 1);
+            sallesConfig[sallesConfig.length - 1] = salle;
+        }
+
+        System.out.println(sallesConfig);
+
+        for (String salle : sallesConfig) {
             // Ajouter chaque salle à la HashMap avec un état visible par défaut
             salleVisibility.put(salle, true);
 
@@ -228,7 +248,7 @@ public class ShowByRoomController implements Initializable {
                     rightSalleLabel.setStyle("-fx-font-weight: bold; -fx-font-size: 16px;");
 
                     LineChart<Number, Number> lineChart = createEmptyChart();
-
+                    
                     if (checkBoxCO2.isSelected() || checkBoxHumidity.isSelected() || checkBoxTemperature.isSelected()) {
                         if (checkBoxCO2.isSelected()) {
                             lineChart.getData().add(createSeries("CO2", new double[] { 10, 20, 30, 40, 50 }));
