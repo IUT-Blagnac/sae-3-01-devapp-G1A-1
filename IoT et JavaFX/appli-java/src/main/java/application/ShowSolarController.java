@@ -17,7 +17,6 @@ import javafx.scene.Scene;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
@@ -25,13 +24,14 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
+import tools.GlobalVariables;
 import tools.SolarDataReader;
 
 /* Contrôleur pour afficher les données solaires
  *Affiche les données de production actuelle, journalière, mensuelle et annuelle
  *Affiche un graphique de production en fonction du temps
  */
-public class showSolarController implements Initializable {
+public class ShowSolarController implements Initializable {
 
     private static final String DATA_FILE_PATH = "IOT et JavaFX/appli-python/datas/solar/DONNEES_SOLAIRES.jsonl";
 
@@ -53,6 +53,7 @@ public class showSolarController implements Initializable {
     public void initContext(Stage _containingStage) {
         this.primaryStage = _containingStage;
         this.configure();
+
     }
 
     public void displayDialog() {
@@ -81,31 +82,31 @@ public class showSolarController implements Initializable {
         try {
             if (this.previousPage.equals("menuCourbe.fxml")) {
                 FXMLLoader loader = new FXMLLoader(
-                        showByRoomController.class.getResource("menuCourbe.fxml"));
+                        ShowByRoomController.class.getResource("menuCourbe.fxml"));
                 BorderPane root = loader.load();
 
                 Scene scene = new Scene(root, root.getPrefWidth() + 20, root.getPrefHeight() + 10);
-                scene.getStylesheets().add(menu.class.getResource("application.css").toExternalForm());
+                scene.getStylesheets().add(Menu.class.getResource("application.css").toExternalForm());
 
                 primaryStage.setScene(scene);
                 primaryStage.setTitle("Fenêtre Menu Courbe");
 
-                menuCourbeController mfc = loader.getController();
+                MenuCourbeController mfc = loader.getController();
                 mfc.initContext(primaryStage);
 
                 mfc.displayDialog();
             } else {
                 FXMLLoader loader = new FXMLLoader(
-                        showByRoomController.class.getResource("menu.fxml"));
+                        ShowByRoomController.class.getResource("menu.fxml"));
                 BorderPane root = loader.load();
 
                 Scene scene = new Scene(root, root.getPrefWidth() + 20, root.getPrefHeight() + 10);
-                scene.getStylesheets().add(menu.class.getResource("application.css").toExternalForm());
+                scene.getStylesheets().add(Menu.class.getResource("application.css").toExternalForm());
 
                 primaryStage.setScene(scene);
                 primaryStage.setTitle("Fenêtre Menu Principal");
 
-                menuController mfc = loader.getController();
+                MenuController mfc = loader.getController();
                 mfc.initContext(primaryStage);
 
                 mfc.displayDialog();
@@ -118,12 +119,7 @@ public class showSolarController implements Initializable {
 
     @FXML
     private void doQuit() { // Gestion de la fermeture de la fenêtre
-        if (AlertUtilities.confirmYesCancel(this.primaryStage, "Quitter Appli Principale",
-                "Etes vous sur de vouloir quitter l'appli ?", null, AlertType.CONFIRMATION)) {
-
-            this.primaryStage.close();
-            System.exit(0);
-        }
+        GlobalVariables.exitApp(this.primaryStage);
     }
 
     // Attributs de la scene + actions
@@ -169,33 +165,33 @@ public class showSolarController implements Initializable {
     // Méthode pour configurer le graphique dans le center
     private void setupCenterChart() {
         List<Map.Entry<LocalTime, Double>> graphData = SolarDataReader.loadGraphData();
-    
+
         if (graphData.isEmpty()) {
             System.err.println("Aucune donnée disponible pour le graphique.");
             return;
         }
-    
+
         // S'assurer que les données sont triées par heure
         graphData.sort(Map.Entry.comparingByKey());
-    
+
         // Déterminer le premier et le dernier timestamp en secondes depuis minuit
         int startSeconds = graphData.get(0).getKey().toSecondOfDay();
         int endSeconds = graphData.get(graphData.size() - 1).getKey().toSecondOfDay();
-    
+
         // Configuration des axes
         NumberAxis xAxis = new NumberAxis();
         NumberAxis yAxis = new NumberAxis();
         xAxis.setLabel("Heure");
         yAxis.setLabel("Valeur (kW)");
-    
+
         // Désactiver le réajustement automatique et définir les bornes manuellement
         xAxis.setAutoRanging(false);
         xAxis.setLowerBound(startSeconds);
         xAxis.setUpperBound(endSeconds);
-    
+
         // Définir l'unité des ticks à 1800 secondes (30 minutes)
         xAxis.setTickUnit(1800); // 30 minutes
-    
+
         // Configurer les labels pour n'afficher que les heures principales
         xAxis.setTickLabelFormatter(new StringConverter<Number>() {
             @Override
@@ -203,34 +199,34 @@ public class showSolarController implements Initializable {
                 int seconds = object.intValue();
                 int hours = seconds / 3600;
                 int minutes = (seconds % 3600) / 60;
-        
+
                 // Pour débogage : Affiche tous les labels
                 System.out.println("Label généré : " + String.format("%02d:%02d", hours, minutes));
                 return String.format("%02d:%02d", hours, minutes); // Affiche tout pour test
             }
-        
+
             @Override
             public Number fromString(String string) {
                 return null; // Non utilisé
             }
         });
-    
+
         // Créer le LineChart
         LineChart<Number, Number> lineChart = new LineChart<>(xAxis, yAxis);
         lineChart.setTitle("Production en fonction du temps");
-    
+
         // Créer la série de données
         XYChart.Series<Number, Number> series = new XYChart.Series<>();
         series.setName("Production actuelle");
-    
+
         // Ajouter les données à la série
         for (Map.Entry<LocalTime, Double> point : graphData) {
             series.getData().add(new XYChart.Data<>(point.getKey().toSecondOfDay(), point.getValue()));
         }
-    
+
         // Ajouter la série au graphique
         lineChart.getData().add(series);
-    
+
         // Ajouter le graphique au BorderPane central
         contentBorderPane.setCenter(lineChart);
     }

@@ -1,5 +1,9 @@
 package tools;
 
+import application.AlertUtilities;
+import javafx.scene.control.Alert.AlertType;
+import javafx.stage.Stage;
+
 /*
  * Classe contenant les variables globales de l'application
  * pour faciliter l'accès et la modification
@@ -16,8 +20,17 @@ public class GlobalVariables {
 
     public enum pythonState {
         RUNNING, PENDING, DISCONNECTED
-    }
+    }// actif, en démarrage, arrêté
 
     public static final PythonExecuter mqttPython = new PythonExecuter(pythonFilePath);
+
+    public static void exitApp(Stage primaryStage) {
+        if (AlertUtilities.confirmYesCancel(primaryStage, "Quitter Appli Principale",
+                "Etes vous sur de vouloir quitter l'appli ?", null, AlertType.CONFIRMATION)) {
+            mqttPython.stopPython();
+            primaryStage.close();
+            System.exit(0);
+        }
+    }
 
 }

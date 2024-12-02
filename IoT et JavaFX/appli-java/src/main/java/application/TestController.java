@@ -20,7 +20,7 @@ import java.util.ResourceBundle;
  * Affiche un spinner pendant le test et un check ou une croix à la fin
  * Ferme la fenêtre après 5 secondes
  */
-public class testController implements Initializable {
+public class TestController implements Initializable {
 
     @FXML
     private StackPane mainPane;
@@ -36,6 +36,7 @@ public class testController implements Initializable {
     public void initContext(Stage _containingStage) {
         this.primaryStage = _containingStage;
         this.configure();
+
     }
 
     public void displayDialog() {
@@ -78,7 +79,8 @@ public class testController implements Initializable {
     private boolean testPythonConnection() {
         try {
             // Commande pour exécuter le script Python
-            ProcessBuilder pb = new ProcessBuilder("python", "IoT et JavaFX/appli-java/src/main/resources/TestConnexion.py");
+            ProcessBuilder pb = new ProcessBuilder("python",
+                    "IoT et JavaFX/appli-java/src/main/resources/TestConnexion.py");
             Process process = pb.start();
 
             // Lire la sortie standard du script Python

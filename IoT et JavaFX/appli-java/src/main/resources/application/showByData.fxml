@@ -10,7 +10,8 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="561.0" prefWidth="912.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.showByDataController">
+<BorderPane prefHeight="561.0" prefWidth="912.0" xmlns="http://javafx.com/javafx/21"
+   xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ShowByDataController">
    <top>
       <HBox prefHeight="74.0" prefWidth="912.0" BorderPane.alignment="CENTER">
          <children>
@@ -21,12 +22,14 @@
             </Label>
             <VBox alignment="CENTER" prefHeight="200.0">
                <children>
-                  <Label alignment="CENTER" prefHeight="134.0" prefWidth="514.0" text="Application BuildMyPC">
+                  <Label alignment="CENTER" prefHeight="134.0" prefWidth="514.0"
+                     text="Application BuildMyPC">
                      <font>
                         <Font name="System Bold" size="32.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" prefHeight="18.0" prefWidth="272.0" text="Affichage par donnée">
+                  <Label alignment="CENTER" prefHeight="18.0" prefWidth="272.0"
+                     text="Affichage par donnée">
                      <font>
                         <Font name="System Bold Italic" size="19.0" />
                      </font>
@@ -40,9 +43,11 @@
    <center>
       <BorderPane prefHeight="486.0" prefWidth="693.0" BorderPane.alignment="CENTER">
          <center>
-            <ScrollPane fx:id="scrollPaneRight" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="422.0" prefWidth="400.0">
+            <ScrollPane fx:id="scrollPaneRight" maxHeight="1.7976931348623157E308"
+               maxWidth="1.7976931348623157E308" prefHeight="422.0" prefWidth="400.0">
                <content>
-                  <VBox fx:id="contentRightVBox" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="414.0" prefWidth="663.0" />
+                  <VBox fx:id="contentRightVBox" maxHeight="1.7976931348623157E308"
+                     maxWidth="1.7976931348623157E308" prefHeight="414.0" prefWidth="663.0" />
                </content>
             </ScrollPane>
 
@@ -53,18 +58,24 @@
       </BorderPane>
    </center>
    <left>
-      <VBox alignment="TOP_CENTER" prefHeight="486.0" prefWidth="245.0" BorderPane.alignment="CENTER">
+      <VBox alignment="TOP_CENTER" prefHeight="486.0" prefWidth="245.0"
+         BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="btnBack" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#doBack" prefHeight="35.0" prefWidth="82.0" text="Retour">
+            <Button fx:id="btnBack" alignment="CENTER" contentDisplay="CENTER"
+               mnemonicParsing="false" onAction="#doBack" prefHeight="35.0" prefWidth="82.0"
+               text="Retour">
                <VBox.margin>
                   <Insets top="23.0" />
-               </VBox.margin></Button>
-            <ScrollPane fx:id="scrollPaneLeft" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="422.0" prefWidth="232.0">
+               </VBox.margin>
+            </Button>
+            <ScrollPane fx:id="scrollPaneLeft" maxHeight="1.7976931348623157E308"
+               maxWidth="1.7976931348623157E308" prefHeight="422.0" prefWidth="232.0">
                <VBox.margin>
                   <Insets top="15.0" />
                </VBox.margin>
                <content>
-                  <VBox fx:id="contentLeftVBox" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="414.0" prefWidth="225.0" />
+                  <VBox fx:id="contentLeftVBox" maxHeight="1.7976931348623157E308"
+                     maxWidth="1.7976931348623157E308" prefHeight="414.0" prefWidth="225.0" />
                </content>
             </ScrollPane>
          </children>

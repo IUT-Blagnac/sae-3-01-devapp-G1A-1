@@ -33,7 +33,7 @@ import tools.DataReader;
  * Redirige vers les pages correspondantes
  * Permet de revenir au menu principal ou de quitter l'application
  */
-public class menuConfigController implements Initializable {
+public class MenuConfigController implements Initializable {
 
     // Fenêtre physique
     private Stage primaryStage;
@@ -48,6 +48,7 @@ public class menuConfigController implements Initializable {
     public void initContext(Stage _containingStage) {
         this.primaryStage = _containingStage;
         this.configure();
+
     }
 
     public void displayDialog() {
@@ -253,16 +254,16 @@ public class menuConfigController implements Initializable {
     private void doBack() { // Bouton qui mène à la page précédente (menu.fxml)
         try {
             FXMLLoader loader = new FXMLLoader(
-                    menuCourbeController.class.getResource("menu.fxml"));
+                    MenuCourbeController.class.getResource("menu.fxml"));
             BorderPane root = loader.load();
 
             Scene scene = new Scene(root, root.getPrefWidth() + 20, root.getPrefHeight() + 10);
-            scene.getStylesheets().add(menu.class.getResource("application.css").toExternalForm());
+            scene.getStylesheets().add(Menu.class.getResource("application.css").toExternalForm());
 
             primaryStage.setScene(scene);
             primaryStage.setTitle("Fenêtre Menu Principal");
 
-            menuController mfc = loader.getController();
+            MenuController mfc = loader.getController();
             mfc.initContext(primaryStage);
 
             mfc.displayDialog();

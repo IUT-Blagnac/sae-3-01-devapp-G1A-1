@@ -11,7 +11,6 @@ import javafx.scene.Scene;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
@@ -24,26 +23,18 @@ import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
-import oracle.net.aso.f;
-import tools.DataReader;
+import tools.GlobalVariables;
 import javafx.scene.Node;
-
-import java.util.Arrays;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 /*
  * Contrôleur pour afficher les données par salle
- * avec des graphiques pour chaque salle
- * et des options pour afficher les données
- * de CO2, d'humidité et de température
- * pour chaque salle
- * Les salles peuvent être affichées ou masquées
- * et les graphiques sont mis à jour en conséquence
- * en fonction des options sélectionnées
+ * avec des graphiques pour chaque type de donnée
+ * et des options pour afficher/cacher les salles
+ * et les types de données
  */
-public class showByRoomController implements Initializable {
+public class ShowByDataController implements Initializable {
 
     // Fenêtre physique
     private Stage primaryStage;
@@ -53,6 +44,7 @@ public class showByRoomController implements Initializable {
     public void initContext(Stage _containingStage) {
         this.primaryStage = _containingStage;
         this.configure();
+
     }
 
     public void displayDialog() {
@@ -80,16 +72,16 @@ public class showByRoomController implements Initializable {
     private void doBack() { // Bouton qui mène à la page précédente (menu.fxml)
         try {
             FXMLLoader loader = new FXMLLoader(
-                    showByRoomController.class.getResource("menuCourbe.fxml"));
+                    ShowByDataController.class.getResource("menuCourbe.fxml"));
             BorderPane root = loader.load();
 
             Scene scene = new Scene(root, root.getPrefWidth() + 20, root.getPrefHeight() + 10);
-            scene.getStylesheets().add(menu.class.getResource("application.css").toExternalForm());
+            scene.getStylesheets().add(Menu.class.getResource("application.css").toExternalForm());
 
             primaryStage.setScene(scene);
             primaryStage.setTitle("Fenêtre Menu Courbe");
 
-            menuCourbeController mfc = loader.getController();
+            MenuCourbeController mfc = loader.getController();
             mfc.initContext(primaryStage);
 
             mfc.displayDialog();
@@ -102,12 +94,7 @@ public class showByRoomController implements Initializable {
 
     @FXML
     private void doQuit() { // Gestion de la fermeture de la fenêtre
-        if (AlertUtilities.confirmYesCancel(this.primaryStage, "Quitter Appli Principale",
-                "Etes vous sur de vouloir quitter l'appli ?", null, AlertType.CONFIRMATION)) {
-
-            this.primaryStage.close();
-            System.exit(0);
-        }
+        GlobalVariables.exitApp(this.primaryStage);
     }
 
     @FXML
@@ -124,32 +111,16 @@ public class showByRoomController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        // Salles à afficher
-        String filePath = "IoT et JavaFX/appli-python/config.json";
-        DataReader dataReader = new DataReader();
-        HashMap<String, Object> jsonMap = dataReader.readJsonFile(filePath);
+        String[] salles = { "Température", "CO2", "Humidité" };
 
-        // Récupérer les valeurs sous l'objet "salle"
-        HashMap<String, Object> salleValues = (HashMap<String, Object>) jsonMap.get("salle");
-        String numSalle = (String) salleValues.get("num_salle");
-        List<String> sallesSelectionnees = Arrays.asList(numSalle.split(","));
-
-        String[] sallesConfig = {};
-        for (String salle : sallesSelectionnees) {
-            sallesConfig = Arrays.copyOf(sallesConfig, sallesConfig.length + 1);
-            sallesConfig[sallesConfig.length - 1] = salle;
-        }
-
-        System.out.println(sallesConfig);
-
-        for (String salle : sallesConfig) {
+        for (String salle : salles) {
             // Ajouter chaque salle à la HashMap avec un état visible par défaut
             salleVisibility.put(salle, true);
 
             TitledPane titledPane = new TitledPane();
             titledPane.setText(""); // On ne veut pas de texte supplémentaire
 
-            HBox titleHBox = new HBox(50);
+            HBox titleHBox = new HBox(30);
             titleHBox.setAlignment(Pos.CENTER_LEFT);
 
             Label titleLabel = new Label(salle);
@@ -166,9 +137,9 @@ public class showByRoomController implements Initializable {
             titledPane.setGraphic(titleHBox);
 
             VBox optionsVBox = new VBox(5);
-            CheckBox checkBoxCO2 = new CheckBox("CO2");
-            CheckBox checkBoxHumidity = new CheckBox("Humidité");
-            CheckBox checkBoxTemperature = new CheckBox("Température");
+            CheckBox checkBoxCO2 = new CheckBox("Salle A");
+            CheckBox checkBoxHumidity = new CheckBox("Salle B");
+            CheckBox checkBoxTemperature = new CheckBox("Salle C");
 
             checkBoxCO2.setOnAction(event -> updateRightScrollPane());
             checkBoxHumidity.setOnAction(event -> updateRightScrollPane());
@@ -198,10 +169,10 @@ public class showByRoomController implements Initializable {
         // Mettre à jour l'icône
         if (!isVisible) {
             eyeButton.setText("👁");
-            System.out.println("Afficher la salle: " + salle);
+            System.out.println("Afficher la donnée: " + salle);
         } else {
             eyeButton.setText("🙈");
-            System.out.println("Cacher la salle: " + salle);
+            System.out.println("Cacher la donnée: " + salle);
             // Fermer ou ouvrir le menu déroulant de la salle
             for (Node node : contentLeftVBox.getChildren()) {
                 if (node instanceof TitledPane) {
@@ -249,23 +220,23 @@ public class showByRoomController implements Initializable {
                     salleRightVBox.setStyle("-fx-border-color: black; -fx-border-width: 2px; -fx-padding: 15px;");
                     salleRightVBox.getStyleClass().add("salle-box");
 
-                    Label rightSalleLabel = new Label("Salle : " + salle);
+                    Label rightSalleLabel = new Label("Donnée : " + salle);
                     rightSalleLabel.setStyle("-fx-font-weight: bold; -fx-font-size: 16px;");
 
                     LineChart<Number, Number> lineChart = createEmptyChart();
-                    
+
                     if (checkBoxCO2.isSelected() || checkBoxHumidity.isSelected() || checkBoxTemperature.isSelected()) {
                         if (checkBoxCO2.isSelected()) {
-                            lineChart.getData().add(createSeries("CO2", new double[] { 10, 20, 30, 40, 50 }));
+                            lineChart.getData().add(createSeries("Salle A", new double[] { 10, 20, 30, 40, 50 }));
                         }
                         if (checkBoxHumidity.isSelected()) {
-                            lineChart.getData().add(createSeries("Humidité", new double[] { 60, 50, 70, 80, 90 }));
+                            lineChart.getData().add(createSeries("Salle B", new double[] { 60, 50, 70, 80, 90 }));
                         }
                         if (checkBoxTemperature.isSelected()) {
-                            lineChart.getData().add(createSeries("Température", new double[] { 15, 17, 19, 21, 23 }));
+                            lineChart.getData().add(createSeries("Salle C", new double[] { 15, 17, 19, 21, 23 }));
                         }
                     } else {
-                        lineChart.setTitle("Aucune donnée sélectionnée pour cette salle.");
+                        lineChart.setTitle("Aucune salle sélectionnée pour cette donnée.");
                     }
 
                     // Ajouter le label et le graphique dans la boîte
