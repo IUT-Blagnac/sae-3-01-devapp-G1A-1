@@ -253,7 +253,7 @@ public class showByRoomController implements Initializable {
                     rightSalleLabel.setStyle("-fx-font-weight: bold; -fx-font-size: 16px;");
 
                     LineChart<Number, Number> lineChart = createEmptyChart();
-
+                    
                     if (checkBoxCO2.isSelected() || checkBoxHumidity.isSelected() || checkBoxTemperature.isSelected()) {
                         if (checkBoxCO2.isSelected()) {
                             lineChart.getData().add(createSeries("CO2", new double[] { 10, 20, 30, 40, 50 }));
