@@ -75,7 +75,7 @@ public class showByDataController implements Initializable {
             BorderPane root = loader.load();
 
             Scene scene = new Scene(root, root.getPrefWidth() + 20, root.getPrefHeight() + 10);
-            scene.getStylesheets().add(Menu.class.getResource("application.css").toExternalForm());
+            scene.getStylesheets().add(menu.class.getResource("application.css").toExternalForm());
 
             primaryStage.setScene(scene);
             primaryStage.setTitle("Fenêtre Menu Courbe");

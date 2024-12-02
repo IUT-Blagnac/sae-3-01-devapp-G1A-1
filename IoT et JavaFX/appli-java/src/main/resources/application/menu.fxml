@@ -38,7 +38,7 @@
                   <Insets />
                </GridPane.margin>
             </Button>
-            <Button fx:id="btnConfig" mnemonicParsing="false" prefHeight="35.0" prefWidth="240.0" text="Parametrer le config python" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+            <Button fx:id="btnConfig" mnemonicParsing="false" onAction="#doConfig" prefHeight="35.0" prefWidth="240.0" text="Parametrer le config python" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
             <Button fx:id="btnShow" mnemonicParsing="false" prefHeight="35.0" prefWidth="240.0" text="Visualiser les données" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
             <Button fx:id="btnChart" mnemonicParsing="false" onAction="#doCourbe" prefHeight="35.0" prefWidth="240.0" text="Voir les courbes" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
          </children>

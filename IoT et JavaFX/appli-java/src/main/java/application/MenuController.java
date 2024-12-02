@@ -115,7 +115,7 @@ public class menuController implements Initializable {
 			// Création d'un nouveau Stage
 			Stage testStage = new Stage();
 			Scene scene = new Scene(root, root.getPrefWidth() - 300, root.getPrefHeight() - 150);
-			scene.getStylesheets().add(Menu.class.getResource("application.css").toExternalForm());
+			scene.getStylesheets().add(menu.class.getResource("application.css").toExternalForm());
 
 			testStage.setScene(scene);
 			testStage.setTitle("Fenêtre de Test");
@@ -136,6 +136,30 @@ public class menuController implements Initializable {
 	}
 
 	@FXML
+	private void doConfig() {
+		try {
+			FXMLLoader loader = new FXMLLoader(
+					menuController.class.getResource("menuConfig.fxml"));
+			BorderPane root = loader.load();
+
+			Scene scene = new Scene(root, root.getPrefWidth() + 20, root.getPrefHeight() + 10);
+			scene.getStylesheets().add(menu.class.getResource("application.css").toExternalForm());
+
+			primaryStage.setScene(scene);
+			primaryStage.setTitle("Fenêtre de configuration");
+
+			menuConfigController mfc = loader.getController();
+			mfc.initContext(primaryStage);
+
+			mfc.displayDialog();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.exit(-1);
+		}
+	}
+
+	@FXML
 	private void doHistorique() {
 		try {
 			FXMLLoader loader = new FXMLLoader(
@@ -143,7 +167,7 @@ public class menuController implements Initializable {
 			BorderPane root = loader.load();
 
 			Scene scene = new Scene(root, root.getPrefWidth() + 20, root.getPrefHeight() + 10);
-			scene.getStylesheets().add(Menu.class.getResource("application.css").toExternalForm());
+			scene.getStylesheets().add(menu.class.getResource("application.css").toExternalForm());
 
 			primaryStage.setScene(scene);
 			primaryStage.setTitle("Fenêtre d'historique des alertes");
@@ -167,7 +191,7 @@ public class menuController implements Initializable {
 			BorderPane root = loader.load();
 
 			Scene scene = new Scene(root, root.getPrefWidth() + 20, root.getPrefHeight() + 10);
-			scene.getStylesheets().add(Menu.class.getResource("application.css").toExternalForm());
+			scene.getStylesheets().add(menu.class.getResource("application.css").toExternalForm());
 
 			primaryStage.setScene(scene);
 			primaryStage.setTitle("Fenêtre Menu Courbe");
@@ -191,7 +215,7 @@ public class menuController implements Initializable {
 			BorderPane root = loader.load();
 
 			Scene scene = new Scene(root, root.getPrefWidth() + 20, root.getPrefHeight() + 10);
-			scene.getStylesheets().add(Menu.class.getResource("application.css").toExternalForm());
+			scene.getStylesheets().add(menu.class.getResource("application.css").toExternalForm());
 
 			primaryStage.setScene(scene);
 			primaryStage.setTitle("Fenêtre Panneaux Solaires");

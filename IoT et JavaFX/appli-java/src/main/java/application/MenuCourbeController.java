@@ -75,7 +75,7 @@ public class menuCourbeController implements Initializable {
             BorderPane root = loader.load();
 
             Scene scene = new Scene(root, root.getPrefWidth() + 20, root.getPrefHeight() + 10);
-            scene.getStylesheets().add(Menu.class.getResource("application.css").toExternalForm());
+            scene.getStylesheets().add(menu.class.getResource("application.css").toExternalForm());
 
             primaryStage.setScene(scene);
             primaryStage.setTitle("Fenêtre Courbes par Pièce");
@@ -100,7 +100,7 @@ public class menuCourbeController implements Initializable {
             BorderPane root = loader.load();
 
             Scene scene = new Scene(root, root.getPrefWidth() + 20, root.getPrefHeight() + 10);
-            scene.getStylesheets().add(Menu.class.getResource("application.css").toExternalForm());
+            scene.getStylesheets().add(menu.class.getResource("application.css").toExternalForm());
 
             primaryStage.setScene(scene);
             primaryStage.setTitle("Fenêtre Courbes par Type de Données");
@@ -124,7 +124,7 @@ public class menuCourbeController implements Initializable {
             BorderPane root = loader.load();
 
             Scene scene = new Scene(root, root.getPrefWidth() + 20, root.getPrefHeight() + 10);
-            scene.getStylesheets().add(Menu.class.getResource("application.css").toExternalForm());
+            scene.getStylesheets().add(menu.class.getResource("application.css").toExternalForm());
 
             primaryStage.setScene(scene);
             primaryStage.setTitle("Fenêtre Panneaux Solaires");
@@ -150,7 +150,7 @@ public class menuCourbeController implements Initializable {
             BorderPane root = loader.load();
 
             Scene scene = new Scene(root, root.getPrefWidth() + 20, root.getPrefHeight() + 10);
-            scene.getStylesheets().add(Menu.class.getResource("application.css").toExternalForm());
+            scene.getStylesheets().add(menu.class.getResource("application.css").toExternalForm());
 
             primaryStage.setScene(scene);
             primaryStage.setTitle("Fenêtre Menu Principal");
