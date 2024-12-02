@@ -31,7 +31,7 @@ import tools.SolarDataReader;
  *Affiche les données de production actuelle, journalière, mensuelle et annuelle
  *Affiche un graphique de production en fonction du temps
  */
-public class showSolarController implements Initializable {
+public class ShowSolarController implements Initializable {
 
     private static final String DATA_FILE_PATH = "IOT et JavaFX/appli-python/datas/solar/DONNEES_SOLAIRES.jsonl";
 
@@ -81,31 +81,31 @@ public class showSolarController implements Initializable {
         try {
             if (this.previousPage.equals("menuCourbe.fxml")) {
                 FXMLLoader loader = new FXMLLoader(
-                        showByRoomController.class.getResource("menuCourbe.fxml"));
+                        ShowByRoomController.class.getResource("menuCourbe.fxml"));
                 BorderPane root = loader.load();
 
                 Scene scene = new Scene(root, root.getPrefWidth() + 20, root.getPrefHeight() + 10);
-                scene.getStylesheets().add(menu.class.getResource("application.css").toExternalForm());
+                scene.getStylesheets().add(Menu.class.getResource("application.css").toExternalForm());
 
                 primaryStage.setScene(scene);
                 primaryStage.setTitle("Fenêtre Menu Courbe");
 
-                menuCourbeController mfc = loader.getController();
+                MenuCourbeController mfc = loader.getController();
                 mfc.initContext(primaryStage);
 
                 mfc.displayDialog();
             } else {
                 FXMLLoader loader = new FXMLLoader(
-                        showByRoomController.class.getResource("menu.fxml"));
+                        ShowByRoomController.class.getResource("menu.fxml"));
                 BorderPane root = loader.load();
 
                 Scene scene = new Scene(root, root.getPrefWidth() + 20, root.getPrefHeight() + 10);
-                scene.getStylesheets().add(menu.class.getResource("application.css").toExternalForm());
+                scene.getStylesheets().add(Menu.class.getResource("application.css").toExternalForm());
 
                 primaryStage.setScene(scene);
                 primaryStage.setTitle("Fenêtre Menu Principal");
 
-                menuController mfc = loader.getController();
+                MenuController mfc = loader.getController();
                 mfc.initContext(primaryStage);
 
                 mfc.displayDialog();

@@ -20,7 +20,7 @@ import java.util.ResourceBundle;
  * Affiche un spinner pendant le test et un check ou une croix à la fin
  * Ferme la fenêtre après 5 secondes
  */
-public class testController implements Initializable {
+public class TestController implements Initializable {
 
     @FXML
     private StackPane mainPane;

@@ -13,9 +13,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="561.0" prefWidth="912.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.menuCourbeController">
+<BorderPane prefHeight="561.0" prefWidth="912.0" xmlns="http://javafx.com/javafx/21"
+   xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MenuCourbeController">
    <center>
-      <GridPane alignment="CENTER" prefHeight="146.0" prefWidth="731.0" BorderPane.alignment="CENTER">
+      <GridPane alignment="CENTER" prefHeight="146.0" prefWidth="731.0"
+         BorderPane.alignment="CENTER">
          <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -25,8 +27,13 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <Button fx:id="btnByRoom" mnemonicParsing="false" onAction="#doByRoom" prefHeight="35.0" prefWidth="240.0" text="Affichage par salle" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
-            <Button fx:id="btnByData" mnemonicParsing="false" onAction="#doByData" prefHeight="35.0" prefWidth="240.0" text="Affichage par données" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+            <Button fx:id="btnByRoom" mnemonicParsing="false" onAction="#doByRoom" prefHeight="35.0"
+               prefWidth="240.0" text="Affichage par salle" textAlignment="CENTER"
+               GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+            <Button fx:id="btnByData" mnemonicParsing="false" onAction="#doByData" prefHeight="35.0"
+               prefWidth="240.0" text="Affichage par données" textAlignment="CENTER"
+               GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1"
+               GridPane.valignment="CENTER" />
          </children>
       </GridPane>
    </center>
@@ -36,14 +43,18 @@
             <Insets bottom="10.0" top="10.0" />
          </BorderPane.margin>
          <children>
-            <FlowPane alignment="TOP_CENTER" columnHalignment="CENTER" prefHeight="206.0" prefWidth="912.0">
+            <FlowPane alignment="TOP_CENTER" columnHalignment="CENTER" prefHeight="206.0"
+               prefWidth="912.0">
                <children>
-                  <Button fx:id="btnSolar" mnemonicParsing="false" onAction="#doSolar" prefHeight="35.0" prefWidth="240.0" text="Affichage panneaux solaires" />
+                  <Button fx:id="btnSolar" mnemonicParsing="false" onAction="#doSolar"
+                     prefHeight="35.0" prefWidth="240.0" text="Affichage panneaux solaires" />
                </children>
             </FlowPane>
-            <FlowPane alignment="CENTER" columnHalignment="CENTER" prefHeight="34.0" prefWidth="912.0">
+            <FlowPane alignment="CENTER" columnHalignment="CENTER" prefHeight="34.0"
+               prefWidth="912.0">
                <children>
-                  <Button fx:id="btnQuit" mnemonicParsing="false" onAction="#doQuit" prefHeight="25.0" prefWidth="72.0" text="Quitter" />
+                  <Button fx:id="btnQuit" mnemonicParsing="false" onAction="#doQuit"
+                     prefHeight="25.0" prefWidth="72.0" text="Quitter" />
                </children>
             </FlowPane>
          </children>
@@ -59,12 +70,14 @@
             </Label>
             <VBox alignment="CENTER" prefHeight="200.0">
                <children>
-                  <Label alignment="CENTER" prefHeight="134.0" prefWidth="514.0" text="Application BuildMyPC">
+                  <Label alignment="CENTER" prefHeight="134.0" prefWidth="514.0"
+                     text="Application BuildMyPC">
                      <font>
                         <Font name="System Bold" size="32.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" prefHeight="18.0" prefWidth="272.0" text="Afficher des courbes">
+                  <Label alignment="CENTER" prefHeight="18.0" prefWidth="272.0"
+                     text="Afficher des courbes">
                      <font>
                         <Font name="System Bold Italic" size="19.0" />
                      </font>
@@ -80,10 +93,13 @@
          <children>
             <VBox alignment="TOP_CENTER" layoutY="28.0" prefHeight="200.0" prefWidth="100.0">
                <children>
-                  <Button fx:id="btnBack" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#doBack" prefHeight="26.0" prefWidth="82.0" text="Retour" />
+                  <Button fx:id="btnBack" alignment="CENTER" contentDisplay="CENTER"
+                     mnemonicParsing="false" onAction="#doBack" prefHeight="26.0" prefWidth="82.0"
+                     text="Retour" />
                </children>
             </VBox>
-         </children></Pane>
+         </children>
+      </Pane>
    </left>
    <right>
       <Pane prefHeight="442.0" prefWidth="90.0" BorderPane.alignment="CENTER" />

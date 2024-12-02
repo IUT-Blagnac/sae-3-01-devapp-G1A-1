@@ -19,7 +19,7 @@ import java.util.ResourceBundle;
  * Affiche un spinner pendant le test et un check ou une croix à la fin
  * Ferme la fenêtre après 5 secondes
  */
-public class relancePythonController implements Initializable {
+public class RelancePythonController implements Initializable {
 
     @FXML
     private StackPane mainPane;

@@ -13,9 +13,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="561.0" prefWidth="912.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.menuController">
+<BorderPane prefHeight="561.0" prefWidth="912.0" xmlns="http://javafx.com/javafx/21"
+   xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MenuController">
    <center>
-      <GridPane alignment="CENTER" prefHeight="293.0" prefWidth="732.0" BorderPane.alignment="CENTER">
+      <GridPane alignment="CENTER" prefHeight="293.0" prefWidth="732.0"
+         BorderPane.alignment="CENTER">
          <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -27,20 +29,34 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <Button fx:id="btnTest" mnemonicParsing="false" onAction="#doTest" prefHeight="35.0" prefWidth="240.0" text="Tester la connexion" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
-            <Button fx:id="btnStart" mnemonicParsing="false" onAction="#doRelancePython" prefHeight="35.0" prefWidth="240.0" text="Relancer le programme python" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+            <Button fx:id="btnTest" mnemonicParsing="false" onAction="#doTest" prefHeight="35.0"
+               prefWidth="240.0" text="Tester la connexion" textAlignment="CENTER"
+               GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+            <Button fx:id="btnStart" mnemonicParsing="false" onAction="#doRelancePython"
+               prefHeight="35.0" prefWidth="240.0" text="Relancer le programme python"
+               GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
                <GridPane.margin>
                   <Insets />
                </GridPane.margin>
             </Button>
-            <Button fx:id="btnSolar" mnemonicParsing="false" onAction="#doSolar" prefHeight="35.0" prefWidth="240.0" text="Panneaux solaires" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+            <Button fx:id="btnSolar" mnemonicParsing="false" onAction="#doSolar" prefHeight="35.0"
+               prefWidth="240.0" text="Panneaux solaires" GridPane.halignment="CENTER"
+               GridPane.rowIndex="3" GridPane.valignment="CENTER">
                <GridPane.margin>
                   <Insets />
                </GridPane.margin>
             </Button>
-            <Button fx:id="btnConfig" mnemonicParsing="false" onAction="#doConfig" prefHeight="35.0" prefWidth="240.0" text="Parametrer le config python" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
-            <Button fx:id="btnShow" mnemonicParsing="false" prefHeight="35.0" prefWidth="240.0" text="Visualiser les données" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
-            <Button fx:id="btnChart" mnemonicParsing="false" onAction="#doCourbe" prefHeight="35.0" prefWidth="240.0" text="Voir les courbes" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
+            <Button fx:id="btnConfig" mnemonicParsing="false" onAction="#doConfig" prefHeight="35.0"
+               prefWidth="240.0" text="Parametrer le config python" textAlignment="CENTER"
+               GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1"
+               GridPane.valignment="CENTER" />
+            <Button fx:id="btnShow" mnemonicParsing="false" prefHeight="35.0" prefWidth="240.0"
+               text="Visualiser les données" textAlignment="CENTER" GridPane.columnIndex="1"
+               GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+            <Button fx:id="btnChart" mnemonicParsing="false" onAction="#doCourbe" prefHeight="35.0"
+               prefWidth="240.0" text="Voir les courbes" textAlignment="CENTER"
+               GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3"
+               GridPane.valignment="CENTER" />
          </children>
       </GridPane>
    </center>
@@ -50,14 +66,18 @@
             <Insets bottom="10.0" top="10.0" />
          </BorderPane.margin>
          <children>
-            <FlowPane alignment="CENTER" columnHalignment="CENTER" prefHeight="111.0" prefWidth="912.0">
+            <FlowPane alignment="CENTER" columnHalignment="CENTER" prefHeight="111.0"
+               prefWidth="912.0">
                <children>
-                  <Button fx:id="btnAlert" mnemonicParsing="false" onAction="#doHistorique" prefHeight="35.0" prefWidth="240.0" text="Historique des alertes" />
+                  <Button fx:id="btnAlert" mnemonicParsing="false" onAction="#doHistorique"
+                     prefHeight="35.0" prefWidth="240.0" text="Historique des alertes" />
                </children>
             </FlowPane>
-            <FlowPane alignment="CENTER" columnHalignment="CENTER" prefHeight="34.0" prefWidth="912.0">
+            <FlowPane alignment="CENTER" columnHalignment="CENTER" prefHeight="34.0"
+               prefWidth="912.0">
                <children>
-                  <Button fx:id="btnQuit" mnemonicParsing="false" onAction="#doQuit" prefHeight="25.0" prefWidth="72.0" text="Quitter" />
+                  <Button fx:id="btnQuit" mnemonicParsing="false" onAction="#doQuit"
+                     prefHeight="25.0" prefWidth="72.0" text="Quitter" />
                </children>
             </FlowPane>
          </children>
@@ -72,7 +92,8 @@
                </padding>
             </Label>
             <Label fx:id="lblPythonState" prefHeight="109.0" prefWidth="90.0" text="en démarrage" />
-            <Label alignment="CENTER" prefHeight="74.0" prefWidth="561.0" text="Application BuildMyPC">
+            <Label alignment="CENTER" prefHeight="74.0" prefWidth="561.0"
+               text="Application BuildMyPC">
                <font>
                   <Font name="System Bold" size="32.0" />
                </font>

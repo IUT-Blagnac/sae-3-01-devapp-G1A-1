@@ -26,7 +26,7 @@ import tools.GlobalVariables;
  * Permet de naviguer vers les différentes pages de l'application
  * Permet de quitter l'application
  */
-public class menuController implements Initializable {
+public class MenuController implements Initializable {
 
 	// Fenêtre physique
 	private Stage primaryStage;
@@ -161,13 +161,13 @@ public class menuController implements Initializable {
 		try {
 			// Chargement de la nouvelle fenêtre (FXML)
 			FXMLLoader loader = new FXMLLoader(
-					menuController.class.getResource("test.fxml"));
+					MenuController.class.getResource("test.fxml"));
 			BorderPane root = loader.load();
 
 			// Création d'un nouveau Stage
 			Stage testStage = new Stage();
 			Scene scene = new Scene(root, root.getPrefWidth() - 300, root.getPrefHeight() - 150);
-			scene.getStylesheets().add(menu.class.getResource("application.css").toExternalForm());
+			scene.getStylesheets().add(Menu.class.getResource("application.css").toExternalForm());
 
 			testStage.setScene(scene);
 			testStage.setTitle("Fenêtre de Test");
@@ -177,7 +177,7 @@ public class menuController implements Initializable {
 			testStage.initOwner(this.primaryStage); // Définit la fenêtre principale comme parent
 
 			// Configuration du contrôleur
-			testController testController = loader.getController();
+			TestController testController = loader.getController();
 			testController.initContext(testStage);
 
 			testController.displayDialog(); // Affichage de la fenêtre
@@ -191,16 +191,16 @@ public class menuController implements Initializable {
 	private void doConfig() {
 		try {
 			FXMLLoader loader = new FXMLLoader(
-					menuController.class.getResource("menuConfig.fxml"));
+					MenuController.class.getResource("menuConfig.fxml"));
 			BorderPane root = loader.load();
 
 			Scene scene = new Scene(root, root.getPrefWidth() + 20, root.getPrefHeight() + 10);
-			scene.getStylesheets().add(menu.class.getResource("application.css").toExternalForm());
+			scene.getStylesheets().add(Menu.class.getResource("application.css").toExternalForm());
 
 			primaryStage.setScene(scene);
 			primaryStage.setTitle("Fenêtre de configuration");
 
-			menuConfigController mfc = loader.getController();
+			MenuConfigController mfc = loader.getController();
 			mfc.initContext(primaryStage);
 
 			mfc.displayDialog();
@@ -232,7 +232,7 @@ public class menuController implements Initializable {
 			relaunchStage.initOwner(this.primaryStage); // Définit la fenêtre principale comme parent
 
 			// Configuration du contrôleur
-			relancePythonController relanceController = loader.getController();
+			RelancePythonController relanceController = loader.getController();
 			relanceController.initContext(relaunchStage);
 
 			relanceController.displayDialog(); // Affichage de la fenêtre
@@ -246,16 +246,16 @@ public class menuController implements Initializable {
 	private void doHistorique() {
 		try {
 			FXMLLoader loader = new FXMLLoader(
-					menuController.class.getResource("alerteHistorique.fxml"));
+					MenuController.class.getResource("alerteHistorique.fxml"));
 			BorderPane root = loader.load();
 
 			Scene scene = new Scene(root, root.getPrefWidth() + 20, root.getPrefHeight() + 10);
-			scene.getStylesheets().add(menu.class.getResource("application.css").toExternalForm());
+			scene.getStylesheets().add(Menu.class.getResource("application.css").toExternalForm());
 
 			primaryStage.setScene(scene);
 			primaryStage.setTitle("Fenêtre d'historique des alertes");
 
-			alerteHistoriqueController mfc = loader.getController();
+			AlerteHistoriqueController mfc = loader.getController();
 			mfc.initContext(primaryStage);
 
 			mfc.displayDialog();
@@ -270,16 +270,16 @@ public class menuController implements Initializable {
 	private void doCourbe() { // Bouton qui mène à la page de choix des courbes (menuCourbe.fxml)
 		try {
 			FXMLLoader loader = new FXMLLoader(
-					menuController.class.getResource("menuCourbe.fxml"));
+					MenuController.class.getResource("menuCourbe.fxml"));
 			BorderPane root = loader.load();
 
 			Scene scene = new Scene(root, root.getPrefWidth() + 20, root.getPrefHeight() + 10);
-			scene.getStylesheets().add(menu.class.getResource("application.css").toExternalForm());
+			scene.getStylesheets().add(Menu.class.getResource("application.css").toExternalForm());
 
 			primaryStage.setScene(scene);
 			primaryStage.setTitle("Fenêtre Menu Courbe");
 
-			menuCourbeController mfc = loader.getController();
+			MenuCourbeController mfc = loader.getController();
 			mfc.initContext(primaryStage);
 
 			mfc.displayDialog();
@@ -294,16 +294,16 @@ public class menuController implements Initializable {
 	private void doSolar() { // Bouton qui mène à la page de choix des courbes pour le solaire
 		try {
 			FXMLLoader loader = new FXMLLoader(
-					menuCourbeController.class.getResource("showSolar.fxml"));
+					MenuCourbeController.class.getResource("showSolar.fxml"));
 			BorderPane root = loader.load();
 
 			Scene scene = new Scene(root, root.getPrefWidth() + 20, root.getPrefHeight() + 10);
-			scene.getStylesheets().add(menu.class.getResource("application.css").toExternalForm());
+			scene.getStylesheets().add(Menu.class.getResource("application.css").toExternalForm());
 
 			primaryStage.setScene(scene);
 			primaryStage.setTitle("Fenêtre Panneaux Solaires");
 
-			showSolarController mfc = loader.getController();
+			ShowSolarController mfc = loader.getController();
 			mfc.initContext(primaryStage);
 
 			mfc.setPreviousPage("menu.fxml");

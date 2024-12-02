@@ -34,7 +34,7 @@ import java.util.stream.Collectors;
  * Les alertes sont chargées depuis un fichier
  * Les alertes sont filtrées en fonction des critères de filtrage
  */
-public class alerteHistoriqueController implements Initializable {
+public class AlerteHistoriqueController implements Initializable {
 
     private Stage primaryStage;
 
@@ -82,7 +82,7 @@ public class alerteHistoriqueController implements Initializable {
             primaryStage.setScene(new Scene(root));
             primaryStage.setTitle("Fenêtre Menu Principal");
 
-            menuController mfc = loader.getController();
+            MenuController mfc = loader.getController();
             mfc.initContext(primaryStage);
             mfc.displayDialog();
         } catch (Exception e) {

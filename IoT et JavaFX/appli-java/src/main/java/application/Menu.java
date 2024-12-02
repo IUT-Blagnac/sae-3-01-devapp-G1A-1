@@ -10,7 +10,7 @@ import javafx.stage.Stage;
  * Classe principale de l'application
  * Permet de lancer l'application
  */
-public class menu extends Application {
+public class Menu extends Application {
 
 	// Lancement classique d'un application JavaFX
 	@Override
@@ -20,16 +20,16 @@ public class menu extends Application {
 
 		try {
 			FXMLLoader loader = new FXMLLoader(
-					menuController.class.getResource("menu.fxml"));
+					MenuController.class.getResource("menu.fxml"));
 			BorderPane root = loader.load();
 
 			Scene scene = new Scene(root, root.getPrefWidth() + 20, root.getPrefHeight() + 10);
-			scene.getStylesheets().add(menu.class.getResource("application.css").toExternalForm());
+			scene.getStylesheets().add(Menu.class.getResource("application.css").toExternalForm());
 
 			primaryStage.setScene(scene);
 			primaryStage.setTitle("Fenêtre Principale");
 
-			menuController mfc = loader.getController();
+			MenuController mfc = loader.getController();
 			mfc.initContext(primaryStage);
 
 			mfc.displayDialog();

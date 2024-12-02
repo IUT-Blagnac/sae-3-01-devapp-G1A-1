@@ -9,7 +9,8 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="561.0" prefWidth="912.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.alerteHistoriqueController">
+<BorderPane prefHeight="561.0" prefWidth="912.0" xmlns="http://javafx.com/javafx/21"
+   xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.AlerteHistoriqueController">
    <top>
       <HBox prefHeight="74.0" prefWidth="912.0" BorderPane.alignment="CENTER">
          <children>
@@ -20,12 +21,14 @@
             </Label>
             <VBox alignment="CENTER" prefHeight="200.0">
                <children>
-                  <Label alignment="CENTER" prefHeight="134.0" prefWidth="514.0" text="Application BuildMyPC">
+                  <Label alignment="CENTER" prefHeight="134.0" prefWidth="514.0"
+                     text="Application BuildMyPC">
                      <font>
                         <Font name="System Bold" size="32.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" prefHeight="18.0" prefWidth="272.0" text="Historique des alertes">
+                  <Label alignment="CENTER" prefHeight="18.0" prefWidth="272.0"
+                     text="Historique des alertes">
                      <font>
                         <Font name="System Bold Italic" size="19.0" />
                      </font>
@@ -37,11 +40,13 @@
       </HBox>
    </top>
    <center>
-      <BorderPane fx:id="contentBorderPane" prefHeight="486.0" prefWidth="693.0" BorderPane.alignment="CENTER">
+      <BorderPane fx:id="contentBorderPane" prefHeight="486.0" prefWidth="693.0"
+         BorderPane.alignment="CENTER">
          <top>
             <BorderPane prefHeight="78.0" prefWidth="778.0" BorderPane.alignment="CENTER">
                <center>
-                  <HBox fx:id="contentHBox" alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+                  <HBox fx:id="contentHBox" alignment="CENTER" prefHeight="100.0" prefWidth="200.0"
+                     BorderPane.alignment="CENTER" />
                </center>
                <top>
                   <Pane prefHeight="24.0" prefWidth="778.0" BorderPane.alignment="CENTER" />
@@ -51,12 +56,16 @@
       </BorderPane>
    </center>
    <left>
-      <VBox alignment="TOP_CENTER" prefHeight="486.0" prefWidth="133.0" BorderPane.alignment="CENTER">
+      <VBox alignment="TOP_CENTER" prefHeight="486.0" prefWidth="133.0"
+         BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="btnBack" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#doBack" prefHeight="35.0" prefWidth="82.0" text="Retour">
+            <Button fx:id="btnBack" alignment="CENTER" contentDisplay="CENTER"
+               mnemonicParsing="false" onAction="#doBack" prefHeight="35.0" prefWidth="82.0"
+               text="Retour">
                <VBox.margin>
                   <Insets top="23.0" />
-               </VBox.margin></Button>
+               </VBox.margin>
+            </Button>
          </children>
       </VBox>
    </left>

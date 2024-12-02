@@ -14,7 +14,8 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.control.TextField?>
 
-<BorderPane prefHeight="561.0" prefWidth="912.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.menuConfigController">
+<BorderPane prefHeight="561.0" prefWidth="912.0" xmlns="http://javafx.com/javafx/21"
+   xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MenuConfigController">
    <!-- Section supérieure -->
    <top>
       <HBox prefHeight="74.0" prefWidth="912.0" BorderPane.alignment="CENTER">
@@ -26,12 +27,14 @@
             </Label>
             <VBox alignment="CENTER" prefHeight="200.0">
                <children>
-                  <Label alignment="CENTER" prefHeight="134.0" prefWidth="514.0" text="Application BuildMyPC">
+                  <Label alignment="CENTER" prefHeight="134.0" prefWidth="514.0"
+                     text="Application BuildMyPC">
                      <font>
                         <Font name="System Bold" size="32.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" prefHeight="18.0" prefWidth="272.0" text="Menu de configuration">
+                  <Label alignment="CENTER" prefHeight="18.0" prefWidth="272.0"
+                     text="Menu de configuration">
                      <font>
                         <Font name="System Bold Italic" size="19.0" />
                      </font>
@@ -42,7 +45,7 @@
          </children>
       </HBox>
    </top>
-   
+
    <!-- Section centrale pour les configurations -->
    <center>
       <GridPane fx:id="gridPane" hgap="10" vgap="10" alignment="CENTER">
@@ -55,7 +58,9 @@
          <children>
             <VBox alignment="TOP_CENTER" layoutY="28.0" prefHeight="200.0" prefWidth="100.0">
                <children>
-                  <Button fx:id="btnBack" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#doBack" prefHeight="26.0" prefWidth="82.0" text="Retour" />
+                  <Button fx:id="btnBack" alignment="CENTER" contentDisplay="CENTER"
+                     mnemonicParsing="false" onAction="#doBack" prefHeight="26.0" prefWidth="82.0"
+                     text="Retour" />
                </children>
             </VBox>
          </children>

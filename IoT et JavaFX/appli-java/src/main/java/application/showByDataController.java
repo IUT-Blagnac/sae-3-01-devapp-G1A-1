@@ -34,7 +34,7 @@ import java.util.Map;
  * et des options pour afficher/cacher les salles
  * et les types de données
  */
-public class showByDataController implements Initializable {
+public class ShowByDataController implements Initializable {
 
     // Fenêtre physique
     private Stage primaryStage;
@@ -71,16 +71,16 @@ public class showByDataController implements Initializable {
     private void doBack() { // Bouton qui mène à la page précédente (menu.fxml)
         try {
             FXMLLoader loader = new FXMLLoader(
-                    showByDataController.class.getResource("menuCourbe.fxml"));
+                    ShowByDataController.class.getResource("menuCourbe.fxml"));
             BorderPane root = loader.load();
 
             Scene scene = new Scene(root, root.getPrefWidth() + 20, root.getPrefHeight() + 10);
-            scene.getStylesheets().add(menu.class.getResource("application.css").toExternalForm());
+            scene.getStylesheets().add(Menu.class.getResource("application.css").toExternalForm());
 
             primaryStage.setScene(scene);
             primaryStage.setTitle("Fenêtre Menu Courbe");
 
-            menuCourbeController mfc = loader.getController();
+            MenuCourbeController mfc = loader.getController();
             mfc.initContext(primaryStage);
 
             mfc.displayDialog();

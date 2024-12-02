@@ -38,7 +38,7 @@ import java.util.Map;
  * et les graphiques sont mis à jour en conséquence
  * en fonction des options sélectionnées
  */
-public class showByRoomController implements Initializable {
+public class ShowByRoomController implements Initializable {
 
     // Fenêtre physique
     private Stage primaryStage;
@@ -75,16 +75,16 @@ public class showByRoomController implements Initializable {
     private void doBack() { // Bouton qui mène à la page précédente (menu.fxml)
         try {
             FXMLLoader loader = new FXMLLoader(
-                    showByRoomController.class.getResource("menuCourbe.fxml"));
+                    ShowByRoomController.class.getResource("menuCourbe.fxml"));
             BorderPane root = loader.load();
 
             Scene scene = new Scene(root, root.getPrefWidth() + 20, root.getPrefHeight() + 10);
-            scene.getStylesheets().add(menu.class.getResource("application.css").toExternalForm());
+            scene.getStylesheets().add(Menu.class.getResource("application.css").toExternalForm());
 
             primaryStage.setScene(scene);
             primaryStage.setTitle("Fenêtre Menu Courbe");
 
-            menuCourbeController mfc = loader.getController();
+            MenuCourbeController mfc = loader.getController();
             mfc.initContext(primaryStage);
 
             mfc.displayDialog();

@@ -1,8 +1,8 @@
-import application.menu;
+import application.Menu;
 
 public class RunApp {
 
 	public static void main(String[] args) {
-		menu.runApp();
+		Menu.runApp();
 	}
 }
