@@ -45,7 +45,7 @@ public class MenuController implements Initializable {
 		primaryStage.getScene().setRoot(stackPane);
 
 		// // Associer un comportement au bouton d'alerte
-		// btnAlert.setOnAction(e -> showNotification());
+		btnAlert.setOnAction(e -> showNotification());
 	}
 
 	public void displayDialog() {
@@ -154,6 +154,7 @@ public class MenuController implements Initializable {
 		// Logique pour afficher l'historique des alertes (par exemple, charger une
 		// autre page)
 		System.out.println("Naviguer vers l'historique des alertes.");
+		doHistorique();
 	}
 
 	@FXML

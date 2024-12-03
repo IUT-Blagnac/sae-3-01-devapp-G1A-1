@@ -201,7 +201,7 @@ public class ShowSolarController implements Initializable {
                 int minutes = (seconds % 3600) / 60;
 
                 // Pour débogage : Affiche tous les labels
-                System.out.println("Label généré : " + String.format("%02d:%02d", hours, minutes));
+                // System.out.println("Label généré : " + String.format("%02d:%02d", hours, minutes));
                 return String.format("%02d:%02d", hours, minutes); // Affiche tout pour test
             }
 

@@ -1,5 +1,6 @@
 package application;
 
+import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -23,9 +24,14 @@ import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
+import tools.DataReader;
 import tools.GlobalVariables;
 import javafx.scene.Node;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /*
@@ -39,7 +45,7 @@ public class ShowByDataController implements Initializable {
     // Fenêtre physique
     private Stage primaryStage;
 
-    private Map<String, Boolean> salleVisibility = new HashMap<>();
+    private Map<String, Boolean> dataVisibility = new HashMap<>();
 
     public void initContext(Stage _containingStage) {
         this.primaryStage = _containingStage;
@@ -111,11 +117,22 @@ public class ShowByDataController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        String[] salles = { "Température", "CO2", "Humidité" };
+        String[] typeDonnee = { "Température", "CO2", "Humidité" };
 
-        for (String salle : salles) {
+        // Charger les salles depuis le fichier de configuration
+        // Salles à afficher
+        String filePath = "IoT et JavaFX/appli-python/config.json";
+        DataReader dataReader = new DataReader();
+        HashMap<String, Object> jsonMap = dataReader.readJsonFile(filePath);
+
+        // Récupérer les valeurs sous l'objet "salle"
+        HashMap<String, Object> salleValues = (HashMap<String, Object>) jsonMap.get("salle");
+        String numSalle = (String) salleValues.get("num_salle");
+        List<String> sallesSelectionnees = Arrays.asList(numSalle.split(","));
+
+        for (String donnee : typeDonnee) {
             // Ajouter chaque salle à la HashMap avec un état visible par défaut
-            salleVisibility.put(salle, true);
+            dataVisibility.put(donnee, true);
 
             TitledPane titledPane = new TitledPane();
             titledPane.setText(""); // On ne veut pas de texte supplémentaire
@@ -123,7 +140,7 @@ public class ShowByDataController implements Initializable {
             HBox titleHBox = new HBox(30);
             titleHBox.setAlignment(Pos.CENTER_LEFT);
 
-            Label titleLabel = new Label(salle);
+            Label titleLabel = new Label(donnee);
             titleLabel.setStyle("-fx-font-weight: bold; -fx-font-size: 14px;");
 
             Region spacer = new Region();
@@ -131,21 +148,19 @@ public class ShowByDataController implements Initializable {
 
             Button eyeButton = new Button("👁");
             eyeButton.setStyle("-fx-background-color: transparent; -fx-cursor: hand;");
-            eyeButton.setOnAction(event -> toggleVisibility(salle, eyeButton));
+            eyeButton.setOnAction(event -> toggleVisibility(donnee, eyeButton));
 
             titleHBox.getChildren().addAll(titleLabel, spacer, eyeButton);
             titledPane.setGraphic(titleHBox);
 
             VBox optionsVBox = new VBox(5);
-            CheckBox checkBoxCO2 = new CheckBox("Salle A");
-            CheckBox checkBoxHumidity = new CheckBox("Salle B");
-            CheckBox checkBoxTemperature = new CheckBox("Salle C");
 
-            checkBoxCO2.setOnAction(event -> updateRightScrollPane());
-            checkBoxHumidity.setOnAction(event -> updateRightScrollPane());
-            checkBoxTemperature.setOnAction(event -> updateRightScrollPane());
+            for (String salleSelectionnee : sallesSelectionnees) {
+                CheckBox checkBox = new CheckBox(salleSelectionnee);
+                checkBox.setOnAction(event -> updateRightScrollPane());
+                optionsVBox.getChildren().add(checkBox);
+            }
 
-            optionsVBox.getChildren().addAll(checkBoxCO2, checkBoxHumidity, checkBoxTemperature);
             titledPane.setContent(optionsVBox);
 
             contentLeftVBox.getChildren().add(titledPane);
@@ -155,31 +170,31 @@ public class ShowByDataController implements Initializable {
     }
 
     // Méthode pour afficher/cacher une salle (fonctionnalité future)
-    private void toggleVisibility(String salle, Button eyeButton) {
-        // Vérifier que la salle existe dans la HashMap
-        if (!salleVisibility.containsKey(salle)) {
-            System.err.println("Salle non trouvée : " + salle);
+    private void toggleVisibility(String typeData, Button eyeButton) {
+        // Vérifier que la donnée existe dans la HashMap
+        if (!dataVisibility.containsKey(typeData)) {
+            System.err.println("Donnée non trouvée : " + typeData);
             return;
         }
 
         // Inverser l'état de visibilité
-        boolean isVisible = salleVisibility.get(salle);
-        salleVisibility.put(salle, !isVisible);
+        boolean isVisible = dataVisibility.get(typeData);
+        dataVisibility.put(typeData, !isVisible);
 
         // Mettre à jour l'icône
         if (!isVisible) {
             eyeButton.setText("👁");
-            System.out.println("Afficher la donnée: " + salle);
+            System.out.println("Afficher la donnée: " + typeData);
         } else {
             eyeButton.setText("🙈");
-            System.out.println("Cacher la donnée: " + salle);
-            // Fermer ou ouvrir le menu déroulant de la salle
+            System.out.println("Cacher la donnée: " + typeData);
+            // Fermer ou ouvrir le menu déroulant de la donnée
             for (Node node : contentLeftVBox.getChildren()) {
                 if (node instanceof TitledPane) {
                     TitledPane titledPane = (TitledPane) node;
                     Label titleLabel = getTitleLabel(titledPane);
-                    if (titleLabel != null && titleLabel.getText().equals(salle)) {
-                        // Si la salle est masquée, fermer le TitledPane
+                    if (titleLabel != null && titleLabel.getText().equals(typeData)) {
+                        // Si la donnée est masquée, fermer le TitledPane
                         titledPane.setExpanded(!isVisible); // Si invisible, fermer le menu
                         titledPane.setExpanded(false); // Ferme le menu latéral
                         break;
@@ -199,53 +214,141 @@ public class ShowByDataController implements Initializable {
             if (node instanceof TitledPane) {
                 TitledPane titledPane = (TitledPane) node;
                 Label titleLabel = getTitleLabel(titledPane);
-                String salle = titleLabel != null ? titleLabel.getText() : "";
+                String typeDonnee = titleLabel != null ? titleLabel.getText() : "";
 
-                // Vérifier que la salle existe dans la HashMap
-                if (!salleVisibility.containsKey(salle) || !salleVisibility.get(salle)) {
-                    continue; // Sauter les salles qui sont masquées ou inexistantes
+                // Vérifier que la donnée existe dans la HashMap et que la donnée est visible
+                if (!dataVisibility.containsKey(typeDonnee) || !dataVisibility.get(typeDonnee)) {
+                    continue; // Sauter si la donnée est masquée
                 }
 
                 if (titledPane.getContent() instanceof VBox) {
                     VBox optionsVBox = (VBox) titledPane.getContent();
-                    CheckBox checkBoxCO2 = (CheckBox) optionsVBox.getChildren().get(0);
-                    CheckBox checkBoxHumidity = (CheckBox) optionsVBox.getChildren().get(1);
-                    CheckBox checkBoxTemperature = (CheckBox) optionsVBox.getChildren().get(2);
-
-                    // Boîte pour chaque salle (avec une taille fixe)
-                    VBox salleRightVBox = new VBox(10);
-                    salleRightVBox.setAlignment(Pos.TOP_CENTER);
-                    salleRightVBox.setPrefSize(400, 300); // Taille fixe (largeur, hauteur)
-                    salleRightVBox.setMinSize(400, 300);
-                    salleRightVBox.setStyle("-fx-border-color: black; -fx-border-width: 2px; -fx-padding: 15px;");
-                    salleRightVBox.getStyleClass().add("salle-box");
-
-                    Label rightSalleLabel = new Label("Donnée : " + salle);
-                    rightSalleLabel.setStyle("-fx-font-weight: bold; -fx-font-size: 16px;");
-
+                    // Initialisation du graphique pour cette donnée
                     LineChart<Number, Number> lineChart = createEmptyChart();
+                    lineChart.setLegendVisible(true);
 
-                    if (checkBoxCO2.isSelected() || checkBoxHumidity.isSelected() || checkBoxTemperature.isSelected()) {
-                        if (checkBoxCO2.isSelected()) {
-                            lineChart.getData().add(createSeries("Salle A", new double[] { 10, 20, 30, 40, 50 }));
+                    // Variable pour vérifier si au moins une salle est sélectionnée
+                    boolean salleSelectionnee = false;
+
+                    // Parcours des CheckBox dynamiquement dans la VBox des options
+                    for (Node checkBoxNode : optionsVBox.getChildren()) {
+                        if (checkBoxNode instanceof CheckBox) {
+                            CheckBox checkBox = (CheckBox) checkBoxNode;
+                            if (checkBox.isSelected()) {
+                                salleSelectionnee = true;
+                                String salleName = checkBox.getText(); // Récupère le nom de la salle
+
+                                // Ajoute la série de données correspondante pour cette salle
+                                lineChart.getData()
+                                        .add(createSeries(salleName, getDataForSalle(typeDonnee, salleName)));
+                            }
                         }
-                        if (checkBoxHumidity.isSelected()) {
-                            lineChart.getData().add(createSeries("Salle B", new double[] { 60, 50, 70, 80, 90 }));
-                        }
-                        if (checkBoxTemperature.isSelected()) {
-                            lineChart.getData().add(createSeries("Salle C", new double[] { 15, 17, 19, 21, 23 }));
-                        }
-                    } else {
+                    }
+
+                    // Si aucune salle n'est sélectionnée, afficher un message dans le graphique
+                    if (!salleSelectionnee) {
                         lineChart.setTitle("Aucune salle sélectionnée pour cette donnée.");
                     }
 
-                    // Ajouter le label et le graphique dans la boîte
-                    salleRightVBox.getChildren().addAll(rightSalleLabel, lineChart);
-                    contentRightVBox.getChildren().add(salleRightVBox);
+                    // Ajouter le label et le graphique dans une boîte à droite
+                    VBox dataRightVBox = new VBox(10);
+                    dataRightVBox.setAlignment(Pos.TOP_CENTER);
+                    dataRightVBox.setPrefSize(400, 400); // Taille fixe pour le graphique
+                    dataRightVBox.setMinSize(400, 400);
+                    dataRightVBox.setStyle("-fx-border-color: black; -fx-border-width: 2px; -fx-padding: 15px;");
+                    Label rightDataLabel = new Label("Donnée : " + typeDonnee);
+                    rightDataLabel.setStyle("-fx-font-weight: bold; -fx-font-size: 16px;");
+
+                    // Ajouter le label et le graphique dans la VBox
+                    dataRightVBox.getChildren().addAll(rightDataLabel, lineChart);
+                    contentRightVBox.getChildren().add(dataRightVBox);
                 }
             }
         }
     }
+
+    private double[] getDataForSalle(String typeDonnee, String salleName) {
+        // Charger les données depuis le fichier JSONL
+        String filePath = "IoT et JavaFX/appli-python/datas/captor/" + salleName + ".jsonl";
+        File file = new File(filePath);
+        if (!file.exists()) {
+            System.out.println(
+                    "Le fichier pour la salle " + salleName
+                            + " n'existe pas. Un tableau de données vide sera utilisé.");
+            return new double[] {};
+        }
+    
+        DataReader dataReader = new DataReader();
+        try {
+            List<HashMap<String, Object>> records = dataReader.readJsonLFile(filePath);
+    
+            // Assigne les valeurs selon le type de donnée
+            if (typeDonnee.equals("Température")) {
+                double[] temperatures = new double[records.size()];
+                for (int i = 0; i < records.size(); i++) {
+                    HashMap<String, Object> record = records.get(i);
+                    Object tempValue = record.get("temperature");
+    
+                    if (tempValue instanceof Integer) {
+                        // Si c'est un Integer, on le convertit en Double
+                        temperatures[i] = ((Integer) tempValue).doubleValue();
+                    } else if (tempValue instanceof Double) {
+                        // Si c'est déjà un Double, on l'assigne directement
+                        temperatures[i] = (Double) tempValue;
+                    } else {
+                        // Gérer les cas où la donnée n'est ni Integer ni Double
+                        System.err.println("Type inattendu pour Température : " + tempValue.getClass());
+                        temperatures[i] = 0.0; // On assigne une valeur par défaut en cas de type incorrect
+                    }
+                }
+                return temperatures;
+            } else if (typeDonnee.equals("CO2")) {
+                double[] cDoubles = new double[records.size()];
+                for (int i = 0; i < records.size(); i++) {
+                    HashMap<String, Object> record = records.get(i);
+                    Object co2Value = record.get("co2");
+    
+                    if (co2Value instanceof Integer) {
+                        // Si c'est un Integer, on le convertit en Double
+                        cDoubles[i] = ((Integer) co2Value).doubleValue();
+                    } else if (co2Value instanceof Double) {
+                        // Si c'est déjà un Double, on l'assigne directement
+                        cDoubles[i] = (Double) co2Value;
+                    } else {
+                        // Gérer les cas où la donnée n'est ni Integer ni Double
+                        System.err.println("Type inattendu pour CO2 : " + co2Value.getClass());
+                        cDoubles[i] = 0.0; // On assigne une valeur par défaut en cas de type incorrect
+                    }
+                }
+                return cDoubles;
+            } else if (typeDonnee.equals("Humidité")) {
+                double[] humidites = new double[records.size()];
+                for (int i = 0; i < records.size(); i++) {
+                    HashMap<String, Object> record = records.get(i);
+                    Object humiditeValue = record.get("humidite");
+    
+                    if (humiditeValue instanceof Integer) {
+                        // Si c'est un Integer, on le convertit en Double
+                        humidites[i] = ((Integer) humiditeValue).doubleValue();
+                    } else if (humiditeValue instanceof Double) {
+                        // Si c'est déjà un Double, on l'assigne directement
+                        humidites[i] = (Double) humiditeValue;
+                    } else {
+                        // Gérer les cas où la donnée n'est ni Integer ni Double
+                        System.err.println("Type inattendu pour Humidité : " + humiditeValue.getClass());
+                        humidites[i] = 0.0; // On assigne une valeur par défaut en cas de type incorrect
+                    }
+                }
+                return humidites;
+            }
+        } catch (Exception e) {
+            System.err.println(
+                    "Erreur lors du chargement des données pour la salle " + salleName + ": " + e.getMessage());
+        }
+        return new double[] {};
+    }
+    
+    
 
     // Créer un graphique vide
     private LineChart<Number, Number> createEmptyChart() {

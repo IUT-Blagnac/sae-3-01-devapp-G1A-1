@@ -83,10 +83,10 @@ public class DataReader {
 
     public static void main(String[] args) {
         // Specify the path to your JSON file
-        String filePath = "B103.jsonl";
+        String filePath = "IoT et JavaFX/appli-python/datas/captor/B106.jsonl";
         DataReader dataReader = new DataReader();
         List<HashMap<String, Object>> records = dataReader.readJsonLFile(filePath);
-        HashMap<String, Object> jsonMap = dataReader.readJsonFile("config.json");
+        HashMap<String, Object> jsonMap = dataReader.readJsonFile("IoT et JavaFX/appli-python/config.json");
 
         for (HashMap<String, Object> record : records) {
             System.out.println("Record: " + record);

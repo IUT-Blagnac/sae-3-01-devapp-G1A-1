@@ -7,9 +7,17 @@
 {"temperature": 22.7, "humidite": 42, "co2": 2047, "timestamp": "2024-11-29T18:58:27.567335"}
 {"temperature": 22.7, "humidite": 42, "co2": 2044, "timestamp": "2024-11-29T18:48:26.518807"}
 {"temperature": 22.7, "humidite": 42, "co2": 2047, "timestamp": "2024-11-29T18:58:27.567335"}
-{"temperature": 22.7, "humidite": 42, "co2": 2044, "timestamp": "2024-11-29T18:48:26.518807"}{"temperature": 20.9, "humidite": 53.5, "co2": 543, "timestamp": "2024-12-02T14:07:57.319977"}
+{"temperature": 22.7, "humidite": 42, "co2": 2044, "timestamp": "2024-11-29T18:48:26.518807"}
 {"temperature": 21, "humidite": 53.5, "co2": 570, "timestamp": "2024-12-02T14:18:13.503718"}
 {"temperature": 21, "humidite": 53.5, "co2": 595, "timestamp": "2024-12-02T14:28:35.224889"}
 {"temperature": 21, "humidite": 54, "co2": 615, "timestamp": "2024-12-02T14:38:55.937384"}
 {"temperature": 21, "humidite": 54, "co2": 615, "timestamp": "2024-12-02T14:48:14.984958"}
 {"temperature": 21, "humidite": 54, "co2": 606, "timestamp": "2024-12-02T14:58:36.466429"}
+{"temperature": 20.7, "humidite": 51.5, "co2": 459, "timestamp": "2024-12-03T11:48:47.468951"}
+{"temperature": 20.8, "humidite": 51.5, "co2": 457, "timestamp": "2024-12-03T11:58:06.379452"}
+{"temperature": 20.8, "humidite": 51.5, "co2": 457, "timestamp": "2024-12-03T11:58:33.982551"}
+{"temperature": 20.8, "humidite": 51.5, "co2": 455, "timestamp": "2024-12-03T12:08:26.976206"}
+{"temperature": 20.8, "humidite": 51, "co2": 453, "timestamp": "2024-12-03T12:18:48.190027"}
+{"temperature": 20.9, "humidite": 51, "co2": 452, "timestamp": "2024-12-03T12:28:08.564329"}
+{"temperature": 20.9, "humidite": 51, "co2": 453, "timestamp": "2024-12-03T12:38:30.574455"}
+{"temperature": 21, "humidite": 51, "co2": 451, "timestamp": "2024-12-03T12:48:51.201769"}

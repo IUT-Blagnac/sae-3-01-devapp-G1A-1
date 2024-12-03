@@ -119,7 +119,7 @@ def reception_message(mqttc, obj, msg):
                 mise_a_jour_alertes(salle)
                 print(f"SALLE {salle} PRISE EN CHARGE")
                 # Sauvegarde des données dans un fichier JSONL spécifique à la salle
-                fichier_salle = f"IoT et JavaFX/appli-python/datas/{salle}.jsonl"
+                fichier_salle = f"IoT et JavaFX/appli-python/datas/captor/{salle}.jsonl"
                 data_message = {
                     "temperature": temp,
                     "humidite": hum,
@@ -147,7 +147,7 @@ def reception_message(mqttc, obj, msg):
                     "currentPower": currentPower,
                     "timestamp": datetime.now().isoformat()
                 }
-                ecrire_jsonl("IoT et JavaFX/appli-python/datas/DONNEES_SOLAIRES.jsonl", solaire_message)
+                ecrire_jsonl("IoT et JavaFX/appli-python/datas/solar/DONNEES_SOLAIRES.jsonl", solaire_message)
     except KeyError as e:
         print("MESSAGE INVALIDE")
 

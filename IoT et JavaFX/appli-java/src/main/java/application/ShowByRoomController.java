@@ -1,5 +1,6 @@
 package application;
 
+import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -11,6 +12,8 @@ import javafx.scene.Scene;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
@@ -27,6 +30,7 @@ import tools.DataReader;
 import tools.GlobalVariables;
 import javafx.scene.Node;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -135,8 +139,6 @@ public class ShowByRoomController implements Initializable {
             sallesConfig[sallesConfig.length - 1] = salle;
         }
 
-        System.out.println(sallesConfig);
-
         for (String salle : sallesConfig) {
             // Ajouter chaque salle à la HashMap avec un état visible par défaut
             salleVisibility.put(salle, true);
@@ -236,11 +238,14 @@ public class ShowByRoomController implements Initializable {
                     CheckBox checkBoxHumidity = (CheckBox) optionsVBox.getChildren().get(1);
                     CheckBox checkBoxTemperature = (CheckBox) optionsVBox.getChildren().get(2);
 
+                    // Charger les données pour la salle
+                    List<HashMap<String, Object>> salleData = loadSalleData(salle);
+
                     // Boîte pour chaque salle (avec une taille fixe)
                     VBox salleRightVBox = new VBox(10);
                     salleRightVBox.setAlignment(Pos.TOP_CENTER);
-                    salleRightVBox.setPrefSize(400, 300); // Taille fixe (largeur, hauteur)
-                    salleRightVBox.setMinSize(400, 300);
+                    salleRightVBox.setPrefSize(400, 400); // Taille fixe (largeur, hauteur)
+                    salleRightVBox.setMinSize(400, 400);
                     salleRightVBox.setStyle("-fx-border-color: black; -fx-border-width: 2px; -fx-padding: 15px;");
                     salleRightVBox.getStyleClass().add("salle-box");
 
@@ -248,16 +253,16 @@ public class ShowByRoomController implements Initializable {
                     rightSalleLabel.setStyle("-fx-font-weight: bold; -fx-font-size: 16px;");
 
                     LineChart<Number, Number> lineChart = createEmptyChart();
-                    
+
                     if (checkBoxCO2.isSelected() || checkBoxHumidity.isSelected() || checkBoxTemperature.isSelected()) {
                         if (checkBoxCO2.isSelected()) {
-                            lineChart.getData().add(createSeries("CO2", new double[] { 10, 20, 30, 40, 50 }));
+                            lineChart.getData().add(createSeriesFromData("CO2", salleData, "co2"));
                         }
                         if (checkBoxHumidity.isSelected()) {
-                            lineChart.getData().add(createSeries("Humidité", new double[] { 60, 50, 70, 80, 90 }));
+                            lineChart.getData().add(createSeriesFromData("Humidité", salleData, "humidite"));
                         }
                         if (checkBoxTemperature.isSelected()) {
-                            lineChart.getData().add(createSeries("Température", new double[] { 15, 17, 19, 21, 23 }));
+                            lineChart.getData().add(createSeriesFromData("Température", salleData, "temperature"));
                         }
                     } else {
                         lineChart.setTitle("Aucune donnée sélectionnée pour cette salle.");
@@ -278,19 +283,75 @@ public class ShowByRoomController implements Initializable {
         NumberAxis yAxis = new NumberAxis();
         yAxis.setLabel("Valeur");
 
-        LineChart<Number, Number> chart = new LineChart<>(xAxis, yAxis);
-        chart.setTitle("Graphique");
+        LineChart<Number, Number> lineChart = new LineChart<>(xAxis, yAxis);
+        lineChart.setTitle("Graphique de données");
+        lineChart.setLegendVisible(true);
 
-        return chart;
+        return lineChart;
     }
 
-    // Créer une série de données pour le graphique
+    // Créer une série de données pour le graphique (ancienne version statique)
     private XYChart.Series<Number, Number> createSeries(String name, double[] data) {
         XYChart.Series<Number, Number> series = new XYChart.Series<>();
         series.setName(name);
         for (int i = 0; i < data.length; i++) {
             series.getData().add(new XYChart.Data<>(i, data[i]));
         }
+        return series;
+    }
+
+    /**
+     * Charge les données d'une salle depuis un fichier JSONL.
+     *
+     * @param salle Le nom de la salle.
+     * @return Une liste de données de la salle.
+     */
+    private List<HashMap<String, Object>> loadSalleData(String salle) {
+        String filePath = "IoT et JavaFX/appli-python/datas/captor/" + salle + ".jsonl";
+        File file = new File(filePath);
+        if (!file.exists()) {
+            System.out.println(
+                    "Le fichier pour la salle " + salle + " n'existe pas. Un tableau de données vide sera utilisé.");
+            // Alert alert = new Alert(AlertType.WARNING);
+            // alert.setTitle("Fichier introuvable");
+            // alert.setHeaderText("Données manquantes pour la salle : " + salle);
+            // alert.setContentText(
+            //         "Le fichier " + salle + ".jsonl est introuvable. Un tableau de données vide sera utilisé.");
+            // alert.showAndWait(); // Affiche le popup et attend la fermeture par l'utilisateur
+            return new ArrayList<>();
+        }
+
+        DataReader dataReader = new DataReader();
+        try {
+            return dataReader.readJsonLFile(filePath);
+        } catch (Exception e) {
+            System.err.println("Erreur lors du chargement des données pour la salle " + salle + ": " + e.getMessage());
+            return new ArrayList<>();
+        }
+    }
+
+    /**
+     * Crée une série à partir des données JSONL pour un type de mesure spécifique.
+     * 
+     * @param name Le nom de la série.
+     * @param data Les données de la salle.
+     * @param key  La clé correspondant au type de mesure (ex. "co2", "humidite",
+     *             "temperature").
+     * @return Une série prête à être ajoutée au graphique.
+     */
+    private XYChart.Series<Number, Number> createSeriesFromData(String name, List<HashMap<String, Object>> data,
+            String key) {
+        XYChart.Series<Number, Number> series = new XYChart.Series<>();
+        series.setName(name);
+
+        int index = 0;
+        for (HashMap<String, Object> record : data) {
+            Object value = record.get(key);
+            if (value instanceof Number) {
+                series.getData().add(new XYChart.Data<>(index++, ((Number) value).doubleValue()));
+            }
+        }
+
         return series;
     }
 
@@ -305,6 +366,14 @@ public class ShowByRoomController implements Initializable {
             }
         }
         return null; // Si aucun Label trouvé
+    }
+
+    /*
+     * Vérifie si un fichier existe à un chemin donné.
+     */
+    private boolean fileExists(String filePath) {
+        File file = new File(filePath);
+        return file.exists();
     }
 
 }
