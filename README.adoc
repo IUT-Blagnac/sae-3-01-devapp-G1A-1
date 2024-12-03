@@ -131,7 +131,7 @@ Voici le lien vers le https://docs.google.com/document/d/1JXWsYDaT89UOSjPgRJJcoX
 | Nom | Description        |  Lien
 | Releases | Version actuelle de l'application | https://github.com/IUT-Blagnac/sae-3-01-devapp-G1A-1/releases/tag/V1.0[v1.0]
 | Suivi des User Stories | Les User Stories sont disponibles et suivies dans le Project Board GitHub | https://github.com/IUT-Blagnac/sae-3-01-devapp-G1A-1/projects?query=is%3Aopen[SOON - Project Board]
-| Tests et Qualité |Les tests unitaires et les indicateurs de qualité (dette technique) sont accessibles ici | link:Documentation/tests/document_test_web.adoc[SOON - Cahier des tests]
+| Tests et Qualité |Les tests unitaires et les indicateurs de qualité (dette technique) sont accessibles ici | link:Documentation/tests/document_test_iot.adoc[Cahier des tests]
                                                                                                               
                                                                                                                 link:tests/TODO.adoc[SOON - résultat des tests de qualité]  
 |===
