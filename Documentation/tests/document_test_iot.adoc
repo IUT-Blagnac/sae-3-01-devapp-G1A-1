@@ -1,0 +1,82 @@
+= Documentation des tests application IOT
+:icons: font
+:models: models
+:experimental:
+:incremental:
+:numbered:
+:toc: macro
+:window: _blank
+:correction!:
+
+toc::[]
+
+Version de l'application : V1.0 +
+Date : 04/12/2024 +
+Equipe : 1A-1 +
+Client : BuildMyPC +
+Projet : Application de gestion d'entrepôt +
+
+== Description du projet
+
+=== Équipe
+
+L'équipe est composée de cinq membres avec les rôles suivants :
+
+- *Romain* : Product Owner et Développeur
+- *Kilian* : Développeur
+- *Titouan* : Développeur
+- *Pablo* : Développeur
+- *Hugo* : Scrum Master et Développeur
+
+=== Contexte du projet
+
+Le projet a pour objectif de développer une application de gestion d’entrepôt pour l’entreprise BuildMyPC, spécialisée dans la vente de composants informatiques et d’ordinateurs montés. Bien que son activité principale ne soit pas le stockage, l’entreprise doit gérer des locaux pour stocker les produits nécessaires à son activité. BuildMyPC souhaite donc intégrer une solution logicielle complémentaire pour surveiller les conditions environnementales de ses entrepôts, telles que la température, l'humidité et le niveau de CO2, afin de garantir la qualité de ses produits. + 
+L'application devra également inclure un module pour suivre la production et la consommation énergétique des panneaux solaires de l'entreprise, permettant une gestion optimisée de l’énergie et une approche écoresponsable. Ce projet vise à renforcer l'efficacité opérationnelle de l’entreprise tout en soutenant ses engagements en matière de durabilité.
+
+=== Objectifs du projet
+
+**Problématique :**  
+TODO
+
+**Objectif :**  
+TODO
+
+== Fonctionnement du projet Web
+
+Pour des informations supplémentaires :
+
+- Documentation technique : link:documentation_technique_web.adoc[SOON]
+- Documentation utilisateur : link:documentation_utilisateur_web.adoc[SOON]
+
+== Tests
+
+=== TODO
+
+TODO
+
+=== TODO
+
+TODO
+
+=== TODO
+
+TODO
+
+=== TODO
+TODO
+
+=== TODO
+
+==== TODO
+
+TODO
+
+=== TODO
+
+TODO
+
+=== TODO
+
+TODO
+
+A COMPLETER
