@@ -69,7 +69,6 @@
 {"lastYearData": 2947178, "lastMonthData": 12772, "lastDayData": 1925, "currentPower": 227.57019, "timestamp": "2024-12-02T14:59:38.546034"}
 {"lastYearData": 2947866, "lastMonthData": 13460, "lastDayData": 2613, "currentPower": 0, "timestamp": "2024-12-02T18:01:09.771274"}
 {"lastYearData": 2947866, "lastMonthData": 13460, "lastDayData": 2613, "currentPower": 0, "timestamp": "2024-12-02T18:01:09.774644"}
-<<<<<<< HEAD
 {"lastYearData": 2949389, "lastMonthData": 14983, "lastDayData": 1523, "currentPower": 1303.3364, "timestamp": "2024-12-03T11:42:35.583047"}
 {"lastYearData": 2949492, "lastMonthData": 15086, "lastDayData": 1626, "currentPower": 1167.4728, "timestamp": "2024-12-03T11:43:37.644698"}
 {"lastYearData": 2949492, "lastMonthData": 15086, "lastDayData": 1626, "currentPower": 1167.4728, "timestamp": "2024-12-03T11:44:39.231422"}
@@ -590,16 +589,7 @@
 {"lastYearData": 2953185, "lastMonthData": 18779, "lastDayData": 5319, "currentPower": 0, "timestamp": "2024-12-03T17:31:48.908308"}
 {"lastYearData": 2953185, "lastMonthData": 18779, "lastDayData": 5319, "currentPower": 0, "timestamp": "2024-12-03T17:33:53.252450"}
 {"lastYearData": 2953185, "lastMonthData": 18779, "lastDayData": 5319, "currentPower": 0, "timestamp": "2024-12-03T17:34:09.887458"}
-=======
-{"lastYearData": 2953185, "lastMonthData": 18779, "lastDayData": 5319, "currentPower": 1.9971974, "timestamp": "2024-12-03T17:08:53.774559"}
-{"lastYearData": 2953185, "lastMonthData": 18779, "lastDayData": 5319, "currentPower": 0, "timestamp": "2024-12-03T17:21:54.475054"}
-{"lastYearData": 2953185, "lastMonthData": 18779, "lastDayData": 5319, "currentPower": 0, "timestamp": "2024-12-03T17:21:54.476056"}
-{"lastYearData": 2953185, "lastMonthData": 18779, "lastDayData": 5319, "currentPower": 0, "timestamp": "2024-12-03T17:23:58.577964"}
-{"lastYearData": 2953185, "lastMonthData": 18779, "lastDayData": 5319, "currentPower": 0, "timestamp": "2024-12-03T17:24:31.546106"}
-{"lastYearData": 2953185, "lastMonthData": 18779, "lastDayData": 5319, "currentPower": 0, "timestamp": "2024-12-03T17:25:00.622233"}
-{"lastYearData": 2953185, "lastMonthData": 18779, "lastDayData": 5319, "currentPower": 0, "timestamp": "2024-12-03T17:26:51.349988"}
-{"lastYearData": 2953185, "lastMonthData": 18779, "lastDayData": 5319, "currentPower": 0, "timestamp": "2024-12-03T17:27:04.721172"}
-{"lastYearData": 2953185, "lastMonthData": 18779, "lastDayData": 5319, "currentPower": 0, "timestamp": "2024-12-03T17:29:08.822197"}
->>>>>>> fbae5809c7de406ff7e492141778d64c1c589689
 {"lastYearData": 2953185, "lastMonthData": 18779, "lastDayData": 5319, "currentPower": 0, "timestamp": "2024-12-03T17:35:57.384806"}
 {"lastYearData": 2953185, "lastMonthData": 18779, "lastDayData": 5319, "currentPower": 0, "timestamp": "2024-12-03T17:38:01.527323"}
+{"lastYearData": 2953185, "lastMonthData": 18779, "lastDayData": 5319, "currentPower": 0, "timestamp": "2024-12-03T17:40:05.625026"}
+{"lastYearData": 2953185, "lastMonthData": 18779, "lastDayData": 5319, "currentPower": 0, "timestamp": "2024-12-03T17:41:08.095811"}
