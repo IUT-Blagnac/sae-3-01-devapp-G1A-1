@@ -26,6 +26,7 @@ import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import tools.DataReader;
+import tools.GlobalVariables;
 
 /*
  * Contrôleur pour le menu de choix des courbes
@@ -141,11 +142,8 @@ public class MenuConfigController implements Initializable {
         listViewSalles.setPrefHeight(100); // Hauteur fixe du ListView (peut être ajustée)
         listViewSalles.setPrefWidth(250); // Largeur fixe du ListView (peut être ajustée)
 
-        // La chaîne de caractères représentant les salles
-        String sallesStr = "B006,B106,B105,B103,B101,E105,Serveurs,E003,B234,B104,B115,B004,B005,B006,B219,E006,E209,E001,E007,amphi1,hall-amphi,B217,C002,B112,B108,C102,E208,B203,E210,E207,E101,C006,E100,E102,E103,B110,hall-entrée-principale,Local-velo,B202,Foyer-personnels,B201,B109,C001,Salle-conseil,B002,B111,B113";
-
         // Conversion de la chaîne en liste de salles
-        List<String> salles = Arrays.asList(sallesStr.split(","));
+        List<String> salles = GlobalVariables.salles;
         List<String> sallesSelectionnees = Arrays.asList(numSalle.split(","));
 
         // Ajout des CheckBox pour chaque salle dans le ListView
@@ -153,9 +151,7 @@ public class MenuConfigController implements Initializable {
             CheckBox checkBox = new CheckBox(salle);
 
             // Récupérer les salles déjà sélectionnées
-            if (sallesSelectionnees.contains(salle)) {
-                checkBox.setSelected(true);
-            }
+            checkBox.setSelected(sallesSelectionnees.contains(salle));
 
             HBox hbox = new HBox(checkBox);
             hbox.setSpacing(10); // Espacement entre la CheckBox et le texte
