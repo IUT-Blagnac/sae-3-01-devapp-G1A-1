@@ -244,7 +244,26 @@ public class MenuController implements Initializable {
 
 	@FXML
 	private void doVisuDonnees() {
-		System.out.println("TODO");
+		try {
+			FXMLLoader loader = new FXMLLoader(
+					MenuController.class.getResource("visuDonnees.fxml"));
+			BorderPane root = loader.load();
+
+			Scene scene = new Scene(root, root.getPrefWidth() + 20, root.getPrefHeight() + 10);
+			scene.getStylesheets().add(Menu.class.getResource("application.css").toExternalForm());
+
+			primaryStage.setScene(scene);
+			primaryStage.setTitle("Fenêtre dernières données");
+
+			VisuDonneesController vdc = loader.getController();
+			vdc.initContext(primaryStage);
+
+			vdc.displayDialog();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.exit(-1);
+		}
 	}
 
 	@FXML

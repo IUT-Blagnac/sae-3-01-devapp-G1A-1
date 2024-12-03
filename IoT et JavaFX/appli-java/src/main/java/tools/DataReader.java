@@ -27,7 +27,6 @@ public class DataReader {
      * @return List of HashMap containing all records from the file.
      *         Each record is represented as a HashMap where keys are the JSON field
      *         names and values are the corresponding JSON field values.
-     * @throws IOException if an I/O error occurs reading the file.
      * 
      */
     public List<HashMap<String, Object>> readJsonLFile(String filePath) {
@@ -44,7 +43,8 @@ public class DataReader {
                     });
 
         } catch (IOException e) {
-            e.printStackTrace();
+            // e.printStackTrace();
+            System.out.println("No file found");
         }
         return records;
     }
@@ -64,7 +64,6 @@ public class DataReader {
      * @return HashMap of String and Object containing the JSON data.
      *         Keys are JSON field names, and values are the corresponding JSON
      *         field values.
-     * @throws IOException if an I/O error occurs reading the file.
      * 
      */
     public HashMap<String, Object> readJsonFile(String filePath) {
@@ -88,20 +87,24 @@ public class DataReader {
         List<HashMap<String, Object>> records = dataReader.readJsonLFile(filePath);
         HashMap<String, Object> jsonMap = dataReader.readJsonFile("config.json");
 
-        for (HashMap<String, Object> record : records) {
-            System.out.println("Record: " + record);
+        if (records != null) {
+            for (HashMap<String, Object> record : records) {
+                System.out.println("Record: " + record);
 
-            // Example: Access specific fields
-            double temperature = (double) record.get("temperature");
-            double humidity = (double) record.get("humidite");
-            int co2 = (int) record.get("co2");
-            String timestamp = (String) record.get("timestamp");
+                // Example: Access specific fields
+                double temperature = (double) record.get("temperature");
+                double humidity = (double) record.get("humidite");
+                int co2 = (int) record.get("co2");
+                String timestamp = (String) record.get("timestamp");
 
-            System.out.printf("Temperature: %.1f, Humidity: %.1f, CO2: %d, Timestamp: %s%n",
-                    temperature, humidity, co2, timestamp);
+                System.out.printf("Temperature: %.1f, Humidity: %.1f, CO2: %d, Timestamp: %s%n",
+                        temperature, humidity, co2, timestamp);
+            }
         }
-        for (Map.Entry<String, Object> entry : jsonMap.entrySet()) {
-            System.out.println("Key: " + entry.getKey() + " | Value: " + entry.getValue());
+        if (jsonMap != null) {
+            for (Map.Entry<String, Object> entry : jsonMap.entrySet()) {
+                System.out.println("Key: " + entry.getKey() + " | Value: " + entry.getValue());
+            }
         }
     }
 }
