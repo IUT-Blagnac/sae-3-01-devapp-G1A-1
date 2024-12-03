@@ -641,3 +641,28 @@ INSERT INTO ACommande (idCommande, idNumProduit, qte, prixAchat) VALUES (9, 38, 
 INSERT INTO ACommande (idCommande, idNumProduit, qte, prixAchat) VALUES (9, 10, 2, 1299.99);
 INSERT INTO ACommande (idCommande, idNumProduit, qte, prixAchat) VALUES (9, 36, 4, 1599.99);
 INSERT INTO ACommande (idCommande, idNumProduit, qte, prixAchat) VALUES (45, 24, 2, 349.99);
+
+#/////////////////////////////////////////////////////////////////////////////////////--
+#                                   insert Avis               
+#/////////////////////////////////////////////////////////////////////////////////////--
+
+INSERT INTO Avis (idNumCli, idNumProduit, idNumEmploye, txtAvis, txtReponse) VALUES (18, 10, 3, 'La carte graphique Acer Radeon RX 7900 XT est-elle compatible avec un PC gamer classique ?', 'Oui, cette carte graphique est compatible avec la plupart des configurations gamer modernes. Assurez-vous d’avoir une alimentation suffisante.');
+INSERT INTO Avis (idNumCli, idNumProduit, txtAvis, txtReponse) VALUES (8, 4, 'Produit de bonne qualité, fonctionne parfaitement.');
+INSERT INTO Avis (idNumCli, idNumProduit, txtAvis, txtReponse) VALUES (40, 42, 'Livraison rapide, très satisfait de mon achat.');
+INSERT INTO Avis (idNumCli, idNumProduit, idNumEmploye, txtAvis, txtReponse) VALUES (42, 17, 5, 'Le boitier Kingston Phanteks Eclipse P400A est-il adapté pour les cartes mères ATX ?', 'Oui, il est compatible avec les cartes mères ATX, micro-ATX, et mini-ITX.');
+INSERT INTO Avis (idNumCli, idNumProduit, txtAvis, txtReponse) VALUES (2, 25, 'Design élégant et finition impeccable.');
+INSERT INTO Avis (idNumCli, idNumProduit, txtAvis, txtReponse) VALUES (31, 39, 'Bon rapport qualité-prix, je recommande.');
+INSERT INTO Avis (idNumCli, idNumProduit, idNumEmploye, txtAvis, txtReponse) VALUES (12, 39, 1, 'La souris Logitech G502 Hero est-elle compatible avec macOS ?', 'Oui, elle est compatible avec macOS, bien que certaines fonctionnalités puissent nécessiter le logiciel Logitech G Hub.');
+INSERT INTO Avis (idNumCli, idNumProduit, txtAvis, txtReponse) VALUES (24, 14, 'Produit reçu dans un emballage impeccable.');
+INSERT INTO Avis (idNumCli, idNumProduit, txtAvis, txtReponse) VALUES (47, 47, 'Fonctionne parfaitement, rien à redire.');
+INSERT INTO Avis (idNumCli, idNumProduit, txtAvis, txtReponse) VALUES (23, 31, 'Très facile à utiliser, satisfait.');
+INSERT INTO Avis (idNumCli, idNumProduit, txtAvis, txtReponse) VALUES (18, 2, 'Superbe produit, conforme à la description.');
+INSERT INTO Avis (idNumCli, idNumProduit, txtAvis, txtReponse) VALUES (42, 42, 'Produit de qualité moyenne, pourrait être amélioré.');
+INSERT INTO Avis (idNumCli, idNumProduit, idNumEmploye, txtAvis, txtReponse) VALUES (27, 25, 1, 'Le clavier mécanique Razer BlackWidow est-il résistant aux éclaboussures ?', 'Oui, il est conçu pour résister aux éclaboussures et aux poussières légères.');
+INSERT INTO Avis (idNumCli, idNumProduit, txtAvis, txtReponse) VALUES (29, 4, 'Très bon produit, je recommande vivement.');
+INSERT INTO Avis (idNumCli, idNumProduit, txtAvis, txtReponse) VALUES (15, 4, 'Produit pratique et performant.');
+INSERT INTO Avis (idNumCli, idNumProduit, txtAvis, txtReponse) VALUES (38, 22, 'Très satisfait, conforme à mes attentes.');
+INSERT INTO Avis (idNumCli, idNumProduit, txtAvis, txtReponse) VALUES (16, 49, 'Produit robuste et bien conçu.');
+INSERT INTO Avis (idNumCli, idNumProduit, txtAvis, txtReponse) VALUES (8, 26, 'Fonctionne bien, très content.');
+INSERT INTO Avis (idNumCli, idNumProduit, txtAvis, txtReponse) VALUES (29, 49, 'Qualité supérieure, je suis ravi.');
+INSERT INTO Avis (idNumCli, idNumProduit, txtAvis, txtReponse) VALUES (25, 27, 'Bon produit, service client très réactif.');
