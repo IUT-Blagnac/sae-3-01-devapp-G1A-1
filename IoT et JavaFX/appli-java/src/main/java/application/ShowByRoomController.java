@@ -3,7 +3,10 @@ package application;
 import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.Timer;
+import java.util.TimerTask;
 
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -51,6 +54,8 @@ public class ShowByRoomController implements Initializable {
     // Fenêtre physique
     private Stage primaryStage;
 
+    private Timer timer;
+
     private Map<String, Boolean> salleVisibility = new HashMap<>();
 
     public void initContext(Stage _containingStage) {
@@ -83,6 +88,7 @@ public class ShowByRoomController implements Initializable {
     @FXML
     private void doBack() { // Bouton qui mène à la page précédente (menu.fxml)
         try {
+            this.timer.cancel();
             FXMLLoader loader = new FXMLLoader(
                     ShowByRoomController.class.getResource("menuCourbe.fxml"));
             BorderPane root = loader.load();
@@ -178,6 +184,16 @@ public class ShowByRoomController implements Initializable {
         }
 
         updateRightScrollPane();
+
+        timer = new Timer(true);
+        timer.scheduleAtFixedRate(new TimerTask() {
+            @Override
+            public void run() {
+                Platform.runLater(() -> {
+                    updateRightScrollPane();
+                });
+            }
+        }, 0, 10000);
     }
 
     // Méthode pour afficher/cacher une salle (fonctionnalité future)

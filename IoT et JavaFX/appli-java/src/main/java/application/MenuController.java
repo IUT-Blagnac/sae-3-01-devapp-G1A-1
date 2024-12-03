@@ -1,9 +1,11 @@
 package application;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.concurrent.Executors;
 
 import javafx.application.Platform;
 import javafx.fxml.FXML;
@@ -21,6 +23,13 @@ import oracle.net.aso.l;
 import tools.AlertOverlay;
 import tools.GlobalVariables;
 
+
+import java.io.IOException;
+import java.nio.file.*;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
+
 /*
  * Contrôleur pour le menu principal
  * Permet de naviguer vers les différentes pages de l'application
@@ -34,6 +43,8 @@ public class MenuController implements Initializable {
 	// Zone de notification
 	private AlertOverlay alertOverlay;
 
+	private ExecutorService watchServiceExecutor; // Pour gérer le thread du WatchService
+
 	public void initContext(Stage _containingStage) {
 		this.primaryStage = _containingStage;
 		this.configure();
@@ -45,7 +56,7 @@ public class MenuController implements Initializable {
 		primaryStage.getScene().setRoot(stackPane);
 
 		// // Associer un comportement au bouton d'alerte
-		btnAlert.setOnAction(e -> showNotification());
+		// btnAlert.setOnAction(e -> showNotification());
 	}
 
 	public void displayDialog() {
@@ -107,6 +118,9 @@ public class MenuController implements Initializable {
 		// initialiser un thread qui va update le label pythonState en fonction de
 		// l'état du mqttPython
 		pythonStatusUpdate();
+
+		// Lancement du WatchService pour surveiller LOG_ALERTE.jsonl
+        startFileWatcher();
 	}
 
 	private void pythonStatusUpdate() {
@@ -142,6 +156,43 @@ public class MenuController implements Initializable {
 		}, 0, 10000);
 	}
 
+	/**
+     * Lance le WatchService pour surveiller les modifications de LOG_ALERTE.jsonl
+     */
+    private void startFileWatcher() {
+        watchServiceExecutor = Executors.newSingleThreadExecutor();
+        Path logFilePath = Paths.get("IoT et JavaFX/appli-python/alerts/LOG_ALERTE.jsonl");
+
+        watchServiceExecutor.submit(() -> {
+            try (WatchService watchService = FileSystems.getDefault().newWatchService()) {
+                // Enregistrer le répertoire parent du fichier à surveiller
+                Path directory = logFilePath.getParent();
+                directory.register(watchService, StandardWatchEventKinds.ENTRY_MODIFY);
+
+                while (!Thread.currentThread().isInterrupted()) {
+                    WatchKey key = watchService.take(); // Bloque jusqu'à un événement
+                    for (WatchEvent<?> event : key.pollEvents()) {
+                        WatchEvent.Kind<?> kind = event.kind();
+
+                        if (kind == StandardWatchEventKinds.ENTRY_MODIFY) {
+                            // Vérifier si le fichier modifié est LOG_ALERTE.jsonl
+                            Path changedFile = directory.resolve((Path) event.context());
+                            if (changedFile.endsWith(logFilePath.getFileName())) {
+                                Platform.runLater(this::showNotification);
+                            }
+                        }
+                    }
+                    if (!key.reset()) {
+                        break;
+                    }
+                }
+            } catch (IOException | InterruptedException e) {
+                // Gestion des erreurs ou interruption
+                e.printStackTrace();
+            }
+        });
+    }
+
 	private void showNotification() {
 		alertOverlay.addAlert("Nouvelle alerte reçue !", () -> {
 			System.out.println("Voir détails cliqué !");
@@ -153,7 +204,6 @@ public class MenuController implements Initializable {
 	private void doShowAlertHistory() {
 		// Logique pour afficher l'historique des alertes (par exemple, charger une
 		// autre page)
-		System.out.println("Naviguer vers l'historique des alertes.");
 		doHistorique();
 	}
 
@@ -344,5 +394,9 @@ public class MenuController implements Initializable {
 	@FXML
 	private void doQuit() { // Gestion de la fermeture de la fenêtre
 		GlobalVariables.exitApp(this.primaryStage);
+		// Arrêter proprement le WatchService
+        if (watchServiceExecutor != null && !watchServiceExecutor.isShutdown()) {
+            watchServiceExecutor.shutdownNow();
+        }
 	}
 }

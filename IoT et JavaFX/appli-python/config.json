@@ -1,1 +1,1 @@
-{"max":{"temperature_max":24,"humidite_max":60,"taux_max":1000},"salle":{"num_salle":"B106,Serveurs,B113"},"lecture":{"frequence":60},"donnee":{"temperature":true,"humidite":true,"taux":true}}
+{"max":{"temperature_max":15,"humidite_max":70,"taux_max":5000},"salle":{"num_salle":"B106"},"lecture":{"frequence":15},"donnee":{"temperature":true,"humidite":true,"taux":true}}
