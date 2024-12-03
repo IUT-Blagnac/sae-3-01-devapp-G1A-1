@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {"temperature": 20.2, "humidite": 52.5, "co2": 680, "timestamp": "2024-12-02T14:19:15.832023"}
 {"temperature": 20.2, "humidite": 53, "co2": 730, "timestamp": "2024-12-02T14:29:37.297851"}
 {"temperature": 20.4, "humidite": 54, "co2": 825, "timestamp": "2024-12-02T14:39:58.010572"}
@@ -11,3 +12,8 @@
 {"temperature": 20.1, "humidite": 47.5, "co2": 497, "timestamp": "2024-12-03T12:29:10.634793"}
 {"temperature": 20.1, "humidite": 48, "co2": 562, "timestamp": "2024-12-03T12:39:32.627224"}
 {"temperature": 20.2, "humidite": 49, "co2": 626, "timestamp": "2024-12-03T12:49:53.273536"}
+=======
+{"temperature": 19.9, "humidite": 47, "co2": 503, "timestamp": "2024-12-03T09:59:34.208051"}
+{"temperature": 21, "humidite": 51.5, "co2": 1249, "timestamp": "2024-12-03T17:08:53.776977"}
+{"temperature": 21.3, "humidite": 51.5, "co2": 1230, "timestamp": "2024-12-03T17:29:08.822197"}
+>>>>>>> fbae5809c7de406ff7e492141778d64c1c589689
