@@ -4,11 +4,13 @@ import java.net.URL;
 import java.time.LocalTime;
 import java.util.HashMap;
 import java.util.ResourceBundle;
-
+import java.util.Timer;
+import java.util.TimerTask;
 import java.util.List;
 import java.util.Map;
 
 import javafx.util.StringConverter;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -41,6 +43,8 @@ public class ShowSolarController implements Initializable {
     private Stage primaryStage;
 
     private String previousPage;
+
+    private Timer timer;
 
     public void setPreviousPage(String previousPage) {
         this.previousPage = previousPage;
@@ -80,6 +84,7 @@ public class ShowSolarController implements Initializable {
     @FXML
     private void doBack() { // Bouton qui mène à la page précédente (menu.fxml)
         try {
+            this.timer.cancel();
             if (this.previousPage.equals("menuCourbe.fxml")) {
                 FXMLLoader loader = new FXMLLoader(
                         ShowByRoomController.class.getResource("menuCourbe.fxml"));
@@ -133,6 +138,17 @@ public class ShowSolarController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         setupHBox();
         setupCenterChart();
+
+        timer = new Timer(true);
+        timer.scheduleAtFixedRate(new TimerTask() {
+            @Override
+            public void run() {
+                Platform.runLater(() -> {
+                    updateHBox();
+                    setupCenterChart();
+                });
+            }
+        }, 0, 10000);
     }
 
     // Méthode pour configurer le HBox
@@ -160,6 +176,19 @@ public class ShowSolarController implements Initializable {
         }
 
         contentHBox.setSpacing(20);
+    }
+
+    //méthode update pour le setupHbox
+    private void updateHBox() {
+        Map<String, Double> summaryData = SolarDataReader.loadSummaryData();
+
+        String[] keys = { "currentPower", "lastDayData", "lastMonthData", "lastYearData" };
+
+        for (int i = 0; i < contentHBox.getChildren().size(); i++) {
+            VBox vbox = (VBox) contentHBox.getChildren().get(i);
+            Label valueLabel = (Label) vbox.getChildren().get(1);
+            valueLabel.setText(String.format("%.2f", summaryData.get(keys[i])) + " kW");
+        }
     }
 
     // Méthode pour configurer le graphique dans le center
