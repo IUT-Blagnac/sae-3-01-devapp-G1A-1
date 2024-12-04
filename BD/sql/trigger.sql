@@ -13,6 +13,33 @@ $$
 
 DELIMITER ;
 
+DELIMITER $$
+
+CREATE TRIGGER t_iu_acommade_maj_nbd
+BEFORE INSERT ON ACommande
+FOR EACH ROW
+BEGIN
+    DECLARE existing_qte INT;
+
+    SELECT qte INTO existing_qte
+    FROM ACommande
+    WHERE idCommande = :NEW.idCommande AND idNumProduit = :NEW.idNumProduit
+    LIMIT 1;
+
+    IF existing_qte IS NOT NULL THEN
+        UPDATE ACommande
+        SET qte = existing_qte + :NEW.qte
+        WHERE idCommande = :NEW.idCommande AND idNumProduit = :NEW.idNumProduit;
+        SIGNAL SQLSTATE '45000' 
+        SET MESSAGE_TEXT = 'Quantité mise à jour pour le produit existant dans la commande.';
+    END IF;
+
+END;
+$$
+
+DELIMITER ;
+
+
 
 # faire que l'adresse email ne puisse pas être deux fois'
 ALTER TABLE Client
