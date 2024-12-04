@@ -10,6 +10,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -23,7 +24,9 @@ import tools.DataReader;
 import tools.GlobalVariables;
 
 import java.net.URL;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -47,6 +50,9 @@ public class AlerteHistoriqueController implements Initializable {
     private Stage primaryStage;
 
     // private Timer timer;
+
+    private DatePicker dateFilter; // Ajouter un filtre pour la date
+
 
     // Définir tous les composants dynamiquement
     private BorderPane root;
@@ -138,6 +144,8 @@ public class AlerteHistoriqueController implements Initializable {
         salleFilter.setPromptText("Filtrer par salle");
         typeFilter = new ComboBox<>(FXCollections.observableArrayList("TEMPERATURE", "HUMIDITE", "CO2"));
         typeFilter.setPromptText("Filtrer par type");
+        dateFilter = new DatePicker();
+        dateFilter.setPromptText("Filtrer par date"); 
 
         btnApplyFilter = new Button("Appliquer Filtre");
         btnApplyFilter.setOnAction(e -> appliquerFiltre());
@@ -145,7 +153,7 @@ public class AlerteHistoriqueController implements Initializable {
         btnResetFilter = new Button("Réinitialiser Filtre"); // Nouveau bouton
         btnResetFilter.setOnAction(e -> resetFilters()); // Action pour réinitialiser les filtres
 
-        filterBox.getChildren().addAll(salleFilter, typeFilter, btnApplyFilter, btnResetFilter); // Ajouter le bouton de
+        filterBox.getChildren().addAll(salleFilter, typeFilter, dateFilter, btnApplyFilter, btnResetFilter); // Ajouter le bouton de
                                                                                                  // réinitialisation
 
         // TableView to show the alerts
@@ -156,7 +164,15 @@ public class AlerteHistoriqueController implements Initializable {
 
         salleColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().get(0)));
         typeColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().get(1)));
-        timestampColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().get(2)));
+        timestampColumn.setCellValueFactory(cellData -> {
+            String timestamp = cellData.getValue().get(2); // Récupérer le timestamp brut
+            // Convertir en LocalDateTime puis formater en une chaîne lisible
+            LocalDateTime dateTime = LocalDateTime.parse(timestamp);
+            String formattedTimestamp = dateTime.format(DateTimeFormatter.ofPattern("dd MMM yyyy HH:mm:ss")); // Exemple
+                                                                                                              // de
+                                                                                                              // format
+            return new SimpleStringProperty(formattedTimestamp); // Retourner la chaîne formatée
+        });
 
         alertesTable.getColumns().add(salleColumn);
         alertesTable.getColumns().add(typeColumn);
@@ -221,10 +237,13 @@ public class AlerteHistoriqueController implements Initializable {
     private void appliquerFiltre() {
         String salle = salleFilter.getText();
         String type = typeFilter.getValue();
+        LocalDate date = dateFilter.getValue(); // Récupérer la date sélectionnée
 
         List<List<String>> filtered = alertesList.stream()
                 .filter(alerte -> (salle.isEmpty() || alerte.get(0).equalsIgnoreCase(salle)) &&
-                        (type == null || alerte.get(1).equalsIgnoreCase(type)))
+                        (type == null || alerte.get(1).equalsIgnoreCase(type)) &&
+                        (date == null || LocalDate.parse(alerte.get(2).substring(0, 10)).equals(date))) // Filtrage par
+                                                                                                        // date
                 .collect(Collectors.toList());
 
         alertesTable.setItems(FXCollections.observableArrayList(filtered));
@@ -235,6 +254,7 @@ public class AlerteHistoriqueController implements Initializable {
         // Réinitialise les filtres
         salleFilter.clear(); // Effacer le champ de texte de la salle
         typeFilter.getSelectionModel().clearSelection(); // Réinitialiser la sélection du type
+        dateFilter.setValue(null); // Réinitialiser la date
 
         // Réinitialiser la table pour afficher toutes les alertes
         alertesTable.setItems(alertesList);
@@ -244,10 +264,11 @@ public class AlerteHistoriqueController implements Initializable {
         return FXCollections.observableArrayList(
                 alertes.stream()
                         .sorted((a1, a2) -> {
-                            // Convert timestamps to LocalDateTime for proper comparison
-                            LocalDateTime t1 = LocalDateTime.parse(a1.get(2)); // Parses the timestamp directly
+                            // Comparer les timestamps en utilisant LocalDateTime pour garantir le tri
+                            // correct
+                            LocalDateTime t1 = LocalDateTime.parse(a1.get(2)); // Parse directement le timestamp
                             LocalDateTime t2 = LocalDateTime.parse(a2.get(2));
-                            return t2.compareTo(t1); // Ascending order
+                            return t2.compareTo(t1); // Tri décroissant
                         })
                         .collect(Collectors.toList()));
     }
