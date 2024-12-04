@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BuildMyPC</title>
   <link rel="stylesheet" href="css/header.css">
-  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/panier.css">
   <link rel="stylesheet" href="css/search-bar.css">
   <link rel="stylesheet" href="css/slider.css">
   <link rel="stylesheet" href="css/footer.css">
@@ -144,7 +144,36 @@
 
   <!-- Contenu principal -->
   <main>
-
+    <section id="panier" class="panier-section">
+      <h2 class="titre-panier">Votre Panier</h2>
+      
+      <div class="panier-container">
+        <div class="panier-item">
+          <img src="produit1.jpg" alt="Produit 1" class="panier-image">
+          <div class="panier-info">
+            <h3 class="panier-nom">Produit 1</h3>
+            <p class="panier-quantite">Quantité: 2</p>
+            <p class="panier-prix">Prix: 19,99€</p>
+          </div>
+          <button class="panier-supprimer">Supprimer</button>
+        </div>
+    
+        <div class="panier-item">
+          <img src="produit2.jpg" alt="Produit 2" class="panier-image">
+          <div class="panier-info">
+            <h3 class="panier-nom">Produit 2</h3>
+            <p class="panier-quantite">Quantité: 1</p>
+            <p class="panier-prix">Prix: 29,99€</p>
+          </div>
+          <button class="panier-supprimer">Supprimer</button>
+        </div>
+    
+        <div class="panier-total">
+          <p class="total">Total: 69,97€</p>
+          <button class="panier-valider">Commander</button>
+        </div>
+      </div>
+    </section>    
   </main>
   <!-- Fin Contenu principal -->
 
