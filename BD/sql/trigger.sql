@@ -42,7 +42,7 @@ FOR EACH ROW
 BEGIN
     DECLARE max_id INT;
     SELECT MAX(idCarte) INTO max_id FROM Paypal;
-    SET NEW.idCarte = (COALESCE(max_id, 0) + 3);
+    SET NEW.idCarte = (COALESCE(max_id, 1) + 3);
 END; $$
 
 -- Trigger pour Carte_EU
@@ -52,7 +52,7 @@ FOR EACH ROW
 BEGIN
     DECLARE max_id INT;
     SELECT MAX(idCarte) INTO max_id FROM Carte_EU;
-    SET NEW.idCarte = (COALESCE(max_id, 1) + 3);
+    SET NEW.idCarte = (COALESCE(max_id, 2) + 3);
 END; $$
 
 -- Trigger pour Carte_AE
@@ -62,7 +62,7 @@ FOR EACH ROW
 BEGIN
     DECLARE max_id INT;
     SELECT MAX(idCarte) INTO max_id FROM Carte_AE;
-    SET NEW.idCarte = (COALESCE(max_id, 2) + 3);
+    SET NEW.idCarte = (COALESCE(max_id, 3) + 3);
 END; $$
 
 DELIMITER ;
