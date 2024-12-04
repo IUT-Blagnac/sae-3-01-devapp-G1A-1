@@ -1,8 +1,10 @@
-package application;
+package application.controller;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import application.AlertePopup;
+import application.Menu;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -81,7 +83,7 @@ public class MenuCourbeController implements Initializable {
                               // (menuCourbePiece.fxml)
         try {
             FXMLLoader loader = new FXMLLoader(
-                    MenuCourbeController.class.getResource("showByRoom.fxml"));
+                    MenuCourbeController.class.getResource("/application/view/showByRoom.fxml"));
             BorderPane root = loader.load();
 
             Scene scene = new Scene(root, root.getPrefWidth() + 20, root.getPrefHeight() + 10);
@@ -106,7 +108,7 @@ public class MenuCourbeController implements Initializable {
                               // (menuCourbeData.fxml)
         try {
             FXMLLoader loader = new FXMLLoader(
-                    MenuCourbeController.class.getResource("showByData.fxml"));
+                    MenuCourbeController.class.getResource("/application/view/showByData.fxml"));
             BorderPane root = loader.load();
 
             Scene scene = new Scene(root, root.getPrefWidth() + 20, root.getPrefHeight() + 10);
@@ -130,7 +132,7 @@ public class MenuCourbeController implements Initializable {
     private void doSolar() { // Bouton qui mène à la page de choix des courbes pour le solaire
         try {
             FXMLLoader loader = new FXMLLoader(
-                    MenuCourbeController.class.getResource("showSolar.fxml"));
+                    MenuCourbeController.class.getResource("/application/view/showSolar.fxml"));
             BorderPane root = loader.load();
 
             Scene scene = new Scene(root, root.getPrefWidth() + 20, root.getPrefHeight() + 10);
@@ -156,7 +158,7 @@ public class MenuCourbeController implements Initializable {
     private void doBack() { // Bouton qui mène à la page précédente (menu.fxml)
         try {
             FXMLLoader loader = new FXMLLoader(
-                    MenuCourbeController.class.getResource("menu.fxml"));
+                    MenuCourbeController.class.getResource("/application/view/menu.fxml"));
             BorderPane root = loader.load();
 
             Scene scene = new Scene(root, root.getPrefWidth() + 20, root.getPrefHeight() + 10);

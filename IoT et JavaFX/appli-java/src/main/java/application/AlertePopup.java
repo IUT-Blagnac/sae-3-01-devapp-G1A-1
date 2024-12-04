@@ -7,6 +7,8 @@ import java.util.List;
 import java.util.Queue;
 import java.util.concurrent.Executors;
 
+import application.controller.AlerteHistoriqueController;
+import application.controller.MenuController;
 import javafx.animation.FadeTransition;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -246,7 +248,7 @@ public class AlertePopup {
     private void doHistorique() {
         try {
             FXMLLoader loader = new FXMLLoader(
-                    MenuController.class.getResource("alerteHistorique.fxml"));
+                    MenuController.class.getResource("/application/view/alerteHistorique.fxml"));
             BorderPane root = loader.load();
 
             Scene scene = new Scene(root, root.getPrefWidth() + 20, root.getPrefHeight() + 10);

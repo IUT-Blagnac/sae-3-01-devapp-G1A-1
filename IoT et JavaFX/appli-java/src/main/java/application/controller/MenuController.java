@@ -1,4 +1,4 @@
-package application;
+package application.controller;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -19,6 +19,9 @@ import javafx.stage.WindowEvent;
 import tools.GlobalVariables;
 
 import java.util.concurrent.ExecutorService;
+
+import application.AlertePopup;
+import application.Menu;
 
 /*
  * Contrôleur pour le menu principal
@@ -105,9 +108,6 @@ public class MenuController implements Initializable {
 		// initialiser un thread qui va update le label pythonState en fonction de
 		// l'état du mqttPython
 		pythonStatusUpdate();
-
-		// Lancement du WatchService pour surveiller LOG_ALERTE.jsonl
-		// startFileWatcher();
 	}
 
 	private void pythonStatusUpdate() {
@@ -140,68 +140,15 @@ public class MenuController implements Initializable {
 					}
 				});
 			}
-		}, 0, 10000);
+		}, 0, 4000);
 	}
-
-	// /**
-	// * Lance le WatchService pour surveiller les modifications de LOG_ALERTE.jsonl
-	// */
-	// private void startFileWatcher() {
-	// watchServiceExecutor = Executors.newSingleThreadExecutor();
-	// Path logFilePath = Paths.get("IoT et
-	// JavaFX/appli-python/alerts/LOG_ALERTE.jsonl");
-
-	// watchServiceExecutor.submit(() -> {
-	// try (WatchService watchService = FileSystems.getDefault().newWatchService())
-	// {
-	// // Enregistrer le répertoire parent du fichier à surveiller
-	// Path directory = logFilePath.getParent();
-	// directory.register(watchService, StandardWatchEventKinds.ENTRY_MODIFY);
-
-	// while (!Thread.currentThread().isInterrupted()) {
-	// WatchKey key = watchService.take(); // Bloque jusqu'à un événement
-	// for (WatchEvent<?> event : key.pollEvents()) {
-	// WatchEvent.Kind<?> kind = event.kind();
-
-	// if (kind == StandardWatchEventKinds.ENTRY_MODIFY) {
-	// // Vérifier si le fichier modifié est LOG_ALERTE.jsonl
-	// Path changedFile = directory.resolve((Path) event.context());
-	// if (changedFile.endsWith(logFilePath.getFileName())) {
-	// Platform.runLater(this::showNotification);
-	// }
-	// }
-	// }
-	// if (!key.reset()) {
-	// break;
-	// }
-	// }
-	// } catch (IOException | InterruptedException e) {
-	// // Gestion des erreurs ou interruption
-	// e.printStackTrace();
-	// }
-	// });
-	// }
-
-	// private void showNotification() {
-	// alertOverlay.addAlert("Nouvelle alerte reçue !", () -> {
-	// System.out.println("Voir détails cliqué !");
-	// // Vous pouvez ici naviguer vers une page d'historique des alertes
-	// doShowAlertHistory();
-	// });
-	// }
-
-	// private void doShowAlertHistory() {
-	// // Logique pour afficher l'historique des alertes (par exemple, charger une
-	// // autre page)
-	// doHistorique();
-	// }
 
 	@FXML
 	private void doTest() {
 		try {
 			// Chargement de la nouvelle fenêtre (FXML)
 			FXMLLoader loader = new FXMLLoader(
-					MenuController.class.getResource("test.fxml"));
+					MenuController.class.getResource("/application/view/test.fxml"));
 			BorderPane root = loader.load();
 
 			// Création d'un nouveau Stage
@@ -231,7 +178,7 @@ public class MenuController implements Initializable {
 	private void doConfig() {
 		try {
 			FXMLLoader loader = new FXMLLoader(
-					MenuController.class.getResource("menuConfig.fxml"));
+					MenuController.class.getResource("/application/view/menuConfig.fxml"));
 			BorderPane root = loader.load();
 
 			Scene scene = new Scene(root, root.getPrefWidth() + 20, root.getPrefHeight() + 10);
@@ -256,7 +203,7 @@ public class MenuController implements Initializable {
 		try {
 			// Chargement de la nouvelle fenêtre (FXML)
 			FXMLLoader loader = new FXMLLoader(
-					MenuController.class.getResource("relancePython.fxml"));
+					MenuController.class.getResource("/application/view/relancePython.fxml"));
 			BorderPane root = loader.load();
 
 			// Création d'un nouveau Stage
@@ -286,7 +233,7 @@ public class MenuController implements Initializable {
 	private void doVisuDonnees() {
 		try {
 			FXMLLoader loader = new FXMLLoader(
-					MenuController.class.getResource("visuDonnees.fxml"));
+					MenuController.class.getResource("/application/view/visuDonnees.fxml"));
 			BorderPane root = loader.load();
 
 			Scene scene = new Scene(root, root.getPrefWidth() + 20, root.getPrefHeight() + 10);
@@ -310,7 +257,7 @@ public class MenuController implements Initializable {
 	private void doHistorique() {
 		try {
 			FXMLLoader loader = new FXMLLoader(
-					MenuController.class.getResource("alerteHistorique.fxml"));
+					MenuController.class.getResource("/application/view/alerteHistorique.fxml"));
 			BorderPane root = loader.load();
 
 			Scene scene = new Scene(root, root.getPrefWidth() + 20, root.getPrefHeight() + 10);
@@ -334,7 +281,7 @@ public class MenuController implements Initializable {
 	private void doCourbe() { // Bouton qui mène à la page de choix des courbes (menuCourbe.fxml)
 		try {
 			FXMLLoader loader = new FXMLLoader(
-					MenuController.class.getResource("menuCourbe.fxml"));
+					MenuController.class.getResource("/application/view/menuCourbe.fxml"));
 			BorderPane root = loader.load();
 
 			Scene scene = new Scene(root, root.getPrefWidth() + 20, root.getPrefHeight() + 10);
@@ -358,7 +305,7 @@ public class MenuController implements Initializable {
 	private void doSolar() { // Bouton qui mène à la page de choix des courbes pour le solaire
 		try {
 			FXMLLoader loader = new FXMLLoader(
-					MenuCourbeController.class.getResource("showSolar.fxml"));
+					MenuCourbeController.class.getResource("/application/view/showSolar.fxml"));
 			BorderPane root = loader.load();
 
 			Scene scene = new Scene(root, root.getPrefWidth() + 20, root.getPrefHeight() + 10);

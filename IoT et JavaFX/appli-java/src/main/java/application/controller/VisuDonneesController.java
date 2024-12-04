@@ -1,4 +1,4 @@
-package application;
+package application.controller;
 
 import java.net.URL;
 import java.util.HashMap;
@@ -8,6 +8,8 @@ import java.util.ResourceBundle;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import application.AlertePopup;
+import application.Menu;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -140,7 +142,7 @@ public class VisuDonneesController implements Initializable {
         try {
             this.timer.cancel();
             FXMLLoader loader = new FXMLLoader(
-                    MenuCourbeController.class.getResource("menu.fxml"));
+                    MenuCourbeController.class.getResource("/application/view/menu.fxml"));
             BorderPane root = loader.load();
 
             Scene scene = new Scene(root, root.getPrefWidth() + 20, root.getPrefHeight() + 10);

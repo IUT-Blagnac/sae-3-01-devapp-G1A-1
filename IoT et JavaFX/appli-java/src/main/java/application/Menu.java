@@ -1,5 +1,6 @@
 package application;
 
+import application.controller.MenuController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -20,7 +21,7 @@ public class Menu extends Application {
 
 		try {
 			FXMLLoader loader = new FXMLLoader(
-					MenuController.class.getResource("menu.fxml"));
+					MenuController.class.getResource("/application/view/menu.fxml"));
 			BorderPane root = loader.load();
 
 			Scene scene = new Scene(root, root.getPrefWidth() + 20, root.getPrefHeight() + 10);

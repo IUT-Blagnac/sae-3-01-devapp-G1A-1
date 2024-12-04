@@ -1,4 +1,4 @@
-package application;
+package application.controller;
 
 import javafx.application.Platform;
 import javafx.concurrent.Task;
@@ -119,9 +119,9 @@ public class TestController implements Initializable {
             resultIcon.setVisible(true); // Affiche l'icône
 
             if (isConnected) {
-                resultIcon.setImage(new Image(getClass().getResource("../check.png").toExternalForm()));
+                resultIcon.setImage(new Image(getClass().getResource("../../check.png").toExternalForm()));
             } else {
-                resultIcon.setImage(new Image(getClass().getResource("../cross.png").toExternalForm()));
+                resultIcon.setImage(new Image(getClass().getResource("../../cross.png").toExternalForm()));
             }
 
             // Fermer la fenêtre après 5 secondes

@@ -30,6 +30,7 @@ public class PythonExecuter {
     }
 
     public GlobalVariables.pythonState getState() {
+        updateState();
         return this.state;
     }
 

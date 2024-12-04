@@ -1,4 +1,4 @@
-package application;
+package application.controller;
 
 import java.io.File;
 import java.net.URL;
@@ -6,6 +6,8 @@ import java.util.ResourceBundle;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import application.AlertePopup;
+import application.Menu;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -94,7 +96,7 @@ public class ShowByDataController implements Initializable {
         try {
             this.timer.cancel();
             FXMLLoader loader = new FXMLLoader(
-                    ShowByDataController.class.getResource("menuCourbe.fxml"));
+                    ShowByDataController.class.getResource("/application/view/menuCourbe.fxml"));
             BorderPane root = loader.load();
 
             Scene scene = new Scene(root, root.getPrefWidth() + 20, root.getPrefHeight() + 10);

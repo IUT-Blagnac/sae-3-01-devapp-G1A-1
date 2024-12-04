@@ -1,4 +1,6 @@
-package application;
+package application.controller;
+
+import application.*;
 
 import java.io.File;
 import java.io.IOException;
@@ -10,6 +12,7 @@ import java.util.ResourceBundle;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import application.AlertePopup;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -279,7 +282,7 @@ public class MenuConfigController implements Initializable {
     private void doBack() { // Bouton qui mène à la page précédente (menu.fxml)
         try {
             FXMLLoader loader = new FXMLLoader(
-                    MenuCourbeController.class.getResource("menu.fxml"));
+                    MenuCourbeController.class.getResource("/application/view/menu.fxml"));
             BorderPane root = loader.load();
 
             Scene scene = new Scene(root, root.getPrefWidth() + 20, root.getPrefHeight() + 10);

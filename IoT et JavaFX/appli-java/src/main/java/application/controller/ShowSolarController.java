@@ -1,4 +1,4 @@
-package application;
+package application.controller;
 
 import java.net.URL;
 import java.time.LocalTime;
@@ -6,6 +6,10 @@ import java.util.HashMap;
 import java.util.ResourceBundle;
 import java.util.Timer;
 import java.util.TimerTask;
+
+import application.AlertePopup;
+import application.Menu;
+
 import java.util.List;
 import java.util.Map;
 
@@ -96,7 +100,7 @@ public class ShowSolarController implements Initializable {
             this.timer.cancel();
             if (this.previousPage.equals("menuCourbe.fxml")) {
                 FXMLLoader loader = new FXMLLoader(
-                        ShowByRoomController.class.getResource("menuCourbe.fxml"));
+                        ShowByRoomController.class.getResource("/application/view/menuCourbe.fxml"));
                 BorderPane root = loader.load();
 
                 Scene scene = new Scene(root, root.getPrefWidth() + 20, root.getPrefHeight() + 10);
@@ -111,7 +115,7 @@ public class ShowSolarController implements Initializable {
                 mfc.displayDialog();
             } else {
                 FXMLLoader loader = new FXMLLoader(
-                        ShowByRoomController.class.getResource("menu.fxml"));
+                        ShowByRoomController.class.getResource("/application/view/menu.fxml"));
                 BorderPane root = loader.load();
 
                 Scene scene = new Scene(root, root.getPrefWidth() + 20, root.getPrefHeight() + 10);

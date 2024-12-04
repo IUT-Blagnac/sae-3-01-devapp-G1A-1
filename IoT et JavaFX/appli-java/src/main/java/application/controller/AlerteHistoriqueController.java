@@ -1,4 +1,4 @@
-package application;
+package application.controller;
 
 import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
@@ -30,6 +30,8 @@ import java.util.ResourceBundle;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.stream.Collectors;
+
+import application.Menu;
 
 /**
  * Contrôleur pour l'historique des alertes
@@ -86,7 +88,7 @@ public class AlerteHistoriqueController implements Initializable {
         // Action pour revenir à la fenêtre précédente (menu.fxml)
         try {
             // this.timer.cancel();
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("menu.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/view/menu.fxml"));
             BorderPane root = loader.load();
 
             Scene scene = new Scene(root, root.getPrefWidth() + 20, root.getPrefHeight() + 10);
@@ -188,16 +190,16 @@ public class AlerteHistoriqueController implements Initializable {
 
         // timer = new Timer(true);
         // timer.scheduleAtFixedRate(new TimerTask() {
-        //     @Override
-        //     public void run() {
-        //         Platform.runLater(() -> {
-        //             alertesList = FXCollections
-        //                     .observableArrayList(
-        //                             loadAlertesFromFile("IoT et JavaFX/appli-python/alerts/LOG_ALERTE.jsonl"));
-        //             alertesList = sortAlertesByTimestamp(alertesList);
-        //             alertesTable.setItems(alertesList);
-        //         });
-        //     }
+        // @Override
+        // public void run() {
+        // Platform.runLater(() -> {
+        // alertesList = FXCollections
+        // .observableArrayList(
+        // loadAlertesFromFile("IoT et JavaFX/appli-python/alerts/LOG_ALERTE.jsonl"));
+        // alertesList = sortAlertesByTimestamp(alertesList);
+        // alertesTable.setItems(alertesList);
+        // });
+        // }
         // }, 0, 10000);
     }
 
@@ -240,14 +242,13 @@ public class AlerteHistoriqueController implements Initializable {
 
     private ObservableList<List<String>> sortAlertesByTimestamp(ObservableList<List<String>> alertes) {
         return FXCollections.observableArrayList(
-            alertes.stream()
-                    .sorted((a1, a2) -> {
-                        // Convert timestamps to LocalDateTime for proper comparison
-                        LocalDateTime t1 = LocalDateTime.parse(a1.get(2)); // Parses the timestamp directly
-                        LocalDateTime t2 = LocalDateTime.parse(a2.get(2));
-                        return t2.compareTo(t1); // Ascending order
-                    })
-                    .collect(Collectors.toList())
-        );
+                alertes.stream()
+                        .sorted((a1, a2) -> {
+                            // Convert timestamps to LocalDateTime for proper comparison
+                            LocalDateTime t1 = LocalDateTime.parse(a1.get(2)); // Parses the timestamp directly
+                            LocalDateTime t2 = LocalDateTime.parse(a2.get(2));
+                            return t2.compareTo(t1); // Ascending order
+                        })
+                        .collect(Collectors.toList()));
     }
 }
