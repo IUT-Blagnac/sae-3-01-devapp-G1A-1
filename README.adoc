@@ -175,7 +175,7 @@ Voici le lien vers le https://docs.google.com/document/d/1JXWsYDaT89UOSjPgRJJcoX
 - **Jeudi 28 novembre**
   * [x] Hugo Thollon, Pablo Marquet, Kilian Demangel, Titouan Gauze, Romain Grasseau--Picoreau
 
-- **Mardi 3 Decembree**
+- **Mardi 3 Decembre**
   * [x] Hugo Thollon, Pablo Marquet, Kilian Demangel, Titouan Gauze
   * [ ] Romain Grasseau--Picoreau
 
