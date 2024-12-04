@@ -1,6 +1,7 @@
 package application.controller;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -189,8 +190,11 @@ public class VisuDonneesController implements Initializable {
         RowConstraints rowConstraints = new RowConstraints();
         rowConstraints.setValignment(VPos.TOP);
         gridPane.getRowConstraints().add(rowConstraints);
+
+        List<Map.Entry<String, Salle>> sortedEntries = new ArrayList<>(this.salles.entrySet());
+        sortedEntries.sort(Map.Entry.comparingByKey());
         int i = 0;
-        for (Map.Entry<String, Salle> salle : this.salles.entrySet()) {
+        for (Map.Entry<String, Salle> salle : sortedEntries) {
             gridPane.add(salle.getValue().getTitledPane(), i % 3, i / 3);
             i++;
         }

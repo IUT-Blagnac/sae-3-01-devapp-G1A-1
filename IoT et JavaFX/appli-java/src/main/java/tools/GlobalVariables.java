@@ -28,12 +28,12 @@ public class GlobalVariables {
     public static final PythonExecuter mqttPython = new PythonExecuter(pythonFilePath);
 
     // liste des salles avec des capteurs
-    public static final List<String> salles = Arrays.asList(
-            "B106", "B105", "B103", "B101", "E105", "Serveurs", "E003", "B234", "B104", "B115", "B004", "B005",
-            "B006", "B219", "E006", "E209", "E001", "E007", "amphi1", "hall-amphi", "B217", "C002", "B112", "B108",
-            "C102", "E208", "B203", "E210", "E207", "E101", "C006", "E100", "E102", "E103", "B110",
-            "hall-entrée-principale", "Local-velo", "B202", "Foyer-personnels", "B201", "B109", "C001", "Salle-conseil",
-            "B002", "B111", "B113");
+    public static final List<String> salles = Arrays.asList("B001",
+            "B002", "B004", "B005", "B006", "B101", "B103", "B104", "B105", "B106", "B108", "B109", "B110", "B111",
+            "B112", "B113", "B115", "B201", "B202", "B203", "B217", "B219", "B234", "C001", "C002", "C004", "C006",
+            "C102", "E001", "E003", "E004", "E006", "E007", "E100", "E101", "E102", "E103", "E105", "E106", "E207",
+            "E208", "E209", "E210", "Foyer-etudiants-entrée", "Foyer-personnels", "Local-velo", "Salle-conseil",
+            "Serveurs", "amphi1", "hall-amphi", "hall-entrée-principale");
 
     public static void exitApp(Stage primaryStage) {
         if (AlertUtilities.confirmYesCancel(primaryStage, "Quitter Appli Principale",

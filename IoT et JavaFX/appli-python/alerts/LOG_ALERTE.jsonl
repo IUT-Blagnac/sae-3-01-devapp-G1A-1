@@ -1141,3 +1141,8 @@
 {"salle": "B113", "type": "CO2", "timestamp": "2024-12-04T16:23:46.980509"}
 {"salle": "E006", "type": "TEMPERATURE", "timestamp": "2024-12-04T16:23:48.037812"}
 {"salle": "E006", "type": "CO2", "timestamp": "2024-12-04T16:23:48.037812"}
+{"salle": "B203", "type": "TEMPERATURE", "timestamp": "2024-12-04T21:47:49.527098"}
+{"salle": "B103", "type": "TEMPERATURE", "timestamp": "2024-12-04T21:48:23.587919"}
+{"salle": "E100", "type": "TEMPERATURE", "timestamp": "2024-12-04T21:49:31.736969"}
+{"salle": "C001", "type": "TEMPERATURE", "timestamp": "2024-12-04T22:01:53.333776"}
+{"salle": "Salle-conseil", "type": "TEMPERATURE", "timestamp": "2024-12-04T22:02:24.548306"}

@@ -38,7 +38,9 @@ frequence_lecture = configuration['lecture']['frequence']
 
 # Connexion au serveur MQTT
 client_mqtt = mqtt.Client()
-client_mqtt.connect("mqtt.iut-blagnac.fr", 1883)
+# client_mqtt.connect("mqtt.iut-blagnac.fr", 1883)
+client_mqtt.connect("chirpstack.iut-blagnac.fr", 1883)
+
 client_mqtt.subscribe(chemin_salle_mqtt)
 client_mqtt.subscribe(chemin_solaire_mqtt)  # Souscription au topic des panneaux solaires
 
