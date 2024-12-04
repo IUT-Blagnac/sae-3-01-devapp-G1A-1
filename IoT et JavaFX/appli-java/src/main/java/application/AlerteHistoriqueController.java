@@ -81,11 +81,16 @@ public class AlerteHistoriqueController implements Initializable {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("menu.fxml"));
             BorderPane root = loader.load();
-            primaryStage.setScene(new Scene(root));
+
+            Scene scene = new Scene(root, root.getPrefWidth() + 20, root.getPrefHeight() + 10);
+            scene.getStylesheets().add(Menu.class.getResource("application.css").toExternalForm());
+
+            primaryStage.setScene(scene);
             primaryStage.setTitle("Fenêtre Menu Principal");
 
             MenuController mfc = loader.getController();
             mfc.initContext(primaryStage);
+
             mfc.displayDialog();
         } catch (Exception e) {
             e.printStackTrace();
@@ -159,14 +164,15 @@ public class AlerteHistoriqueController implements Initializable {
 
         // Initializing alertesList with manually generated data
         // alertesList = FXCollections.<List<String>>observableArrayList(
-        //         List.of("Salle 101", "TEMPERATURE", "2024-11-28 10:00:00"),
-        //         List.of("Salle 102", "HUMIDITE", "2024-11-28 10:05:00"),
-        //         List.of("Salle 103", "CO2", "2024-11-28 10:10:00"),
-        //         List.of("Salle 101", "TEMPERATURE", "2024-11-28 10:15:00"),
-        //         List.of("Salle 102", "HUMIDITE", "2024-11-28 10:20:00"));
+        // List.of("Salle 101", "TEMPERATURE", "2024-11-28 10:00:00"),
+        // List.of("Salle 102", "HUMIDITE", "2024-11-28 10:05:00"),
+        // List.of("Salle 103", "CO2", "2024-11-28 10:10:00"),
+        // List.of("Salle 101", "TEMPERATURE", "2024-11-28 10:15:00"),
+        // List.of("Salle 102", "HUMIDITE", "2024-11-28 10:20:00"));
 
-        // Charger les données depuis un fichier        
-        alertesList = FXCollections.observableArrayList(loadAlertesFromFile("IoT et JavaFX/appli-python/alerts/LOG_ALERTE.jsonl"));
+        // Charger les données depuis un fichier
+        alertesList = FXCollections
+                .observableArrayList(loadAlertesFromFile("IoT et JavaFX/appli-python/alerts/LOG_ALERTE.jsonl"));
         alertesTable.setItems(alertesList);
     }
 
@@ -174,7 +180,7 @@ public class AlerteHistoriqueController implements Initializable {
         // Charger les alertes depuis un fichier
         DataReader dataReader = new DataReader();
         List<HashMap<String, Object>> records = dataReader.readJsonLFile(filename);
-       alertesList = FXCollections.observableArrayList();
+        alertesList = FXCollections.observableArrayList();
         for (HashMap<String, Object> record : records) {
             String salle = (String) record.get("salle");
             String type = (String) record.get("type");

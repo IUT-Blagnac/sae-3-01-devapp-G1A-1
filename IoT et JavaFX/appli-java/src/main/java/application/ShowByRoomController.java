@@ -26,6 +26,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.Region;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
@@ -62,6 +63,14 @@ public class ShowByRoomController implements Initializable {
         this.primaryStage = _containingStage;
         this.configure();
 
+        // Ajouter l'overlay à la scène existante
+        BorderPane root = (BorderPane) primaryStage.getScene().getRoot();
+        StackPane stackPane = new StackPane();
+        stackPane.getChildren().add(root);
+        primaryStage.getScene().setRoot(stackPane);
+
+        // Allow the alerts to be displayed
+        AlertePopup alertePopup = AlertePopup.getAlertPopupInstance(this.primaryStage);
     }
 
     public void displayDialog() {
@@ -332,8 +341,10 @@ public class ShowByRoomController implements Initializable {
             // alert.setTitle("Fichier introuvable");
             // alert.setHeaderText("Données manquantes pour la salle : " + salle);
             // alert.setContentText(
-            //         "Le fichier " + salle + ".jsonl est introuvable. Un tableau de données vide sera utilisé.");
-            // alert.showAndWait(); // Affiche le popup et attend la fermeture par l'utilisateur
+            // "Le fichier " + salle + ".jsonl est introuvable. Un tableau de données vide
+            // sera utilisé.");
+            // alert.showAndWait(); // Affiche le popup et attend la fermeture par
+            // l'utilisateur
             return new ArrayList<>();
         }
 

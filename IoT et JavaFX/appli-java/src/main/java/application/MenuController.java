@@ -1,12 +1,9 @@
 package application;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.Timer;
 import java.util.TimerTask;
-import java.util.concurrent.Executors;
-
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -19,13 +16,9 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
-import tools.AlertOverlay;
 import tools.GlobalVariables;
 
-import java.io.IOException;
-import java.nio.file.*;
 import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 /*
  * Contrôleur pour le menu principal
@@ -38,7 +31,7 @@ public class MenuController implements Initializable {
 	private Stage primaryStage;
 
 	// Zone de notification
-	private AlertOverlay alertOverlay;
+	// private AlertOverlay alertOverlay;
 
 	private ExecutorService watchServiceExecutor; // Pour gérer le thread du WatchService
 
@@ -49,21 +42,11 @@ public class MenuController implements Initializable {
 		// Ajouter l'overlay à la scène existante
 		BorderPane root = (BorderPane) primaryStage.getScene().getRoot();
 		StackPane stackPane = new StackPane();
-		stackPane.getChildren().addAll(root, alertOverlay);
+		stackPane.getChildren().add(root);
 		primaryStage.getScene().setRoot(stackPane);
 
-		// // Associer un comportement au bouton d'alerte
-		btnAlert.setOnAction(e -> showNotification());
-
-		// Timer to display the "popup" every 5 seconds
+		// Allow the alerts to be displayed
 		AlertePopup alertePopup = AlertePopup.getAlertPopupInstance(this.primaryStage);
-		Timer timer = new Timer(true);
-		timer.scheduleAtFixedRate(new TimerTask() {
-			@Override
-			public void run() {
-				Platform.runLater(() -> alertePopup.createNewAlert());
-			}
-		}, 0, 2000);
 	}
 
 	public void displayDialog() {
@@ -113,8 +96,6 @@ public class MenuController implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		// Initialiser l'overlay des alertes
-		alertOverlay = new AlertOverlay();
 		// démarrage du python
 		try {
 			GlobalVariables.mqttPython.startPython();
@@ -126,7 +107,7 @@ public class MenuController implements Initializable {
 		pythonStatusUpdate();
 
 		// Lancement du WatchService pour surveiller LOG_ALERTE.jsonl
-		startFileWatcher();
+		// startFileWatcher();
 	}
 
 	private void pythonStatusUpdate() {
@@ -162,56 +143,58 @@ public class MenuController implements Initializable {
 		}, 0, 10000);
 	}
 
-	/**
-	 * Lance le WatchService pour surveiller les modifications de LOG_ALERTE.jsonl
-	 */
-	private void startFileWatcher() {
-		watchServiceExecutor = Executors.newSingleThreadExecutor();
-		Path logFilePath = Paths.get("IoT et JavaFX/appli-python/alerts/LOG_ALERTE.jsonl");
+	// /**
+	// * Lance le WatchService pour surveiller les modifications de LOG_ALERTE.jsonl
+	// */
+	// private void startFileWatcher() {
+	// watchServiceExecutor = Executors.newSingleThreadExecutor();
+	// Path logFilePath = Paths.get("IoT et
+	// JavaFX/appli-python/alerts/LOG_ALERTE.jsonl");
 
-		watchServiceExecutor.submit(() -> {
-			try (WatchService watchService = FileSystems.getDefault().newWatchService()) {
-				// Enregistrer le répertoire parent du fichier à surveiller
-				Path directory = logFilePath.getParent();
-				directory.register(watchService, StandardWatchEventKinds.ENTRY_MODIFY);
+	// watchServiceExecutor.submit(() -> {
+	// try (WatchService watchService = FileSystems.getDefault().newWatchService())
+	// {
+	// // Enregistrer le répertoire parent du fichier à surveiller
+	// Path directory = logFilePath.getParent();
+	// directory.register(watchService, StandardWatchEventKinds.ENTRY_MODIFY);
 
-				while (!Thread.currentThread().isInterrupted()) {
-					WatchKey key = watchService.take(); // Bloque jusqu'à un événement
-					for (WatchEvent<?> event : key.pollEvents()) {
-						WatchEvent.Kind<?> kind = event.kind();
+	// while (!Thread.currentThread().isInterrupted()) {
+	// WatchKey key = watchService.take(); // Bloque jusqu'à un événement
+	// for (WatchEvent<?> event : key.pollEvents()) {
+	// WatchEvent.Kind<?> kind = event.kind();
 
-						if (kind == StandardWatchEventKinds.ENTRY_MODIFY) {
-							// Vérifier si le fichier modifié est LOG_ALERTE.jsonl
-							Path changedFile = directory.resolve((Path) event.context());
-							if (changedFile.endsWith(logFilePath.getFileName())) {
-								Platform.runLater(this::showNotification);
-							}
-						}
-					}
-					if (!key.reset()) {
-						break;
-					}
-				}
-			} catch (IOException | InterruptedException e) {
-				// Gestion des erreurs ou interruption
-				e.printStackTrace();
-			}
-		});
-	}
+	// if (kind == StandardWatchEventKinds.ENTRY_MODIFY) {
+	// // Vérifier si le fichier modifié est LOG_ALERTE.jsonl
+	// Path changedFile = directory.resolve((Path) event.context());
+	// if (changedFile.endsWith(logFilePath.getFileName())) {
+	// Platform.runLater(this::showNotification);
+	// }
+	// }
+	// }
+	// if (!key.reset()) {
+	// break;
+	// }
+	// }
+	// } catch (IOException | InterruptedException e) {
+	// // Gestion des erreurs ou interruption
+	// e.printStackTrace();
+	// }
+	// });
+	// }
 
-	private void showNotification() {
-		alertOverlay.addAlert("Nouvelle alerte reçue !", () -> {
-			System.out.println("Voir détails cliqué !");
-			// Vous pouvez ici naviguer vers une page d'historique des alertes
-			doShowAlertHistory();
-		});
-	}
+	// private void showNotification() {
+	// alertOverlay.addAlert("Nouvelle alerte reçue !", () -> {
+	// System.out.println("Voir détails cliqué !");
+	// // Vous pouvez ici naviguer vers une page d'historique des alertes
+	// doShowAlertHistory();
+	// });
+	// }
 
-	private void doShowAlertHistory() {
-		// Logique pour afficher l'historique des alertes (par exemple, charger une
-		// autre page)
-		doHistorique();
-	}
+	// private void doShowAlertHistory() {
+	// // Logique pour afficher l'historique des alertes (par exemple, charger une
+	// // autre page)
+	// doHistorique();
+	// }
 
 	@FXML
 	private void doTest() {

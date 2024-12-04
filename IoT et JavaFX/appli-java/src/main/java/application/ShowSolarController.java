@@ -23,6 +23,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
@@ -58,6 +59,14 @@ public class ShowSolarController implements Initializable {
         this.primaryStage = _containingStage;
         this.configure();
 
+        // Ajouter l'overlay à la scène existante
+        BorderPane root = (BorderPane) primaryStage.getScene().getRoot();
+        StackPane stackPane = new StackPane();
+        stackPane.getChildren().add(root);
+        primaryStage.getScene().setRoot(stackPane);
+
+        // Allow the alerts to be displayed
+        AlertePopup alertePopup = AlertePopup.getAlertPopupInstance(this.primaryStage);
     }
 
     public void displayDialog() {
@@ -178,7 +187,7 @@ public class ShowSolarController implements Initializable {
         contentHBox.setSpacing(20);
     }
 
-    //méthode update pour le setupHbox
+    // méthode update pour le setupHbox
     private void updateHBox() {
         Map<String, Double> summaryData = SolarDataReader.loadSummaryData();
 
@@ -230,7 +239,8 @@ public class ShowSolarController implements Initializable {
                 int minutes = (seconds % 3600) / 60;
 
                 // Pour débogage : Affiche tous les labels
-                // System.out.println("Label généré : " + String.format("%02d:%02d", hours, minutes));
+                // System.out.println("Label généré : " + String.format("%02d:%02d", hours,
+                // minutes));
                 return String.format("%02d:%02d", hours, minutes); // Affiche tout pour test
             }
 

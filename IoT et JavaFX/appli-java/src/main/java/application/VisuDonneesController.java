@@ -21,6 +21,7 @@ import javafx.scene.control.TitledPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.RowConstraints;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
@@ -103,6 +104,14 @@ public class VisuDonneesController implements Initializable {
         this.primaryStage = _containingStage;
         this.configure();
 
+        // Ajouter l'overlay à la scène existante
+        BorderPane root = (BorderPane) primaryStage.getScene().getRoot();
+        StackPane stackPane = new StackPane();
+        stackPane.getChildren().add(root);
+        primaryStage.getScene().setRoot(stackPane);
+
+        // Allow the alerts to be displayed
+        AlertePopup alertePopup = AlertePopup.getAlertPopupInstance(this.primaryStage);
     }
 
     public void displayDialog() {

@@ -9,6 +9,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import tools.GlobalVariables;
@@ -27,6 +28,15 @@ public class MenuCourbeController implements Initializable {
     public void initContext(Stage _containingStage) {
         this.primaryStage = _containingStage;
         this.configure();
+
+        // Ajouter l'overlay à la scène existante
+        BorderPane root = (BorderPane) primaryStage.getScene().getRoot();
+        StackPane stackPane = new StackPane();
+        stackPane.getChildren().add(root);
+        primaryStage.getScene().setRoot(stackPane);
+
+        // Allow the alerts to be displayed
+        AlertePopup alertePopup = AlertePopup.getAlertPopupInstance(this.primaryStage);
     }
 
     public void displayDialog() {

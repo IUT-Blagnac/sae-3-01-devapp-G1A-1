@@ -24,6 +24,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.Region;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
@@ -55,6 +56,15 @@ public class ShowByDataController implements Initializable {
     public void initContext(Stage _containingStage) {
         this.primaryStage = _containingStage;
         this.configure();
+
+        // Ajouter l'overlay à la scène existante
+        BorderPane root = (BorderPane) primaryStage.getScene().getRoot();
+        StackPane stackPane = new StackPane();
+        stackPane.getChildren().add(root);
+        primaryStage.getScene().setRoot(stackPane);
+
+        // Allow the alerts to be displayed
+        AlertePopup alertePopup = AlertePopup.getAlertPopupInstance(this.primaryStage);
 
     }
 
@@ -293,18 +303,18 @@ public class ShowByDataController implements Initializable {
                             + " n'existe pas. Un tableau de données vide sera utilisé.");
             return new double[] {};
         }
-    
+
         DataReader dataReader = new DataReader();
         try {
             List<HashMap<String, Object>> records = dataReader.readJsonLFile(filePath);
-    
+
             // Assigne les valeurs selon le type de donnée
             if (typeDonnee.equals("Température")) {
                 double[] temperatures = new double[records.size()];
                 for (int i = 0; i < records.size(); i++) {
                     HashMap<String, Object> record = records.get(i);
                     Object tempValue = record.get("temperature");
-    
+
                     if (tempValue instanceof Integer) {
                         // Si c'est un Integer, on le convertit en Double
                         temperatures[i] = ((Integer) tempValue).doubleValue();
@@ -323,7 +333,7 @@ public class ShowByDataController implements Initializable {
                 for (int i = 0; i < records.size(); i++) {
                     HashMap<String, Object> record = records.get(i);
                     Object co2Value = record.get("co2");
-    
+
                     if (co2Value instanceof Integer) {
                         // Si c'est un Integer, on le convertit en Double
                         cDoubles[i] = ((Integer) co2Value).doubleValue();
@@ -342,7 +352,7 @@ public class ShowByDataController implements Initializable {
                 for (int i = 0; i < records.size(); i++) {
                     HashMap<String, Object> record = records.get(i);
                     Object humiditeValue = record.get("humidite");
-    
+
                     if (humiditeValue instanceof Integer) {
                         // Si c'est un Integer, on le convertit en Double
                         humidites[i] = ((Integer) humiditeValue).doubleValue();
@@ -363,8 +373,6 @@ public class ShowByDataController implements Initializable {
         }
         return new double[] {};
     }
-    
-    
 
     // Créer un graphique vide
     private LineChart<Number, Number> createEmptyChart() {

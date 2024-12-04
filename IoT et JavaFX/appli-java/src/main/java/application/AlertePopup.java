@@ -1,20 +1,29 @@
 package application;
 
+import java.io.IOException;
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.concurrent.Executors;
 
 import javafx.animation.FadeTransition;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.application.Platform;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+
+import java.nio.file.*;
+import java.util.concurrent.ExecutorService;
 
 /**
  * Singleton that displays alerts on the screen. It is supposed to be
@@ -23,6 +32,8 @@ import javafx.util.Duration;
 public class AlertePopup {
     // the unique instance
     private static AlertePopup alertPopupInstance;
+
+    private ExecutorService watchServiceExecutor;
 
     private StackPane stackPane;
     private Stage primaryStage;
@@ -33,6 +44,7 @@ public class AlertePopup {
         this.primaryStage = primaryStage;
         this.stackPane = (StackPane) primaryStage.getScene().getRoot();
         this.queueAlertes = new LinkedList<>();
+        startFileWatcher();
     }
 
     /**
@@ -53,30 +65,9 @@ public class AlertePopup {
         return alertPopupInstance;
     }
 
-    /**
-     * Returns the unique instance of AlertPopup.
-     * 
-     * @return the unique instance of AlertPopup.
-     * @throws Exception if the primary stage was not already instantiated.
-     */
-    public static AlertePopup getAlertPopupInstance() throws Exception {
-        if (alertPopupInstance == null) {
-            throw new Exception("primaryStage non instancié");
-        }
-        return alertPopupInstance;
-    }
-
-    /**
-     * Checks if the primary stage is set.
-     * 
-     * @return true if the primaryStage is set, else false
-     */
-    public static boolean isPrimaryStageSet() {
-        return alertPopupInstance.primaryStage != null;
-    }
-
     public void setPrimaryStage(Stage primaryStage) {
-        if (primaryStage != null && primaryStage != this.primaryStage) {
+        if (primaryStage != null) {
+            this.primaryStage = primaryStage;
             // on supprime les alertes de l'ancien stackpane pour les remettre dans la
             // nouvelle
             this.stackPane.getChildren().removeAll(this.queueAlertes);
@@ -122,7 +113,7 @@ public class AlertePopup {
         messageLabel.setTextFill(Color.BLACK);
 
         Button printButton = new Button("Print Hello");
-        printButton.setOnAction(e -> System.out.println("HelloWorld"));
+        printButton.setOnAction(e -> this.doHistorique());
 
         Button closeButton = new Button("X");
         closeButton.setStyle("-fx-background-color: transparent; -fx-text-fill: red; -fx-font-weight: bold;");
@@ -181,6 +172,66 @@ public class AlertePopup {
         for (Pane container : this.queueAlertes) {
             container.setTranslateY(this.getYPosition() - (75 * i));
             i--;
+        }
+    }
+
+    /**
+     * Lance le WatchService pour surveiller les modifications de LOG_ALERTE.jsonl
+     */
+    private void startFileWatcher() {
+        watchServiceExecutor = Executors.newSingleThreadExecutor();
+        Path logFilePath = Paths.get("IoT et JavaFX/appli-python/alerts/LOG_ALERTE.jsonl");
+
+        watchServiceExecutor.submit(() -> {
+            try (WatchService watchService = FileSystems.getDefault().newWatchService()) {
+                // Enregistrer le répertoire parent du fichier à surveiller
+                Path directory = logFilePath.getParent();
+                directory.register(watchService, StandardWatchEventKinds.ENTRY_MODIFY);
+
+                while (!Thread.currentThread().isInterrupted()) {
+                    WatchKey key = watchService.take(); // Bloque jusqu'à un événement
+                    for (WatchEvent<?> event : key.pollEvents()) {
+                        WatchEvent.Kind<?> kind = event.kind();
+
+                        if (kind == StandardWatchEventKinds.ENTRY_MODIFY) {
+                            // Vérifier si le fichier modifié est LOG_ALERTE.jsonl
+                            Path changedFile = directory.resolve((Path) event.context());
+                            if (changedFile.endsWith(logFilePath.getFileName())) {
+                                Platform.runLater(this::createNewAlert);
+                            }
+                        }
+                    }
+                    if (!key.reset()) {
+                        break;
+                    }
+                }
+            } catch (IOException | InterruptedException e) {
+                // Gestion des erreurs ou interruption
+                e.printStackTrace();
+            }
+        });
+    }
+
+    private void doHistorique() {
+        try {
+            FXMLLoader loader = new FXMLLoader(
+                    MenuController.class.getResource("alerteHistorique.fxml"));
+            BorderPane root = loader.load();
+
+            Scene scene = new Scene(root, root.getPrefWidth() + 20, root.getPrefHeight() + 10);
+            scene.getStylesheets().add(Menu.class.getResource("application.css").toExternalForm());
+
+            primaryStage.setScene(scene);
+            primaryStage.setTitle("Fenêtre d'historique des alertes");
+
+            AlerteHistoriqueController mfc = loader.getController();
+            mfc.initContext(primaryStage);
+
+            mfc.displayDialog();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.exit(-1);
         }
     }
 }
