@@ -80,18 +80,6 @@ def mise_a_jour_alertes(salle):
         for alerte in alerte_message:
             ecrire_jsonl("IoT et JavaFX/appli-python/alerts/LOG_ALERTE.jsonl", alerte)
 
-# Fonction pour gérer les données des panneaux solaires
-def mise_a_jour_donnees_solaires(currentPower, last_year_data, last_month_data, last_day_data):
-    global donnees_solaire
-    # Ajouter la nouvelle valeur
-    donnees_solaire["currentPower"].append(currentPower)
-    donnees_solaire["lastYearData"].append(last_year_data)
-    donnees_solaire["lastMonthData"].append(last_month_data)
-    donnees_solaire["lastDayData"].append(last_day_data)
-    # Limiter à 10 valeurs maximum
-    if len(donnees_solaire["currentPower"]) > 10:
-        donnees_solaire["currentPower"].pop(0)
-
 # Fonction appelée lorsqu'un message est reçu
 def reception_message(mqttc, obj, msg):
     global donnees_solaire
@@ -122,8 +110,6 @@ def reception_message(mqttc, obj, msg):
             last_day_data = msg_json.get("lastDayData", {}).get("energy", None)
             currentPower = msg_json.get("currentPower", {}).get("power", None)
             if currentPower is not None:
-                mise_a_jour_donnees_solaires(currentPower, last_year_data, last_month_data, last_day_data)
-                # mise_a_jour_alertes_solaires()
                 print(f"DONNEES SOLAIRES RECUES : {currentPower, last_year_data, last_month_data, last_day_data}")
                 # Sauvegarde des données solaires dans un fichier JSONL
                 solaire_message = {
