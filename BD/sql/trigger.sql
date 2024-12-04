@@ -9,8 +9,7 @@ BEGIN
         SIGNAL SQLSTATE '45000' 
         SET MESSAGE_TEXT = 'numCarte doit commencer par "34" ou "37".';
     END IF;
-END;
-$$
+END; $$
 
 -- Trigger pour ACommande
 CREATE TRIGGER t_iu_acommade_maj_nbd
@@ -32,8 +31,7 @@ BEGIN
         SET MESSAGE_TEXT = 'Quantité mise à jour pour le produit existant dans la commande.';
     END IF;
 
-END;
-$$
+END; $$
 
 -- Trigger pour Paypal
 CREATE TRIGGER t_i_paypal_nbd
@@ -68,7 +66,7 @@ END; $$
 DELIMITER ;
 
 
-# faire que l'adresse email ne puisse pas être deux fois'
+# faire que l adresse email ne puisse pas être deux fois
 ALTER TABLE Client
 ADD CONSTRAINT UNIQUE (email);
 
