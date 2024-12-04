@@ -17,7 +17,6 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
-import oracle.net.aso.l;
 import tools.AlertOverlay;
 import tools.GlobalVariables;
 
@@ -46,6 +45,16 @@ public class MenuController implements Initializable {
 
 		// // Associer un comportement au bouton d'alerte
 		btnAlert.setOnAction(e -> showNotification());
+
+		// Timer to display the "popup" every 5 seconds
+		AlertePopup alertePopup = AlertePopup.getAlertPopupInstance(this.primaryStage);
+		Timer timer = new Timer(true);
+		timer.scheduleAtFixedRate(new TimerTask() {
+			@Override
+			public void run() {
+				Platform.runLater(() -> alertePopup.createNewAlert());
+			}
+		}, 0, 2000);
 	}
 
 	public void displayDialog() {
@@ -102,7 +111,6 @@ public class MenuController implements Initializable {
 			GlobalVariables.mqttPython.startPython();
 		} catch (Exception e) {
 			e.printStackTrace();
-			System.out.println("Working Directory = " + System.getProperty("user.dir"));
 		}
 		// initialiser un thread qui va update le label pythonState en fonction de
 		// l'état du mqttPython
