@@ -59,7 +59,6 @@ public class MenuConfigController implements Initializable {
 
         // Allow the alerts to be displayed
         AlertePopup alertePopup = AlertePopup.getAlertPopupInstance(this.primaryStage);
-
     }
 
     public void displayDialog() {
@@ -132,17 +131,7 @@ public class MenuConfigController implements Initializable {
         tfFrequenceLecture.setPrefWidth(150);
         tfFrequenceLecture.setText(String.valueOf(frequenceLecture));
 
-        Label labelCapteurs = new Label("Choisir les capteurs:");
-
-        // Création des cases à cocher
-        CheckBox cbTemperature = new CheckBox("Température");
-        cbTemperature.setSelected(temperatureChecked);
-
-        CheckBox cbHumidite = new CheckBox("Humidité");
-        cbHumidite.setSelected(humiditeChecked);
-
-        CheckBox cbTaux = new CheckBox("Taux de CO2");
-        cbTaux.setSelected(tauxChecked);
+        CheckBox cbToutSelectionner = new CheckBox("Tout sélectionner");
 
         // Création du label pour les salles
         Label labelSalles = new Label("Choisir les salles:");
@@ -150,7 +139,7 @@ public class MenuConfigController implements Initializable {
         // Création d'un ListView pour contenir les CheckBox des salles
         ListView<HBox> listViewSalles = new ListView<>();
         listViewSalles.setPrefHeight(100); // Hauteur fixe du ListView (peut être ajustée)
-        listViewSalles.setPrefWidth(250); // Largeur fixe du ListView (peut être ajustée)
+        listViewSalles.setPrefWidth(150); // Largeur fixe du ListView (peut être ajustée)
 
         // Conversion de la chaîne en liste de salles
         List<String> salles = GlobalVariables.salles;
@@ -163,10 +152,39 @@ public class MenuConfigController implements Initializable {
             // Récupérer les salles déjà sélectionnées
             checkBox.setSelected(sallesSelectionnees.contains(salle));
 
+            // Ajoutez un écouteur à chaque CheckBox
+            checkBox.setOnAction(e -> {
+                boolean allSelected = listViewSalles.getItems().stream()
+                        .allMatch(hbox -> ((CheckBox) ((HBox) hbox).getChildren().get(0)).isSelected());
+                cbToutSelectionner.setSelected(allSelected);
+            });
+
             HBox hbox = new HBox(checkBox);
             hbox.setSpacing(10); // Espacement entre la CheckBox et le texte
             listViewSalles.getItems().add(hbox); // Ajouter le HBox contenant la CheckBox
+
         }
+
+        // Écouteur pour "Tout sélectionner"
+        cbToutSelectionner.setOnAction(e -> {
+            boolean isSelected = cbToutSelectionner.isSelected();
+            for (HBox hbox : listViewSalles.getItems()) {
+                CheckBox checkBox = (CheckBox) hbox.getChildren().get(0);
+                checkBox.setSelected(isSelected); // Sélectionner ou désélectionner toutes les CheckBox
+            }
+        });
+
+        Label labelCapteurs = new Label("Choisir les capteurs:");
+
+        // Création des cases à cocher
+        CheckBox cbTemperature = new CheckBox("Température");
+        cbTemperature.setSelected(temperatureChecked);
+
+        CheckBox cbHumidite = new CheckBox("Humidité");
+        cbHumidite.setSelected(humiditeChecked);
+
+        CheckBox cbTaux = new CheckBox("Taux de CO2");
+        cbTaux.setSelected(tauxChecked);
 
         // Création du bouton de sauvegarde
         Button btnSave = new Button("Sauvegarder");
@@ -180,13 +198,14 @@ public class MenuConfigController implements Initializable {
         gridPane.add(tfTauxMax, 1, 2);
         gridPane.add(labelFrequenceLecture, 0, 3);
         gridPane.add(tfFrequenceLecture, 1, 3);
-        gridPane.add(labelCapteurs, 0, 4);
-        gridPane.add(cbTemperature, 0, 5);
-        gridPane.add(cbHumidite, 1, 5);
-        gridPane.add(cbTaux, 2, 5);
-        gridPane.add(labelSalles, 0, 6);
-        gridPane.add(listViewSalles, 1, 6); // Ajouter le ListView contenant les CheckBox pour les salles
-        gridPane.add(btnSave, 1, 7);
+        gridPane.add(labelSalles, 0, 4);
+        gridPane.add(listViewSalles, 1, 4); // Ajouter le ListView contenant les CheckBox pour les salles
+        gridPane.add(cbToutSelectionner, 2, 4);
+        gridPane.add(labelCapteurs, 0, 5);
+        gridPane.add(cbTemperature, 1, 5);
+        gridPane.add(cbHumidite, 2, 5);
+        gridPane.add(cbTaux, 3, 5);
+        gridPane.add(btnSave, 1, 6);
 
         // Configuration des actions sur le bouton de sauvegarde
         btnSave.setOnAction(e -> saveConfiguration(

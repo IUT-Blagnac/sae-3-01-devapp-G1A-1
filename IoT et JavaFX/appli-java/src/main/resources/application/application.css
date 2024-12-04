@@ -28,7 +28,6 @@
 }
 
 .alert-overlay {
-    -fx-background-color: rgba(0, 0, 0, 0.2);
     -fx-padding: 10px;
     -fx-max-width: 300px;
     -fx-alignment: top-right;
