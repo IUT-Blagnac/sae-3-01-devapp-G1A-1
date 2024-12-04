@@ -317,16 +317,6 @@ public class ShowByRoomController implements Initializable {
         return lineChart;
     }
 
-    // Créer une série de données pour le graphique (ancienne version statique)
-    private XYChart.Series<Number, Number> createSeries(String name, double[] data) {
-        XYChart.Series<Number, Number> series = new XYChart.Series<>();
-        series.setName(name);
-        for (int i = 0; i < data.length; i++) {
-            series.getData().add(new XYChart.Data<>(i, data[i]));
-        }
-        return series;
-    }
-
     /**
      * Charge les données d'une salle depuis un fichier JSONL.
      *
@@ -368,19 +358,21 @@ public class ShowByRoomController implements Initializable {
      *             "temperature").
      * @return Une série prête à être ajoutée au graphique.
      */
-    private XYChart.Series<Number, Number> createSeriesFromData(String name, List<HashMap<String, Object>> data,
-            String key) {
+    private XYChart.Series<Number, Number> createSeriesFromData(String name, List<HashMap<String, Object>> data, String key) {
         XYChart.Series<Number, Number> series = new XYChart.Series<>();
         series.setName(name);
-
-        int index = 0;
-        for (HashMap<String, Object> record : data) {
-            Object value = record.get(key);
-            if (value instanceof Number) {
-                series.getData().add(new XYChart.Data<>(index++, ((Number) value).doubleValue()));
+    
+        for (int i = 0; i < data.size(); i++) {
+            HashMap<String, Object> record = data.get(i);
+            if (record.containsKey(key)) {
+                double value = ((Number) record.get(key)).doubleValue();
+                // Normalisation pour le CO2
+                if (key.equals("co2")) {
+                    value /= 100; // Diviser par 100 pour réduire l'échelle
+                }
+                series.getData().add(new XYChart.Data<>(i, value));
             }
         }
-
         return series;
     }
 
