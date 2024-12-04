@@ -8,6 +8,22 @@ INSERT INTO MethodePaiement (nomMethodePaiement) VALUES ('MasterCard');
 INSERT INTO MethodePaiement (nomMethodePaiement) VALUES ('Carte_AE');
 
 #/////////////////////////////////////////////////////////////////////////////////////--
+#                            insert payment
+#/////////////////////////////////////////////////////////////////////////////////////--
+
+INSERT INTO Paypal (idCarte, email, mdp) VALUES (1, 'émilie.chauvin@gmail.com', 'émiliechauvin1974');
+INSERT INTO Carte_EU (idCarte, numCarte, dateExp, nomProprietaire) VALUES (2, '123456789012345', '2027-11-03', 'Valentin');
+INSERT INTO Carte_AE (idCarte, numCarte, dateExp, nomProprietaire) VALUES (3, '341234567890123', '2029-07-10', 'Leleu');
+
+#/////////////////////////////////////////////////////////////////////////////////////--
+#                            insert infoPaiement
+#/////////////////////////////////////////////////////////////////////////////////////--
+
+INSERT INTO infoPaiement (idNumCli, idCarte, idMethodePaiement) VALUES (1, 1, 1);
+INSERT INTO infoPaiement (idNumCli, idCarte, idMethodePaiement) VALUES (2, 2, 3);
+INSERT INTO infoPaiement (idNumCli, idCarte, idMethodePaiement) VALUES (3, 3, 4);
+
+#/////////////////////////////////////////////////////////////////////////////////////--
 #                                   insert marque
 #/////////////////////////////////////////////////////////////////////////////////////--
 

@@ -1,5 +1,6 @@
 DELIMITER $$
 
+-- Trigger pour Carte_AE
 CREATE TRIGGER t_iu_carte_AE_maj_nbd
 BEFORE INSERT OR UPDATE ON Carte_AE
 FOR EACH ROW
@@ -11,10 +12,7 @@ BEGIN
 END;
 $$
 
-DELIMITER ;
-
-DELIMITER $$
-
+-- Trigger pour ACommande
 CREATE TRIGGER t_iu_acommade_maj_nbd
 BEFORE INSERT ON ACommande
 FOR EACH ROW
@@ -37,8 +35,37 @@ BEGIN
 END;
 $$
 
-DELIMITER ;
+-- Trigger pour Paypal
+CREATE TRIGGER t_i_paypal_nbd
+BEFORE INSERT ON Paypal
+FOR EACH ROW
+BEGIN
+    DECLARE max_id INT;
+    SELECT MAX(idCarte) INTO max_id FROM Paypal;
+    SET NEW.idCarte = (COALESCE(max_id, 0) + 3);
+END; $$
 
+-- Trigger pour Carte_EU
+CREATE TRIGGER t_i_carte_eu_nbd
+BEFORE INSERT ON Carte_EU
+FOR EACH ROW
+BEGIN
+    DECLARE max_id INT;
+    SELECT MAX(idCarte) INTO max_id FROM Carte_EU;
+    SET NEW.idCarte = (COALESCE(max_id, 1) + 3);
+END; $$
+
+-- Trigger pour Carte_AE
+CREATE TRIGGER t_i_carte_ae_nbd 
+BEFORE INSERT ON Carte_AE
+FOR EACH ROW
+BEGIN
+    DECLARE max_id INT;
+    SELECT MAX(idCarte) INTO max_id FROM Carte_AE;
+    SET NEW.idCarte = (COALESCE(max_id, 2) + 3);
+END; $$
+
+DELIMITER ;
 
 
 # faire que l'adresse email ne puisse pas être deux fois'
