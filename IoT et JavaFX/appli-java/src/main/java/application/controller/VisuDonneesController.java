@@ -29,6 +29,7 @@ import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import tools.DataReader;
 import tools.GlobalVariables;
+import tools.PythonStatusUpdater;
 
 public class VisuDonneesController implements Initializable {
 
@@ -114,6 +115,8 @@ public class VisuDonneesController implements Initializable {
 
         // Allow the alerts to be displayed
         AlertePopup alertePopup = AlertePopup.getAlertPopupInstance(this.primaryStage);
+
+        PythonStatusUpdater.getPSUInstance().setPSULabel(this.lblPythonState);
     }
 
     public void displayDialog() {
@@ -136,6 +139,9 @@ public class VisuDonneesController implements Initializable {
 
     @FXML
     private Button btnBack;
+
+    @FXML
+    private Label lblPythonState;
 
     @FXML
     private void doBack() { // Bouton qui mène à la page précédente (menu.fxml)

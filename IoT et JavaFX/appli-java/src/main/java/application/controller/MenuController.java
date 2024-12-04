@@ -2,9 +2,6 @@ package application.controller;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.Timer;
-import java.util.TimerTask;
-import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -13,12 +10,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
-import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import tools.GlobalVariables;
-
-import java.util.concurrent.ExecutorService;
+import tools.PythonStatusUpdater;
 
 import application.AlertePopup;
 import application.Menu;
@@ -33,11 +28,6 @@ public class MenuController implements Initializable {
 	// Fenêtre physique
 	private Stage primaryStage;
 
-	// Zone de notification
-	// private AlertOverlay alertOverlay;
-
-	private ExecutorService watchServiceExecutor; // Pour gérer le thread du WatchService
-
 	public void initContext(Stage _containingStage) {
 		this.primaryStage = _containingStage;
 		this.configure();
@@ -50,6 +40,9 @@ public class MenuController implements Initializable {
 
 		// Allow the alerts to be displayed
 		AlertePopup alertePopup = AlertePopup.getAlertPopupInstance(this.primaryStage);
+		// Appelle une classe qui va initialiser un thread qui va update le label
+		// pythonState en fonction de l'état du mqttPython.
+		PythonStatusUpdater.getPSUInstance().setPSULabel(this.lblPythonState);
 	}
 
 	public void displayDialog() {
@@ -95,7 +88,6 @@ public class MenuController implements Initializable {
 
 	@FXML
 	private Label lblPythonState;
-	private Timer timer;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -105,42 +97,6 @@ public class MenuController implements Initializable {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		// initialiser un thread qui va update le label pythonState en fonction de
-		// l'état du mqttPython
-		pythonStatusUpdate();
-	}
-
-	private void pythonStatusUpdate() {
-		// préciser que c'est daemon fait que ce timer va se fermer quand la JVM se
-		// fermera.
-		timer = new Timer(true);
-		// Toutes les 10 secondes, met à jour le label qui indique l'état du fichier
-		// python.
-		timer.scheduleAtFixedRate(new TimerTask() {
-			@Override
-			public void run() {
-				Platform.runLater(() -> {
-					switch (GlobalVariables.mqttPython.getState()) {
-						case RUNNING:
-							lblPythonState.setTextFill(Color.GREEN);
-							lblPythonState.setText("actif");
-							break;
-						case PENDING:
-							lblPythonState.setTextFill(Color.ORANGE);
-							lblPythonState.setText("en démarrage");
-							break;
-						case DISCONNECTED:
-							lblPythonState.setTextFill(Color.RED);
-							lblPythonState.setText("arrêté");
-							break;
-						default:
-							lblPythonState.setTextFill(Color.BLACK);
-							lblPythonState.setText("???");
-							break;
-					}
-				});
-			}
-		}, 0, 4000);
 	}
 
 	@FXML
@@ -330,9 +286,5 @@ public class MenuController implements Initializable {
 	@FXML
 	private void doQuit() { // Gestion de la fermeture de la fenêtre
 		GlobalVariables.exitApp(this.primaryStage);
-		// Arrêter proprement le WatchService
-		if (watchServiceExecutor != null && !watchServiceExecutor.isShutdown()) {
-			watchServiceExecutor.shutdownNow();
-		}
 	}
 }

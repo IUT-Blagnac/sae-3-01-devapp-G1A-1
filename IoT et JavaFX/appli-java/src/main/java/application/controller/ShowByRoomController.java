@@ -34,6 +34,7 @@ import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import tools.DataReader;
 import tools.GlobalVariables;
+import tools.PythonStatusUpdater;
 import javafx.scene.Node;
 
 import java.util.ArrayList;
@@ -73,6 +74,8 @@ public class ShowByRoomController implements Initializable {
 
         // Allow the alerts to be displayed
         AlertePopup alertePopup = AlertePopup.getAlertPopupInstance(this.primaryStage);
+
+        PythonStatusUpdater.getPSUInstance().setPSULabel(this.lblPythonState);
     }
 
     public void displayDialog() {
@@ -137,6 +140,9 @@ public class ShowByRoomController implements Initializable {
 
     @FXML
     private VBox contentRightVBox; // Conteneur des sections dans le ScrollPane droit
+
+    @FXML
+    private Label lblPythonState;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

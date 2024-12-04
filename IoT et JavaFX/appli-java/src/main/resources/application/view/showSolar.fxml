@@ -14,11 +14,12 @@
    <top>
       <HBox prefHeight="74.0" prefWidth="912.0" BorderPane.alignment="CENTER">
          <children>
-            <Label prefHeight="200.0" prefWidth="200.0" text="Etat python: ">
+            <Label prefHeight="109.0" prefWidth="115.0" text="Etat python: ">
                <padding>
                   <Insets left="10.0" />
                </padding>
             </Label>
+            <Label fx:id="lblPythonState" prefHeight="109.0" prefWidth="90.0" text="en démarrage" />
             <VBox alignment="CENTER" prefHeight="200.0">
                <children>
                   <Label alignment="CENTER" prefHeight="134.0" prefWidth="514.0"

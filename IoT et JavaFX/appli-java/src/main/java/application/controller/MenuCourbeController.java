@@ -10,11 +10,13 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import tools.GlobalVariables;
+import tools.PythonStatusUpdater;
 
 /*
  * Contrôleur pour le menu de choix des courbes
@@ -39,6 +41,8 @@ public class MenuCourbeController implements Initializable {
 
         // Allow the alerts to be displayed
         AlertePopup alertePopup = AlertePopup.getAlertPopupInstance(this.primaryStage);
+
+        PythonStatusUpdater.getPSUInstance().setPSULabel(this.lblPythonState);
     }
 
     public void displayDialog() {
@@ -73,6 +77,9 @@ public class MenuCourbeController implements Initializable {
 
     @FXML
     private Button btnQuit;
+
+    @FXML
+    private Label lblPythonState;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

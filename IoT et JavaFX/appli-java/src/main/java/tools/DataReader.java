@@ -6,7 +6,6 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -78,33 +77,5 @@ public class DataReader {
             e.printStackTrace();
         }
         return jsonMap;
-    }
-
-    public static void main(String[] args) {
-        // Specify the path to your JSON file
-        String filePath = "IoT et JavaFX/appli-python/datas/captor/B106.jsonl";
-        DataReader dataReader = new DataReader();
-        List<HashMap<String, Object>> records = dataReader.readJsonLFile(filePath);
-        HashMap<String, Object> jsonMap = dataReader.readJsonFile("IoT et JavaFX/appli-python/config.json");
-
-        if (records != null) {
-            for (HashMap<String, Object> record : records) {
-                System.out.println("Record: " + record);
-
-                // Example: Access specific fields
-                double temperature = (double) record.get("temperature");
-                double humidity = (double) record.get("humidite");
-                int co2 = (int) record.get("co2");
-                String timestamp = (String) record.get("timestamp");
-
-                System.out.printf("Temperature: %.1f, Humidity: %.1f, CO2: %d, Timestamp: %s%n",
-                        temperature, humidity, co2, timestamp);
-            }
-        }
-        if (jsonMap != null) {
-            for (Map.Entry<String, Object> entry : jsonMap.entrySet()) {
-                System.out.println("Key: " + entry.getKey() + " | Value: " + entry.getValue());
-            }
-        }
     }
 }

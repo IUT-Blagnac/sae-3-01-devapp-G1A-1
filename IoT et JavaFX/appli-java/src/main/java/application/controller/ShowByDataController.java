@@ -32,6 +32,7 @@ import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import tools.DataReader;
 import tools.GlobalVariables;
+import tools.PythonStatusUpdater;
 import javafx.scene.Node;
 
 import java.util.ArrayList;
@@ -68,6 +69,7 @@ public class ShowByDataController implements Initializable {
         // Allow the alerts to be displayed
         AlertePopup alertePopup = AlertePopup.getAlertPopupInstance(this.primaryStage);
 
+        PythonStatusUpdater.getPSUInstance().setPSULabel(this.lblPythonState);
     }
 
     public void displayDialog() {
@@ -90,6 +92,9 @@ public class ShowByDataController implements Initializable {
 
     @FXML
     private Button btnBack;
+
+    @FXML
+    private Label lblPythonState;
 
     @FXML
     private void doBack() { // Bouton qui mène à la page précédente (menu.fxml)

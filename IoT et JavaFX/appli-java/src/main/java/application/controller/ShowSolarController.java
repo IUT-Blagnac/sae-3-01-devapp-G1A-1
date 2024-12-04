@@ -32,6 +32,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import tools.GlobalVariables;
+import tools.PythonStatusUpdater;
 import tools.SolarDataReader;
 
 /* Contrôleur pour afficher les données solaires
@@ -71,6 +72,8 @@ public class ShowSolarController implements Initializable {
 
         // Allow the alerts to be displayed
         AlertePopup alertePopup = AlertePopup.getAlertPopupInstance(this.primaryStage);
+
+        PythonStatusUpdater.getPSUInstance().setPSULabel(this.lblPythonState);
     }
 
     public void displayDialog() {
@@ -146,6 +149,9 @@ public class ShowSolarController implements Initializable {
 
     @FXML
     private HBox contentHBox;
+
+    @FXML
+    private Label lblPythonState;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

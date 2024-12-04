@@ -12,7 +12,6 @@ import java.util.ResourceBundle;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import application.AlertePopup;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -31,6 +30,7 @@ import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import tools.DataReader;
 import tools.GlobalVariables;
+import tools.PythonStatusUpdater;
 
 /*
  * Contrôleur pour le menu de choix des courbes
@@ -49,6 +49,9 @@ public class MenuConfigController implements Initializable {
     @FXML
     private GridPane gridPane;
 
+    @FXML
+    private Label lblPythonState;
+
     // Méthode d'initialisation
     public void initContext(Stage _containingStage) {
         this.primaryStage = _containingStage;
@@ -62,6 +65,8 @@ public class MenuConfigController implements Initializable {
 
         // Allow the alerts to be displayed
         AlertePopup alertePopup = AlertePopup.getAlertPopupInstance(this.primaryStage);
+
+        PythonStatusUpdater.getPSUInstance().setPSULabel(this.lblPythonState);
     }
 
     public void displayDialog() {
@@ -273,6 +278,7 @@ public class MenuConfigController implements Initializable {
             ObjectMapper objectMapper = new ObjectMapper();
             objectMapper.writeValue(new File(filePath), jsonMap);
             System.out.println("Configuration sauvegardée dans config.json.");
+            doBack();
         } catch (IOException e) {
             e.printStackTrace();
         }
