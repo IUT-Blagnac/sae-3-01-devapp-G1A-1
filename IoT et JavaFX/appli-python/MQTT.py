@@ -62,8 +62,8 @@ def mise_a_jour_donnees(temp, hum, taux, salle):
         if len(donnees_salle[str(salle)][i]) > 10:
             del donnees_salle[str(salle)][i][0]
     # Calcul des nouvelles moyennes
-    for i in range(3, 6):
-        donnees_salle[str(salle)][i] = sum(donnees_salle[str(salle)][i - 3]) / len(donnees_salle[str(salle)][i - 3])
+    for i in range(3):
+        donnees_salle[str(salle)][i+3] = sum(donnees_salle[str(salle)][i]) / len(donnees_salle[str(salle)][i])
 
 # Fonction pour mettre à jour les alertes pour les salles
 def mise_a_jour_alertes(salle):
@@ -92,19 +92,6 @@ def mise_a_jour_donnees_solaires(currentPower, last_year_data, last_month_data, 
     if len(donnees_solaire["currentPower"]) > 10:
         donnees_solaire["currentPower"].pop(0)
 
-# Fonction pour gérer les alertes des panneaux solaires
-# def mise_a_jour_alertes_solaires():
-#     moyenne = sum(donnees_solaire["currentPower"]) / len(donnees_solaire["currentPower"])
-#     if moyenne > consommation_max:
-#         alerte_message = {
-#             "type": "SOLAIRE",
-#             "alert": "CONSO_MAX",
-#             "timestamp": datetime.now().isoformat(),
-#             "moyenne": moyenne
-#         }
-#         ecrire_jsonl("IoT et JavaFX/LOG_ALERTE_SOLAIRE.jsonl", alerte_message)
-#         print("ALERTE SOLAIRE : CONSOMMATION TROP ÉLEVÉE")
-
 # Fonction appelée lorsqu'un message est reçu
 def reception_message(mqttc, obj, msg):
     global donnees_solaire
@@ -120,12 +107,11 @@ def reception_message(mqttc, obj, msg):
                 print(f"SALLE {salle} PRISE EN CHARGE")
                 # Sauvegarde des données dans un fichier JSONL spécifique à la salle
                 fichier_salle = f"IoT et JavaFX/appli-python/datas/captor/{salle}.jsonl"
-                data_message = {
-                    "temperature": temp,
-                    "humidite": hum,
-                    "co2": taux,
-                    "timestamp": datetime.now().isoformat()
-                }
+                data_message = {}
+                if choix_donnees[0]: data_message["temperature"] = temp
+                if choix_donnees[1]: data_message["humidite"] = hum
+                if choix_donnees[2]: data_message["co2"] = taux
+                data_message["timestamp"] = datetime.now().isoformat()
                 ecrire_jsonl(fichier_salle, data_message)
             else:
                 print(f"SALLE {salle} NON PRISE EN CHARGE")
