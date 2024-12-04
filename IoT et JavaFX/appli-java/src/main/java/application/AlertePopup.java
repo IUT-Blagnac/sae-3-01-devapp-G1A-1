@@ -1,7 +1,9 @@
 package application;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
 import java.util.concurrent.Executors;
 
@@ -13,6 +15,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Control;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
@@ -21,6 +24,7 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import tools.DataReader;
 
 import java.nio.file.*;
 import java.util.concurrent.ExecutorService;
@@ -94,29 +98,43 @@ public class AlertePopup {
         return (stackPane.getHeight() / 2) - 30;
     }
 
-    private static int count = 0;
-
     /**
      * Creates a new alert, adds it to the queue and displays it
      */
-    public void createNewAlert() {
-        count++;
+    public void createNewAlert(String message) {
+        int fontSize;
+        if (message.length() < 35) {
+            fontSize = 16;
+        } else if (message.length() < 45) {
+            fontSize = 15;
+        } else {
+            fontSize = 13;
+        }
+
         Pane container = new Pane();
         container.setMaxWidth(200);
+        container.setMinWidth(200);
         container.setMaxHeight(100);
         HBox popupContent = new HBox(10);
-        popupContent.setStyle(
-                "-fx-background-color: lightyellow; -fx-border-color: black; -fx-border-width: 1; -fx-padding: 10;");
+        popupContent
+                .setStyle(
+                        "-fx-background-color: LightGrey; -fx-border-color: LightGray; -fx-padding: 5; -fx-spacing: 5; -fx-font-size:"
+                                + fontSize + "px;");
         popupContent.setAlignment(Pos.CENTER_LEFT);
+        popupContent.setPrefHeight(Control.USE_COMPUTED_SIZE);
 
-        Label messageLabel = new Label("This is a warning!" + count);
+        Label messageLabel = new Label(message);
         messageLabel.setTextFill(Color.BLACK);
+        messageLabel.setMaxWidth(150);
+        messageLabel.setWrapText(true);
 
-        Button printButton = new Button("Print Hello");
+        Button printButton = new Button("Voir détails");
+        printButton.setStyle("-fx-font-size:14px;");
         printButton.setOnAction(e -> this.doHistorique());
 
-        Button closeButton = new Button("X");
-        closeButton.setStyle("-fx-background-color: transparent; -fx-text-fill: red; -fx-font-weight: bold;");
+        Button closeButton = new Button("\u274C");
+        closeButton.setStyle(
+                "-fx-background-color: transparent; -fx-text-fill: Gray; -fx-font-weight: bold;");
         closeButton.setOnAction(e -> removeAlert(container));
 
         popupContent.getChildren().addAll(messageLabel, printButton, closeButton);
@@ -197,7 +215,20 @@ public class AlertePopup {
                             // Vérifier si le fichier modifié est LOG_ALERTE.jsonl
                             Path changedFile = directory.resolve((Path) event.context());
                             if (changedFile.endsWith(logFilePath.getFileName())) {
-                                Platform.runLater(this::createNewAlert);
+                                Platform.runLater(() -> {
+                                    DataReader reader = new DataReader();
+                                    List<HashMap<String, Object>> logError = reader
+                                            .readJsonLFile(logFilePath.toString());
+                                    String message = "";
+                                    if (logError != null && logError.size() > 0) {
+                                        HashMap<String, Object> lastLine = logError.get(logError.size() - 1);
+                                        message = "Alerte " + lastLine.get("type") + " dans la salle "
+                                                + lastLine.get("salle");
+                                    } else {
+                                        message = "Alerte : un problème a été détecté !";
+                                    }
+                                    this.createNewAlert(message);
+                                });
                             }
                         }
                     }
