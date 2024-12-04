@@ -172,8 +172,12 @@ Voici le lien vers le https://docs.google.com/document/d/1JXWsYDaT89UOSjPgRJJcoX
 - **Jeudi 20 novembre**
   * [x] Hugo Thollon, Pablo Marquet, Kilian Demangel, Titouan Gauze, Romain Grasseau--Picoreau
 
-- **A venir Jeudi 28 novembre**
+- **Jeudi 28 novembre**
   * [x] Hugo Thollon, Pablo Marquet, Kilian Demangel, Titouan Gauze, Romain Grasseau--Picoreau
+
+- **Mardi 3 Decembree**
+  * [x] Hugo Thollon, Pablo Marquet, Kilian Demangel, Titouan Gauze
+  * [ ] Romain Grasseau--Picoreau
 
 == Évaluations bi-hedomadaire
 
