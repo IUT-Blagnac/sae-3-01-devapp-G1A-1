@@ -289,7 +289,7 @@ public class ShowByRoomController implements Initializable {
 
                     if (checkBoxCO2.isSelected() || checkBoxHumidity.isSelected() || checkBoxTemperature.isSelected()) {
                         if (checkBoxCO2.isSelected()) {
-                            lineChart.getData().add(createSeriesFromData("CO2", salleData, "co2"));
+                            lineChart.getData().add(createSeriesFromData("CO2 /100", salleData, "co2"));
                         }
                         if (checkBoxHumidity.isSelected()) {
                             lineChart.getData().add(createSeriesFromData("Humidité", salleData, "humidite"));
@@ -364,10 +364,11 @@ public class ShowByRoomController implements Initializable {
      *             "temperature").
      * @return Une série prête à être ajoutée au graphique.
      */
-    private XYChart.Series<Number, Number> createSeriesFromData(String name, List<HashMap<String, Object>> data, String key) {
+    private XYChart.Series<Number, Number> createSeriesFromData(String name, List<HashMap<String, Object>> data,
+            String key) {
         XYChart.Series<Number, Number> series = new XYChart.Series<>();
         series.setName(name);
-    
+
         for (int i = 0; i < data.size(); i++) {
             HashMap<String, Object> record = data.get(i);
             if (record.containsKey(key)) {

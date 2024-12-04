@@ -32,28 +32,7 @@ public class PythonStatusUpdater {
         timer.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
-                Platform.runLater(() -> {
-                    if (PythonStatusUpdater.this.lblPythonState != null) {
-                        switch (GlobalVariables.mqttPython.getState()) {
-                            case RUNNING:
-                                PythonStatusUpdater.this.lblPythonState.setTextFill(Color.GREEN);
-                                PythonStatusUpdater.this.lblPythonState.setText("actif");
-                                break;
-                            case PENDING:
-                                PythonStatusUpdater.this.lblPythonState.setTextFill(Color.ORANGE);
-                                PythonStatusUpdater.this.lblPythonState.setText("en démarrage");
-                                break;
-                            case DISCONNECTED:
-                                PythonStatusUpdater.this.lblPythonState.setTextFill(Color.RED);
-                                PythonStatusUpdater.this.lblPythonState.setText("arrêté");
-                                break;
-                            default:
-                                PythonStatusUpdater.this.lblPythonState.setTextFill(Color.BLACK);
-                                PythonStatusUpdater.this.lblPythonState.setText("???");
-                                break;
-                        }
-                    }
-                });
+                Platform.runLater(() -> updateLabel());
             }
         }, 0, 4000);
     }
@@ -72,6 +51,33 @@ public class PythonStatusUpdater {
      */
     public void setPSULabel(Label lblPythonState) {
         this.lblPythonState = lblPythonState;
+        updateLabel();
+    }
+
+    /**
+     * Updates the label to match the current status.
+     */
+    private void updateLabel() {
+        if (PythonStatusUpdater.this.lblPythonState != null) {
+            switch (GlobalVariables.mqttPython.getState()) {
+                case RUNNING:
+                    PythonStatusUpdater.this.lblPythonState.setTextFill(Color.GREEN);
+                    PythonStatusUpdater.this.lblPythonState.setText("actif");
+                    break;
+                case PENDING:
+                    PythonStatusUpdater.this.lblPythonState.setTextFill(Color.ORANGE);
+                    PythonStatusUpdater.this.lblPythonState.setText("en démarrage");
+                    break;
+                case DISCONNECTED:
+                    PythonStatusUpdater.this.lblPythonState.setTextFill(Color.RED);
+                    PythonStatusUpdater.this.lblPythonState.setText("arrêté");
+                    break;
+                default:
+                    PythonStatusUpdater.this.lblPythonState.setTextFill(Color.BLACK);
+                    PythonStatusUpdater.this.lblPythonState.setText("???");
+                    break;
+            }
+        }
     }
 
 }
