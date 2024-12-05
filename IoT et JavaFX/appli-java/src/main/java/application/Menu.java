@@ -8,12 +8,11 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 /**
- * Classe principale de l'application
- * Permet de lancer l'application
+ * Main class of the application
+ * Allows launching the application
  */
 public class Menu extends Application {
 
-	// Lancement classique d'un application JavaFX
 	@Override
 	public void start(Stage _primaryStage) {
 

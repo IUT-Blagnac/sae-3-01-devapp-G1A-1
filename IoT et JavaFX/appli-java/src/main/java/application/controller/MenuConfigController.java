@@ -33,10 +33,10 @@ import tools.GlobalVariables;
 import tools.PythonStatusUpdater;
 
 /*
- * Contrôleur pour le menu de choix des courbes
- * Permet de choisir entre les courbes par pièce, par type de données ou pour le solaire
- * Redirige vers les pages correspondantes
- * Permet de revenir au menu principal ou de quitter l'application
+ * Controller for the curve selection menu
+ * Allows choosing between curves by room, data type, or for solar
+ * Redirects to the corresponding pages
+ * Allows returning to the main menu or quitting the application
  */
 public class MenuConfigController implements Initializable {
 
@@ -52,7 +52,11 @@ public class MenuConfigController implements Initializable {
     @FXML
     private Label lblPythonState;
 
-    // Méthode d'initialisation
+    /**
+     * Method to initialize the context of the window
+     * 
+     * @param _containingStage the stage containing the window
+     */
     public void initContext(Stage _containingStage) {
         this.primaryStage = _containingStage;
         this.configure();
@@ -64,7 +68,7 @@ public class MenuConfigController implements Initializable {
         primaryStage.getScene().setRoot(stackPane);
 
         // Allow the alerts to be displayed
-        AlertePopup alertePopup = AlertePopup.getAlertPopupInstance(this.primaryStage);
+        AlertePopup.getAlertPopupInstance(this.primaryStage);
 
         PythonStatusUpdater.getPSUInstance().setPSULabel(this.lblPythonState);
     }
@@ -77,7 +81,12 @@ public class MenuConfigController implements Initializable {
         this.primaryStage.setOnCloseRequest(e -> this.closeWindow(e));
     }
 
-    // Gestion du stage
+    /**
+     * Close the window
+     * 
+     * @param e the window event
+     * @return null
+     */
     private Object closeWindow(WindowEvent e) {
         this.doQuit();
         e.consume();
@@ -85,12 +94,21 @@ public class MenuConfigController implements Initializable {
     }
 
     @Override
+    /**
+     * Method to initialize the window
+     * 
+     * @param location  the location used to resolve relative paths for the root
+     *                  object
+     * @param resources the resources used to localize the root object
+     */
     public void initialize(URL location, ResourceBundle resources) {
         // Dynamique : création des éléments UI
         createUI();
     }
 
-    // Création des éléments de l'interface graphique
+    /**
+     * Method to create the UI elements
+     */
     private void createUI() {
 
         // Appel à readJsonFile pour récupérer les valeurs par défaut
@@ -221,7 +239,18 @@ public class MenuConfigController implements Initializable {
                 cbTemperature, cbHumidite, cbTaux, listViewSalles));
     }
 
-    // Méthode de sauvegarde des configurations
+    /**
+     * Method to save the configuration
+     * 
+     * @param tfTemperatureMax   the text field for the maximum temperature
+     * @param tfHumiditeMax      the text field for the maximum humidity
+     * @param tfTauxMax          the text field for the maximum CO2 level
+     * @param tfFrequenceLecture the text field for the reading frequency
+     * @param cbTemperature      the checkbox for the temperature
+     * @param cbHumidite         the checkbox for the humidity
+     * @param cbTaux             the checkbox for the CO2 level
+     * @param listViewSalles     the list view for the rooms
+     */
     private void saveConfiguration(TextField tfTemperatureMax, TextField tfHumiditeMax, TextField tfTauxMax,
             TextField tfFrequenceLecture, CheckBox cbTemperature, CheckBox cbHumidite, CheckBox cbTaux,
             ListView<HBox> listViewSalles) {
@@ -285,7 +314,10 @@ public class MenuConfigController implements Initializable {
     }
 
     @FXML
-    private void doBack() { // Bouton qui mène à la page précédente (menu.fxml)
+    /**
+     * Method to go back to the previous page (menu.fxml)
+     */
+    private void doBack() {
         try {
             FXMLLoader loader = new FXMLLoader(
                     MenuCourbeController.class.getResource("/application/view/menu.fxml"));
@@ -309,7 +341,10 @@ public class MenuConfigController implements Initializable {
     }
 
     @FXML
-    private void doQuit() { // Gestion de la fermeture de la fenêtre
+    /**
+     * Method to quit the application
+     */
+    private void doQuit() {
         if (AlertUtilities.confirmYesCancel(this.primaryStage, "Quitter Appli Principale",
                 "Etes vous sur de vouloir quitter l'appli ?", null, AlertType.CONFIRMATION)) {
 
