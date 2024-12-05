@@ -91,9 +91,9 @@ public class RelancePythonController implements Initializable {
             resultIcon.setVisible(true); // Affiche l'icône
 
             if (isRunning) {
-                resultIcon.setImage(new Image(getClass().getResource("../../check.png").toExternalForm()));
+                resultIcon.setImage(new Image(getClass().getResource("/check.png").toExternalForm()));
             } else {
-                resultIcon.setImage(new Image(getClass().getResource("../../cross.png").toExternalForm()));
+                resultIcon.setImage(new Image(getClass().getResource("/cross.png").toExternalForm()));
             }
 
             // Fermer la fenêtre après 5 secondes

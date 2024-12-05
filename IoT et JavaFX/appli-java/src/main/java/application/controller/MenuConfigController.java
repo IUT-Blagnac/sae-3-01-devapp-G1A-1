@@ -64,8 +64,7 @@ public class MenuConfigController implements Initializable {
         primaryStage.getScene().setRoot(stackPane);
 
         // Allow the alerts to be displayed
-        AlertePopup alertePopup = AlertePopup.getAlertPopupInstance(this.primaryStage);
-
+        AlertePopup.getAlertPopupInstance(this.primaryStage);
         PythonStatusUpdater.getPSUInstance().setPSULabel(this.lblPythonState);
     }
 
@@ -94,7 +93,7 @@ public class MenuConfigController implements Initializable {
     private void createUI() {
 
         // Appel à readJsonFile pour récupérer les valeurs par défaut
-        String filePath = "IoT et JavaFX/appli-python/config.json";
+        String filePath = GlobalVariables.pythonConfigFilePath;
         DataReader dataReader = new DataReader();
         HashMap<String, Object> jsonMap = dataReader.readJsonFile(filePath);
 
@@ -249,7 +248,7 @@ public class MenuConfigController implements Initializable {
         }
 
         // Préparer l'objet JSON à mettre à jour
-        String filePath = "IoT et JavaFX/appli-python/config.json";
+        String filePath = GlobalVariables.pythonConfigFilePath;
         DataReader dataReader = new DataReader();
         HashMap<String, Object> jsonMap = dataReader.readJsonFile(filePath);
 
