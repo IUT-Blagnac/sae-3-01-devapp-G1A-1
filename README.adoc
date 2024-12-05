@@ -68,9 +68,9 @@ Cette section regroupe tous les documents liés à la conception, au développem
 
 |===
 | Nom du document | Description | Version |  Lien
-| Site Web "BuildMyPC" | URL pour consulter le site | V1.0 | http://193.54.227.208/~R2024SAE3007/index.php[SOON - Lien vers le site web extérieur à l'IUT]
+| Site Web "BuildMyPC" | URL pour consulter le site | V1.0 | http://193.54.227.208/~R2024SAE3007/index.php[Lien vers le site web extérieur à l'IUT]
                                                                
-                                                               http://192.168.224.139/~R2024SAE3007/index.php[SOON - Lien vers le site web interne à l'IUT]
+                                                               http://192.168.224.139/~R2024SAE3007/index.php[Lien vers le site web interne à l'IUT]
 |===
 
 ==== Backlog Produit
