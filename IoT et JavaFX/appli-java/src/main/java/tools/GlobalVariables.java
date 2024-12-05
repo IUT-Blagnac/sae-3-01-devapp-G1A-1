@@ -7,12 +7,12 @@ import application.AlertUtilities;
 import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 
-/*
- * Classe contenant les variables globales de l'application
- * pour faciliter l'accès et la modification
- * depuis n'importe quelle partie du code
- * et pour éviter les valeurs magiques
- * et les répétitions inutiles
+/**
+ * Class containing global variables and methods that are used everywhere in the
+ * app. This class facilitates the modification of variables such as file paths
+ * and can be accessed from anywhere in the code.
+ * 
+ * This class helps preventing repetitions in code.
  */
 public class GlobalVariables {
     private GlobalVariables() {
@@ -28,10 +28,15 @@ public class GlobalVariables {
     // formating works here.
     public static final String roomsFilePath = "appli-python/datas/captor/%s.jsonl";
 
+    /**
+     * The different states a python file in the PythonExecuter class can be in.
+     */
     public enum pythonState {
         RUNNING, PENDING, DISCONNECTED
     }// actif, en démarrage, arrêté
 
+    // The PythonExecuter variable that runs the mqtt script. This variable needs to
+    // be accessible everywhere.
     public static final PythonExecuter mqttPython = new PythonExecuter(pythonFilePath);
 
     // liste des salles avec des capteurs
@@ -42,6 +47,12 @@ public class GlobalVariables {
             "E208", "E209", "E210", "Foyer-etudiants-entrée", "Foyer-personnels", "Local-velo", "Salle-conseil",
             "Serveurs", "amphi1", "hall-amphi", "hall-entrée-principale");
 
+    /**
+     * Asks the user confirmation and closes the app on a positive answer. Closes
+     * latents programs such as the mqtt python script before closing the app.
+     * 
+     * @param primaryStage the main stage of the app.
+     */
     public static void exitApp(Stage primaryStage) {
         if (AlertUtilities.confirmYesCancel(primaryStage, "Quitter Appli Principale",
                 "Etes vous sur de vouloir quitter l'appli ?", null, AlertType.CONFIRMATION)) {

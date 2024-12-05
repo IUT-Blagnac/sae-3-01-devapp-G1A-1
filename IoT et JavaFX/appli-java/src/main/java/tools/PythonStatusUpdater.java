@@ -8,10 +8,11 @@ import javafx.scene.control.Label;
 import javafx.scene.paint.Color;
 
 /**
- * Un singleton qui va mettre à jour un label si il a été défini en fonction du
- * status du programme mqtt python.
- * Un seul label peut etre mis à jour à la fois donc quand on entre dans une
- * nouvelle fenêtre possédant ce label il faut set le label à nouveau.
+ * A singleton that updates the label that displays the mqtt python status. The
+ * singleton updates the label only when it exists.
+ * Only one label can be updated at a time so everytime the window changes, a
+ * new label needs to be set (it's more like linking an existing label to this
+ * singleton).
  */
 public class PythonStatusUpdater {
 
@@ -20,6 +21,9 @@ public class PythonStatusUpdater {
     private Label lblPythonState;
     private Timer timer;
 
+    /**
+     * Constructor of the singleton of PythonStatusUpdater.
+     */
     private PythonStatusUpdater() {
         // Quand on crée le PSU on met en place un daemon timer qui va mettre à jour un
         // label toutes les 4 secondes. A partir du moment où on a créé le PSU, il
@@ -37,6 +41,11 @@ public class PythonStatusUpdater {
         }, 0, 4000);
     }
 
+    /**
+     * Return the instance of PythonStatusUpdater or create one if there is none.
+     * 
+     * @return the unique instance of PythonStatusUpdater
+     */
     public static PythonStatusUpdater getPSUInstance() {
         if (psuInstance == null) {
             psuInstance = new PythonStatusUpdater();

@@ -15,25 +15,51 @@ public class PythonExecuter {
     private GlobalVariables.pythonState state;
     private Process process;
 
+    /**
+     * Constructor of a PythonExecuter
+     * 
+     * @param filePath the path to the python file to be executed
+     */
     public PythonExecuter(String filePath) {
         this.filePath = filePath;
         this.state = (this.process != null && this.process.isAlive()) ? GlobalVariables.pythonState.RUNNING
                 : GlobalVariables.pythonState.DISCONNECTED;
     }
 
+    /**
+     * Returns the current file path
+     * 
+     * @return a file path
+     */
     public String getFilePath() {
         return this.filePath;
     }
 
+    /**
+     * Sets a new file path.
+     * 
+     * Note : setting a new filePath will not restart the current running python
+     * script.
+     * 
+     * @param filePath the new file path
+     */
     public void setFilePath(String filePath) {
         this.filePath = filePath;
     }
 
+    /**
+     * Return the current state of the python script
+     * 
+     * @return the current state
+     */
     public GlobalVariables.pythonState getState() {
         updateState();
         return this.state;
     }
 
+    /**
+     * Update the state to match the current state of the python process
+     */
     private void updateState() {
         this.state = (this.process != null && this.process.isAlive()) ? GlobalVariables.pythonState.RUNNING
                 : GlobalVariables.pythonState.DISCONNECTED;

@@ -35,8 +35,8 @@ import tools.PythonStatusUpdater;
 public class VisuDonneesController implements Initializable {
 
     /**
-     * Classe interne qui va servir à modifier plus facilement chaque case de la
-     * grille
+     * Intern class that is used to update each item of the grid more easily. This
+     * class contains the references for the item inside the grid.
      */
     private class Salle {
         private TitledPane titledPane;
@@ -48,12 +48,12 @@ public class VisuDonneesController implements Initializable {
         private static final String noData = "aucune donnée";
 
         /**
-         * Constructeur d'une salle
+         * Room contructor
          * 
-         * @param nomSalle    le nom de la salle
-         * @param tauxCO2     le taux de co2 présent dans la salle (parsé en String)
-         * @param temperature la température de la salle (parsée en String)
-         * @param humidite    l'humidité de la salle (parsée en String)
+         * @param nomSalle    The name of the room.
+         * @param tauxCO2     The co2 rate of the room (parsed as a String).
+         * @param temperature The temperature of the room (parsed as a String).
+         * @param humidite    The humidity of the room (parsed as a String).
          */
         public Salle(String nomSalle, String tauxCO2, String temperature, String humidite) {
             this.lblCO2 = new Label((tauxCO2 != null) ? "CO2 : " + tauxCO2 : "CO2 : " + noData);
@@ -65,32 +65,38 @@ public class VisuDonneesController implements Initializable {
         }
 
         /**
-         * Set le texte du label co2
+         * Sets a new value for the co2 rate label.
          * 
-         * @param tauxCO2 la nouvelle valeur du taux (parsée en String)
+         * @param tauxCO2 the new value of the co2 rate (parsed as a String).
          */
         public void setCO2(String tauxCO2) {
             this.lblCO2.setText((tauxCO2 != null) ? "CO2 : " + tauxCO2 : "CO2 : " + noData);
         }
 
         /**
-         * Set le texte du label température
+         * Sets a new value of the temperature label.
          * 
-         * @param temperature la nouvelle valeur de la température (parsée en String)
+         * @param temperature the new temperature value (parsed as a String).
          */
         public void setTemperature(String temperature) {
             this.lblTemp.setText((temperature != null) ? "Température : " + temperature : "Température : " + noData);
         }
 
         /**
-         * Set le texte du label humidité
+         * Sets the new value of the humidity label.
          * 
-         * @param humidite la nouvelle valeur de l'humidité (parsée en String)
+         * @param humidite the new humidity value (parsed as a String).
          */
         public void setHumidite(String humidite) {
             this.lblHum.setText((humidite != null) ? "Humidité : " + humidite : "Humidité : " + noData);
         }
 
+        /**
+         * Returns the TitledPane that contains the informations of a room. It is this
+         * TitledPane that will be placed in the grid.
+         * 
+         * @return
+         */
         public TitledPane getTitledPane() {
             return this.titledPane;
         }
@@ -145,6 +151,9 @@ public class VisuDonneesController implements Initializable {
     private Label lblPythonState;
 
     @FXML
+    /**
+     * Method to go back to the previous page
+     */
     private void doBack() { // Bouton qui mène à la page précédente (menu.fxml)
         try {
             this.timer.cancel();
@@ -170,6 +179,9 @@ public class VisuDonneesController implements Initializable {
     }
 
     @FXML
+    /*
+     * Method to quit the app
+     */
     private void doQuit() { // Gestion de la fermeture de la fenêtre
         GlobalVariables.exitApp(this.primaryStage);
     }
@@ -214,6 +226,10 @@ public class VisuDonneesController implements Initializable {
 
     }
 
+    /**
+     * Iterate through all the rooms and sets their new values according to the last
+     * line of the rooms jsonl files.
+     */
     public void setNewRoomValues() {
         DataReader dataReader = new DataReader();
         List<HashMap<String, Object>> record;

@@ -51,6 +51,9 @@ public class RelancePythonController implements Initializable {
         });
     }
 
+    /**
+     * Create a thread that stops and relaunch the python script
+     */
     private void startRelaunch() {
         // Task pour exécuter le script Python
         Task<Boolean> launchTask = new Task<>() {
@@ -82,6 +85,13 @@ public class RelancePythonController implements Initializable {
         new Thread(launchTask).start();
     }
 
+    /**
+     * Displays the result of the python script execution. A green check if the
+     * python script is correctly running, a red cross if it failed.
+     * 
+     * @param isRunning Boolean, true if the python script is running correctly,
+     *                  false in the other case.
+     */
     private void showResult(boolean isRunning) {
         System.out.println("Affichage du résultat de relance : " + (isRunning ? "actif" : "echec"));
 

@@ -34,7 +34,7 @@ import java.util.concurrent.ExecutorService;
 
 /**
  * Singleton that displays alerts on the screen. It is supposed to be
- * initialized again whenever the user changes scene.
+ * initialized again whenever the user changes scene with the new primary stage.
  */
 public class AlertePopup {
     // the unique instance
@@ -47,6 +47,11 @@ public class AlertePopup {
     private Queue<Pane> queueAlertes;
     private static final int MAXQUEUE = 3;
 
+    /**
+     * Constructor of AlertPopup.
+     * 
+     * @param primaryStage the main stage of the app.
+     */
     private AlertePopup(Stage primaryStage) {
         this.primaryStage = primaryStage;
         this.stackPane = (StackPane) primaryStage.getScene().getRoot();
@@ -57,8 +62,6 @@ public class AlertePopup {
     /**
      * Returns the unique instance of AlertPopup and set the primary stage as it's
      * new primary stage.
-     * 
-     * If you initialize the AlertPopup for the first time please use this method.
      * 
      * @param primaryStage the new primary stage
      * @return the unique instance of AlertPopup
@@ -72,6 +75,12 @@ public class AlertePopup {
         return alertPopupInstance;
     }
 
+    /**
+     * Sets the new primaryStage of the app. Allows this singleton to display values
+     * on the current window of the app.
+     * 
+     * @param primaryStage the new primary stage
+     */
     public void setPrimaryStage(Stage primaryStage) {
         if (primaryStage != null) {
             this.primaryStage = primaryStage;
@@ -156,6 +165,12 @@ public class AlertePopup {
         autoHide.play();
     }
 
+    /**
+     * Adds the new alert to the queue and if there are too many alerts on the queue
+     * already pop the last one.
+     * 
+     * @param alert the new alert node to add.
+     */
     private void newAlertToQueue(Pane alert) {
         // add the new alert
         this.queueAlertes.offer(alert);
@@ -186,7 +201,7 @@ public class AlertePopup {
     }
 
     /**
-     * Moves the alerts in order for them to be one above the other with no gap
+     * Moves the alerts in order for them to be one above the other with no gap.
      */
     private void updateAlertDisplay() {
         int i = this.queueAlertes.size() - 1;
@@ -197,7 +212,8 @@ public class AlertePopup {
     }
 
     /**
-     * Lance le WatchService pour surveiller les modifications de LOG_ALERTE.jsonl
+     * Launches the WatchService to watch over modifications in LOG_ALERTE.jsonl
+     * file.
      */
     private void startFileWatcher() {
         watchServiceExecutor = Executors.newSingleThreadExecutor();
@@ -246,6 +262,9 @@ public class AlertePopup {
         });
     }
 
+    /**
+     * Redirects to the page "Historique des alertes"
+     */
     private void doHistorique() {
         try {
             FXMLLoader loader = new FXMLLoader(
