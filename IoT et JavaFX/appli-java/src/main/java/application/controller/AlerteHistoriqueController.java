@@ -1,6 +1,5 @@
 package application.controller;
 
-import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -12,7 +11,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
-import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -31,30 +29,26 @@ import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.List;
 import java.util.ResourceBundle;
-import java.util.Timer;
-import java.util.TimerTask;
 import java.util.stream.Collectors;
 
 import application.Menu;
 
 /**
- * Contrôleur pour l'historique des alertes
- * Permet de filtrer les alertes par salle et par type
- * Permet de revenir au menu principal ou de quitter l'application
- * Permet de réinitialiser les filtres
- * Affiche les alertes dans un tableau
- * Les alertes sont chargées depuis un fichier
- * Les alertes sont filtrées en fonction des critères de filtrage
+ * Controller for the alert history
+ * Allows filtering alerts by room and type
+ * Allows returning to the main menu or quitting the application
+ * Allows resetting the filters
+ * Displays alerts in a table
+ * Alerts are loaded from a file
+ * Alerts are filtered based on the filtering criteria
  */
 public class AlerteHistoriqueController implements Initializable {
 
-    private Stage primaryStage;
+    private Stage primaryStage; // Stage de l'application
 
-    // private Timer timer;
+    private DatePicker dateFilter; // Filtre par date
 
-    private DatePicker dateFilter; // Ajouter un filtre pour la date
-
-    // Définir tous les composants dynamiquement
+    // Composants de l'interface
     private BorderPane root;
     private HBox topBar;
     private VBox leftBar;
@@ -63,10 +57,15 @@ public class AlerteHistoriqueController implements Initializable {
     private ComboBox<String> typeFilter;
     private Button btnBack;
     private Button btnApplyFilter;
-    private Button btnResetFilter; // Nouveau bouton pour réinitialiser les filtres
+    private Button btnResetFilter;
     private TableView<List<String>> alertesTable;
     private ObservableList<List<String>> alertesList;
 
+    /**
+     * Initialize the context of the controller
+     * 
+     * @param _containingStage the stage containing the scene
+     */
     public void initContext(Stage _containingStage) {
         this.primaryStage = _containingStage;
         this.configure();
@@ -75,14 +74,26 @@ public class AlerteHistoriqueController implements Initializable {
         primaryStage.setTitle("Application BuildMyPC");
     }
 
+    /**
+     * Display the dialog
+     */
     public void displayDialog() {
         this.primaryStage.show();
     }
 
+    /**
+     * Configure the stage
+     */
     private void configure() {
         this.primaryStage.setOnCloseRequest(e -> this.closeWindow(e));
     }
 
+    /**
+     * Close the window
+     * 
+     * @param e the window event
+     * @return null
+     */
     private Object closeWindow(WindowEvent e) {
         this.doQuit();
         e.consume();
@@ -90,8 +101,10 @@ public class AlerteHistoriqueController implements Initializable {
     }
 
     @FXML
+    /**
+     * Method to return to the main menu
+     */
     private void doBack() {
-        // Action pour revenir à la fenêtre précédente (menu.fxml)
         try {
             // this.timer.cancel();
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/view/menu.fxml"));
@@ -114,12 +127,21 @@ public class AlerteHistoriqueController implements Initializable {
     }
 
     @FXML
+    /**
+     * Method to quit the application
+     */
     private void doQuit() {
         // Action de fermeture de l'application
         GlobalVariables.exitApp(this.primaryStage);
     }
 
     @Override
+    /**
+     * Method to initialize the controller
+     * 
+     * @param location  the URL location
+     * @param resources the resource bundle
+     */
     public void initialize(URL location, ResourceBundle resources) {
         root = new BorderPane();
 
@@ -205,6 +227,12 @@ public class AlerteHistoriqueController implements Initializable {
         alertesTable.setItems(alertesList);
     }
 
+    /**
+     * Load alerts from a file
+     * 
+     * @param filename the name of the file
+     * @return the list of alerts loaded from the file
+     */
     private List<List<String>> loadAlertesFromFile(String filename) {
         // Charger les alertes depuis un fichier
         DataReader dataReader = new DataReader();
@@ -220,6 +248,9 @@ public class AlerteHistoriqueController implements Initializable {
     }
 
     @FXML
+    /**
+     * Method to apply the filter
+     */
     private void appliquerFiltre() {
         String salle = salleFilter.getText();
         String type = typeFilter.getValue();
@@ -236,6 +267,9 @@ public class AlerteHistoriqueController implements Initializable {
     }
 
     @FXML
+    /**
+     * Method to reset the filters
+     */
     private void resetFilters() {
         // Réinitialise les filtres
         salleFilter.clear(); // Effacer le champ de texte de la salle
@@ -246,6 +280,12 @@ public class AlerteHistoriqueController implements Initializable {
         alertesTable.setItems(alertesList);
     }
 
+    /**
+     * Sort alerts by timestamp
+     * 
+     * @param alertes the list of alerts
+     * @return the list of alerts sorted by timestamp
+     */
     private ObservableList<List<String>> sortAlertesByTimestamp(ObservableList<List<String>> alertes) {
         return FXCollections.observableArrayList(
                 alertes.stream()

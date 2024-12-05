@@ -35,17 +35,16 @@ import tools.GlobalVariables;
 import tools.PythonStatusUpdater;
 import javafx.scene.Node;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 /*
- * Contrôleur pour afficher les données par salle
- * avec des graphiques pour chaque type de donnée
- * et des options pour afficher/cacher les salles
- * et les types de données
+ * Controller to display data by room
+ * with charts for each type of data
+ * and options to show/hide rooms
+ * and data types
  */
 public class ShowByDataController implements Initializable {
 
@@ -56,6 +55,11 @@ public class ShowByDataController implements Initializable {
 
     private Map<String, Boolean> dataVisibility = new HashMap<>();
 
+    /**
+     * Method to initialize the context of the window
+     * 
+     * @param _containingStage the stage containing the window
+     */
     public void initContext(Stage _containingStage) {
         this.primaryStage = _containingStage;
         this.configure();
@@ -67,21 +71,32 @@ public class ShowByDataController implements Initializable {
         primaryStage.getScene().setRoot(stackPane);
 
         // Allow the alerts to be displayed
-        AlertePopup alertePopup = AlertePopup.getAlertPopupInstance(this.primaryStage);
+        AlertePopup.getAlertPopupInstance(this.primaryStage);
 
         PythonStatusUpdater.getPSUInstance().setPSULabel(this.lblPythonState);
     }
 
+    /**
+     * Method to display the window
+     */
     public void displayDialog() {
 
         this.primaryStage.show();
     }
 
+    /**
+     * Method to configure the window
+     */
     private void configure() {
         this.primaryStage.setOnCloseRequest(e -> this.closeWindow(e));
     }
 
-    // Gestion du stage
+    /**
+     * Close the window
+     * 
+     * @param e the window event
+     * @return null
+     */
     private Object closeWindow(WindowEvent e) {
         this.doQuit();
         e.consume();
@@ -97,7 +112,10 @@ public class ShowByDataController implements Initializable {
     private Label lblPythonState;
 
     @FXML
-    private void doBack() { // Bouton qui mène à la page précédente (menu.fxml)
+    /**
+     * Method to go back to the previous page
+     */
+    private void doBack() {
         try {
             this.timer.cancel();
             FXMLLoader loader = new FXMLLoader(
@@ -122,7 +140,10 @@ public class ShowByDataController implements Initializable {
     }
 
     @FXML
-    private void doQuit() { // Gestion de la fermeture de la fenêtre
+    /**
+     * Method to quit the application
+     */
+    private void doQuit() {
         GlobalVariables.exitApp(this.primaryStage);
     }
 
@@ -139,6 +160,12 @@ public class ShowByDataController implements Initializable {
     private VBox contentRightVBox; // Conteneur des sections dans le ScrollPane droit
 
     @Override
+    /**
+     * Initialization of the window
+     * 
+     * @param location  the URL of the window
+     * @param resources the resources of the window
+     */
     public void initialize(URL location, ResourceBundle resources) {
         String[] typeDonnee = { "Température", "CO2", "Humidité" };
 
@@ -202,7 +229,12 @@ public class ShowByDataController implements Initializable {
         }, 0, 10000);
     }
 
-    // Méthode pour afficher/cacher une salle (fonctionnalité future)
+    /**
+     * Method to toggle the visibility of the data
+     * 
+     * @param typeData
+     * @param eyeButton
+     */
     private void toggleVisibility(String typeData, Button eyeButton) {
         // Vérifier que la donnée existe dans la HashMap
         if (!dataVisibility.containsKey(typeData)) {
@@ -240,6 +272,9 @@ public class ShowByDataController implements Initializable {
         updateRightScrollPane();
     }
 
+    /**
+     * Method to update the right scroll pane
+     */
     private void updateRightScrollPane() {
         contentRightVBox.getChildren().clear();
 
@@ -300,6 +335,13 @@ public class ShowByDataController implements Initializable {
         }
     }
 
+    /**
+     * Method to get the data for a room
+     * 
+     * @param typeDonnee the type of data
+     * @param salleName  the name of the room
+     * @return the data for the room as an array of doubles
+     */
     private double[] getDataForSalle(String typeDonnee, String salleName) {
         // Charger les données depuis le fichier JSONL
         String filePath = "IoT et JavaFX/appli-python/datas/captor/" + salleName + ".jsonl";
@@ -381,7 +423,11 @@ public class ShowByDataController implements Initializable {
         return new double[] {};
     }
 
-    // Créer un graphique vide
+    /**
+     * Method to create an empty chart
+     * 
+     * @return the empty chart created
+     */
     private LineChart<Number, Number> createEmptyChart() {
         NumberAxis xAxis = new NumberAxis();
         xAxis.setLabel("Temps");
@@ -394,7 +440,13 @@ public class ShowByDataController implements Initializable {
         return chart;
     }
 
-    // Créer une série de données pour le graphique
+    /**
+     * Method to create a series for a chart
+     * 
+     * @param name the name of the series
+     * @param data the data for the series
+     * @return the series created
+     */
     private XYChart.Series<Number, Number> createSeries(String name, double[] data) {
         XYChart.Series<Number, Number> series = new XYChart.Series<>();
         series.setName(name);
@@ -404,6 +456,12 @@ public class ShowByDataController implements Initializable {
         return series;
     }
 
+    /**
+     * Method to get the title label of a titled pane
+     * 
+     * @param titledPane the titled pane
+     * @return the title label of the titled pane
+     */
     public Label getTitleLabel(TitledPane titledPane) {
         Node graphic = titledPane.getGraphic();
         if (graphic instanceof HBox) {

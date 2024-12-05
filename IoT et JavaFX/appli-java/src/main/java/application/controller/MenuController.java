@@ -19,15 +19,19 @@ import application.AlertePopup;
 import application.Menu;
 
 /*
- * Contrôleur pour le menu principal
- * Permet de naviguer vers les différentes pages de l'application
- * Permet de quitter l'application
+ * Controller for the main menu
+ * Allows navigation to different pages of the application
+ * Allows quitting the application
  */
 public class MenuController implements Initializable {
 
-	// Fenêtre physique
 	private Stage primaryStage;
 
+	/**
+	 * Method to initialize the context of the window
+	 * 
+	 * @param _containingStage
+	 */
 	public void initContext(Stage _containingStage) {
 		this.primaryStage = _containingStage;
 		this.configure();
@@ -39,21 +43,32 @@ public class MenuController implements Initializable {
 		primaryStage.getScene().setRoot(stackPane);
 
 		// Allow the alerts to be displayed
-		AlertePopup alertePopup = AlertePopup.getAlertPopupInstance(this.primaryStage);
+		AlertePopup.getAlertPopupInstance(this.primaryStage);
 		// Appelle une classe qui va initialiser un thread qui va update le label
 		// pythonState en fonction de l'état du mqttPython.
 		PythonStatusUpdater.getPSUInstance().setPSULabel(this.lblPythonState);
 	}
 
+	/**
+	 * Method to display the window
+	 */
 	public void displayDialog() {
 		this.primaryStage.show();
 	}
 
+	/**
+	 * Method to configure the window
+	 */
 	private void configure() {
 		this.primaryStage.setOnCloseRequest(e -> this.closeWindow(e));
 	}
 
-	// Gestion du stage
+	/**
+	 * Close the window
+	 * 
+	 * @param e the window event
+	 * @return null
+	 */
 	private Object closeWindow(WindowEvent e) {
 		this.doQuit();
 		e.consume();
@@ -90,6 +105,9 @@ public class MenuController implements Initializable {
 	private Label lblPythonState;
 
 	@Override
+	/**
+	 * Method to initialize the window
+	 */
 	public void initialize(URL location, ResourceBundle resources) {
 		// démarrage du python
 		try {
@@ -100,6 +118,9 @@ public class MenuController implements Initializable {
 	}
 
 	@FXML
+	/**
+	 * Method to start the test window
+	 */
 	private void doTest() {
 		try {
 			// Chargement de la nouvelle fenêtre (FXML)
@@ -131,6 +152,9 @@ public class MenuController implements Initializable {
 	}
 
 	@FXML
+	/**
+	 * Method to start the configuration window
+	 */
 	private void doConfig() {
 		try {
 			FXMLLoader loader = new FXMLLoader(
@@ -155,6 +179,9 @@ public class MenuController implements Initializable {
 	}
 
 	@FXML
+	/**
+	 * Method to start the data visualization window
+	 */
 	private void doRelancePython() {
 		try {
 			// Chargement de la nouvelle fenêtre (FXML)
@@ -186,6 +213,9 @@ public class MenuController implements Initializable {
 	}
 
 	@FXML
+	/**
+	 * Method to start the data visualization window
+	 */
 	private void doVisuDonnees() {
 		try {
 			FXMLLoader loader = new FXMLLoader(
@@ -210,6 +240,9 @@ public class MenuController implements Initializable {
 	}
 
 	@FXML
+	/**
+	 * Method to start the alert history window
+	 */
 	private void doHistorique() {
 		try {
 			FXMLLoader loader = new FXMLLoader(
@@ -234,7 +267,10 @@ public class MenuController implements Initializable {
 	}
 
 	@FXML
-	private void doCourbe() { // Bouton qui mène à la page de choix des courbes (menuCourbe.fxml)
+	/**
+	 * Method to start the curve choice window
+	 */
+	private void doCourbe() {
 		try {
 			FXMLLoader loader = new FXMLLoader(
 					MenuController.class.getResource("/application/view/menuCourbe.fxml"));
@@ -258,7 +294,10 @@ public class MenuController implements Initializable {
 	}
 
 	@FXML
-	private void doSolar() { // Bouton qui mène à la page de choix des courbes pour le solaire
+	/**
+	 * Method to start the solar curve choice window
+	 */
+	private void doSolar() {
 		try {
 			FXMLLoader loader = new FXMLLoader(
 					MenuCourbeController.class.getResource("/application/view/showSolar.fxml"));
@@ -284,7 +323,10 @@ public class MenuController implements Initializable {
 	}
 
 	@FXML
-	private void doQuit() { // Gestion de la fermeture de la fenêtre
+	/**
+	 * Method to start the alert window
+	 */
+	private void doQuit() {
 		GlobalVariables.exitApp(this.primaryStage);
 	}
 }

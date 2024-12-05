@@ -16,9 +16,9 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 /**
- * Contrôleur pour le test de connexion Python
- * Affiche un spinner pendant le test et un check ou une croix à la fin
- * Ferme la fenêtre après 5 secondes
+ * Controller for the Python connection test
+ * Displays a spinner during the test and a check or cross at the end
+ * Closes the window after 5 seconds
  */
 public class TestController implements Initializable {
 
@@ -26,24 +26,35 @@ public class TestController implements Initializable {
     private StackPane mainPane;
 
     @FXML
-    private ProgressIndicator spinner; // Spinner pour l'attente
+    private ProgressIndicator spinner; // Spinner pour l'attente de la connexion
 
     @FXML
     private ImageView resultIcon; // Image pour afficher le check ou la croix
 
     private Stage primaryStage;
 
+    /**
+     * Method to initialize the context of the window
+     * 
+     * @param _containingStage the stage containing the window
+     */
     public void initContext(Stage _containingStage) {
         this.primaryStage = _containingStage;
         this.configure();
 
     }
 
+    /**
+     * Method to display the window
+     */
     public void displayDialog() {
         this.primaryStage.show();
         this.startConnectionTest(); // Lance le test au démarrage
     }
 
+    /**
+     * Method to configure the window
+     */
     private void configure() {
         // On laisse la possibilité de fermer la fenêtre en cliquant sur la croix
         this.primaryStage.setOnCloseRequest(e -> {
@@ -52,6 +63,9 @@ public class TestController implements Initializable {
         });
     }
 
+    /**
+     * Method to start the Python connection test
+     */
     private void startConnectionTest() {
         // Task pour exécuter le script Python
         Task<Boolean> connectionTask = new Task<>() {
@@ -76,6 +90,11 @@ public class TestController implements Initializable {
         new Thread(connectionTask).start();
     }
 
+    /**
+     * Method to test the Python connection
+     * 
+     * @return true if the connection is successful, false otherwise
+     */
     private boolean testPythonConnection() {
         try {
             // Commande pour exécuter le script Python
@@ -110,6 +129,11 @@ public class TestController implements Initializable {
         }
     }
 
+    /**
+     * This method shows the result of the connection test
+     * 
+     * @param isConnected
+     */
     private void showResult(boolean isConnected) {
         System.out.println("Affichage du résultat de connexion : " + (isConnected ? "Réussi" : "Échoué"));
 
@@ -137,12 +161,21 @@ public class TestController implements Initializable {
     }
 
     @FXML
+    /*
+     * Méthode pour fermer la fenêtre
+     */
     private void closeWindow() {
         // Ferme la fenêtre
         this.primaryStage.close();
     }
 
     @Override
+    /**
+     * Initialisation de la fenêtre
+     * 
+     * @param location  l'URL de la fenêtre
+     * @param resources les ressources de la fenêtre
+     */
     public void initialize(URL location, ResourceBundle resources) {
         // Initialisation : spinner visible et icône cachée
         spinner.setVisible(true);

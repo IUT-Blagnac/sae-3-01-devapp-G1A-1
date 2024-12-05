@@ -17,8 +17,6 @@ import javafx.scene.Scene;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
@@ -44,14 +42,14 @@ import java.util.List;
 import java.util.Map;
 
 /*
- * Contrôleur pour afficher les données par salle
- * avec des graphiques pour chaque salle
- * et des options pour afficher les données
- * de CO2, d'humidité et de température
- * pour chaque salle
- * Les salles peuvent être affichées ou masquées
- * et les graphiques sont mis à jour en conséquence
- * en fonction des options sélectionnées
+ * Controller to display data by room
+ * with charts for each room
+ * and options to display data
+ * for CO2, humidity, and temperature
+ * for each room
+ * Rooms can be shown or hidden
+ * and charts are updated accordingly
+ * based on the selected options
  */
 public class ShowByRoomController implements Initializable {
 
@@ -62,6 +60,11 @@ public class ShowByRoomController implements Initializable {
 
     private Map<String, Boolean> salleVisibility = new HashMap<>();
 
+    /**
+     * Method to initialize the context of the window
+     * 
+     * @param _containingStage
+     */
     public void initContext(Stage _containingStage) {
         this.primaryStage = _containingStage;
         this.configure();
@@ -73,21 +76,32 @@ public class ShowByRoomController implements Initializable {
         primaryStage.getScene().setRoot(stackPane);
 
         // Allow the alerts to be displayed
-        AlertePopup alertePopup = AlertePopup.getAlertPopupInstance(this.primaryStage);
+        AlertePopup.getAlertPopupInstance(this.primaryStage);
 
         PythonStatusUpdater.getPSUInstance().setPSULabel(this.lblPythonState);
     }
 
+    /**
+     * Method to display the window
+     */
     public void displayDialog() {
 
         this.primaryStage.show();
     }
 
+    /**
+     * Method to configure the window
+     */
     private void configure() {
         this.primaryStage.setOnCloseRequest(e -> this.closeWindow(e));
     }
 
-    // Gestion du stage
+    /**
+     * Close the window
+     * 
+     * @param e the window event
+     * @return null
+     */
     private Object closeWindow(WindowEvent e) {
         this.doQuit();
         e.consume();
@@ -100,6 +114,9 @@ public class ShowByRoomController implements Initializable {
     private Button btnBack;
 
     @FXML
+    /**
+     * Method to go back to the previous page
+     */
     private void doBack() { // Bouton qui mène à la page précédente (menu.fxml)
         try {
             this.timer.cancel();
@@ -125,6 +142,9 @@ public class ShowByRoomController implements Initializable {
     }
 
     @FXML
+    /**
+     * Method to quit the application
+     */
     private void doQuit() { // Gestion de la fermeture de la fenêtre
         GlobalVariables.exitApp(this.primaryStage);
     }
@@ -145,6 +165,12 @@ public class ShowByRoomController implements Initializable {
     private Label lblPythonState;
 
     @Override
+    /**
+     * Method to initialize the window
+     * 
+     * @param location  the URL of the window
+     * @param resources the resources of the window
+     */
     public void initialize(URL location, ResourceBundle resources) {
         // Salles à afficher
         String filePath = "IoT et JavaFX/appli-python/config.json";
@@ -213,7 +239,12 @@ public class ShowByRoomController implements Initializable {
         }, 0, 10000);
     }
 
-    // Méthode pour afficher/cacher une salle (fonctionnalité future)
+    /**
+     * Method to toggle the visibility of a room
+     * 
+     * @param salle     the room to toggle
+     * @param eyeButton the button to toggle the visibility
+     */
     private void toggleVisibility(String salle, Button eyeButton) {
         // Vérifier que la salle existe dans la HashMap
         if (!salleVisibility.containsKey(salle)) {
@@ -251,6 +282,9 @@ public class ShowByRoomController implements Initializable {
         updateRightScrollPane();
     }
 
+    /**
+     * Method to update the right scroll pane
+     */
     private void updateRightScrollPane() {
         contentRightVBox.getChildren().clear();
 
@@ -309,7 +343,11 @@ public class ShowByRoomController implements Initializable {
         }
     }
 
-    // Créer un graphique vide
+    /**
+     * Method to create an empty chart
+     * 
+     * @return an empty line chart
+     */
     private LineChart<Number, Number> createEmptyChart() {
         NumberAxis xAxis = new NumberAxis();
         xAxis.setLabel("Temps");
@@ -324,10 +362,10 @@ public class ShowByRoomController implements Initializable {
     }
 
     /**
-     * Charge les données d'une salle depuis un fichier JSONL.
+     * Loads data for a room from a JSONL file.
      *
-     * @param salle Le nom de la salle.
-     * @return Une liste de données de la salle.
+     * @param salle The name of the room.
+     * @return A list of data for the room.
      */
     private List<HashMap<String, Object>> loadSalleData(String salle) {
         String filePath = "IoT et JavaFX/appli-python/datas/captor/" + salle + ".jsonl";
@@ -356,13 +394,13 @@ public class ShowByRoomController implements Initializable {
     }
 
     /**
-     * Crée une série à partir des données JSONL pour un type de mesure spécifique.
+     * Creates a series from JSONL data for a specific measurement type.
      * 
-     * @param name Le nom de la série.
-     * @param data Les données de la salle.
-     * @param key  La clé correspondant au type de mesure (ex. "co2", "humidite",
-     *             "temperature").
-     * @return Une série prête à être ajoutée au graphique.
+     * @param name The name of the series.
+     * @param data The room data.
+     * @param key  The key corresponding to the measurement type (e.g., "co2",
+     *             "humidity", "temperature").
+     * @return A series ready to be added to the chart.
      */
     private XYChart.Series<Number, Number> createSeriesFromData(String name, List<HashMap<String, Object>> data,
             String key) {
@@ -383,6 +421,12 @@ public class ShowByRoomController implements Initializable {
         return series;
     }
 
+    /**
+     * Retrieves the first Label found in the TitledPane
+     * 
+     * @param titledPane the TitledPane to search
+     * @return the first Label found or null if no Label is found
+     */
     public Label getTitleLabel(TitledPane titledPane) {
         Node graphic = titledPane.getGraphic();
         if (graphic instanceof HBox) {
@@ -396,8 +440,11 @@ public class ShowByRoomController implements Initializable {
         return null; // Si aucun Label trouvé
     }
 
-    /*
-     * Vérifie si un fichier existe à un chemin donné.
+    /**
+     * Checks if a file exists at the given path
+     * 
+     * @param filePath the path to the file
+     * @return true if the file exists, false otherwise
      */
     private boolean fileExists(String filePath) {
         File file = new File(filePath);

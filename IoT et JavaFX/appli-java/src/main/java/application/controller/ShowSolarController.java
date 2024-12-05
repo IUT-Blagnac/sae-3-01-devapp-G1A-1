@@ -35,9 +35,10 @@ import tools.GlobalVariables;
 import tools.PythonStatusUpdater;
 import tools.SolarDataReader;
 
-/* Contrôleur pour afficher les données solaires
- *Affiche les données de production actuelle, journalière, mensuelle et annuelle
- *Affiche un graphique de production en fonction du temps
+/**
+ * Controller to display solar data
+ * Displays current, daily, monthly, and yearly production data
+ * Displays a production graph over time
  */
 public class ShowSolarController implements Initializable {
 
@@ -48,18 +49,33 @@ public class ShowSolarController implements Initializable {
     // Fenêtre physique
     private Stage primaryStage;
 
-    private String previousPage;
+    private String previousPage; // Page précédente
 
-    private Timer timer;
+    private Timer timer; // Timer pour rafraîchir les données
 
+    /**
+     * Method to set the previous page
+     * 
+     * @param previousPage the previous page
+     */
     public void setPreviousPage(String previousPage) {
         this.previousPage = previousPage;
     }
 
+    /**
+     * Method to get the previous page
+     * 
+     * @return the previous page
+     */
     public String getPreviousPage() {
         return this.previousPage;
     }
 
+    /**
+     * Method to initialize the context of the window
+     * 
+     * @param _containingStage the stage containing the window
+     */
     public void initContext(Stage _containingStage) {
         this.primaryStage = _containingStage;
         this.configure();
@@ -71,33 +87,45 @@ public class ShowSolarController implements Initializable {
         primaryStage.getScene().setRoot(stackPane);
 
         // Allow the alerts to be displayed
-        AlertePopup alertePopup = AlertePopup.getAlertPopupInstance(this.primaryStage);
+        AlertePopup.getAlertPopupInstance(this.primaryStage);
 
         PythonStatusUpdater.getPSUInstance().setPSULabel(this.lblPythonState);
     }
 
+    /**
+     * Method to display the window
+     */
     public void displayDialog() {
 
         this.primaryStage.show();
     }
 
+    /**
+     * Method to configure the window
+     */
     private void configure() {
         this.primaryStage.setOnCloseRequest(e -> this.closeWindow(e));
     }
 
-    // Gestion du stage
+    /**
+     * Close the window
+     * 
+     * @param e the window event
+     * @return null
+     */
     private Object closeWindow(WindowEvent e) {
         this.doQuit();
         e.consume();
         return null;
     }
 
-    // Attributs de la scene + actions
-
     @FXML
     private Button btnBack;
 
     @FXML
+    /**
+     * Method to go back to the previous page
+     */
     private void doBack() { // Bouton qui mène à la page précédente (menu.fxml)
         try {
             this.timer.cancel();
@@ -139,6 +167,9 @@ public class ShowSolarController implements Initializable {
     }
 
     @FXML
+    /*
+     * Method to quit the window
+     */
     private void doQuit() { // Gestion de la fermeture de la fenêtre
         GlobalVariables.exitApp(this.primaryStage);
     }
@@ -154,6 +185,12 @@ public class ShowSolarController implements Initializable {
     private Label lblPythonState;
 
     @Override
+    /**
+     * Method to initialize the window
+     * 
+     * @param location  the location
+     * @param resources the resources
+     */
     public void initialize(URL location, ResourceBundle resources) {
         setupHBox();
         setupCenterChart();
@@ -170,7 +207,9 @@ public class ShowSolarController implements Initializable {
         }, 0, 10000);
     }
 
-    // Méthode pour configurer le HBox
+    /**
+     * Method to set up the HBox
+     */
     private void setupHBox() {
 
         Map<String, Double> summaryData = SolarDataReader.loadSummaryData();
@@ -197,7 +236,9 @@ public class ShowSolarController implements Initializable {
         contentHBox.setSpacing(20);
     }
 
-    // méthode update pour le setupHbox
+    /**
+     * Method to update the HBox
+     */
     private void updateHBox() {
         Map<String, Double> summaryData = SolarDataReader.loadSummaryData();
 
@@ -210,7 +251,9 @@ public class ShowSolarController implements Initializable {
         }
     }
 
-    // Méthode pour configurer le graphique dans le center
+    /**
+     * Method to set up the center chart
+     */
     private void setupCenterChart() {
         List<Map.Entry<LocalTime, Double>> graphData = SolarDataReader.loadGraphData();
 

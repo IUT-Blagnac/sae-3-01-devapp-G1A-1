@@ -19,16 +19,20 @@ import tools.GlobalVariables;
 import tools.PythonStatusUpdater;
 
 /*
- * Contrôleur pour le menu de choix des courbes
- * Permet de choisir entre les courbes par pièce, par type de données ou pour le solaire
- * Redirige vers les pages correspondantes
- * Permet de revenir au menu principal ou de quitter l'application
+ * Controller for the curve selection menu
+ * Allows choosing between curves by room, by data type, or for solar
+ * Redirects to the corresponding pages
+ * Allows returning to the main menu or quitting the application
  */
 public class MenuCourbeController implements Initializable {
 
-    // Fenêtre physique
     private Stage primaryStage;
 
+    /**
+     * Method to initialize the context of the window
+     * 
+     * @param _containingStage the stage containing the window
+     */
     public void initContext(Stage _containingStage) {
         this.primaryStage = _containingStage;
         this.configure();
@@ -45,16 +49,27 @@ public class MenuCourbeController implements Initializable {
         PythonStatusUpdater.getPSUInstance().setPSULabel(this.lblPythonState);
     }
 
+    /**
+     * Method to display the window
+     */
     public void displayDialog() {
 
         this.primaryStage.show();
     }
 
+    /**
+     * Method to configure the window
+     */
     private void configure() {
         this.primaryStage.setOnCloseRequest(e -> this.closeWindow(e));
     }
 
-    // Gestion du stage
+    /**
+     * Close the window
+     * 
+     * @param e the window event
+     * @return null
+     */
     private Object closeWindow(WindowEvent e) {
         this.doQuit();
         e.consume();
@@ -82,10 +97,16 @@ public class MenuCourbeController implements Initializable {
     private Label lblPythonState;
 
     @Override
+    /**
+     * Method to initialize the window
+     */
     public void initialize(URL location, ResourceBundle resources) {
     }
 
     @FXML
+    /**
+     * Method to choose the curves by room
+     */
     private void doByRoom() { // Bouton qui mène à la page de choix des courbes par pièce
                               // (menuCourbePiece.fxml)
         try {
@@ -111,6 +132,9 @@ public class MenuCourbeController implements Initializable {
     }
 
     @FXML
+    /**
+     * Method to choose the curves by data type
+     */
     private void doByData() { // Bouton qui mène à la page de choix des courbes par type de données
                               // (menuCourbeData.fxml)
         try {
@@ -136,6 +160,9 @@ public class MenuCourbeController implements Initializable {
     }
 
     @FXML
+    /**
+     * Method to choose the solar curves
+     */
     private void doSolar() { // Bouton qui mène à la page de choix des courbes pour le solaire
         try {
             FXMLLoader loader = new FXMLLoader(
@@ -162,6 +189,9 @@ public class MenuCourbeController implements Initializable {
     }
 
     @FXML
+    /**
+     * Method to go back to the previous page (menu.fxml)
+     */
     private void doBack() { // Bouton qui mène à la page précédente (menu.fxml)
         try {
             FXMLLoader loader = new FXMLLoader(
@@ -186,6 +216,9 @@ public class MenuCourbeController implements Initializable {
     }
 
     @FXML
+    /**
+     * Method to quit the application
+     */
     private void doQuit() { // Gestion de la fermeture de la fenêtre
         GlobalVariables.exitApp(this.primaryStage);
     }

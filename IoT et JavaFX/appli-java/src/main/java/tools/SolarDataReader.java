@@ -10,10 +10,18 @@ import java.util.Map;
 import java.util.HashMap;
 import org.json.JSONObject;
 
+/**
+ * Class to read the solar data from the JSON file
+ */
 public class SolarDataReader {
 
     private static final String FILE_PATH = "IOT et JavaFX/appli-python/datas/solar/DONNEES_SOLAIRES.jsonl";
 
+    /**
+     * Method to load the summary data from the JSON file
+     * 
+     * @return a map containing the summary data
+     */
     public static Map<String, Double> loadSummaryData() {
         Map<String, Double> summaryData = new HashMap<>();
         try (BufferedReader reader = new BufferedReader(new FileReader(FILE_PATH))) {
@@ -38,6 +46,11 @@ public class SolarDataReader {
         return summaryData;
     }
 
+    /**
+     * Method to load the graph data from the JSON file
+     * 
+     * @return a list containing the graph data
+     */
     public static List<Map.Entry<LocalTime, Double>> loadGraphData() {
         List<Map.Entry<LocalTime, Double>> graphData = new ArrayList<>();
         try (BufferedReader reader = new BufferedReader(new FileReader(FILE_PATH))) {
