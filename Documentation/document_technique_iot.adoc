@@ -27,3 +27,26 @@ L'équipe est composée de cinq membres avec les rôles suivants :
 - *Titouan* : Développeur
 - *Pablo* : Développeur
 - *Hugo* : Scrum Master et Développeur
+
+=== Contexte du projet
+
+Le projet a pour objectif de développer une application de gestion d’entrepôt pour l’entreprise BuildMyPC, spécialisée dans la vente de composants informatiques et d’ordinateurs montés. Bien que son activité principale ne soit pas le stockage, l’entreprise doit gérer des locaux pour stocker les produits nécessaires à son activité. BuildMyPC souhaite donc intégrer une solution logicielle complémentaire pour surveiller les conditions environnementales de ses entrepôts, telles que la température, l'humidité et le niveau de CO2, afin de garantir la qualité de ses produits. + 
+L'application devra également inclure un module pour suivre la production et la consommation énergétique des panneaux solaires de l'entreprise, permettant une gestion optimisée de l’énergie et une approche écoresponsable. Ce projet vise à renforcer l'efficacité opérationnelle de l’entreprise tout en soutenant ses engagements en matière de durabilité.
+
+=== Objectifs du projet
+
+**Problématique :**  
+
+Garantir la fiabilité et l’efficacité de l’application IoT de gestion d’entrepôt pour assurer la qualité des produits et optimiser la gestion énergétique, tout en offrant une expérience utilisateur optimale. +
+
+**Objectifs :**
+
+- Valider le fonctionnement des connexions, des capteurs et des modules énergétiques.
+
+- Assurer l’affichage précis et en temps réel des données, même en cas d’erreurs ou de données manquantes.
+
+- Tester les mécanismes d’alerte et de visualisation pour une prise de décision rapide.
+
+- Renforcer la robustesse du système face aux erreurs et interruptions.
+
+- Aligner l’application avec les objectifs de durabilité et d’efficacité opérationnelle de BuildMyPC.
