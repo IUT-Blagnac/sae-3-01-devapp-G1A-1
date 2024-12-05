@@ -1,0 +1,29 @@
+= Documentation technique de l'application IOT
+:icons: font
+:models: models
+:experimental:
+:incremental:
+:numbered:
+:toc: macro
+:window: _blank
+:correction!:
+
+toc::[]
+
+Version de l'application : V1.0 +
+Date : 06/12/2024 +
+Equipe : 1A-1 +
+Client : BuildMyPC +
+Projet : Application de gestion d'entrepôt +
+
+== Description du projet
+
+=== Équipe
+
+L'équipe est composée de cinq membres avec les rôles suivants :
+
+- *Romain* : Product Owner et Développeur
+- *Kilian* : Développeur
+- *Titouan* : Développeur
+- *Pablo* : Développeur
+- *Hugo* : Scrum Master et Développeur
