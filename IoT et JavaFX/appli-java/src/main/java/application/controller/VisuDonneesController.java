@@ -115,7 +115,7 @@ public class VisuDonneesController implements Initializable {
         primaryStage.getScene().setRoot(stackPane);
 
         // Allow the alerts to be displayed
-        AlertePopup alertePopup = AlertePopup.getAlertPopupInstance(this.primaryStage);
+        AlertePopup.getAlertPopupInstance(this.primaryStage);
 
         PythonStatusUpdater.getPSUInstance().setPSULabel(this.lblPythonState);
     }
@@ -149,7 +149,7 @@ public class VisuDonneesController implements Initializable {
         try {
             this.timer.cancel();
             FXMLLoader loader = new FXMLLoader(
-                    MenuCourbeController.class.getResource("/application/view/menu.fxml"));
+                    VisuDonneesController.class.getResource("/application/view/menu.fxml"));
             BorderPane root = loader.load();
 
             Scene scene = new Scene(root, root.getPrefWidth() + 20, root.getPrefHeight() + 10);
@@ -219,7 +219,10 @@ public class VisuDonneesController implements Initializable {
         List<HashMap<String, Object>> record;
         HashMap<String, Object> lastLine;
         for (String room : GlobalVariables.salles) {
-            record = dataReader.readJsonLFile("IoT et JavaFX/appli-python/datas/captor/" + room + ".jsonl");
+            String filePath = String.format(GlobalVariables.roomsFilePath, room);
+            record = dataReader.readJsonLFile(filePath);
+            // record = dataReader.readJsonLFile("/appli-python/datas/captor/" + room +
+            // ".jsonl");
             if (record != null) {
                 lastLine = record.get(record.size() - 1);
                 String co2 = lastLine.getOrDefault("co2", Salle.noData).toString();

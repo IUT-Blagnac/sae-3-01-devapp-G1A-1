@@ -72,8 +72,7 @@ public class PythonExecuter {
             attempts++;
             try {
                 this.state = GlobalVariables.pythonState.PENDING;
-
-                ProcessBuilder processBuilder = new ProcessBuilder("python", filePath);
+                ProcessBuilder processBuilder = new ProcessBuilder("python", this.filePath);
                 // Redirect error stream to input stream
                 processBuilder.redirectErrorStream(true);
                 process = processBuilder.start();

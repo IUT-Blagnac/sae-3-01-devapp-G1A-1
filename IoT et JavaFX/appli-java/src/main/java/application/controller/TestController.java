@@ -9,8 +9,10 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+import tools.GlobalVariables;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -98,8 +100,7 @@ public class TestController implements Initializable {
     private boolean testPythonConnection() {
         try {
             // Commande pour exécuter le script Python
-            ProcessBuilder pb = new ProcessBuilder("python",
-                    "IoT et JavaFX/appli-java/src/main/resources/TestConnexion.py");
+            ProcessBuilder pb = new ProcessBuilder("python", GlobalVariables.testConnexionFilePath);
             Process process = pb.start();
 
             // Lire la sortie standard du script Python

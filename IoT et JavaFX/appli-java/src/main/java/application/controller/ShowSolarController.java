@@ -42,10 +42,6 @@ import tools.SolarDataReader;
  */
 public class ShowSolarController implements Initializable {
 
-    private static final String DATA_FILE_PATH = "IOT et JavaFX/appli-python/datas/solar/DONNEES_SOLAIRES.jsonl";
-
-    private List<HashMap<String, Object>> solarData; // Liste des données solaires
-
     // Fenêtre physique
     private Stage primaryStage;
 

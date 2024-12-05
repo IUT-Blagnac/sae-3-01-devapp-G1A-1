@@ -27,6 +27,7 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import tools.DataReader;
+import tools.GlobalVariables;
 
 import java.nio.file.*;
 import java.util.concurrent.ExecutorService;
@@ -200,7 +201,7 @@ public class AlertePopup {
      */
     private void startFileWatcher() {
         watchServiceExecutor = Executors.newSingleThreadExecutor();
-        Path logFilePath = Paths.get("IoT et JavaFX/appli-python/alerts/LOG_ALERTE.jsonl");
+        Path logFilePath = Paths.get(GlobalVariables.alertsFilePath);
 
         watchServiceExecutor.submit(() -> {
             try (WatchService watchService = FileSystems.getDefault().newWatchService()) {

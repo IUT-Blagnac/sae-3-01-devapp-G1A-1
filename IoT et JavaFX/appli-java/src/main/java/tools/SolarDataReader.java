@@ -15,8 +15,6 @@ import org.json.JSONObject;
  */
 public class SolarDataReader {
 
-    private static final String FILE_PATH = "IOT et JavaFX/appli-python/datas/solar/DONNEES_SOLAIRES.jsonl";
-
     /**
      * Method to load the summary data from the JSON file
      * 
@@ -24,7 +22,7 @@ public class SolarDataReader {
      */
     public static Map<String, Double> loadSummaryData() {
         Map<String, Double> summaryData = new HashMap<>();
-        try (BufferedReader reader = new BufferedReader(new FileReader(FILE_PATH))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(GlobalVariables.solarDataFilePath))) {
             String line;
             String lastLine = null;
 
@@ -53,7 +51,7 @@ public class SolarDataReader {
      */
     public static List<Map.Entry<LocalTime, Double>> loadGraphData() {
         List<Map.Entry<LocalTime, Double>> graphData = new ArrayList<>();
-        try (BufferedReader reader = new BufferedReader(new FileReader(FILE_PATH))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(GlobalVariables.solarDataFilePath))) {
             String line;
 
             while ((line = reader.readLine()) != null) {

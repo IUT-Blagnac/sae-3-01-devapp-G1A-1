@@ -173,7 +173,7 @@ public class ShowByRoomController implements Initializable {
      */
     public void initialize(URL location, ResourceBundle resources) {
         // Salles à afficher
-        String filePath = "IoT et JavaFX/appli-python/config.json";
+        String filePath = GlobalVariables.pythonConfigFilePath;
         DataReader dataReader = new DataReader();
         HashMap<String, Object> jsonMap = dataReader.readJsonFile(filePath);
 
@@ -368,7 +368,8 @@ public class ShowByRoomController implements Initializable {
      * @return A list of data for the room.
      */
     private List<HashMap<String, Object>> loadSalleData(String salle) {
-        String filePath = "IoT et JavaFX/appli-python/datas/captor/" + salle + ".jsonl";
+        String filePath = String.format(GlobalVariables.roomsFilePath, salle);
+        // String filePath = "/appli-python/datas/captor/" + salle + ".jsonl";
         File file = new File(filePath);
         if (!file.exists()) {
             System.out.println(

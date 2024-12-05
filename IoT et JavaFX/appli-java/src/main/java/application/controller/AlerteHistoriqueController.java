@@ -219,7 +219,7 @@ public class AlerteHistoriqueController implements Initializable {
 
         // Charger les données depuis un fichier
         alertesList = FXCollections
-                .observableArrayList(loadAlertesFromFile("IoT et JavaFX/appli-python/alerts/LOG_ALERTE.jsonl"));
+                .observableArrayList(loadAlertesFromFile(GlobalVariables.alertsFilePath));
 
         // Trier les alertes par timestamp
         alertesList = sortAlertesByTimestamp(alertesList);

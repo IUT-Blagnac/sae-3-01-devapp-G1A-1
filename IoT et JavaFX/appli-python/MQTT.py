@@ -6,8 +6,8 @@ import time
 import threading
 
 # Lecture de la configuration depuis le fichier config.json avec os.open et os.read
-fd_config = os.open('IoT et JavaFX/appli-python/config.json', os.O_RDONLY)
-contenu_config = os.read(fd_config, os.path.getsize('IoT et JavaFX/appli-python/config.json')).decode('utf-8')
+fd_config = os.open(os.path.join(os.path.dirname(__file__), 'config.json'), os.O_RDONLY)
+contenu_config = os.read(fd_config, os.path.getsize(os.path.join(os.path.dirname(__file__), 'config.json'))).decode('utf-8')
 os.close(fd_config)
 configuration = json.loads(contenu_config)
 
@@ -39,7 +39,7 @@ frequence_lecture = configuration['lecture']['frequence']
 # Connexion au serveur MQTT
 client_mqtt = mqtt.Client()
 # client_mqtt.connect("mqtt.iut-blagnac.fr", 1883)
-client_mqtt.connect("chirpstack.iut-blagnac.fr", 1883)
+client_mqtt.connect("mqtt.iut-blagnac.fr", 1883)
 
 client_mqtt.subscribe(chemin_salle_mqtt)
 client_mqtt.subscribe(chemin_solaire_mqtt)  # Souscription au topic des panneaux solaires
@@ -80,7 +80,7 @@ def mise_a_jour_alertes(salle):
             })
     if alerte_message:
         for alerte in alerte_message:
-            ecrire_jsonl("IoT et JavaFX/appli-python/alerts/LOG_ALERTE.jsonl", alerte)
+            ecrire_jsonl(os.path.join(os.path.dirname(__file__), "alerts/LOG_ALERTE.jsonl"), alerte)
 
 # Fonction appelée lorsqu'un message est reçu
 def reception_message(mqttc, obj, msg):
@@ -96,7 +96,7 @@ def reception_message(mqttc, obj, msg):
                 mise_a_jour_alertes(salle)
                 print(f"SALLE {salle} PRISE EN CHARGE")
                 # Sauvegarde des données dans un fichier JSONL spécifique à la salle
-                fichier_salle = f"IoT et JavaFX/appli-python/datas/captor/{salle}.jsonl"
+                fichier_salle = os.path.join(os.path.dirname(__file__), f"datas/captor/{salle}.jsonl")
                 data_message = {}
                 if choix_donnees[0]: data_message["temperature"] = temp
                 if choix_donnees[1]: data_message["humidite"] = hum
@@ -121,16 +121,16 @@ def reception_message(mqttc, obj, msg):
                     "currentPower": currentPower,
                     "timestamp": datetime.now().isoformat()
                 }
-                ecrire_jsonl("IoT et JavaFX/appli-python/datas/solar/DONNEES_SOLAIRES.jsonl", solaire_message)
+                ecrire_jsonl(os.path.join(os.path.dirname(__file__), "datas/solar/DONNEES_SOLAIRES.jsonl"), solaire_message)
     except KeyError as e:
         print("MESSAGE INVALIDE")
 
 # Fonction appelée périodiquement pour gérer les messages MQTT
 def handler():
     print("-------------------------------")
-    print("Alarme déclenchée!")
+    print("Vérification des messages")
     client_mqtt.on_message = reception_message
-    print('LECTURE EN COURS, AFFICHAGE DES ALERTES')
+    print('LECTURE EN COURS')
     client_mqtt.loop_start()
     time.sleep(2)
     client_mqtt.loop_stop()

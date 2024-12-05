@@ -18,8 +18,15 @@ public class GlobalVariables {
     private GlobalVariables() {
     }
 
-    public static final String pythonFilePath = "IoT et JavaFX/appli-python/MQTT.py";
-    public static final String pythonConfigFilePath = "IoT et JavaFX/appli-python/config.json";
+    public static final String pythonFilePath = "appli-python/MQTT.py";
+    public static final String pythonConfigFilePath = "appli-python/config.json";
+    public static final String testConnexionFilePath = "appli-python/TestConnexion.py";
+    public static final String alertsFilePath = "appli-python/alerts/LOG_ALERTE.jsonl";
+    public static final String solarDataFilePath = "appli-python/datas/solar/DONNEES_SOLAIRES.jsonl";
+    // Generic path for the rooms. Use String.format(GlobalVariables.roomsFilePath,
+    // "B001") to have the path to a specific room. B001 is an example of how string
+    // formating works here.
+    public static final String roomsFilePath = "appli-python/datas/captor/%s.jsonl";
 
     public enum pythonState {
         RUNNING, PENDING, DISCONNECTED

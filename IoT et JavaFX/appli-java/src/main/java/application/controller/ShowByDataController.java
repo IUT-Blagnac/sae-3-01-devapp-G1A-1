@@ -171,7 +171,7 @@ public class ShowByDataController implements Initializable {
 
         // Charger les salles depuis le fichier de configuration
         // Salles à afficher
-        String filePath = "IoT et JavaFX/appli-python/config.json";
+        String filePath = GlobalVariables.pythonConfigFilePath;
         DataReader dataReader = new DataReader();
         HashMap<String, Object> jsonMap = dataReader.readJsonFile(filePath);
 
@@ -344,7 +344,8 @@ public class ShowByDataController implements Initializable {
      */
     private double[] getDataForSalle(String typeDonnee, String salleName) {
         // Charger les données depuis le fichier JSONL
-        String filePath = "IoT et JavaFX/appli-python/datas/captor/" + salleName + ".jsonl";
+        String filePath = String.format(GlobalVariables.roomsFilePath, salleName);
+        // String filePath = "/appli-python/datas/captor/" + salleName + ".jsonl";
         File file = new File(filePath);
         if (!file.exists()) {
             System.out.println(
