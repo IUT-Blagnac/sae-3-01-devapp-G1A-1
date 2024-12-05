@@ -36,10 +36,20 @@ L'application devra également inclure un module pour suivre la production et la
 === Objectifs du projet
 
 **Problématique :**  
-TODO
 
-**Objectif :**  
-TODO
+Garantir la fiabilité et l’efficacité de l’application IoT de gestion d’entrepôt pour assurer la qualité des produits et optimiser la gestion énergétique, tout en offrant une expérience utilisateur optimale. +
+
+**Objectifs :**
+
+- Valider le fonctionnement des connexions, des capteurs et des modules énergétiques.
+
+- Assurer l’affichage précis et en temps réel des données, même en cas d’erreurs ou de données manquantes.
+
+- Tester les mécanismes d’alerte et de visualisation pour une prise de décision rapide.
+
+- Renforcer la robustesse du système face aux erreurs et interruptions.
+
+- Aligner l’application avec les objectifs de durabilité et d’efficacité opérationnelle de BuildMyPC.
 
 == Fonctionnement du projet Web
 
