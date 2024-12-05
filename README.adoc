@@ -119,8 +119,8 @@ Voici le lien vers le https://docs.google.com/document/d/1JXWsYDaT89UOSjPgRJJcoX
 
 |===
 | Nom du document | Description        |  Lien
-| Documentation Technique | Détails de l'architecture, des technologies utilisées, des choix de conception, et des fonctionnalités principales | link:Documentation/TODO.adoc[SOON - Lien vers la documentation technique]
-| Documentation Utilisateur | Documentation détaillant les fonctionnalités disponibles pour les utilisateurs finaux et comment les réaliser | link:Documentation/TODO.adoc[SOON - Lien vers le guide administrateur et employé(e)]
+| Documentation Technique | Détails de l'architecture, des technologies utilisées, des choix de conception, et des fonctionnalités principales | link:Documentation/document_technique_iot.adoc[Lien vers la documentation technique]
+| Documentation Utilisateur | Documentation détaillant les fonctionnalités disponibles pour les utilisateurs finaux et comment les réaliser | link:Documentation/document_utilisateur_iot.adoc[Lien vers le guide administrateur et employé(e)]
 |===
 
 ==== Gestion de projet & Qualité
