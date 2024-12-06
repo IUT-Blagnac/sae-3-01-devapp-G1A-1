@@ -1,3 +1,10 @@
 {"temperature": 24.4, "timestamp": "2024-12-04T21:49:31.737922"}
 {"temperature": 24.7, "humidite": 44.5, "co2": 616, "timestamp": "2024-12-06T10:29:42.664403"}
 {"temperature": 24.5, "humidite": 44.5, "co2": 638, "timestamp": "2024-12-06T11:19:45.009867"}
+{"temperature": 25, "humidite": 44, "co2": 664, "timestamp": "2024-12-06T11:59:42.713920"}
+{"temperature": 24.9, "humidite": 41, "co2": 537, "timestamp": "2024-12-06T14:29:36.039559"}
+{"temperature": 24.8, "humidite": 41, "co2": 557, "timestamp": "2024-12-06T14:39:44.566580"}
+{"temperature": 25.1, "humidite": 40.5, "co2": 580, "timestamp": "2024-12-06T14:49:43.225005"}
+{"temperature": 25, "humidite": 41, "co2": 604, "timestamp": "2024-12-06T14:59:38.793556"}
+{"temperature": 25.2, "humidite": 40.5, "co2": 630, "timestamp": "2024-12-06T15:09:31.995416"}
+{"temperature": 24.7, "humidite": 41.5, "co2": 664, "timestamp": "2024-12-06T15:19:30.954648"}
