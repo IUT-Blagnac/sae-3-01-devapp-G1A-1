@@ -98,8 +98,6 @@ L'application est disponible en installant le fichier "Appli-IOT.zip" dans la ht
   - Documentation : https://openjfx.io/
 - **Jackson** : Bibliothèque Java pour le traitement des fichiers JSON.
   - Lien : https://github.com/FasterXML/jackson
-- **Matplotlib** : Bibliothèque Python pour la création de graphiques.
-  - Lien : https://matplotlib.org/
 
 == Fonctionnalités principales  
 
@@ -219,7 +217,7 @@ git clone https://github.com/IUT-Blagnac/sae-3-01-devapp-G1A-1.git
 
 [source,bash]
 ----
-pip install paho-mqtt matplotlib
+pip install paho-mqtt
 ----
 
 4. **Importation du projet Java** :
@@ -243,7 +241,7 @@ pip install paho-mqtt matplotlib
 
    - **Java Runtime Environment (JRE) 17** : Nécessaire pour exécuter l'application Java.
    - **Python 3.11.9+** : Pour les scripts de collecte de données.
-   - **Bibliothèques Python** : Paho MQTT et Matplotlib.
+   - **Bibliothèques Python** : Paho MQTT
 
 2. **Installation de l'application Java** :
 
@@ -257,7 +255,7 @@ pip install paho-mqtt matplotlib
 
 [source,bash]
 ----
-pip install paho-mqtt matplotlib
+pip install paho-mqtt
 ----
 
 
