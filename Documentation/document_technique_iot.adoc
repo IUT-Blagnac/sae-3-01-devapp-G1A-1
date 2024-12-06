@@ -78,15 +78,37 @@ L'application est disponible en installant le fichier "Appli-IOT.zip" dans la ht
 
 == Fonctionnalités principales  
 
-=== Collecte de données  
+=== Structuration du code source
+La structuration des packages suit le model MVC revisité: un **package tool** contient classes outils tel que `DataReader.java`. Le **package controller** contient toutes les classes qui controlent les vues (interface graphique). Les vues sont initialisées avec des fichiers FXML dans un **package view** coté ressources. Et la classe principale qui lance l’application est à l’extérieur de ces packages de même que les alertes. +
+
+Arborescence des fichiers :
+
+* *appli-python* : Application python
+** *config.json* : Fichier de configuration des données
+** *MQTT.py* : Programme python principale
+** *TestConnexion.py* : Programme de test du broker MQTT
+* *appli-java* : Application JavaFX
+** *src* : Dossier contenant le code source
+*** *java* : Dossier contenant le code source java des controllers
+**** *application* : Dossier contenant les controllers et les MainFrames
+***** *controller* : Dossier contenant le code source java des controllers
+***** *autres* : Code source de la mainFrame
+**** *tools* : Dossier contenant le code source java des outils
+**** *RunApp.java* : Classe java pour start l'application
+*** *resources* : Dossier contenant les ressources externes (FXML et images)
+**** *application* : Dossier contenant les ressources externes (FXML)
+***** *view* : Dossier contenant les codes FXML des pages de l'application
+***** *css* : Fichier css utilisé par l'application
+
+=== Collecte de données
 - Les capteurs transmettent les données en temps réel au serveur MQTT.  
 - Les données sont récupérées par un script Python et sauvegardées dans des fichiers.  
 
-=== Gestion des alertes  
+=== Gestion des alertes
 - Le système analyse les seuils définis dans le fichier `config.json`.  
 - En cas de dépassement, une alerte est générée, écrite dans un fichier et lue par l'interface utilisateur.  
 
-=== Suivi énergétique  
+=== Suivi énergétique
 - Les données des panneaux solaires sont récupérées via MQTT et affichées sous forme de graphiques dans l'application.  
 
 == Configuration et déploiement  
