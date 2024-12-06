@@ -16,14 +16,6 @@ INSERT INTO Carte_EU (idCarte, numCarte, dateExp, nomProprietaire) VALUES (2, '1
 INSERT INTO Carte_AE (idCarte, numCarte, dateExp, nomProprietaire) VALUES (3, '341234567890123', '2029-07-10', 'Leleu');
 
 #/////////////////////////////////////////////////////////////////////////////////////--
-#                            insert infoPaiement
-#/////////////////////////////////////////////////////////////////////////////////////--
-
-INSERT INTO infoPaiement (idNumCli, idCarte, idMethodePaiement) VALUES (1, 1, 1);
-INSERT INTO infoPaiement (idNumCli, idCarte, idMethodePaiement) VALUES (2, 2, 3);
-INSERT INTO infoPaiement (idNumCli, idCarte, idMethodePaiement) VALUES (3, 3, 4);
-
-#/////////////////////////////////////////////////////////////////////////////////////--
 #                                   insert marque
 #/////////////////////////////////////////////////////////////////////////////////////--
 
@@ -130,56 +122,65 @@ INSERT INTO AdressePostale (pays, ville, numNomRue, codePostal) VALUES ('Wales',
 #                                 insert Client                     
 #/////////////////////////////////////////////////////////////////////////////////////--
 
-INSERT INTO Client (nom, prenom, idAdresse, email, telephone) VALUES ('Chauvin', 'Émilie', 1, 'émilie.chauvin@gmail.com', '0402300326');
-INSERT INTO Client (nom, prenom, idAdresse, email, telephone) VALUES ('Valentin', 'Véronique', 2, 'véronique.valentin@gmail.com', '0608039558');
-INSERT INTO Client (nom, prenom, idAdresse, email, telephone) VALUES ('Leleu', 'Benjamin', 3, 'benjamin.leleu@gmail.com', '0704815438');
-INSERT INTO Client (nom, prenom, idAdresse, email, telephone) VALUES ('Marchand', 'Anaïs', 4, 'anaïs.marchand@gmail.com', '0403577725');
-INSERT INTO Client (nom, prenom, idAdresse, email, telephone) VALUES ('Lefèvre', 'Martine', 5, 'martine.lefèvre@gmail.com', '0533142540');
-INSERT INTO Client (nom, prenom, idAdresse, email, telephone) VALUES ('Hebert', 'Stéphanie', 6, 'stéphanie.hebert@gmail.com', '0533032414');
-INSERT INTO Client (nom, prenom, idAdresse, email, telephone) VALUES ('Didier', 'Noël', 7, 'noël.didier@gmail.com', '0404567464');
-INSERT INTO Client (nom, prenom, idAdresse, email, telephone) VALUES ('Faivre', 'Élise', 8, 'élise.faivre@gmail.com', '0502318894');
-INSERT INTO Client (nom, prenom, idAdresse, email, telephone) VALUES ('Rodriguez', 'Colette', 9, 'colette.rodriguez@gmail.com', '0533562203');
-INSERT INTO Client (nom, prenom, idAdresse, email, telephone) VALUES ('Ribeiro', 'Olivier', 10, 'olivier.ribeiro@gmail.com', '0702500547');
-INSERT INTO Client (nom, prenom, idAdresse, email, telephone) VALUES ('Diaz', 'Alfred', 11, 'alfred.diaz@gmail.com', '0633359636');
-INSERT INTO Client (nom, prenom, idAdresse, email, telephone) VALUES ('Raymond', 'Antoine', 12, 'antoine.raymond@gmail.com', '0733222035');
-INSERT INTO Client (nom, prenom, idAdresse, email, telephone) VALUES ('Navarro', 'Gilles', 13, 'gilles.navarro@gmail.com', '0405081866');
-INSERT INTO Client (nom, prenom, idAdresse, email, telephone) VALUES ('Gilbert', 'Lucy', 14, 'lucy.gilbert@gmail.com', '0604494855');
-INSERT INTO Client (nom, prenom, idAdresse, email, telephone) VALUES ('Rousset', 'Frédéric', 15, 'frédéric.rousset@gmail.com', '0733021930');
-INSERT INTO Client (nom, prenom, idAdresse, email, telephone) VALUES ('Blanc', 'Lucy', 16, 'lucy.blanc@gmail.com', '0704746188');
-INSERT INTO Client (nom, prenom, idAdresse, email, telephone) VALUES ('Boulanger', 'Alain', 17, 'alain.boulanger@gmail.com', '0504137188');
-INSERT INTO Client (nom, prenom, idAdresse, email, telephone) VALUES ('Dumont', 'Audrey', 18, 'audrey.dumont@gmail.com', '0433024683');
-INSERT INTO Client (nom, prenom, idAdresse, email, telephone) VALUES ('Marques', 'Honoré', 19, 'honoré.marques@gmail.com', '0633188249');
-INSERT INTO Client (nom, prenom, idAdresse, email, telephone) VALUES ('Bernier', 'Susan', 20, 'susan.bernier@gmail.com', '0401583814');
-INSERT INTO Client (nom, prenom, idAdresse, email, telephone) VALUES ('Humbert', 'Tristan', 21, 'tristan.humbert@gmail.com', '0533022813');
-INSERT INTO Client (nom, prenom, idAdresse, email, telephone) VALUES ('Gay', 'Vincent', 22, 'vincent.gay@gmail.com', '0733261084');
-INSERT INTO Client (nom, prenom, idAdresse, email, telephone) VALUES ('Brun', 'Nicole', 23, 'nicole.brun@gmail.com', '0733323040');
-INSERT INTO Client (nom, prenom, idAdresse, email, telephone) VALUES ('Michaud', 'Suzanne', 24, 'suzanne.michaud@gmail.com', '0603542165');
-INSERT INTO Client (nom, prenom, idAdresse, email, telephone) VALUES ('Duhamel', 'Charles', 25, 'charles.duhamel@gmail.com', '0433223280');
-INSERT INTO Client (nom, prenom, idAdresse, email, telephone) VALUES ('Pierre', 'Amélie', 26, 'amélie.pierre@gmail.com', '0533035141');
-INSERT INTO Client (nom, prenom, idAdresse, email, telephone) VALUES ('Dupuis', 'Valérie', 27, 'valérie.dupuis@gmail.com', '0433059610');
-INSERT INTO Client (nom, prenom, idAdresse, email, telephone) VALUES ('Clerc', 'Laetitia', 28, 'laetitia.clerc@gmail.com', '0633243357');
-INSERT INTO Client (nom, prenom, idAdresse, email, telephone) VALUES ('Pires', 'Nath', 29, 'nath.pires@gmail.com', '0433024543');
-INSERT INTO Client (nom, prenom, idAdresse, email, telephone) VALUES ('Lemaire', 'Frédérique', 30, 'frédérique.lemaire@gmail.com', '0733480666');
-INSERT INTO Client (nom, prenom, idAdresse, email, telephone) VALUES ('Maréchal', 'Renée', 31, 'renée.maréchal@gmail.com', '0503595668');
-INSERT INTO Client (nom, prenom, idAdresse, email, telephone) VALUES ('Guibert', 'Nathalie', 32, 'nathalie.guibert@gmail.com', '0533438528');
-INSERT INTO Client (nom, prenom, idAdresse, email, telephone) VALUES ('Lefèvre', 'Hortense', 33, 'hortense.lefèvre@gmail.com', '0433556204');
-INSERT INTO Client (nom, prenom, idAdresse, email, telephone) VALUES ('Peron', 'Audrey', 34, 'audrey.peron@gmail.com', '0433372416');
-INSERT INTO Client (nom, prenom, idAdresse, email, telephone) VALUES ('Brun', 'Étienne', 35, 'étienne.brun@gmail.com', '0433389756');
-INSERT INTO Client (nom, prenom, idAdresse, email, telephone) VALUES ('Legros', 'Charlotte', 36, 'charlotte.legros@gmail.com', '0705086929');
-INSERT INTO Client (nom, prenom, idAdresse, email, telephone) VALUES ('Techer', 'Gabrielle', 37, 'gabrielle.techer@gmail.com', '0504657017');
-INSERT INTO Client (nom, prenom, idAdresse, email, telephone) VALUES ('Guillet', 'Xavier', 38, 'xavier.guillet@gmail.com', '0633035367');
-INSERT INTO Client (nom, prenom, idAdresse, email, telephone) VALUES ('Pages', 'François', 39, 'françois.pages@gmail.com', '0533236071');
-INSERT INTO Client (nom, prenom, idAdresse, email, telephone) VALUES ('Gérard', 'Emmanuel', 40, 'emmanuel.gérard@gmail.com', '0602291448');
-INSERT INTO Client (nom, prenom, idAdresse, email, telephone) VALUES ('Ribeiro', 'Denise', 41, 'denise.ribeiro@gmail.com', '0403541167');
-INSERT INTO Client (nom, prenom, idAdresse, email, telephone) VALUES ('Bouvet', 'Michèle', 42, 'michèle.bouvet@gmail.com', '0433032017');
-INSERT INTO Client (nom, prenom, idAdresse, email, telephone) VALUES ('Lebon', 'Laurent', 43, 'laurent.lebon@gmail.com', '0401601576');
-INSERT INTO Client (nom, prenom, idAdresse, email, telephone) VALUES ('Dupuy', 'Antoinette', 44, 'antoinette.dupuy@gmail.com', '0603524120');
-INSERT INTO Client (nom, prenom, idAdresse, email, telephone) VALUES ('Gonzalez', 'Élodie', 45, 'élodie.gonzalez@gmail.com', '0605580607');
-INSERT INTO Client (nom, prenom, idAdresse, email, telephone) VALUES ('Pierre', 'Virginie', 46, 'virginie.pierre@gmail.com', '0704578903');
-INSERT INTO Client (nom, prenom, idAdresse, email, telephone) VALUES ('Deschamps', 'Adrienne', 47, 'adrienne.deschamps@gmail.com', '0503871703');
-INSERT INTO Client (nom, prenom, idAdresse, email, telephone) VALUES ('Guichard', 'Christophe', 48, 'christophe.guichard@gmail.com', '0701734919');
-INSERT INTO Client (nom, prenom, idAdresse, email, telephone) VALUES ('Leclercq', 'Thibaut', 49, 'thibaut.leclercq@gmail.com', '0533024629');
-INSERT INTO Client (nom, prenom, idAdresse, email, telephone) VALUES ('Gomez', 'Laetitia', 50, 'laetitia.gomez@gmail.com', '0733058275');
+INSERT INTO Client (nom, prenom, idAdresse, email, telephone, mdp) VALUES ('Chauvin', 'Émilie', 1, 'émilie.chauvin@gmail.com', '0402300326', '5e884898da28047151d0e56f8dc6292773603d0d6aabbddc8fef0f8a975e9f5d');
+INSERT INTO Client (nom, prenom, idAdresse, email, telephone, mdp) VALUES ('Valentin', 'Véronique', 2, 'véronique.valentin@gmail.com', '0608039558', 'b4b147bc522828731f1a016bfa72c073e0c1e2a6d1e10217df3c3c2a6d4d3182');
+INSERT INTO Client (nom, prenom, idAdresse, email, telephone, mdp) VALUES ('Leleu', 'Benjamin', 3, 'benjamin.leleu@gmail.com', '0704815438', '3c59dc048e8850243be8079a5c74d079a9eb8e1a1316d59b9eb3b3c1cf98e7d5');
+INSERT INTO Client (nom, prenom, idAdresse, email, telephone, mdp) VALUES ('Marchand', 'Anaïs', 4, 'anaïs.marchand@gmail.com', '0403577725', 'e99a18c428cb38d5f260853678922e03abd83351d3d1f34e39dd6531fc2f21e7');
+INSERT INTO Client (nom, prenom, idAdresse, email, telephone, mdp) VALUES ('Lefèvre', 'Martine', 5, 'martine.lefèvre@gmail.com', '0533142540', '098f6bcd4621d373cade4e832627b4f6f5377d243ccd94f6a4678ab4de3d7b10');
+INSERT INTO Client (nom, prenom, idAdresse, email, telephone, mdp) VALUES ('Hebert', 'Stéphanie', 6, 'stéphanie.hebert@gmail.com', '0533032414', '3b5d5c3712955042212316173ccf37be80000000000000000000000000000000');
+INSERT INTO Client (nom, prenom, idAdresse, email, telephone, mdp) VALUES ('Didier', 'Noël', 7, 'noël.didier@gmail.com', '0404567464', '356a192b7913b04c54574d18c28d46e6395428ab000000000000000000000000');
+INSERT INTO Client (nom, prenom, idAdresse, email, telephone, mdp) VALUES ('Faivre', 'Élise', 8, 'élise.faivre@gmail.com', '0502318894', 'da4b9237bacccdf19c0760cab7aec4a8359010b0c1e07a093000000000000000');
+INSERT INTO Client (nom, prenom, idAdresse, email, telephone, mdp) VALUES ('Rodriguez', 'Colette', 9, 'colette.rodriguez@gmail.com', '0533562203', '77de68daecd823babbb58edb1c8e14d7106e83bbb5ac2a7dd300000000000000');
+INSERT INTO Client (nom, prenom, idAdresse, email, telephone, mdp) VALUES ('Ribeiro', 'Olivier', 10, 'olivier.ribeiro@gmail.com', '0702500547', '1c383cd30b7c298ab50293adfecb7b18b1e683df4b00000000000000000000000');
+INSERT INTO Client (nom, prenom, idAdresse, email, telephone, mdp) VALUES ('Diaz', 'Alfred', 11, 'alfred.diaz@gmail.com', '0633359636', '7c6a180b36896a0a8c02787eeafb0e4c395cb9e0b84b287000000000000000000');
+INSERT INTO Client (nom, prenom, idAdresse, email, telephone, mdp) VALUES ('Raymond', 'Antoine', 12, 'antoine.raymond@gmail.com', '0733222035', '4a8a08f09d37b73795649038408b5f33e5c68db80500000000000000000000000');
+INSERT INTO Client (nom, prenom, idAdresse, email, telephone, mdp) VALUES ('Navarro', 'Gilles', 13, 'gilles.navarro@gmail.com', '0405081866', '827ccb0eea8a706c4c34a16891f84e7b00000000000000000000000000000000');
+INSERT INTO Client (nom, prenom, idAdresse, email, telephone, mdp) VALUES ('Gilbert', 'Lucy', 14, 'lucy.gilbert@gmail.com', '0604494855', 'e4da3b7fbbce2345d7772b0674a318d5c00000000000000000000000000000000');
+INSERT INTO Client (nom, prenom, idAdresse, email, telephone, mdp) VALUES ('Rousset', 'Frédéric', 15, 'frédéric.rousset@gmail.com', '0733021930', '8f14e45fceea167a5a36dedd4bea254300000000000000000000000000000000');
+INSERT INTO Client (nom, prenom, idAdresse, email, telephone, mdp) VALUES ('Blanc', 'Lucy', 16, 'lucy.blanc@gmail.com', '0704746188', 'c9f0f895fb98ab9159f51fd0297e236d000000000000000000000000000000000');
+INSERT INTO Client (nom, prenom, idAdresse, email, telephone, mdp) VALUES ('Boulanger', 'Alain', 17, 'alain.boulanger@gmail.com', '0504137188', '45c48cce2e2d7fbdea1afc51c7c6ad2600000000000000000000000000000000');
+INSERT INTO Client (nom, prenom, idAdresse, email, telephone, mdp) VALUES ('Dumont', 'Audrey', 18, 'audrey.dumont@gmail.com', '0433024683', 'd3d9446802a44259755d38e6d163e820000000000000000000000000000000000');
+INSERT INTO Client (nom, prenom, idAdresse, email, telephone, mdp) VALUES ('Marques', 'Honoré', 19, 'honoré.marques@gmail.com', '0633188249', '6512bd43d9caa6e02c990b0a82652dca00000000000000000000000000000000');
+INSERT INTO Client (nom, prenom, idAdresse, email, telephone, mdp) VALUES ('Bernier', 'Susan', 20, 'susan.bernier@gmail.com', '0401583814', 'c20ad4d76fe97759aa27a0c99bff671000000000000000000000000000000000');
+INSERT INTO Client (nom, prenom, idAdresse, email, telephone, mdp) VALUES ('Humbert', 'Tristan', 21, 'tristan.humbert@gmail.com', '0533022813', 'e99a18c428cb38d5f260853678922e03');
+INSERT INTO Client (nom, prenom, idAdresse, email, telephone, mdp) VALUES ('Gay', 'Vincent', 22, 'vincent.gay@gmail.com', '0733261084', '098f6bcd4621d373cade4e832627b4f6');
+INSERT INTO Client (nom, prenom, idAdresse, email, telephone, mdp) VALUES ('Brun', 'Nicole', 23, 'nicole.brun@gmail.com', '0733323040', '3b5d5c3712955042212316173ccf37be');
+INSERT INTO Client (nom, prenom, idAdresse, email, telephone, mdp) VALUES ('Michaud', 'Suzanne', 24, 'suzanne.michaud@gmail.com', '0603542165', '356a192b7913b04c54574d18c28d46e6395428ab');
+INSERT INTO Client (nom, prenom, idAdresse, email, telephone, mdp) VALUES ('Duhamel', 'Charles', 25, 'charles.duhamel@gmail.com', '0433223280', 'da4b9237bacccdf19c0760cab7aec4a8359010b0');
+INSERT INTO Client (nom, prenom, idAdresse, email, telephone, mdp) VALUES ('Pierre', 'Amélie', 26, 'amélie.pierre@gmail.com', '0533035141', '77de68daecd823babbb58edb1c8e14d7106e83bb');
+INSERT INTO Client (nom, prenom, idAdresse, email, telephone, mdp) VALUES ('Dupuis', 'Valérie', 27, 'valérie.dupuis@gmail.com', '0433059610', '1c383cd30b7c298ab50293adfecb7b18');
+INSERT INTO Client (nom, prenom, idAdresse, email, telephone, mdp) VALUES ('Clerc', 'Laetitia', 28, 'laetitia.clerc@gmail.com', '0633243357', '7c6a180b36896a0a8c02787eeafb0e4c');
+INSERT INTO Client (nom, prenom, idAdresse, email, telephone, mdp) VALUES ('Pires', 'Nath', 29, 'nath.pires@gmail.com', '0433024543', '4a8a08f09d37b73795649038408b5f33');
+INSERT INTO Client (nom, prenom, idAdresse, email, telephone, mdp) VALUES ('Lemaire', 'Frédérique', 30, 'frédérique.lemaire@gmail.com', '0733480666', '827ccb0eea8a706c4c34a16891f84e7b');
+INSERT INTO Client (nom, prenom, idAdresse, email, telephone, mdp) VALUES ('Maréchal', 'Renée', 31, 'renée.maréchal@gmail.com', '0503595668', 'e4da3b7fbbce2345d7772b0674a318d5');
+INSERT INTO Client (nom, prenom, idAdresse, email, telephone, mdp) VALUES ('Guibert', 'Nathalie', 32, 'nathalie.guibert@gmail.com', '0533438528', '8f14e45fceea167a5a36dedd4bea2543');
+INSERT INTO Client (nom, prenom, idAdresse, email, telephone, mdp) VALUES ('Lefèvre', 'Hortense', 33, 'hortense.lefèvre@gmail.com', '0433556204', 'c9f0f895fb98ab9159f51fd0297e236d');
+INSERT INTO Client (nom, prenom, idAdresse, email, telephone, mdp) VALUES ('Peron', 'Audrey', 34, 'audrey.peron@gmail.com', '0433372416', '45c48cce2e2d7fbdea1afc51c7c6ad26');
+INSERT INTO Client (nom, prenom, idAdresse, email, telephone, mdp) VALUES ('Brun', 'Étienne', 35, 'étienne.brun@gmail.com', '0433389756', 'd3d9446802a44259755d38e6d163e820');
+INSERT INTO Client (nom, prenom, idAdresse, email, telephone, mdp) VALUES ('Legros', 'Charlotte', 36, 'charlotte.legros@gmail.com', '0705086929', '6512bd43d9caa6e02c990b0a82652dca');
+INSERT INTO Client (nom, prenom, idAdresse, email, telephone, mdp) VALUES ('Techer', 'Gabrielle', 37, 'gabrielle.techer@gmail.com', '0504657017', 'c20ad4d76fe97759aa27a0c99bff6710');
+INSERT INTO Client (nom, prenom, idAdresse, email, telephone, mdp) VALUES ('Guillet', 'Xavier', 38, 'xavier.guillet@gmail.com', '0633035367', 'c51ce410c124a10e0db5e4b97fc2af39');
+INSERT INTO Client (nom, prenom, idAdresse, email, telephone, mdp) VALUES ('Pages', 'François', 39, 'françois.pages@gmail.com', '0533236071', 'aab3238922bcc25a6f606eb525ffdc56');
+INSERT INTO Client (nom, prenom, idAdresse, email, telephone, mdp) VALUES ('Gérard', 'Emmanuel', 40, 'emmanuel.gérard@gmail.com', '0602291448', '9bf31c7ff062936a96d3c8bd1f8f2ff3');
+INSERT INTO Client (nom, prenom, idAdresse, email, telephone, mdp) VALUES ('Ribeiro', 'Denise', 41, 'denise.ribeiro@gmail.com', '0403541167', 'c74d97b01eae257e44aa9d5bade97baf');
+INSERT INTO Client (nom, prenom, idAdresse, email, telephone, mdp) VALUES ('Bouvet', 'Michèle', 42, 'michèle.bouvet@gmail.com', '0433032017', '70efdf2ec9b086079795c442636b55fb');
+INSERT INTO Client (nom, prenom, idAdresse, email, telephone, mdp) VALUES ('Lebon', 'Laurent', 43, 'laurent.lebon@gmail.com', '0401601576', '6f4922f45568161a8cdf4ad2299f6d23');
+INSERT INTO Client (nom, prenom, idAdresse, email, telephone, mdp) VALUES ('Dupuy', 'Antoinette', 44, 'antoinette.dupuy@gmail.com', '0603524120', '1f0e3dad99908345f7439f8ffabdffc4');
+INSERT INTO Client (nom, prenom, idAdresse, email, telephone, mdp) VALUES ('Gonzalez', 'Élodie', 45, 'élodie.gonzalez@gmail.com', '0605580607', '98f13708210194c475687be6106a3b84');
+INSERT INTO Client (nom, prenom, idAdresse, email, telephone, mdp) VALUES ('Pierre', 'Virginie', 46, 'virginie.pierre@gmail.com', '0704578903', '3c59dc048e8850243be8079a5c74d079');
+INSERT INTO Client (nom, prenom, idAdresse, email, telephone, mdp) VALUES ('Deschamps', 'Adrienne', 47, 'adrienne.deschamps@gmail.com', '0503871703', 'b6d767d2f8ed5d21a44b0e5886680cb9');
+INSERT INTO Client (nom, prenom, idAdresse, email, telephone, mdp) VALUES ('Guichard', 'Christophe', 48, 'christophe.guichard@gmail.com', '0701734919', '37693cfc748049e45d87b8c7d8b9aacd');
+INSERT INTO Client (nom, prenom, idAdresse, email, telephone, mdp) VALUES ('Leclercq', 'Thibaut', 49, 'thibaut.leclercq@gmail.com', '0533024629', '1ff1de774005f8da13f42943881c655f');
+INSERT INTO Client (nom, prenom, idAdresse, email, telephone, mdp) VALUES ('Gomez', 'Laetitia', 50, 'laetitia.gomez@gmail.com', '0733058275', '8e296a067a37563370ded05f5a3bf3ec');
+
+
+#/////////////////////////////////////////////////////////////////////////////////////--
+#                            insert infoPaiement
+#/////////////////////////////////////////////////////////////////////////////////////--
+
+INSERT INTO infoPaiement (idNumCli, idCarte, idMethodePaiement) VALUES (1, 1, 1);
+INSERT INTO infoPaiement (idNumCli, idCarte, idMethodePaiement) VALUES (2, 2, 3);
+INSERT INTO infoPaiement (idNumCli, idCarte, idMethodePaiement) VALUES (3, 3, 4);
 
 #/////////////////////////////////////////////////////////////////////////////////////--
 #                                 insert Employe                     
@@ -663,22 +664,23 @@ INSERT INTO ACommande (idCommande, idNumProduit, qte, prixAchat) VALUES (45, 24,
 #/////////////////////////////////////////////////////////////////////////////////////--
 
 INSERT INTO Avis (idNumCli, idNumProduit, idNumEmploye, txtAvis, txtReponse) VALUES (18, 10, 3, 'La carte graphique Acer Radeon RX 7900 XT est-elle compatible avec un PC gamer classique ?', 'Oui, cette carte graphique est compatible avec la plupart des configurations gamer modernes. Assurez-vous d’avoir une alimentation suffisante.');
-INSERT INTO Avis (idNumCli, idNumProduit, txtAvis, txtReponse) VALUES (8, 4, 'Produit de bonne qualité, fonctionne parfaitement.');
-INSERT INTO Avis (idNumCli, idNumProduit, txtAvis, txtReponse) VALUES (40, 42, 'Livraison rapide, très satisfait de mon achat.');
 INSERT INTO Avis (idNumCli, idNumProduit, idNumEmploye, txtAvis, txtReponse) VALUES (42, 17, 5, 'Le boitier Kingston Phanteks Eclipse P400A est-il adapté pour les cartes mères ATX ?', 'Oui, il est compatible avec les cartes mères ATX, micro-ATX, et mini-ITX.');
-INSERT INTO Avis (idNumCli, idNumProduit, txtAvis, txtReponse) VALUES (2, 25, 'Design élégant et finition impeccable.');
-INSERT INTO Avis (idNumCli, idNumProduit, txtAvis, txtReponse) VALUES (31, 39, 'Bon rapport qualité-prix, je recommande.');
 INSERT INTO Avis (idNumCli, idNumProduit, idNumEmploye, txtAvis, txtReponse) VALUES (12, 39, 1, 'La souris Logitech G502 Hero est-elle compatible avec macOS ?', 'Oui, elle est compatible avec macOS, bien que certaines fonctionnalités puissent nécessiter le logiciel Logitech G Hub.');
-INSERT INTO Avis (idNumCli, idNumProduit, txtAvis, txtReponse) VALUES (24, 14, 'Produit reçu dans un emballage impeccable.');
-INSERT INTO Avis (idNumCli, idNumProduit, txtAvis, txtReponse) VALUES (47, 47, 'Fonctionne parfaitement, rien à redire.');
-INSERT INTO Avis (idNumCli, idNumProduit, txtAvis, txtReponse) VALUES (23, 31, 'Très facile à utiliser, satisfait.');
-INSERT INTO Avis (idNumCli, idNumProduit, txtAvis, txtReponse) VALUES (18, 2, 'Superbe produit, conforme à la description.');
-INSERT INTO Avis (idNumCli, idNumProduit, txtAvis, txtReponse) VALUES (42, 42, 'Produit de qualité moyenne, pourrait être amélioré.');
 INSERT INTO Avis (idNumCli, idNumProduit, idNumEmploye, txtAvis, txtReponse) VALUES (27, 25, 1, 'Le clavier mécanique Razer BlackWidow est-il résistant aux éclaboussures ?', 'Oui, il est conçu pour résister aux éclaboussures et aux poussières légères.');
-INSERT INTO Avis (idNumCli, idNumProduit, txtAvis, txtReponse) VALUES (29, 4, 'Très bon produit, je recommande vivement.');
-INSERT INTO Avis (idNumCli, idNumProduit, txtAvis, txtReponse) VALUES (15, 4, 'Produit pratique et performant.');
-INSERT INTO Avis (idNumCli, idNumProduit, txtAvis, txtReponse) VALUES (38, 22, 'Très satisfait, conforme à mes attentes.');
-INSERT INTO Avis (idNumCli, idNumProduit, txtAvis, txtReponse) VALUES (16, 49, 'Produit robuste et bien conçu.');
-INSERT INTO Avis (idNumCli, idNumProduit, txtAvis, txtReponse) VALUES (8, 26, 'Fonctionne bien, très content.');
-INSERT INTO Avis (idNumCli, idNumProduit, txtAvis, txtReponse) VALUES (29, 49, 'Qualité supérieure, je suis ravi.');
-INSERT INTO Avis (idNumCli, idNumProduit, txtAvis, txtReponse) VALUES (25, 27, 'Bon produit, service client très réactif.');
+INSERT INTO Avis (idNumCli, idNumProduit, idNumEmploye, txtAvis, txtReponse) VALUES (8, 4, 1, 'Produit de bonne qualité, fonctionne parfaitement.', 'Merci pour votre avis, nous sommes heureux que le produit vous satisfasse.');
+INSERT INTO Avis (idNumCli, idNumProduit, idNumEmploye, txtAvis, txtReponse) VALUES (40, 42, 4, 'Livraison rapide, très satisfait de mon achat.', 'Nous sommes ravis que votre expérience d’achat ait été positive.');
+INSERT INTO Avis (idNumCli, idNumProduit, idNumEmploye, txtAvis, txtReponse) VALUES (2, 25, 3, 'Design élégant et finition impeccable.', 'Nous vous remercions pour votre retour. Le design est effectivement un de nos points forts.');
+INSERT INTO Avis (idNumCli, idNumProduit, idNumEmploye, txtAvis, txtReponse) VALUES (31, 39, 2, 'Bon rapport qualité-prix, je recommande.', 'Merci pour votre recommandation, cela nous motive à continuer à offrir des produits de qualité.');
+INSERT INTO Avis (idNumCli, idNumProduit, idNumEmploye, txtAvis, txtReponse) VALUES (24, 14, 4, 'Produit reçu dans un emballage impeccable.', 'Nous sommes heureux de savoir que l’emballage a répondu à vos attentes.');
+INSERT INTO Avis (idNumCli, idNumProduit, idNumEmploye, txtAvis, txtReponse) VALUES (47, 47, 5, 'Fonctionne parfaitement, rien à redire.', 'Merci pour votre avis positif, nous apprécions votre retour.');
+INSERT INTO Avis (idNumCli, idNumProduit, idNumEmploye, txtAvis, txtReponse) VALUES (23, 31, 2, 'Très facile à utiliser, satisfait.', 'Nous sommes ravis d’apprendre que le produit est facile à utiliser et vous satisfait.');
+INSERT INTO Avis (idNumCli, idNumProduit, idNumEmploye, txtAvis, txtReponse) VALUES (18, 2, 1, 'Superbe produit, conforme à la description.', 'Merci pour votre retour, nous nous efforçons de fournir des produits fidèles à leur description.');
+INSERT INTO Avis (idNumCli, idNumProduit, idNumEmploye, txtAvis, txtReponse) VALUES (42, 42, 3, 'Produit de qualité moyenne, pourrait être amélioré.', 'Nous prenons en compte vos remarques pour améliorer nos produits.');
+INSERT INTO Avis (idNumCli, idNumProduit, idNumEmploye, txtAvis, txtReponse) VALUES (29, 4, 3, 'Très bon produit, je recommande vivement.', 'Merci pour votre recommandation, cela nous fait très plaisir.');
+INSERT INTO Avis (idNumCli, idNumProduit, idNumEmploye, txtAvis, txtReponse) VALUES (15, 4, 3, 'Produit pratique et performant.', 'Nous sommes heureux que le produit réponde à vos attentes.');
+INSERT INTO Avis (idNumCli, idNumProduit, idNumEmploye, txtAvis, txtReponse) VALUES (38, 22, 1, 'Très satisfait, conforme à mes attentes.', 'Votre satisfaction est notre priorité, merci pour votre avis.');
+INSERT INTO Avis (idNumCli, idNumProduit, idNumEmploye, txtAvis, txtReponse) VALUES (16, 49, 5, 'Produit robuste et bien conçu.', 'Merci pour votre retour, nous sommes ravis que la qualité vous plaise.');
+INSERT INTO Avis (idNumCli, idNumProduit, idNumEmploye, txtAvis, txtReponse) VALUES (8, 26, 5, 'Fonctionne bien, très content.', 'Nous sommes ravis que le produit fonctionne à votre convenance.');
+INSERT INTO Avis (idNumCli, idNumProduit, idNumEmploye, txtAvis, txtReponse) VALUES (29, 49,4, 'Qualité supérieure, je suis ravi.', 'Nous sommes heureux que la qualité du produit vous ait convaincu.');
+INSERT INTO Avis (idNumCli, idNumProduit, idNumEmploye, txtAvis, txtReponse) VALUES (25, 27, 3, 'Bon produit, service client très réactif.', 'Merci pour votre retour, nous sommes ravis que notre service client ait pu répondre à vos attentes.');
+

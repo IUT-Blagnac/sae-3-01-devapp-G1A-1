@@ -1,5 +1,3 @@
-DROP TABLE IF EXISTS `ACommande`, `AConsulte`, `AdressePostale`, `Avis`, `Carte_AE`, `Carte_EU`, `Categorie`, `Client`, `Commande`, `Comporte`, `Contient`, `Employe`, `Image`, `infoPaiement`, `Marque`, `MethodePaiement`, `Paypal`, `Produit`, `Promotion`;
-
 CREATE TABLE Marque (
     idMarque INT PRIMARY KEY AUTO_INCREMENT,
     nomMarque VARCHAR(20) NOT NULL
@@ -101,6 +99,7 @@ CREATE TABLE Client (
     idAdresse INT,
     email VARCHAR(320) NOT NULL,
     telephone CHAR(10),
+    mdp VARCHAR(300) NOT NULL,
     FOREIGN KEY (idAdresse) REFERENCES AdressePostale(idAdresse)
 );
 
