@@ -203,7 +203,7 @@ pip install --upgrade <package_name>
 ==== **Lancer l'interface utilisateur :**  Exécuter l'application Java
 [source,bash]
 ----
-java MainApp.java
+java RunApp.java
 ----
 
 === Contact  
