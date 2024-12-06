@@ -50,3 +50,132 @@ Garantir la fiabilité et l’efficacité de l’application IoT de gestion d’
 - Renforcer la robustesse du système face aux erreurs et interruptions.
 
 - Aligner l’application avec les objectifs de durabilité et d’efficacité opérationnelle de BuildMyPC.
+
+== Architecture technique  
+
+=== Vue d'ensemble  
+L'application repose sur une architecture modulaire intégrant plusieurs composants pour surveiller les conditions environnementales et gérer les entrepôts de l'entreprise BuildMyPC.
+
+image::Document/images/doc_tech_iot/architecture_iot.png[]
+
+[cols="1,2", options="header"]  
+|===  
+| Composant | Description  
+| MQTT Broker | Serveur central qui gère la communication entre les capteurs et l'application via le protocole MQTT.  
+| Interface utilisateur | Module front-end permettant aux utilisateurs de consulter les données et de configurer les seuils. Développé en JavaFX.  
+| Back-end | Service développé en Python pour collecter, analyser et stocker les données des capteurs.  
+|===  
+
+=== Technologies utilisées  
+- **MQTT** : Communication entre capteurs et serveur.  
+- **Java** : Interface graphique et interactions avec le système de gestion.  
+- **Python** : Gestion des données en temps réel et traitement des seuils.  
+- **Python** : Stockage des données.  
+- **JSON** : Format de configuration pour les seuils et les paramètres des capteurs.  
+
+== Fonctionnalités principales  
+
+=== Collecte de données  
+- Les capteurs transmettent les données en temps réel au serveur MQTT.  
+- Les données sont récupérées par un script Python et sauvegardées dans des fichiers.  
+
+=== Gestion des alertes  
+- Le système analyse les seuils définis dans le fichier `config.json`.  
+- En cas de dépassement, une alerte est générée, écrite dans un fichier et lue par l'interface utilisateur.  
+
+=== Suivi énergétique  
+- Les données des panneaux solaires sont récupérées via MQTT et affichées sous forme de graphiques dans l'application.  
+
+== Configuration et déploiement  
+
+=== Pré-requis  
+- **Matériel** :  
+  - PC sous Windows ou Linux.  
+  - Capteurs compatibles MQTT (déjà fournie)  
+- **Logiciels** :  
+  - Python 3.11.9+  
+  - Java 17  
+
+=== Installation  
+
+==== **Installer les dépendances Python :**  Utilisez la commande suivante pour installer les bibliothèques nécessaires :
+[source,bash]
+----
+pip install paho-mqtt matplotlib
+----
+
+==== **Lancer le serveur Python :**  Exécutez le script principal pour démarrer la collecte des données et la gestion des seuils :  
+[source,bash]
+----
+python3 MQTT.py
+----
+
+==== **Configurer l’interface utilisateur :**  Compilez et exécutez le fichier Java contenant l’interface graphique :  
+[source,bash]
+----
+java MainApp
+----
+
+
+=== Fichier de configuration  
+
+Le fichier `config.json` contient les paramètres personnalisables, notamment les seuils de température et d'humidité :  
+
+[source,json]  
+----  
+{  
+    "capteurs": [  
+        {  
+            "nom": "Salle 1",  
+            "seuils": {  
+                "température": 25,  
+                "humidité": 60  
+            }  
+        },  
+        {  
+            "nom": "Salle 2",  
+            "seuils": {  
+                "température": 28,  
+                "humidité": 55  
+            }  
+        }  
+    ]  
+}  
+----  
+
+Ajoutez ou modifiez les paramètres selon vos besoins avant de démarrer l’application.  
+
+== Tests et Validation  
+
+=== Tests automatiques  
+Des scripts Python sont fournis pour valider les composants essentiels :  
+
+- **Test du Broker MQTT :**  Vérifie la connexion au broker et la réception des messages en exécutant le fichier `test_mqtt.py`.  
+
+- **Validation de la configuration :**  S’assure que le fichier `config.json` est bien formaté et respecte les seuils attendus en exécutant le fichier `test_config.py`.  
+
+=== Tests manuels  
+- Simulez une alerte en envoyant des données MQTT dépassant les seuils définis dans `config.json`.  
+- Vérifiez l’affichage des données dans l’interface utilisateur et la génération d’alertes.  
+
+== Maintenance et Support  
+
+=== Surveillance des logs  
+Les logs système sont enregistrés dans le fichier `app.log`. Utilisez une commande telle que `tail -f app.log` pour consulter les derniers événements.  
+
+=== Mise à jour  
+==== **Mettre à jour les dépendances Python :**  Utilisez la commande suivante pour mettre à jour toutes les bibliothèques Python :  
+[source,bash]
+----
+pip install --upgrade -r requirements.txt
+----
+
+==== **Mise à jour de l'interface utilisateur :**  Recompilez les fichiers Java après toute modification en exécutant 
+[source,bash]
+----
+javac MainApp.java`
+----
+
+=== Contact  
+Pour toute assistance ou retour, contactez l'équipe technique via l’adresse suivante :  
+`support@buildmypc.com`.  
