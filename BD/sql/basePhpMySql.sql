@@ -98,7 +98,7 @@ CREATE TABLE Client (
     prenom VARCHAR(15) NOT NULL,
     idAdresse INT,
     email VARCHAR(320) NOT NULL,
-    telephone CHAR(10),
+    telephone CHAR(13),
     mdp VARCHAR(300) NOT NULL,
     FOREIGN KEY (idAdresse) REFERENCES AdressePostale(idAdresse)
 );

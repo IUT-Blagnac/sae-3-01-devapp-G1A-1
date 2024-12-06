@@ -122,7 +122,7 @@ INSERT INTO AdressePostale (pays, ville, numNomRue, codePostal) VALUES ('Wales',
 #                                 insert Client                     
 #/////////////////////////////////////////////////////////////////////////////////////--
 
-INSERT INTO Client (nom, prenom, idAdresse, email, telephone, mdp) VALUES ('Chauvin', 'Émilie', 1, 'émilie.chauvin@gmail.com', '0402300326', '5e884898da28047151d0e56f8dc6292773603d0d6aabbddc8fef0f8a975e9f5d');
+INSERT INTO Client (nom, prenom, idAdresse, email, telephone, mdp)  VALUES ('Chauvin', 'Émilie', 1, 'émilie.chauvin@gmail.com', '0402300326', '5e884898da28047151d0e56f8dc6292773603d0d6aabbddc8fef0f8a975e9f5d');
 INSERT INTO Client (nom, prenom, idAdresse, email, telephone, mdp) VALUES ('Valentin', 'Véronique', 2, 'véronique.valentin@gmail.com', '0608039558', 'b4b147bc522828731f1a016bfa72c073e0c1e2a6d1e10217df3c3c2a6d4d3182');
 INSERT INTO Client (nom, prenom, idAdresse, email, telephone, mdp) VALUES ('Leleu', 'Benjamin', 3, 'benjamin.leleu@gmail.com', '0704815438', '3c59dc048e8850243be8079a5c74d079a9eb8e1a1316d59b9eb3b3c1cf98e7d5');
 INSERT INTO Client (nom, prenom, idAdresse, email, telephone, mdp) VALUES ('Marchand', 'Anaïs', 4, 'anaïs.marchand@gmail.com', '0403577725', 'e99a18c428cb38d5f260853678922e03abd83351d3d1f34e39dd6531fc2f21e7');
