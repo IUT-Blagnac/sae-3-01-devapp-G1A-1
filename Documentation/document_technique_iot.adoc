@@ -200,7 +200,7 @@ Les logs système sont enregistrés dans les dossiers `datas` et `alert`.
 pip install --upgrade <package_name>
 ----
 
-==== **Mise à jour de l'interface utilisateur :**  Exécuter l'application Java
+==== **Lancer l'interface utilisateur :**  Exécuter l'application Java
 [source,bash]
 ----
 java MainApp.java
