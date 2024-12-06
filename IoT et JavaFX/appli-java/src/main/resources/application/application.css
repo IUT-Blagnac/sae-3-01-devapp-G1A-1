@@ -19,3 +19,18 @@
 .borderred {
 	-fx-text-fill: red;
 }
+
+.salle-box {
+    -fx-border-color: black;
+    -fx-border-width: 2px;
+    -fx-padding: 10px;
+    -fx-background-color: #f9f9f9;
+}
+
+.alert-overlay {
+    -fx-padding: 10px;
+    -fx-max-width: 300px;
+    -fx-alignment: top-right;
+    -fx-spacing: 10px;
+    -fx-border-radius: 10px;
+}

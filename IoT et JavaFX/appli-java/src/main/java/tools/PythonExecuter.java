@@ -3,74 +3,126 @@ package tools;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
+/**
+ * Class to execute a python file and manage its state
+ */
 public class PythonExecuter {
+    // Note : to execute the MQTT python file, please use the PythonExecuter object
+    // in GlobalVariables and don't create a new one
 
     private final int NBTRIES = 3;
     private String filePath;
+    private GlobalVariables.pythonState state;
     private Process process;
 
+    /**
+     * Constructor of a PythonExecuter
+     * 
+     * @param filePath the path to the python file to be executed
+     */
     public PythonExecuter(String filePath) {
-        // TODO pour les tests, utiliser "../HelloWorldPrinter2.py" ou "../MQTT.py"
         this.filePath = filePath;
+        this.state = (this.process != null && this.process.isAlive()) ? GlobalVariables.pythonState.RUNNING
+                : GlobalVariables.pythonState.DISCONNECTED;
     }
 
+    /**
+     * Returns the current file path
+     * 
+     * @return a file path
+     */
     public String getFilePath() {
         return this.filePath;
     }
 
+    /**
+     * Sets a new file path.
+     * 
+     * Note : setting a new filePath will not restart the current running python
+     * script.
+     * 
+     * @param filePath the new file path
+     */
     public void setFilePath(String filePath) {
         this.filePath = filePath;
     }
 
     /**
-     * Creates a thread and execute the python code of the filePath.
-     * If a python code was already running in the process it will be destroyed.
+     * Return the current state of the python script
      * 
-     * @throws Exception error messages of all previous caught errors in the code.
+     * @return the current state
+     */
+    public GlobalVariables.pythonState getState() {
+        updateState();
+        return this.state;
+    }
+
+    /**
+     * Update the state to match the current state of the python process
+     */
+    private void updateState() {
+        this.state = (this.process != null && this.process.isAlive()) ? GlobalVariables.pythonState.RUNNING
+                : GlobalVariables.pythonState.DISCONNECTED;
+    }
+
+    /**
+     * Executes the python code of the of the python file in filePath.
+     * If the python code was already running in the process, it will be destroyed.
+     * Sets a default acknowledgementSentence as "OK java".
      * 
-     *                   TODO finish the method by adding the thread
+     * @throws Exception when the python script failed to launch.
      */
     public void startPython() throws Exception {
-        synchronized (this.process) {
-            if (this.process != null && this.process.isAlive()) {
-                this.process.destroy();
-            }
-        }
+        startPython("OK java");
+    }
+
+    /**
+     * Executes the python code of the of the python file in filePath.
+     * If the python code was already running in the process, it will be destroyed.
+     *
+     * @param acknowledgementSentence a sentence that signals that the python code
+     *                                is running correctly and that the startPython
+     *                                function can move on and let the python code
+     *                                run without supervision
+     * 
+     * @throws Exception when the python script failed to launch.
+     */
+    public void startPython(String acknowledgementSentence) throws Exception {
+        stopPython();
+
         boolean pythonWorks = false;
         int attempts = 0;
-        String exceptionList = "";
+        state = GlobalVariables.pythonState.PENDING;
 
-        // on essaie de lancer le programme 3 fois
-        while (!pythonWorks && attempts < this.NBTRIES) {
+        while (!pythonWorks && attempts < NBTRIES) {
             attempts++;
             try {
-                ProcessBuilder processBuilder = new ProcessBuilder();
-                processBuilder.command("python", this.filePath);
-                this.process = processBuilder.start();
+                this.state = GlobalVariables.pythonState.PENDING;
+                ProcessBuilder processBuilder = new ProcessBuilder("python", this.filePath);
+                // Redirect error stream to input stream
+                processBuilder.redirectErrorStream(true);
+                process = processBuilder.start();
 
-                // Lecture des erreurs dans le script
-                BufferedReader errorReader = new BufferedReader(new InputStreamReader(this.process.getErrorStream()));
-                // le try/catch ne s'occupe pas des erreurs envoyées par le code python,
-                // seulement de celles des classes java quand elles essaient d'appeler le
-                // python. Il faut donc lire nous meme les erreurs et générer une exception
-                // quand il y en a une dans le code python.
-                String error = "";
-                String line = errorReader.readLine();
-                while (line != null) {
-                    error += line + "\n";
-                    line = errorReader.readLine();
+                // Read
+                try (BufferedReader inputReader = new BufferedReader(
+                        new InputStreamReader(process.getInputStream()))) {
+                    String line;
+                    while (!pythonWorks && (line = inputReader.readLine()) != null) {
+                        if (line.equals(acknowledgementSentence)) {
+                            pythonWorks = true;
+                        }
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
-                if (!error.isEmpty()) {
-                    throw new Exception(error);
-                }
-                pythonWorks = true;
             } catch (Exception e) {
-                exceptionList += e.getMessage() + "\n";
                 e.printStackTrace();
             }
         }
-        if (!pythonWorks && attempts >= this.NBTRIES) {
-            throw new Exception("Erreur lors du lancement du programme :\n" + exceptionList);
+
+        updateState();
+        if (!pythonWorks) {
+            throw new Exception("Failed to start Python script.");
         }
     }
 
@@ -78,10 +130,13 @@ public class PythonExecuter {
      * Kills the python process
      */
     public void stopPython() {
-        synchronized (this.process) {
-            if (this.process != null && this.process.isAlive()) {
-                this.process.destroy();
+        if (process != null) {
+            synchronized (process) {
+                if (process.isAlive()) {
+                    process.destroy();
+                }
             }
         }
+        updateState();
     }
 }
