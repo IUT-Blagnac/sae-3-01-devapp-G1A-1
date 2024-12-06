@@ -56,8 +56,11 @@ Garantir la fiabilité et l’efficacité de l’application IoT de gestion d’
 === Vue d'ensemble  
 L'application repose sur une architecture modulaire intégrant plusieurs composants pour surveiller les conditions environnementales et gérer les entrepôts de l'entreprise BuildMyPC.
 
-image::Document/images/doc_tech_iot/architecture_iot.png[]
+image::images/doc_tech_iot/architecture_iot.png[]
 
+L'application est disponible en installant le fichier "Appli-IOT.zip" dans la https://github.com/IUT-Blagnac/sae-3-01-devapp-G1A-1/releases/tag/V1.0[dernière release] +
+
+=== Analyse
 [cols="1,2", options="header"]  
 |===  
 | Composant | Description  
@@ -89,11 +92,16 @@ image::Document/images/doc_tech_iot/architecture_iot.png[]
 == Configuration et déploiement  
 
 === Pré-requis  
-- **Matériel** :  
-  - PC sous Windows ou Linux.  
-  - Capteurs compatibles MQTT (déjà fournie)  
-- **Logiciels** :  
+**Matériel** :  
+
+  - PC sous Windows ou Linux. 
+
+  - Capteurs compatibles MQTT (déjà fournie) 
+
+**Logiciels** : 
+
   - Python 3.11.9+  
+
   - Java 17  
 
 === Installation  
@@ -123,36 +131,36 @@ Le fichier `config.json` contient les paramètres personnalisables, notamment le
 
 [source,json]  
 ----  
-{  
-    "capteurs": [  
-        {  
-            "nom": "Salle 1",  
-            "seuils": {  
-                "température": 25,  
-                "humidité": 60  
-            }  
-        },  
-        {  
-            "nom": "Salle 2",  
-            "seuils": {  
-                "température": 28,  
-                "humidité": 55  
-            }  
-        }  
-    ]  
-}  
+{
+    "max": {
+        "temperature_max": 20,
+        "humidite_max": 60,
+        "taux_max": 1200
+    },
+    "salle": {
+        "num_salle": "B001,B002,B004,B005,B006"
+    },
+    "lecture": {
+        "frequence": 15
+    },
+    "donnee": {
+        "temperature": true,
+        "humidite": true,
+        "taux": true
+    }
+}
 ----  
 
-Ajoutez ou modifiez les paramètres selon vos besoins avant de démarrer l’application.  
+Ajoutez (salles) ou modifiez les paramètres selon vos besoins avant de démarrer l’application. La configuration sera possible depuis l'application de manière plus intuitive.  
 
 == Tests et Validation  
 
 === Tests automatiques  
 Des scripts Python sont fournis pour valider les composants essentiels :  
 
-- **Test du Broker MQTT :**  Vérifie la connexion au broker et la réception des messages en exécutant le fichier `test_mqtt.py`.  
+- **Test du Broker MQTT :**  Vérifie la connexion au broker et la réception des messages en exécutant le fichier `TestConnexion.py`.  
 
-- **Validation de la configuration :**  S’assure que le fichier `config.json` est bien formaté et respecte les seuils attendus en exécutant le fichier `test_config.py`.  
+- **Validation de la configuration :**  S’assure que le fichier `config.json` est bien formaté et respecte les seuils attendus en le paramétrant depuis l'app Java `Configuration de l'application`.  
 
 === Tests manuels  
 - Simulez une alerte en envoyant des données MQTT dépassant les seuils définis dans `config.json`.  
@@ -161,19 +169,19 @@ Des scripts Python sont fournis pour valider les composants essentiels :
 == Maintenance et Support  
 
 === Surveillance des logs  
-Les logs système sont enregistrés dans le fichier `app.log`. Utilisez une commande telle que `tail -f app.log` pour consulter les derniers événements.  
+Les logs système sont enregistrés dans les dossiers `datas` et `alert`.  
 
 === Mise à jour  
 ==== **Mettre à jour les dépendances Python :**  Utilisez la commande suivante pour mettre à jour toutes les bibliothèques Python :  
 [source,bash]
 ----
-pip install --upgrade -r requirements.txt
+pip install --upgrade <package_name>
 ----
 
-==== **Mise à jour de l'interface utilisateur :**  Recompilez les fichiers Java après toute modification en exécutant 
+==== **Mise à jour de l'interface utilisateur :**  Exécuter l'application Java
 [source,bash]
 ----
-javac MainApp.java`
+java MainApp.java
 ----
 
 === Contact  
