@@ -4,3 +4,5 @@
 {"temperature": 21.4, "humidite": 51.5, "co2": 2197, "timestamp": "2024-12-04T12:50:27.044816"}
 {"temperature": 20.7, "humidite": 49, "co2": 1580, "timestamp": "2024-12-04T15:10:30.778015"}
 {"temperature": 20.2, "timestamp": "2024-12-04T21:50:22.865906"}
+{"temperature": 20.2, "humidite": 49.5, "co2": 511, "timestamp": "2024-12-06T10:30:31.708849"}
+{"temperature": 20.5, "humidite": 52, "co2": 821, "timestamp": "2024-12-06T11:20:36.576353"}

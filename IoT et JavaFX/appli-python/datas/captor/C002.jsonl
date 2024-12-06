@@ -1,2 +1,5 @@
 {"temperature": 21.7, "humidite": 41.5, "co2": 988, "timestamp": "2024-12-04T12:15:49.916591"}
 {"temperature": 21.2, "timestamp": "2024-12-05T17:25:57.812026"}
+{"temperature": 19.9, "humidite": 54.5, "co2": 642, "timestamp": "2024-12-06T10:06:02.229682"}
+{"temperature": 20.3, "humidite": 54.5, "co2": 725, "timestamp": "2024-12-06T10:26:14.788611"}
+{"temperature": 20.5, "humidite": 54.5, "co2": 806, "timestamp": "2024-12-06T11:16:01.815223"}

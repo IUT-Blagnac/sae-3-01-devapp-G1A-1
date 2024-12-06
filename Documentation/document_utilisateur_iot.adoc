@@ -1,0 +1,80 @@
+= Documentation utilisateur de l'application IOT
+:icons: font
+:models: models
+:experimental:
+:incremental:
+:numbered:
+:toc: macro
+:window: _blank
+:correction!:
+
+toc::[]
+
+Version de l'application : V1.0 +
+Date : 06/12/2024 +
+Equipe : 1A-1 +
+Client : BuildMyPC +
+Projet : Application de gestion d'entrepôt +
+
+== Description du projet
+
+=== Équipe
+
+L'équipe est composée de cinq membres avec les rôles suivants :
+
+- *Romain* : Product Owner et Développeur
+- *Kilian* : Développeur
+- *Titouan* : Développeur
+- *Pablo* : Développeur
+- *Hugo* : Scrum Master et Développeur
+
+=== Contexte du projet
+
+Le projet a pour objectif de développer une application de gestion d’entrepôt pour l’entreprise BuildMyPC, spécialisée dans la vente de composants informatiques et d’ordinateurs montés. Bien que son activité principale ne soit pas le stockage, l’entreprise doit gérer des locaux pour stocker les produits nécessaires à son activité. BuildMyPC souhaite donc intégrer une solution logicielle complémentaire pour surveiller les conditions environnementales de ses entrepôts, telles que la température, l'humidité et le niveau de CO2, afin de garantir la qualité de ses produits. + 
+L'application devra également inclure un module pour suivre la production et la consommation énergétique des panneaux solaires de l'entreprise, permettant une gestion optimisée de l’énergie et une approche écoresponsable. Ce projet vise à renforcer l'efficacité opérationnelle de l’entreprise tout en soutenant ses engagements en matière de durabilité.
+
+=== Objectifs du projet
+
+**Problématique :**  
+
+Garantir la fiabilité et l’efficacité de l’application IoT de gestion d’entrepôt pour assurer la qualité des produits et optimiser la gestion énergétique, tout en offrant une expérience utilisateur optimale. +
+
+**Objectifs :**
+
+- Valider le fonctionnement des connexions, des capteurs et des modules énergétiques.
+
+- Assurer l’affichage précis et en temps réel des données, même en cas d’erreurs ou de données manquantes.
+
+- Tester les mécanismes d’alerte et de visualisation pour une prise de décision rapide.
+
+- Renforcer la robustesse du système face aux erreurs et interruptions.
+
+- Aligner l’application avec les objectifs de durabilité et d’efficacité opérationnelle de BuildMyPC.
+
+== 2. Installer l'application
+=== a) Prérequis
+* Système d'exploitation Windows
+* Installer les applications dans un répertoire dans lequel on a les droits de créer des nouveaux fichiers
+* Toujours avoir l'application java dans un fichier à coté de appli-python
+* Avoir java 17 installé sur sa machine
+
+=== b) Installation
+==== Java
+https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html[Lien pour télécharger java version 17]
+
+==== Python
+Version recommandée : 3.11
+
+https://www.python.org/downloads/release/python-31111/[Lien pour télécharger python version 3.11.11]
+
+
+L'application python utilise le module paho-mqtt pour communiquer avec les capteurs, pour l'installer, allez dans un terminal (ex : cmd) et executez la commande suivante : 
+
+`pip install paho-mqtt`
+
+Pour récupérer l'application, rendez-vous la dernière release (ou cliquez https://github.com/IUT-Blagnac/sae-3-01-devapp-G1A-1/releases/latest[ici]) et téléchargez le fichier Application_Controle_Capteur.zip, puis décompressez-le.
+
+Pour lancer l'application, double-cliquez sur le fichier AppliJava-1.0-shaded. L'application peut mettre du temps à démarrer si il y a un problème avec le script python.
+
+== 3. Utiliser l'application
+
