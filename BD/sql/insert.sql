@@ -16,7 +16,7 @@ INSERT INTO Carte_EU (idCarte, numCarte, dateExp, nomProprietaire) VALUES (2, '1
 INSERT INTO Carte_AE (idCarte, numCarte, dateExp, nomProprietaire) VALUES (3, '341234567890123', '2029-07-10', 'Leleu');
 
 #/////////////////////////////////////////////////////////////////////////////////////--
-#                                   insert marque
+#                                   insert Marque
 #/////////////////////////////////////////////////////////////////////////////////////--
 
 INSERT INTO Marque (nomMarque) VALUES ('MSI');        # Watercooling, Carte Mère, Boitier PC, Carte graphique, PC portable 
@@ -33,7 +33,7 @@ INSERT INTO Marque (nomMarque) VALUES ('Gigabyte');   # Carte Mère, Carte graph
 INSERT INTO Marque (nomMarque) VALUES ('Sapphire');   # Carte graphique 
 
 #/////////////////////////////////////////////////////////////////////////////////////--
-#                                 insert categorie
+#                                 insert Categorie
 #/////////////////////////////////////////////////////////////////////////////////////--
 
 INSERT INTO Categorie (nomCategorie) VALUES ('Composant');  
@@ -186,16 +186,16 @@ INSERT INTO infoPaiement (idNumCli, idCarte, idMethodePaiement) VALUES (3, 3, 4)
 #                                 insert Employe                     
 #/////////////////////////////////////////////////////////////////////////////////////--
 
-INSERT INTO Employe (nom, prenom, email, telephone, administrateur) VALUES ('Raynaud', 'Marguerite', 'marguerite.raynaud@gmail.com', '0403572487', true);
-INSERT INTO Employe (nom, prenom, email, telephone, administrateur) VALUES ('Menard', 'René', 'rené.menard@gmail.com', '0433562360', false);
-INSERT INTO Employe (nom, prenom, email, telephone, administrateur) VALUES ('Godard', 'Nicolas', 'nicolas.godard@gmail.com', '0604279798', false);
-INSERT INTO Employe (nom, prenom, email, telephone, administrateur) VALUES ('Muller', 'Bertrand', 'bertrand.muller@gmail.com', '0402854194', true);
-INSERT INTO Employe (nom, prenom, email, telephone, administrateur) VALUES ('Thierry', 'Xavier', 'xavier.thierry@gmail.com', '0533034504', false);
-INSERT INTO Employe (nom, prenom, email, telephone, administrateur) VALUES ('Lenoir', 'Clémence', 'clémence.lenoir@gmail.com', '0403444782', false);
-INSERT INTO Employe (nom, prenom, email, telephone, administrateur) VALUES ('Pires', 'Thérèse', 'thérèse.pires@gmail.com', '0633048266', false);
-INSERT INTO Employe (nom, prenom, email, telephone, administrateur) VALUES ('Gérard', 'Madeleine', 'madeleine.gérard@gmail.com', '0504868398', true);
-INSERT INTO Employe (nom, prenom, email, telephone, administrateur) VALUES ('Monnier', 'Élise', 'élise.monnier@gmail.com', '0405086402', false);
-INSERT INTO Employe (nom, prenom, email, telephone, administrateur) VALUES ('Dumas', 'Aurore', 'aurore.dumas@gmail.com', '0703710344', false);
+INSERT INTO Employe (nom, prenom, email, telephone, mdp, administrateur) VALUES ('Raynaud', 'Marguerite', 'marguerite.raynaud@buildMyPc.com', '0403572487', 'ef92b778bafe771e89245b89ecbc160a6e5b57a661d692ba39b2e9bd2f3fd91a', true);
+INSERT INTO Employe (nom, prenom, email, telephone, mdp, administrateur) VALUES ('Menard', 'René', 'rené.menard@buildMyPc.com', '0433562360', 'fc7c4e60c1ec62f7c75b1c04b8d43011d4355a473f004d1c4d5cb71d04f3bc5d', false);
+INSERT INTO Employe (nom, prenom, email, telephone, mdp, administrateur) VALUES ('Godard', 'Nicolas', 'nicolas.godard@buildMyPc.com', '0604279798', '8c6976e5b5410415bde908bd4dee15dfb16b6201e4e8a7001b5df7c43c8c741e', false);
+INSERT INTO Employe (nom, prenom, email, telephone, mdp, administrateur) VALUES ('Muller', 'Bertrand', 'bertrand.muller@buildMyPc.com', '0402854194', '5e884898da28047151d0e56f8dc6292773603d0d6aabbdd14dfd79c3c7f9e1f5', true);
+INSERT INTO Employe (nom, prenom, email, telephone, mdp, administrateur) VALUES ('Thierry', 'Xavier', 'xavier.thierry@buildMyPc.com', '0533034504', 'd8578edf8458ce06fbc5bb76a58c5ca4a6d22bf6b2c76f05c4ecca1d252b2955', false);
+INSERT INTO Employe (nom, prenom, email, telephone, mdp, administrateur) VALUES ('Lenoir', 'Clémence', 'clémence.lenoir@buildMyPc.com', '0403444782', 'd41d8cd98f00b204e9800998ecf8427e', false);
+INSERT INTO Employe (nom, prenom, email, telephone, mdp, administrateur) VALUES ('Pires', 'Thérèse', 'thérèse.pires@buildMyPc.com', '0633048266', '900150983cd24fb0d6963f7d28e17f72', false);
+INSERT INTO Employe (nom, prenom, email, telephone, mdp, administrateur) VALUES ('Gérard', 'Madeleine', 'madeleine.gérard@buildMyPc.com', '0504868398', 'e99a18c428cb38d5f260853678922e03', true);
+INSERT INTO Employe (nom, prenom, email, telephone, mdp, administrateur) VALUES ('Monnier', 'Élise', 'élise.monnier@buildMyPc.com', '0405086402', 'f7c3bc1d808e04732adf679965ccc34ca7ae3441dc70e2b86f698a36b0ebc123', false);
+INSERT INTO Employe (nom, prenom, email, telephone, mdp, administrateur) VALUES ('Dumas', 'Aurore', 'aurore.dumas@buildMyPc.com', '0703710344', '6cb75f652a9b52798eb6cf2201057c73e0677b4d80dbd42d2ce9913df25d8a71', false);
 
 #/////////////////////////////////////////////////////////////////////////////////////--
 #                                 insert Produit                     
@@ -684,3 +684,62 @@ INSERT INTO Avis (idNumCli, idNumProduit, idNumEmploye, txtAvis, txtReponse) VAL
 INSERT INTO Avis (idNumCli, idNumProduit, idNumEmploye, txtAvis, txtReponse) VALUES (29, 49,4, 'Qualité supérieure, je suis ravi.', 'Nous sommes heureux que la qualité du produit vous ait convaincu.');
 INSERT INTO Avis (idNumCli, idNumProduit, idNumEmploye, txtAvis, txtReponse) VALUES (25, 27, 3, 'Bon produit, service client très réactif.', 'Merci pour votre retour, nous sommes ravis que notre service client ait pu répondre à vos attentes.');
 
+#/////////////////////////////////////////////////////////////////////////////////////--
+#                                 insert Comporte               
+#/////////////////////////////////////////////////////////////////////////////////////--
+
+# pc 1 #
+INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (40, 1);
+INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (40, 2);
+INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (40, 5);
+INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (40, 4);
+INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (40, 7);
+
+# pc 2 #
+INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (41, 3);
+INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (41, 9);
+INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (41, 6);
+INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (41, 14);
+INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (41, 17);
+
+# pc 3 #
+INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (42, 26);
+INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (42, 13);
+INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (42, 22);
+INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (42, 18);
+INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (42, 24);
+
+# pc 4 #
+INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (43, 12);
+INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (43, 23);
+INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (43, 25);
+INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (43, 31);
+INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (43, 32);
+
+# pc 5 #
+INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (44, 27);
+INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (44, 8);
+INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (44, 19);
+INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (44, 30);
+INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (44, 29);
+
+# pc 6 #
+INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (45, 11);
+INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (45, 10);
+INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (45, 28);
+INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (45, 15);
+INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (45, 16);
+
+# pc 7 #
+INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (46, 20);
+INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (46, 34);
+INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (46, 21);
+INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (46, 35);
+INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (46, 36);
+
+# pc 8 #
+INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (47, 37);
+INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (47, 33);
+INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (47, 38);
+INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (47, 39);
+INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (47, 40);
