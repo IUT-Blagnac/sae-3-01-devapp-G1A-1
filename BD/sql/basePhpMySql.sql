@@ -102,7 +102,7 @@ CREATE TABLE Client (
     email VARCHAR(320) NOT NULL,
     telephone CHAR(13),
     mdp VARCHAR(300) NOT NULL,
-    FOREIGN KEY (idAdresse) REFERENCES AdressePostale(idAdresse)
+    FOREIGN KEY (idAdresse) REFERENCES AdressePostale(idAdresse),
 );
 
 CREATE TABLE infoPaiement (
