@@ -58,6 +58,14 @@ CREATE TABLE Produit (
     FOREIGN KEY (idCategorie) REFERENCES Categorie(idCategorie)
 );
 
+CREATE TABLE EnPromo (
+    idNumProduit INT,
+    idPromotion INT,
+    PRIMARY KEY (idNumProduit, idPromotion),
+    FOREIGN KEY (idNumProduit) REFERENCES Produit(idNumProduit),
+    FOREIGN KEY (idPromotion) REFERENCES Promotion(idPromotion)
+);
+
 CREATE TABLE Contient (
     idNumProduit INT,
     idImage INT,
