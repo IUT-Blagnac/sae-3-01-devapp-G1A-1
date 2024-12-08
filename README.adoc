@@ -82,14 +82,14 @@ Voici le lien vers le https://docs.google.com/document/d/1-Zlu1r8tdu_4MKUdvEXSIp
 Ces documents détaillent les aspects architecturaux et fonctionnels du projet.
 
 - **link:Documentation/document_conception.adoc[Document de Conception]** : Lien vers le document de conception avec les diagrammes de use case, classe métier, et classe de conception.
-- **link:Documentation/TODO.adoc[SOON - Diagrammes UML]** : Ensemble des diagrammes pour la modélisation de l’application.
+- **link:https://github.com/IUT-Blagnac/sae-3-01-devapp-G1A-1/tree/master/Documentation/images/doc_conception[Diagrammes UML]** : Ensemble des diagrammes pour la modélisation du site web.
 
 ==== Documentation Technique
 
 Cette section inclut les informations techniques nécessaires pour la compréhension et le développement du projet.
 
 - **link:Documentation/TODO.adoc[SOON - Documentation Technique]** : Détails de l'architecture, des technologies utilisées, des choix de conception, et des fonctionnalités principales.
-- **link:Documentation/TODO.adoc[SOON - Base de Données]** : Schéma de la base de données et script de création.
+- **link:https://github.com/IUT-Blagnac/sae-3-01-devapp-G1A-1/tree/master/BD[Base de Données]** : Schéma de la base de données et script de création.
   
 ==== Documentation Utilisateur
 
@@ -104,9 +104,9 @@ Documentation détaillant les fonctionnalités disponibles pour les utilisateurs
 | Nom | Description        |  Lien
 | Releases | Version actuelle du site | https://github.com/IUT-Blagnac/sae-3-01-devapp-G1A-1/releases/tag/V1.0[v1.0]
 | Suivi des User Stories | Les User Stories sont disponibles et suivies dans le Project Board GitHub | https://github.com/IUT-Blagnac/sae-3-01-devapp-G1A-1/projects?query=is%3Aopen[Project Board]
-| Tests et Qualité |Les tests unitaires et les indicateurs de qualité (dette technique) sont accessibles ici | link:Documentation/tests/document_test_web.adoc[Cahier des tests]
+| Tests et Qualité |Les tests unitaires et les indicateurs de qualité sont accessibles ici | link:Documentation/tests/document_test_web.adoc[Cahier des tests]
                                                                                                               
-                                                                                                                link:tests/TODO.adoc[SOON - résultat des tests de qualité]  
+                                                                                            link:tests/TODO.adoc[SOON - Résultat des tests de qualité]  
 |===
 
 === Solution IOT/Java
@@ -129,9 +129,7 @@ Voici le lien vers le https://docs.google.com/document/d/1JXWsYDaT89UOSjPgRJJcoX
 | Nom | Description        |  Lien
 | Releases | Version actuelle de l'application | https://github.com/IUT-Blagnac/sae-3-01-devapp-G1A-1/releases/tag/V1.0[v1.0]
 | Suivi des User Stories | Les User Stories sont disponibles et suivies dans le Project Board GitHub | https://github.com/orgs/IUT-Blagnac/projects/292/views/1[Project Board]
-| Tests et Qualité |Les tests unitaires et les indicateurs de qualité (dette technique) sont accessibles ici | link:Documentation/tests/document_test_iot.adoc[Cahier des tests]
-                                                                                                              
-                                                                                                                link:tests/TODO.adoc[SOON - résultat des tests de qualité]  
+| Tests et Qualité |Les tests unitaires sont accessibles ici | link:Documentation/tests/document_test_iot.adoc[Cahier des tests]
 |===
 
 == Travail d'équipe
