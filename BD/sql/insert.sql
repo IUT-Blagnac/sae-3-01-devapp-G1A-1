@@ -752,3 +752,16 @@ INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (58, 
 INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (58, 13);
 INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (58, 17);
 INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (58, 4);
+
+#/////////////////////////////////////////////////////////////////////////////////////--
+#                                 insert Contient               
+#/////////////////////////////////////////////////////////////////////////////////////--
+
+INSERT INTO Contient (idNumProduit, idImage) VALUES (51, 8);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (52, 6);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (53, 4);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (54, 5);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (55, 7);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (21, 2);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (50, 9);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (10, 3);
