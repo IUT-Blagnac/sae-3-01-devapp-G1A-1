@@ -55,8 +55,8 @@ Garantir la fiabilité et l’efficacité de l’application IoT de gestion d’
 
 Pour des informations supplémentaires :
 
-- Documentation technique : link:documentation_technique_web.adoc[SOON]
-- Documentation utilisateur : link:documentation_utilisateur_web.adoc[SOON]
+- Documentation technique : link:https://github.com/IUT-Blagnac/sae-3-01-devapp-G1A-1/blob/master/Documentation/document_technique_iot.adoc[ICI]
+- Documentation utilisateur : link:https://github.com/IUT-Blagnac/sae-3-01-devapp-G1A-1/blob/master/Documentation/document_utilisateur_iot.adoc[ICI]
 
 == Tests
 
