@@ -46,8 +46,8 @@ INSERT INTO Categorie (nomCategorie, idCategoriePere) VALUES ('Mémoire', 1);
 INSERT INTO Categorie (nomCategorie, idCategoriePere) VALUES ('Ventilateur boitier', 1);   
 INSERT INTO Categorie (nomCategorie, idCategoriePere) VALUES ('Processeur', 1);
 INSERT INTO Categorie (nomCategorie) VALUES ('PC Monté');
-INSERT INTO Categorie (nomCategorie, idCategoriePere) VALUES ('PC Gaming', 9);
-INSERT INTO Categorie (nomCategorie, idCategoriePere) VALUES ('PC Bureautique', 9);
+INSERT INTO Categorie (nomCategorie, idCategoriePere) VALUES ('PC Gaming', 10);
+INSERT INTO Categorie (nomCategorie, idCategoriePere) VALUES ('PC Bureautique', 10);
 
 #/////////////////////////////////////////////////////////////////////////////////////--
 #                                  insert Image
@@ -251,6 +251,15 @@ INSERT INTO Produit (idCategorie, nomProduit, prix, descriptionProduit) VALUES (
 INSERT INTO Produit (idCategorie, nomProduit, prix, descriptionProduit) VALUES (4, 'Corsair Phanteks Eclipse P400A', 99.99, 'Boitier PC Phanteks Eclipse P400A');
 INSERT INTO Produit (idCategorie, nomProduit, prix, descriptionProduit) VALUES (8, 'Sapphire Cooler Master MasterFan', 49.99, 'Ventilateur de boitier Cooler Master 120mm');
 INSERT INTO Produit (idCategorie, nomProduit, prix, descriptionProduit) VALUES (9, 'NZXT Intel Core i7-12700K', 399.99, 'Processeur Intel Core i7-12700K');
+
+INSERT INTO Produit (idCategorie, nomProduit, prix, descriptionProduit) VALUES (10, 'PC Gamer RTX 4080 Beast', 2799.99, 'Performance ultime avec carte RTX 4080, Intel i7, 32 Go de RAM et refroidissement liquide.');
+INSERT INTO Produit (idCategorie, nomProduit, prix, descriptionProduit) VALUES (10, 'HP Omen Envy Pro X', 1899.99, 'Tour élégante et puissante avec RTX 3070, Intel i5 et SSD 1 To.');
+INSERT INTO Produit (idCategorie, nomProduit, prix, descriptionProduit) VALUES (10, 'Lenovo Legion Tower X', 1599.99, 'Idéal pour les gamers : Ryzen 7, GTX 1660 Ti, 16 Go de RAM et design LED.');
+INSERT INTO Produit (idCategorie, nomProduit, prix, descriptionProduit) VALUES (10, 'PC Gamer RTX 4090 Mega Power', 3599.99, 'Config ultra-haut de gamme : RTX 4090, Intel i9, 64 Go de RAM et boîtier RGB premium.');
+INSERT INTO Produit (idCategorie, nomProduit, prix, descriptionProduit) VALUES (10, 'Dell Alienware Aurora', 2399.99, 'Futuriste et puissant avec RTX 4080, Intel i7 et système de refroidissement avancé.');
+INSERT INTO Produit (idCategorie, nomProduit, prix, descriptionProduit) VALUES (10, 'Gigabyte Aorus Extreme', 2199.99, 'Performance équilibrée : Ryzen 9, RTX 4070, SSD 2 To et design compact.');
+INSERT INTO Produit (idCategorie, nomProduit, prix, descriptionProduit) VALUES (10, 'PC Gamer Ryzen 5 Shadow', 1299.99, 'Tour silencieuse et efficace : Ryzen 5, RTX 3060, SSD 512 Go.');
+INSERT INTO Produit (idCategorie, nomProduit, prix, descriptionProduit) VALUES (10, 'MSI Infinite X 3D Max', 2499.99, 'Pour les créateurs et gamers : Intel i7, RTX 4080, 32 Go de RAM et système LED RGB.');
 
 #/////////////////////////////////////////////////////////////////////////////////////--
 #                                 insert Commande                     
@@ -689,57 +698,70 @@ INSERT INTO Avis (idNumCli, idNumProduit, idNumEmploye, txtAvis, txtReponse) VAL
 #/////////////////////////////////////////////////////////////////////////////////////--
 
 # pc 1 #
-INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (40, 1);
-INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (40, 2);
-INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (40, 5);
-INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (40, 4);
-INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (40, 7);
+INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (51, 46); # Carte graphique
+INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (51, 50); # Processeur
+INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (51, 29); # refroidissement
+INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (51, 3);  # boitier
+INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (51, 9);  # Mémoire
 
 # pc 2 #
-INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (41, 3);
-INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (41, 9);
-INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (41, 6);
-INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (41, 14);
-INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (41, 17);
+INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (52, 10);
+INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (52, 12);
+INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (52, 16);
+INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (52, 17);
+INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (52, 20);
 
 # pc 3 #
-INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (42, 26);
-INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (42, 13);
-INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (42, 22);
-INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (42, 18);
-INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (42, 24);
+INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (53, 21);
+INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (53, 50);
+INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (53, 13);
+INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (53, 40);
+INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (53, 4);
 
 # pc 4 #
-INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (43, 12);
-INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (43, 23);
-INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (43, 25);
-INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (43, 31);
-INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (43, 32);
+INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (54, 21);
+INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (54, 1);
+INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (54, 12);
+INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (54, 28);
+INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (54, 32);
 
 # pc 5 #
-INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (44, 27);
-INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (44, 8);
-INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (44, 19);
-INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (44, 30);
-INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (44, 29);
+INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (55, 8);
+INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (55, 34);
+INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (55, 13);
+INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (55, 14);
+INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (55, 26);
 
 # pc 6 #
-INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (45, 11);
-INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (45, 10);
-INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (45, 28);
-INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (45, 15);
-INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (45, 16);
+INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (56, 10);
+INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (56, 44);
+INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (56, 12);
+INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (56, 48);
+INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (56, 39);
 
 # pc 7 #
-INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (46, 20);
-INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (46, 34);
-INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (46, 21);
-INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (46, 35);
-INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (46, 36);
+INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (57, 46);
+INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (57, 34);
+INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (57, 29);
+INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (57, 40);
+INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (57, 20);
 
 # pc 8 #
-INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (47, 37);
-INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (47, 33);
-INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (47, 38);
-INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (47, 39);
-INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (47, 40);
+INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (58, 21);
+INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (58, 50);
+INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (58, 13);
+INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (58, 17);
+INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (58, 4);
+
+#/////////////////////////////////////////////////////////////////////////////////////--
+#                                 insert Contient               
+#/////////////////////////////////////////////////////////////////////////////////////--
+
+INSERT INTO Contient (idNumProduit, idImage) VALUES (51, 8);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (52, 6);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (53, 4);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (54, 5);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (55, 7);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (21, 2);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (50, 9);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (10, 3);

@@ -58,6 +58,14 @@ CREATE TABLE Produit (
     FOREIGN KEY (idCategorie) REFERENCES Categorie(idCategorie)
 );
 
+CREATE TABLE EnPromo (
+    idNumProduit INT,
+    idPromotion INT,
+    PRIMARY KEY (idNumProduit, idPromotion),
+    FOREIGN KEY (idNumProduit) REFERENCES Produit(idNumProduit),
+    FOREIGN KEY (idPromotion) REFERENCES Promotion(idPromotion)
+);
+
 CREATE TABLE Contient (
     idNumProduit INT,
     idImage INT,
@@ -102,7 +110,7 @@ CREATE TABLE Client (
     email VARCHAR(320) NOT NULL,
     telephone CHAR(13),
     mdp VARCHAR(300) NOT NULL,
-    FOREIGN KEY (idAdresse) REFERENCES AdressePostale(idAdresse)
+    FOREIGN KEY (idAdresse) REFERENCES AdressePostale(idAdresse),
 );
 
 CREATE TABLE infoPaiement (
