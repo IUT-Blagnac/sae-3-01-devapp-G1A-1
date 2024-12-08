@@ -1,0 +1,82 @@
+= Documentation des tests web
+:icons: font
+:models: models
+:experimental:
+:incremental:
+:numbered:
+:toc: macro
+:window: _blank
+:correction!:
+
+toc::[]
+
+Version du site : V0.1.2 +
+Date : 23/11/2024 +
+Equipe : 1A-1 +
+Client : BuildMyPC +
+Projet : Site web e-commerce +
+
+== Description du projet
+
+=== Équipe
+
+L'équipe était composée de cinq membres avec les rôles suivants :
+
+- *Romain* : Product Owner et Développeur
+- *Kilian* : Développeur
+- *Titouan* : Développeur
+- *Pablo* : Développeur
+- *Hugo* : Scrum Master et Développeur
+
+=== Contexte du projet
+
+Le projet a pour objectif de développer une solution e-commerce pour l’entreprise **BuildMyPC**, spécialisée dans la vente de composants informatiques et d’ordinateurs montés. L’entreprise souhaite élargir son marché en passant d’un modèle B2B à une offre B2C, ciblant les particuliers pour augmenter sa visibilité et sa part de marché en Europe.
+
+=== Objectifs du projet
+
+**Problématique :**  
+TODO
+
+**Objectif :**  
+TODO
+
+== Fonctionnement du projet Web
+
+Pour des informations supplémentaires :
+
+- Documentation technique : link:documentation_technique_web.adoc[SOON]
+- Documentation utilisateur : link:documentation_utilisateur_web.adoc[SOON]
+
+== Tests
+
+=== Accès à la page d'acceuil
+
+TODO
+
+=== Création de compte
+
+TODO
+
+=== Connexion/Déconnexion
+
+TODO
+
+=== Espace membre : Modification des informations
+
+TODO
+
+=== Espace Produit
+
+==== Afficher les produits
+
+TODO
+
+=== Avis sur les produits
+
+TODO
+
+=== Commande et paiement
+
+TODO
+
+A COMPLETER
