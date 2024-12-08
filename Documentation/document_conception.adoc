@@ -17,7 +17,7 @@ Ce document de conception détaille les éléments clés du projet de site e-com
 
 Ce diagramme présente les interactions entre les différents types d’utilisateurs et les fonctionnalités principales de l'application.
 
-image::images/UC.png[UC, 100%]
+image::images/doc_conception/UC.png[UC, 100%]
 
 === Description des cas d'utilisation principaux
 
@@ -91,19 +91,19 @@ image::images/UC.png[UC, 100%]
 
 Ce diagramme de séquence illustre le processus pour un client de passer une commande à partir de son panier, avec vérification de l'adresse de livraison, calcul du montant total, et confirmation du paiement.
 
-image::images/DS_AjoutPanier.png[DS_AjoutPanier, 50%]
+image::images/doc_conception/DS_AjoutPanier.png[DS_AjoutPanier, 50%]
 
 ==== Diagramme de Séquence : Ajouter un Produit au Panier
 
 Ce diagramme de séquence montre l'interaction entre le client, le produit, le panier, et le système lorsqu'un client ajoute un produit à son panier. Le système vérifie la disponibilité du stock avant de confirmer l'ajout.
 
-image::images/DS_Commande.png[DS_Commande, 50%]
+image::images/doc_conception/DS_Commande.png[DS_Commande, 50%]
 
 == Diagramme de Classe Métier
 
 Le diagramme de classe métier ci-dessous illustre les principales entités de l'application e-commerce ainsi que leurs relations. Chaque classe représente une entité du système, et leurs attributs et méthodes reflètent les opérations essentielles pour le fonctionnement de la plateforme.
 
-image::images/DC_Métier.png[DC_Métier, 100%]
+image::images/doc_conception/DC_Métier.png[DC_Métier, 100%]
 
 === Description des principales classes métiers
 
@@ -141,21 +141,21 @@ Cette section inclut les diagrammes de classe de conception pour les modules cl�
 
 Ce diagramme de classe de conception illustre le processus de recherche de produits par un client.
 
-image::images/DCC_Recherche.png[DCC_Recherche, 50%]
+image::images/doc_conception/DCC_Recherche.png[DCC_Recherche, 50%]
 
 
 === Diagramme de conception pour la gestion du panier
 
 Ce diagramme décrit le processus d'ajout, de suppression, et de modification des produits dans le panier.
 
-image::images/DCC_Ajout_Au_Panier.png[DCC_Ajout_Au_Panier,30%]
+image::images/doc_conception/DCC_Ajout_Au_Panier.png[DCC_Ajout_Au_Panier,30%]
 
 
 === Diagramme de conception pour la visualisation de produit
 
 Ce diagramme de classe de conception montre le processus d'affichage d'un produit à un client.
 
-image::images/DCC_Visualisation_du_produit.png[DCC_Visualisation_du_produit,50%]
+image::images/doc_conception/DCC_Visualisation_du_produit.png[DCC_Visualisation_du_produit,50%]
 
 == Conclusion
 Ce document de conception détaille l'architecture et les choix de conception du projet, permettant une compréhension globale des interactions et des logiques métier sous-jacentes. Cette conception servira de base pour le développement et facilitera les futures évolutions.
