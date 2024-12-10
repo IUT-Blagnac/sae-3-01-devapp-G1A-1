@@ -1,0 +1,308 @@
+@startuml
+skinparam classAttributeIconSize 0
+class RunApp{
++ {static} main(args : String[]) : void
+}
+class MenuConfigController{
+- primaryStage : Stage
+- btnBack : Button
+- gridPane : GridPane
+- lblPythonState : Label
++ initContext(_containingStage : Stage) : void
++ displayDialog() : void
+- configure() : void
+- closeWindow(e : WindowEvent) : Object
++ initialize(location : URL, resources : ResourceBundle) : void
+- createUI() : void
+- saveConfiguration(tfTemperatureMax : TextField, tfHumiditeMax : TextField, tfTauxMax : TextField, tfFrequenceLecture : TextField, cbTemperature : CheckBox, cbHumidite : CheckBox, cbTaux : CheckBox, listViewSalles : ListView<HBox>) : void
+- doBack() : void
+- doQuit() : void
+}
+MenuConfigController ..|> Initializable
+class MenuCourbeController{
+- primaryStage : Stage
+- btnByRoom : Button
+- btnByData : Button
+- btnSolar : Button
+- btnBack : Button
+- btnQuit : Button
+- lblPythonState : Label
++ initContext(_containingStage : Stage) : void
++ displayDialog() : void
+- configure() : void
+- closeWindow(e : WindowEvent) : Object
++ initialize(location : URL, resources : ResourceBundle) : void
+- doByRoom() : void
+- doByData() : void
+- doSolar() : void
+- doBack() : void
+- doQuit() : void
+}
+MenuCourbeController ..|> Initializable
+class AlertePopup{
+- {static} alertPopupInstance : AlertePopup
+- watchServiceExecutor : ExecutorService
+- stackPane : StackPane
+- primaryStage : Stage
+- queueAlertes : Queue<Pane>
+- {static} MAXQUEUE : int
+- AlertePopup(primaryStage : Stage)
++ {static} getAlertPopupInstance(primaryStage : Stage) : AlertePopup
++ setPrimaryStage(primaryStage : Stage) : void
+- getXPosition() : double
+- getYPosition() : double
++ createNewAlert(message : String) : void
+- newAlertToQueue(alert : Pane) : void
+- removeAlert(alert : Pane) : void
+- updateAlertDisplay() : void
+- startFileWatcher() : void
+- doHistorique() : void
+}
+class PythonStatusUpdater{
+- {static} psuInstance : PythonStatusUpdater
+- lblPythonState : Label
+- timer : Timer
+- PythonStatusUpdater()
++ {static} getPSUInstance() : PythonStatusUpdater
++ setPSULabel(lblPythonState : Label) : void
+- updateLabel() : void
+}
+class Menu{
++ start(_primaryStage : Stage) : void
++ {static} runApp() : void
+}
+Menu --|> Application
+class DataReader{
++ DataReader()
++ readJsonLFile(filePath : String) : List<HashMap<String,Object>>
++ readJsonFile(filePath : String) : HashMap<String,Object>
+}
+class MenuController{
+- primaryStage : Stage
+- btnTest : Button
+- btnConfig : Button
+- btnShow : Button
+- btnChart : Button
+- btnStart : Button
+- btnSolar : Button
+- btnAlert : Button
+- btnQuit : Button
+- lblPythonState : Label
++ initContext(_containingStage : Stage) : void
++ displayDialog() : void
+- configure() : void
+- closeWindow(e : WindowEvent) : Object
++ initialize(location : URL, resources : ResourceBundle) : void
+- doTest() : void
+- doConfig() : void
+- doRelancePython() : void
+- doVisuDonnees() : void
+- doHistorique() : void
+- doCourbe() : void
+- doSolar() : void
+- doQuit() : void
+}
+MenuController ..|> Initializable
+class ShowByDataController{
+- primaryStage : Stage
+- timer : Timer
+- dataVisibility : Map<String,Boolean>
+- btnBack : Button
+- lblPythonState : Label
+- scrollPaneLeft : ScrollPane
+- contentLeftVBox : VBox
+- scrollPaneRight : ScrollPane
+- contentRightVBox : VBox
++ initContext(_containingStage : Stage) : void
++ displayDialog() : void
+- configure() : void
+- closeWindow(e : WindowEvent) : Object
+- doBack() : void
+- doQuit() : void
++ initialize(location : URL, resources : ResourceBundle) : void
+- toggleVisibility(typeData : String, eyeButton : Button) : void
+- updateRightScrollPane() : void
+- getDataForSalle(typeDonnee : String, salleName : String) : double[]
+- createEmptyChart() : LineChart<Number,Number>
+- createSeries(name : String, data : double[]) : XYChart.Series<Number,Number>
++ getTitleLabel(titledPane : TitledPane) : Label
+}
+ShowByDataController ..|> Initializable
+class TestController{
+- mainPane : StackPane
+- spinner : ProgressIndicator
+- resultIcon : ImageView
+- primaryStage : Stage
++ initContext(_containingStage : Stage) : void
++ displayDialog() : void
+- configure() : void
+- startConnectionTest() : void
+- testPythonConnection() : boolean
+- showResult(isConnected : boolean) : void
+- closeWindow() : void
++ initialize(location : URL, resources : ResourceBundle) : void
+}
+TestController ..|> Initializable
+class ShowSolarController{
+- primaryStage : Stage
+- previousPage : String
+- timer : Timer
+- btnBack : Button
+- contentBorderPane : BorderPane
+- contentHBox : HBox
+- lblPythonState : Label
++ setPreviousPage(previousPage : String) : void
++ getPreviousPage() : String
++ initContext(_containingStage : Stage) : void
++ displayDialog() : void
+- configure() : void
+- closeWindow(e : WindowEvent) : Object
+- doBack() : void
+- doQuit() : void
++ initialize(location : URL, resources : ResourceBundle) : void
+- setupHBox() : void
+- updateHBox() : void
+- setupCenterChart() : void
+}
+ShowSolarController ..|> Initializable
+class PythonExecuter{
+- NBTRIES : int
+- filePath : String
+- state : GlobalVariables.pythonState
+- process : Process
++ PythonExecuter(filePath : String)
++ getFilePath() : String
++ setFilePath(filePath : String) : void
++ getState() : GlobalVariables.pythonState
+- updateState() : void
++ startPython() : void
++ startPython(acknowledgementSentence : String) : void
++ stopPython() : void
+}
+class RelancePythonController{
+- mainPane : StackPane
+- spinner : ProgressIndicator
+- resultIcon : ImageView
+- primaryStage : Stage
++ initContext(_containingStage : Stage) : void
++ displayDialog() : void
+- configure() : void
+- startRelaunch() : void
+- showResult(isRunning : boolean) : void
+- closeWindow() : void
++ initialize(location : URL, resources : ResourceBundle) : void
+}
+RelancePythonController ..|> Initializable
+class GlobalVariables{
++ {static} pythonFilePath : String
++ {static} pythonConfigFilePath : String
++ {static} testConnexionFilePath : String
++ {static} alertsFilePath : String
++ {static} solarDataFilePath : String
++ {static} roomsFilePath : String
++ {static} mqttPython : PythonExecuter
++ {static} salles : List<String>
+- GlobalVariables()
++ {static} exitApp(primaryStage : Stage) : void
+}
+class SolarDataReader{
++ {static} loadSummaryData() : Map<String,Double>
++ {static} loadGraphData() : List<Map.Entry<LocalTime,Double>>
+}
+class ShowByRoomController{
+- primaryStage : Stage
+- timer : Timer
+- salleVisibility : Map<String,Boolean>
+- btnBack : Button
+- scrollPaneLeft : ScrollPane
+- contentLeftVBox : VBox
+- scrollPaneRight : ScrollPane
+- contentRightVBox : VBox
+- lblPythonState : Label
++ initContext(_containingStage : Stage) : void
++ displayDialog() : void
+- configure() : void
+- closeWindow(e : WindowEvent) : Object
+- doBack() : void
+- doQuit() : void
++ initialize(location : URL, resources : ResourceBundle) : void
+- toggleVisibility(salle : String, eyeButton : Button) : void
+- updateRightScrollPane() : void
+- createEmptyChart() : LineChart<Number,Number>
+- loadSalleData(salle : String) : List<HashMap<String,Object>>
+- createSeriesFromData(name : String, data : List<HashMap<String,Object>>, key : String) : XYChart.Series<Number,Number>
++ getTitleLabel(titledPane : TitledPane) : Label
+- fileExists(filePath : String) : boolean
+}
+ShowByRoomController ..|> Initializable
+class AlerteHistoriqueController{
+- primaryStage : Stage
+- dateFilter : DatePicker
+- root : BorderPane
+- topBar : HBox
+- leftBar : VBox
+- contentBorderPane : BorderPane
+- salleFilter : TextField
+- typeFilter : ComboBox<String>
+- btnBack : Button
+- btnApplyFilter : Button
+- btnResetFilter : Button
+- alertesTable : TableView<List<String>>
+- alertesList : ObservableList<List<String>>
++ initContext(_containingStage : Stage) : void
++ displayDialog() : void
+- configure() : void
+- closeWindow(e : WindowEvent) : Object
+- doBack() : void
+- doQuit() : void
++ initialize(location : URL, resources : ResourceBundle) : void
+- loadAlertesFromFile(filename : String) : List<List<String>>
+- appliquerFiltre() : void
+- resetFilters() : void
+- sortAlertesByTimestamp(alertes : ObservableList<List<String>>) : ObservableList<List<String>>
+}
+AlerteHistoriqueController ..|> Initializable
+class VisuDonneesController{
+- primaryStage : Stage
+- salles : Map<String,Salle>
+- timer : Timer
+- btnBack : Button
+- lblPythonState : Label
+- scrollPane : ScrollPane
+- gridPane : GridPane
++ initContext(_containingStage : Stage) : void
++ displayDialog() : void
+- configure() : void
+- closeWindow(e : WindowEvent) : Object
+- doBack() : void
+- doQuit() : void
++ initialize(location : URL, resources : ResourceBundle) : void
++ setNewRoomValues() : void
+}
+VisuDonneesController ..|> Initializable
+class AlertUtilities{
++ {static} confirmYesCancel(_fen : Stage, _title : String, _message : String, _content : String, _al : AlertType) : boolean
++ {static} showAlert(_fen : Stage, _title : String, _message : String, _content : String, _al : AlertType) : void
+}
+class Salle{
+- titledPane : TitledPane
+- vBox : VBox
+- lblCO2 : Label
+- lblTemp : Label
+- lblHum : Label
+- {static} noData : String
++ Salle(nomSalle : String, tauxCO2 : String, temperature : String, humidite : String)
++ setCO2(tauxCO2 : String) : void
++ setTemperature(temperature : String) : void
++ setHumidite(humidite : String) : void
++ getTitledPane() : TitledPane
+}
+AlertePopup--"- {static} alertPopupInstance" AlertePopup
+PythonStatusUpdater--"- {static} psuInstance" PythonStatusUpdater
+GlobalVariables--"+ {static} mqttPython" PythonExecuter
+enum pythonState{
+RUNNING
+PENDING
+DISCONNECTED
+}
+@enduml
