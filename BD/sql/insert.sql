@@ -19,18 +19,18 @@ INSERT INTO Carte_AE (idCarte, numCarte, dateExp, nomProprietaire) VALUES (3, '3
 #                                   insert Marque
 #/////////////////////////////////////////////////////////////////////////////////////--
 
-INSERT INTO Marque (nomMarque) VALUES ('MSI');        # Watercooling, Carte Mère, Boitier PC, Carte graphique, PC portable 
-INSERT INTO Marque (nomMarque) VALUES ('Acer');       # Carte graphique, PC portable
+INSERT INTO Marque (nomMarque) VALUES ('MSI');        # Watercooling, Carte Mère, Boitier PC, , PC portable 
+INSERT INTO Marque (nomMarque) VALUES ('Acer');       # , PC portable
 INSERT INTO Marque (nomMarque) VALUES ('Corsair');    # Mémoire, Ventilateur boitier, Boitier PC
 INSERT INTO Marque (nomMarque) VALUES ('Intel');      # Processeur
 INSERT INTO Marque (nomMarque) VALUES ('AMD');        # Processeur
-INSERT INTO Marque (nomMarque) VALUES ('Asus');       # Carte Mère, Carte graphique, PC portable
+INSERT INTO Marque (nomMarque) VALUES ('Asus');       # Carte Mère, , PC portable
 INSERT INTO Marque (nomMarque) VALUES ('Razer');      # Boitier PC
 INSERT INTO Marque (nomMarque) VALUES ('NZXT');       # Watercooling, 
 INSERT INTO Marque (nomMarque) VALUES ('Cooler');     # Watercooling, Ventilateur boitier, Boitier PC
 INSERT INTO Marque (nomMarque) VALUES ('Kingston');   # Mémoire
-INSERT INTO Marque (nomMarque) VALUES ('Gigabyte');   # Carte Mère, Carte graphique 
-INSERT INTO Marque (nomMarque) VALUES ('Sapphire');   # Carte graphique 
+INSERT INTO Marque (nomMarque) VALUES ('Gigabyte');   # Carte Mère,  
+INSERT INTO Marque (nomMarque) VALUES ('Sapphire');   #  
 
 #/////////////////////////////////////////////////////////////////////////////////////--
 #                                 insert Categorie
@@ -40,7 +40,7 @@ INSERT INTO Categorie (nomCategorie) VALUES ('Composant');
 INSERT INTO Categorie (nomCategorie, idCategoriePere) VALUES ('Watercooling', 1);   
 INSERT INTO Categorie (nomCategorie, idCategoriePere) VALUES ('Carte Mère', 1);   
 INSERT INTO Categorie (nomCategorie, idCategoriePere) VALUES ('Boitier PC', 1);   
-INSERT INTO Categorie (nomCategorie, idCategoriePere) VALUES ('Carte graphique', 1);  
+INSERT INTO Categorie (nomCategorie, idCategoriePere) VALUES ('', 1);  
 INSERT INTO Categorie (nomCategorie) VALUES ('PC Portable');   
 INSERT INTO Categorie (nomCategorie, idCategoriePere) VALUES ('Mémoire', 1);   
 INSERT INTO Categorie (nomCategorie, idCategoriePere) VALUES ('Ventilateur boitier', 1);   
@@ -52,6 +52,8 @@ INSERT INTO Categorie (nomCategorie, idCategoriePere) VALUES ('PC Bureautique', 
 #/////////////////////////////////////////////////////////////////////////////////////--
 #                                  insert Image
 #/////////////////////////////////////////////////////////////////////////////////////--
+
+-- convention de nommage : (catégorie)_id(nombre)_(numéro de l'image(entre 1 est 3))
 
 INSERT INTO Image (nomImage) VALUES ('carteGraphique.webp');
 INSERT INTO Image (nomImage) VALUES ('carteGraphique2.webp'); 
@@ -201,65 +203,65 @@ INSERT INTO Employe (nom, prenom, email, telephone, mdp, administrateur) VALUES 
 #                                 insert Produit                     
 #/////////////////////////////////////////////////////////////////////////////////////--
 
-INSERT INTO Produit (idCategorie, nomProduit, prix, descriptionProduit) VALUES (9, 'Acer Intel Core i9-13900K', 599.99, 'processeur haut de gamme Intel Core i9');
-INSERT INTO Produit (idCategorie, nomProduit, prix, descriptionProduit) VALUES (6, 'MSI MacBook Pro 16', 2499.99, 'PC portable haute performance pour professionnels');
-INSERT INTO Produit (idCategorie, nomProduit, prix, descriptionProduit) VALUES (4, 'Corsair Corsair 4000D', 89.99, 'Boitier PC spacieux avec bonne ventilation');
-INSERT INTO Produit (idCategorie, nomProduit, prix, descriptionProduit) VALUES (7, 'Corsair HyperX Fury 8GB', 39.99, 'Mémoire DDR4 de 8GB pour PC gamer');
-INSERT INTO Produit (idCategorie, nomProduit, prix, descriptionProduit) VALUES (3, 'MSI Z590 AORUS', 249.99, 'Carte mère compatible Intel Z590');
-INSERT INTO Produit (idCategorie, nomProduit, prix, descriptionProduit) VALUES (3, 'NZXT TUF Gaming X570', 179.99, 'Carte mère AMD X570 pour PC gamer');
-INSERT INTO Produit (idCategorie, nomProduit, prix, descriptionProduit) VALUES (6, 'Acer XPS 13', 1499.99, 'PC portable léger et performant');
-INSERT INTO Produit (idCategorie, nomProduit, prix, descriptionProduit) VALUES (5, 'MSI GTX 1660 Ti', 299.99, 'Carte graphique GTX 1660 Ti pour gaming');
-INSERT INTO Produit (idCategorie, nomProduit, prix, descriptionProduit) VALUES (7, 'Kingston Ripjaws V 32GB', 119.99, 'Mémoire DDR4 32GB pour gaming');
-INSERT INTO Produit (idCategorie, nomProduit, prix, descriptionProduit) VALUES (5, 'Acer Radeon RX 7900 XT', 1299.99, 'Carte graphique haut de gamme Radeon RX 7900');
-INSERT INTO Produit (idCategorie, nomProduit, prix, descriptionProduit) VALUES (6, 'Asus MacBook Pro 16', 2499.99, 'PC portable haute performance Asus');
-INSERT INTO Produit (idCategorie, nomProduit, prix, descriptionProduit) VALUES (9, 'Razer Intel Core i7-12700K', 399.99, 'Processeur Intel Core i7-12700K');
-INSERT INTO Produit (idCategorie, nomProduit, prix, descriptionProduit) VALUES (8, 'AMD NZXT Aer P', 49.99, 'Ventilateur boitier de 120mm pour refroidissement');
-INSERT INTO Produit (idCategorie, nomProduit, prix, descriptionProduit) VALUES (4, 'Sapphire MasterBox Q300L', 79.99, 'Boitier PC compact et fonctionnel');
-INSERT INTO Produit (idCategorie, nomProduit, prix, descriptionProduit) VALUES (8, 'Corsair Corsair LL120 RGB', 59.99, 'Ventilateur RGB de 120mm');
-INSERT INTO Produit (idCategorie, nomProduit, prix, descriptionProduit) VALUES (2, 'Corsair CoolerPro 120', 99.99, 'Système de refroidissement liquide pour CPU');
-INSERT INTO Produit (idCategorie, nomProduit, prix, descriptionProduit) VALUES (4, 'Kingston Phanteks Eclipse P400A', 89.99, 'Boitier PC avec panneaux en mesh et bonne ventilation');
-INSERT INTO Produit (idCategorie, nomProduit, prix, descriptionProduit) VALUES (2, 'Acer HydroBoost 360', 149.99, 'Système de watercooling 360mm pour CPU');
-INSERT INTO Produit (idCategorie, nomProduit, prix, descriptionProduit) VALUES (2, 'Corsair XtremeFlow 240', 119.99, 'Système de watercooling 240mm');
-INSERT INTO Produit (idCategorie, nomProduit, prix, descriptionProduit) VALUES (7, 'MSI Trident Z RGB 64GB', 249.99, 'Mémoire DDR4 64GB pour gaming');
-INSERT INTO Produit (idCategorie, nomProduit, prix, descriptionProduit) VALUES (5, 'Intel GeForce RTX 4080', 1599.99, 'Carte graphique haut de gamme RTX 4080');
-INSERT INTO Produit (idCategorie, nomProduit, prix, descriptionProduit) VALUES (3, 'Asus Z490 Pro WiFi', 249.99, 'Carte mère avec support WiFi et Intel Z490');
-INSERT INTO Produit (idCategorie, nomProduit, prix, descriptionProduit) VALUES (8, 'MSI Be Quiet! Pure Wings 2', 29.99, 'Ventilateur PC silencieux de 120mm');
-INSERT INTO Produit (idCategorie, nomProduit, prix, descriptionProduit) VALUES (3, 'Intel Z590 AORUS', 349.99, 'Carte mère Intel Z590 AORUS');
-INSERT INTO Produit (idCategorie, nomProduit, prix, descriptionProduit) VALUES (6, 'Razer MacBook Pro 16', 2499.99, 'PC portable performant Razer');
-INSERT INTO Produit (idCategorie, nomProduit, prix, descriptionProduit) VALUES (7, 'Gigabyte Ripjaws V 32GB', 119.99, 'Mémoire DDR4 32GB');
-INSERT INTO Produit (idCategorie, nomProduit, prix, descriptionProduit) VALUES (2, 'MSI XtremeFlow 240', 129.99, 'Watercooling 240mm');
-INSERT INTO Produit (idCategorie, nomProduit, prix, descriptionProduit) VALUES (4, 'Kingston Corsair 4000D', 109.99, 'Boitier PC de grande capacité');
-INSERT INTO Produit (idCategorie, nomProduit, prix, descriptionProduit) VALUES (2, 'Kingston UltraCool 240', 89.99, 'Système de refroidissement liquide 240mm');
-INSERT INTO Produit (idCategorie, nomProduit, prix, descriptionProduit) VALUES (3, 'Sapphire ROG Strix B550', 179.99, 'Carte mère AMD B550 ROG Strix');
-INSERT INTO Produit (idCategorie, nomProduit, prix, descriptionProduit) VALUES (4, 'Asus Corsair 4000D', 119.99, 'Boitier PC solide avec bonne ventilation');
-INSERT INTO Produit (idCategorie, nomProduit, prix, descriptionProduit) VALUES (7, 'Gigabyte HyperX Fury 8GB', 39.99, 'Mémoire DDR4 8GB pour PC');
-INSERT INTO Produit (idCategorie, nomProduit, prix, descriptionProduit) VALUES (2, 'Acer UltraCool 240', 99.99, 'Système de watercooling 240mm');
-INSERT INTO Produit (idCategorie, nomProduit, prix, descriptionProduit) VALUES (9, 'Razer Intel Core i9-13900K', 599.99, 'Processeur Intel Core i9-13900K');
-INSERT INTO Produit (idCategorie, nomProduit, prix, descriptionProduit) VALUES (2, 'Sapphire XtremeFlow 240', 119.99, 'Watercooling 240mm');
-INSERT INTO Produit (idCategorie, nomProduit, prix, descriptionProduit) VALUES (6, 'Kingston XPS 13', 1599.99, 'PC portable performant Kingston');
-INSERT INTO Produit (idCategorie, nomProduit, prix, descriptionProduit) VALUES (6, 'Corsair Predator Helios 300', 1699.99, 'PC portable gaming Corsair');
-INSERT INTO Produit (idCategorie, nomProduit, prix, descriptionProduit) VALUES (3, 'Kingston Z490 Pro WiFi', 249.99, 'Carte mère Kingston Z490 avec WiFi');
-INSERT INTO Produit (idCategorie, nomProduit, prix, descriptionProduit) VALUES (7, 'Acer Trident Z RGB 64GB', 249.99, 'Mémoire DDR4 64GB pour PC gaming');
-INSERT INTO Produit (idCategorie, nomProduit, prix, descriptionProduit) VALUES (4, 'Acer Corsair 4000D', 99.99, 'Boitier PC avec bonne gestion de l’airflow');
-INSERT INTO Produit (idCategorie, nomProduit, prix, descriptionProduit) VALUES (8, 'Corsair NZXT Aer P', 39.99, 'Ventilateur PC efficace de 120mm');
-INSERT INTO Produit (idCategorie, nomProduit, prix, descriptionProduit) VALUES (8, 'Asus Be Quiet! Pure Wings 2', 19.99, 'Ventilateur de boitier silencieux');
-INSERT INTO Produit (idCategorie, nomProduit, prix, descriptionProduit) VALUES (6, 'MSI ROG Zephyrus G14', 1499.99, 'PC portable haute performance pour gaming');
-INSERT INTO Produit (idCategorie, nomProduit, prix, descriptionProduit) VALUES (9, 'Acer AMD Ryzen 5 5600X', 299.99, 'Processeur AMD Ryzen 5 5600X');
-INSERT INTO Produit (idCategorie, nomProduit, prix, descriptionProduit) VALUES (8, 'Gigabyte Corsair LL120 RGB', 59.99, 'Ventilateur RGB Corsair 120mm');
-INSERT INTO Produit (idCategorie, nomProduit, prix, descriptionProduit) VALUES (5, 'Asus GeForce RTX 4080', 1599.99, 'Carte graphique Asus GeForce RTX 4080');
-INSERT INTO Produit (idCategorie, nomProduit, prix, descriptionProduit) VALUES (3, 'Sapphire Z590 AORUS', 329.99, 'Carte mère Intel Z590 AORUS');
-INSERT INTO Produit (idCategorie, nomProduit, prix, descriptionProduit) VALUES (4, 'Corsair Phanteks Eclipse P400A', 99.99, 'Boitier PC Phanteks Eclipse P400A');
-INSERT INTO Produit (idCategorie, nomProduit, prix, descriptionProduit) VALUES (8, 'Sapphire Cooler Master MasterFan', 49.99, 'Ventilateur de boitier Cooler Master 120mm');
-INSERT INTO Produit (idCategorie, nomProduit, prix, descriptionProduit) VALUES (9, 'NZXT Intel Core i7-12700K', 399.99, 'Processeur Intel Core i7-12700K');
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit) VALUES (9, 'Acer Intel Core i9-13900K', 599.99, 50, 'Processeur haut de gamme Intel Core i9');
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit) VALUES (6, 'MSI MacBook Pro 16', 2499.99, 25, 'PC portable haute performance pour professionnels');
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit) VALUES (4, 'Corsair Corsair 4000D', 89.99, 30, 'Boitier PC spacieux avec bonne ventilation');
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit) VALUES (7, 'Corsair HyperX Fury 8GB', 39.99, 60, 'Mémoire DDR4 de 8GB pour PC gamer');
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit) VALUES (3, 'MSI Z590 AORUS', 249.99, 15, 'Carte mère compatible Intel Z590');
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit) VALUES (3, 'NZXT TUF Gaming X570', 179.99, 45, 'Carte mère AMD X570 pour PC gamer');
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit) VALUES (6, 'Acer XPS 13', 1499.99, 20, 'PC portable léger et performant');
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit) VALUES (5, 'MSI GTX 1660 Ti', 299.99, 35, 'GTX 1660 Ti pour gaming');
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit) VALUES (7, 'Kingston Ripjaws V 32GB', 119.99, 80, 'Mémoire DDR4 32GB pour gaming');
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit) VALUES (5, 'Acer Radeon RX 7800 XT', 1299.99, 18, 'Haut de gamme Radeon RX 7800');
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit) VALUES (6, 'Asus MacBook Pro 16', 2499.99, 40, 'PC portable haute performance Asus');
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit) VALUES (9, 'Razer Intel Core i7-12700K', 399.99, 55, 'Processeur Intel Core i7-12700K');
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit) VALUES (8, 'AMD NZXT Aer P', 49.99, 25, 'Ventilateur boitier de 120mm pour refroidissement');
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit) VALUES (4, 'Sapphire MasterBox Q300L', 79.99, 22, 'Boitier PC compact et fonctionnel');
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit) VALUES (8, 'Corsair Corsair LL120 RGB', 59.99, 35, 'Ventilateur RGB de 120mm');
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit) VALUES (2, 'Corsair CoolerPro 120', 99.99, 50, 'Système de refroidissement liquide pour CPU');
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit) VALUES (4, 'Kingston Phanteks Eclipse P400A', 89.99, 65, 'Boitier PC avec panneaux en mesh et bonne ventilation');
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit) VALUES (2, 'Acer HydroBoost 360', 149.99, 15, 'Système de watercooling 360mm pour CPU');
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit) VALUES (2, 'Corsair XtremeFlow 240', 119.99, 25, 'Système de watercooling 240mm');
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit) VALUES (7, 'MSI Trident Z RGB 64GB', 249.99, 80, 'Mémoire DDR4 64GB pour gaming');
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit) VALUES (5, 'Intel GeForce RTX 4080', 1599.99, 12, 'Haut de gamme RTX 4080');
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit) VALUES (3, 'Asus Z490 Pro WiFi', 249.99, 30, 'Carte mère avec support WiFi et Intel Z490');
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit) VALUES (8, 'MSI Be Quiet! Pure Wings 2', 29.99, 45, 'Ventilateur PC silencieux de 120mm');
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit) VALUES (3, 'Intel Z590 AORUS', 349.99, 30, 'Carte mère Intel Z590 AORUS');
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit) VALUES (6, 'Razer MacBook Pro 16', 2499.99, 25, 'PC portable performant Razer');
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit) VALUES (7, 'Gigabyte Ripjaws V 32GB', 119.99, 75, 'Mémoire DDR4 32GB');
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit) VALUES (2, 'MSI XtremeFlow 240', 129.99, 40, 'Watercooling 240mm');
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit) VALUES (4, 'Kingston Corsair 4000D', 109.99, 25, 'Boitier PC de grande capacité');
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit) VALUES (2, 'Kingston UltraCool 240', 89.99, 60, 'Système de refroidissement liquide 240mm');
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit) VALUES (3, 'Sapphire ROG Strix B550', 179.99, 55, 'Carte mère AMD B550 ROG Strix');
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit) VALUES (4, 'Asus Corsair 4000D', 119.99, 65, 'Boitier PC solide avec bonne ventilation');
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit) VALUES (7, 'Gigabyte HyperX Fury 8GB', 39.99, 50, 'Mémoire DDR4 8GB pour PC');
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit) VALUES (2, 'Acer UltraCool 240', 99.99, 70, 'Système de watercooling 240mm');
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit) VALUES (9, 'Razer Intel Core i9-13900K', 599.99, 50, 'Processeur Intel Core i9-13900K');
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit) VALUES (2, 'Sapphire XtremeFlow 240', 119.99, 45, 'Watercooling 240mm');
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit) VALUES (6, 'Kingston XPS 13', 1599.99, 30, 'PC portable performant Kingston');
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit) VALUES (6, 'Corsair Predator Helios 300', 1699.99, 40, 'PC portable gaming Corsair');
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit) VALUES (3, 'Kingston Z490 Pro WiFi', 249.99, 30, 'Carte mère Kingston Z490 avec WiFi');
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit) VALUES (7, 'Acer Trident Z RGB 64GB', 249.99, 20, 'Mémoire DDR4 64GB pour PC gaming');
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit) VALUES (4, 'Acer Corsair 4000D', 99.99, 35, 'Boitier PC avec bonne gestion de l’airflow');
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit) VALUES (8, 'Corsair NZXT Aer P', 39.99, 25, 'Ventilateur PC efficace de 120mm');
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit) VALUES (8, 'Asus Be Quiet! Pure Wings 2', 19.99, 20, 'Ventilateur de boitier silencieux');
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit) VALUES (6, 'MSI ROG Zephyrus G14', 1499.99, 40, 'PC portable haute performance pour gaming');
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit) VALUES (9, 'Acer AMD Ryzen 5 5600X', 299.99, 50, 'Processeur AMD Ryzen 5 5600X');
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit) VALUES (8, 'Gigabyte Corsair LL120 RGB', 59.99, 15, 'Ventilateur RGB Corsair 120mm');
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit) VALUES (5, 'Asus GeForce RTX 4080', 1599.99, 30, 'Asus GeForce RTX 4080');
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit) VALUES (3, 'Sapphire Z590 AORUS', 329.99, 40, 'Carte mère Intel Z590 AORUS');
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit) VALUES (4, 'Corsair Phanteks Eclipse P400A', 99.99, 25, 'Boitier PC Phanteks Eclipse P400A');
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit) VALUES (8, 'Sapphire Cooler Master MasterFan', 49.99, 18, 'Ventilateur de boitier Cooler Master 120mm');
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit) VALUES (9, 'NZXT Intel Core i7-12700K', 399.99, 70, 'Processeur Intel Core i7-12700K');
 
-INSERT INTO Produit (idCategorie, nomProduit, prix, descriptionProduit) VALUES (10, 'PC Gamer RTX 4080 Beast', 2799.99, 'Performance ultime avec carte RTX 4080, Intel i7, 32 Go de RAM et refroidissement liquide.');
-INSERT INTO Produit (idCategorie, nomProduit, prix, descriptionProduit) VALUES (10, 'HP Omen Envy Pro X', 1899.99, 'Tour élégante et puissante avec RTX 3070, Intel i5 et SSD 1 To.');
-INSERT INTO Produit (idCategorie, nomProduit, prix, descriptionProduit) VALUES (10, 'Lenovo Legion Tower X', 1599.99, 'Idéal pour les gamers : Ryzen 7, GTX 1660 Ti, 16 Go de RAM et design LED.');
-INSERT INTO Produit (idCategorie, nomProduit, prix, descriptionProduit) VALUES (10, 'PC Gamer RTX 4090 Mega Power', 3599.99, 'Config ultra-haut de gamme : RTX 4090, Intel i9, 64 Go de RAM et boîtier RGB premium.');
-INSERT INTO Produit (idCategorie, nomProduit, prix, descriptionProduit) VALUES (10, 'Dell Alienware Aurora', 2399.99, 'Futuriste et puissant avec RTX 4080, Intel i7 et système de refroidissement avancé.');
-INSERT INTO Produit (idCategorie, nomProduit, prix, descriptionProduit) VALUES (10, 'Gigabyte Aorus Extreme', 2199.99, 'Performance équilibrée : Ryzen 9, RTX 4070, SSD 2 To et design compact.');
-INSERT INTO Produit (idCategorie, nomProduit, prix, descriptionProduit) VALUES (10, 'PC Gamer Ryzen 5 Shadow', 1299.99, 'Tour silencieuse et efficace : Ryzen 5, RTX 3060, SSD 512 Go.');
-INSERT INTO Produit (idCategorie, nomProduit, prix, descriptionProduit) VALUES (10, 'MSI Infinite X 3D Max', 2499.99, 'Pour les créateurs et gamers : Intel i7, RTX 4080, 32 Go de RAM et système LED RGB.');
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit) VALUES (10, 'PC Gamer RTX 4080 Beast', 2799.99, 30, 'Performance ultime avec carte RTX 4080, Intel i7, 32 Go de RAM et refroidissement liquide.');
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit) VALUES (10, 'HP Omen Envy Pro X', 1899.99, 50, 'Tour élégante et puissante avec RTX 3070, Intel i5 et SSD 1 To.');
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit) VALUES (10, 'Lenovo Legion Tower X', 1599.99, 40, 'Idéal pour les gamers : Ryzen 7, GTX 1660 Ti, 16 Go de RAM et design LED.');
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit) VALUES (10, 'PC Gamer RTX 4090 Mega Power', 3599.99, 20, 'Config ultra-haut de gamme : RTX 4090, Intel i9, 64 Go de RAM et boîtier RGB premium.');
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit) VALUES (10, 'Dell Alienware Aurora', 2399.99, 15, 'Futuriste et puissant avec RTX 4080, Intel i7 et système de refroidissement avancé.');
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit) VALUES (10, 'Gigabyte Aorus Extreme', 2199.99, 55, 'Performance équilibrée : Ryzen 9, RTX 4070, SSD 2 To et design compact.');
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit) VALUES (10, 'PC Gamer Ryzen 5 Shadow', 1299.99, 76, 'Tour silencieuse et efficace : Ryzen 5, RTX 3060, SSD 512 Go.');
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit) VALUES (10, 'MSI Infinite X 3D Max', 2499.99, 64, 'Pour les créateurs et gamers : Intel i7, RTX 4080, 32 Go de RAM et système LED RGB.');
 
 #/////////////////////////////////////////////////////////////////////////////////////--
 #                                 insert Commande                     
@@ -672,33 +674,33 @@ INSERT INTO ACommande (idCommande, idNumProduit, qte, prixAchat) VALUES (45, 24,
 #                                   insert Avis               
 #/////////////////////////////////////////////////////////////////////////////////////--
 
-INSERT INTO Avis (idNumCli, idNumProduit, idNumEmploye, txtAvis, txtReponse) VALUES (18, 10, 3, 'La carte graphique Acer Radeon RX 7900 XT est-elle compatible avec un PC gamer classique ?', 'Oui, cette carte graphique est compatible avec la plupart des configurations gamer modernes. Assurez-vous d’avoir une alimentation suffisante.');
-INSERT INTO Avis (idNumCli, idNumProduit, idNumEmploye, txtAvis, txtReponse) VALUES (42, 17, 5, 'Le boitier Kingston Phanteks Eclipse P400A est-il adapté pour les cartes mères ATX ?', 'Oui, il est compatible avec les cartes mères ATX, micro-ATX, et mini-ITX.');
-INSERT INTO Avis (idNumCli, idNumProduit, idNumEmploye, txtAvis, txtReponse) VALUES (12, 39, 1, 'La souris Logitech G502 Hero est-elle compatible avec macOS ?', 'Oui, elle est compatible avec macOS, bien que certaines fonctionnalités puissent nécessiter le logiciel Logitech G Hub.');
-INSERT INTO Avis (idNumCli, idNumProduit, idNumEmploye, txtAvis, txtReponse) VALUES (27, 25, 1, 'Le clavier mécanique Razer BlackWidow est-il résistant aux éclaboussures ?', 'Oui, il est conçu pour résister aux éclaboussures et aux poussières légères.');
-INSERT INTO Avis (idNumCli, idNumProduit, idNumEmploye, txtAvis, txtReponse) VALUES (8, 4, 1, 'Produit de bonne qualité, fonctionne parfaitement.', 'Merci pour votre avis, nous sommes heureux que le produit vous satisfasse.');
-INSERT INTO Avis (idNumCli, idNumProduit, idNumEmploye, txtAvis, txtReponse) VALUES (40, 42, 4, 'Livraison rapide, très satisfait de mon achat.', 'Nous sommes ravis que votre expérience d’achat ait été positive.');
-INSERT INTO Avis (idNumCli, idNumProduit, idNumEmploye, txtAvis, txtReponse) VALUES (2, 25, 3, 'Design élégant et finition impeccable.', 'Nous vous remercions pour votre retour. Le design est effectivement un de nos points forts.');
-INSERT INTO Avis (idNumCli, idNumProduit, idNumEmploye, txtAvis, txtReponse) VALUES (31, 39, 2, 'Bon rapport qualité-prix, je recommande.', 'Merci pour votre recommandation, cela nous motive à continuer à offrir des produits de qualité.');
-INSERT INTO Avis (idNumCli, idNumProduit, idNumEmploye, txtAvis, txtReponse) VALUES (24, 14, 4, 'Produit reçu dans un emballage impeccable.', 'Nous sommes heureux de savoir que l’emballage a répondu à vos attentes.');
-INSERT INTO Avis (idNumCli, idNumProduit, idNumEmploye, txtAvis, txtReponse) VALUES (47, 47, 5, 'Fonctionne parfaitement, rien à redire.', 'Merci pour votre avis positif, nous apprécions votre retour.');
-INSERT INTO Avis (idNumCli, idNumProduit, idNumEmploye, txtAvis, txtReponse) VALUES (23, 31, 2, 'Très facile à utiliser, satisfait.', 'Nous sommes ravis d’apprendre que le produit est facile à utiliser et vous satisfait.');
-INSERT INTO Avis (idNumCli, idNumProduit, idNumEmploye, txtAvis, txtReponse) VALUES (18, 2, 1, 'Superbe produit, conforme à la description.', 'Merci pour votre retour, nous nous efforçons de fournir des produits fidèles à leur description.');
-INSERT INTO Avis (idNumCli, idNumProduit, idNumEmploye, txtAvis, txtReponse) VALUES (42, 42, 3, 'Produit de qualité moyenne, pourrait être amélioré.', 'Nous prenons en compte vos remarques pour améliorer nos produits.');
-INSERT INTO Avis (idNumCli, idNumProduit, idNumEmploye, txtAvis, txtReponse) VALUES (29, 4, 3, 'Très bon produit, je recommande vivement.', 'Merci pour votre recommandation, cela nous fait très plaisir.');
-INSERT INTO Avis (idNumCli, idNumProduit, idNumEmploye, txtAvis, txtReponse) VALUES (15, 4, 3, 'Produit pratique et performant.', 'Nous sommes heureux que le produit réponde à vos attentes.');
-INSERT INTO Avis (idNumCli, idNumProduit, idNumEmploye, txtAvis, txtReponse) VALUES (38, 22, 1, 'Très satisfait, conforme à mes attentes.', 'Votre satisfaction est notre priorité, merci pour votre avis.');
-INSERT INTO Avis (idNumCli, idNumProduit, idNumEmploye, txtAvis, txtReponse) VALUES (16, 49, 5, 'Produit robuste et bien conçu.', 'Merci pour votre retour, nous sommes ravis que la qualité vous plaise.');
-INSERT INTO Avis (idNumCli, idNumProduit, idNumEmploye, txtAvis, txtReponse) VALUES (8, 26, 5, 'Fonctionne bien, très content.', 'Nous sommes ravis que le produit fonctionne à votre convenance.');
-INSERT INTO Avis (idNumCli, idNumProduit, idNumEmploye, txtAvis, txtReponse) VALUES (29, 49,4, 'Qualité supérieure, je suis ravi.', 'Nous sommes heureux que la qualité du produit vous ait convaincu.');
-INSERT INTO Avis (idNumCli, idNumProduit, idNumEmploye, txtAvis, txtReponse) VALUES (25, 27, 3, 'Bon produit, service client très réactif.', 'Merci pour votre retour, nous sommes ravis que notre service client ait pu répondre à vos attentes.');
+INSERT INTO Avis (idNumCli, idNumProduit, idNumEmploye, note, txtAvis, txtReponse) VALUES (18, 10, 3, 3, 'La  Acer Radeon RX 7900 XT est-elle compatible avec un PC gamer classique ?', 'Oui, cette  est compatible avec la plupart des configurations gamer modernes. Assurez-vous d’avoir une alimentation suffisante.');
+INSERT INTO Avis (idNumCli, idNumProduit, idNumEmploye, note, txtAvis, txtReponse) VALUES (42, 17, 5, 2, 'Le boitier Kingston Phanteks Eclipse P400A est-il adapté pour les cartes mères ATX ?', 'Oui, il est compatible avec les cartes mères ATX, micro-ATX, et mini-ITX.');
+INSERT INTO Avis (idNumCli, idNumProduit, idNumEmploye, note, txtAvis, txtReponse) VALUES (12, 39, 1, 4, 'La souris Logitech G502 Hero est-elle compatible avec macOS ?', 'Oui, elle est compatible avec macOS, bien que certaines fonctionnalités puissent nécessiter le logiciel Logitech G Hub.');
+INSERT INTO Avis (idNumCli, idNumProduit, idNumEmploye, note, txtAvis, txtReponse) VALUES (27, 25, 1, 2, 'Le clavier mécanique Razer BlackWidow est-il résistant aux éclaboussures ?', 'Oui, il est conçu pour résister aux éclaboussures et aux poussières légères.');
+INSERT INTO Avis (idNumCli, idNumProduit, idNumEmploye, note, txtAvis, txtReponse) VALUES (8, 4, 1, 5, 'Produit de bonne qualité, fonctionne parfaitement.', 'Merci pour votre avis, nous sommes heureux que le produit vous satisfasse.');
+INSERT INTO Avis (idNumCli, idNumProduit, idNumEmploye, note, txtAvis, txtReponse) VALUES (40, 42, 4, 5, 'Livraison rapide, très satisfait de mon achat.', 'Nous sommes ravis que votre expérience d’achat ait été positive.');
+INSERT INTO Avis (idNumCli, idNumProduit, idNumEmploye, note, txtAvis, txtReponse) VALUES (2, 25, 3, 3, 'Design élégant et finition impeccable.', 'Nous vous remercions pour votre retour. Le design est effectivement un de nos points forts.');
+INSERT INTO Avis (idNumCli, idNumProduit, idNumEmploye, note, txtAvis, txtReponse) VALUES (31, 39, 2, 2, 'Bon rapport qualité-prix, je recommande.', 'Merci pour votre recommandation, cela nous motive à continuer à offrir des produits de qualité.');
+INSERT INTO Avis (idNumCli, idNumProduit, idNumEmploye, note, txtAvis, txtReponse) VALUES (24, 14, 4, 2, 'Produit reçu dans un emballage impeccable.', 'Nous sommes heureux de savoir que l’emballage a répondu à vos attentes.');
+INSERT INTO Avis (idNumCli, idNumProduit, idNumEmploye, note, txtAvis, txtReponse) VALUES (47, 47, 5, 5, 'Fonctionne parfaitement, rien à redire.', 'Merci pour votre avis positif, nous apprécions votre retour.');
+INSERT INTO Avis (idNumCli, idNumProduit, idNumEmploye, note, txtAvis, txtReponse) VALUES (23, 31, 2, 3, 'Très facile à utiliser, satisfait.', 'Nous sommes ravis d’apprendre que le produit est facile à utiliser et vous satisfait.');
+INSERT INTO Avis (idNumCli, idNumProduit, idNumEmploye, note, txtAvis, txtReponse) VALUES (18, 2, 1, 3, 'Superbe produit, conforme à la description.', 'Merci pour votre retour, nous nous efforçons de fournir des produits fidèles à leur description.');
+INSERT INTO Avis (idNumCli, idNumProduit, idNumEmploye, note, txtAvis, txtReponse) VALUES (42, 42, 3, 2, 'Produit de qualité moyenne, pourrait être amélioré.', 'Nous prenons en compte vos remarques pour améliorer nos produits.');
+INSERT INTO Avis (idNumCli, idNumProduit, idNumEmploye, note, txtAvis, txtReponse) VALUES (29, 4, 3, 5, 'Très bon produit, je recommande vivement.', 'Merci pour votre recommandation, cela nous fait très plaisir.');
+INSERT INTO Avis (idNumCli, idNumProduit, idNumEmploye, note, txtAvis, txtReponse) VALUES (15, 4, 3, 4, 'Produit pratique et performant.', 'Nous sommes heureux que le produit réponde à vos attentes.');
+INSERT INTO Avis (idNumCli, idNumProduit, idNumEmploye, note, txtAvis, txtReponse) VALUES (38, 22, 1, 3, 'Très satisfait, conforme à mes attentes.', 'Votre satisfaction est notre priorité, merci pour votre avis.');
+INSERT INTO Avis (idNumCli, idNumProduit, idNumEmploye, note, txtAvis, txtReponse) VALUES (16, 49, 5, 5, 'Produit robuste et bien conçu.', 'Merci pour votre retour, nous sommes ravis que la qualité vous plaise.');
+INSERT INTO Avis (idNumCli, idNumProduit, idNumEmploye, note, txtAvis, txtReponse) VALUES (8, 26, 5, 4, 'Fonctionne bien, très content.', 'Nous sommes ravis que le produit fonctionne à votre convenance.');
+INSERT INTO Avis (idNumCli, idNumProduit, idNumEmploye, note, txtAvis, txtReponse) VALUES (29, 49,4, 4, 'Qualité supérieure, je suis ravi.', 'Nous sommes heureux que la qualité du produit vous ait convaincu.');
+INSERT INTO Avis (idNumCli, idNumProduit, idNumEmploye, note, txtAvis, txtReponse) VALUES (25, 27, 3, 3, 'Bon produit, service client très réactif.', 'Merci pour votre retour, nous sommes ravis que notre service client ait pu répondre à vos attentes.');
 
 #/////////////////////////////////////////////////////////////////////////////////////--
 #                                 insert Comporte               
 #/////////////////////////////////////////////////////////////////////////////////////--
 
 # pc 1 #
-INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (51, 46); # Carte graphique
+INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (51, 46); # 
 INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (51, 50); # Processeur
 INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (51, 29); # refroidissement
 INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (51, 3);  # boitier
@@ -757,11 +759,292 @@ INSERT INTO Comporte (idNumProduitComportant, idNumProduitComporte) VALUES (58, 
 #                                 insert Contient               
 #/////////////////////////////////////////////////////////////////////////////////////--
 
-INSERT INTO Contient (idNumProduit, idImage) VALUES (51, 8);
-INSERT INTO Contient (idNumProduit, idImage) VALUES (52, 6);
-INSERT INTO Contient (idNumProduit, idImage) VALUES (53, 4);
-INSERT INTO Contient (idNumProduit, idImage) VALUES (54, 5);
-INSERT INTO Contient (idNumProduit, idImage) VALUES (55, 7);
-INSERT INTO Contient (idNumProduit, idImage) VALUES (21, 2);
-INSERT INTO Contient (idNumProduit, idImage) VALUES (50, 9);
+-- idProduit 1 : processeur 
+INSERT INTO Contient (idNumProduit, idImage) VALUES (1, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (1, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (1, );
+
+-- idProduit 2 : PC portable
+INSERT INTO Contient (idNumProduit, idImage) VALUES (2, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (2, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (2, );
+
+-- idProduit 3 : Boitier PC
+INSERT INTO Contient (idNumProduit, idImage) VALUES (3, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (3, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (3, );
+
+-- idProduit 4 : Mémoire
+INSERT INTO Contient (idNumProduit, idImage) VALUES (4, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (4, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (4, );
+
+-- idProduit 5 : Carte mère
+INSERT INTO Contient (idNumProduit, idImage) VALUES (5, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (5, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (5, );
+
+-- idProduit 6 : Carte mère
+INSERT INTO Contient (idNumProduit, idImage) VALUES (6, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (6, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (6, );
+
+-- idProduit 7 : PC portable
+INSERT INTO Contient (idNumProduit, idImage) VALUES (7, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (7, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (7, );
+
+-- idProduit 8 : Carte graphique
+INSERT INTO Contient (idNumProduit, idImage) VALUES (8, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (8, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (8, );
+
+-- idProduit 9 : Mémoire
+INSERT INTO Contient (idNumProduit, idImage) VALUES (9, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (9, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (9, );
+
+-- idProduit 10 : Carte graphique
 INSERT INTO Contient (idNumProduit, idImage) VALUES (10, 3);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (10, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (10, );
+
+-- idProduit 11 : PC portable
+INSERT INTO Contient (idNumProduit, idImage) VALUES (11, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (11, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (11, );
+
+-- idProduit 12 : Processeur
+INSERT INTO Contient (idNumProduit, idImage) VALUES (12, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (12, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (12, );
+
+-- idProduit 13 : Ventilateur
+INSERT INTO Contient (idNumProduit, idImage) VALUES (13, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (13, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (13, );
+
+-- idProduit 14 : Boitier PC
+INSERT INTO Contient (idNumProduit, idImage) VALUES (14, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (14, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (14, );
+
+-- idProduit 15 : Ventilateur
+INSERT INTO Contient (idNumProduit, idImage) VALUES (15, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (15, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (15, );
+
+-- idProduit 16 : watercooling
+INSERT INTO Contient (idNumProduit, idImage) VALUES (16, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (16, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (16, );
+
+-- idProduit 17 : Boitier PC
+INSERT INTO Contient (idNumProduit, idImage) VALUES (17, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (17, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (17, );
+
+-- idProduit 18 : watercooling
+INSERT INTO Contient (idNumProduit, idImage) VALUES (18, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (18, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (18, );
+
+-- idProduit 19 : watercooling
+INSERT INTO Contient (idNumProduit, idImage) VALUES (19, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (19, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (19, );
+
+-- idProduit 20 : Mémoire
+INSERT INTO Contient (idNumProduit, idImage) VALUES (20, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (20, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (20, );
+
+-- idProduit 21 : Carte graphique
+INSERT INTO Contient (idNumProduit, idImage) VALUES (21, 2);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (21, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (21, );
+
+-- idProduit 22 : Carte mère
+INSERT INTO Contient (idNumProduit, idImage) VALUES (22, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (22, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (22, );
+
+-- idProduit 23 : Ventilateur
+INSERT INTO Contient (idNumProduit, idImage) VALUES (23, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (23, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (23, );
+
+-- idProduit 24 : Carte mère
+INSERT INTO Contient (idNumProduit, idImage) VALUES (24, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (24, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (24, );
+
+-- idProduit 25 : PC portable
+INSERT INTO Contient (idNumProduit, idImage) VALUES (25, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (25, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (25, );
+
+-- idProduit 26 : Mémoire
+INSERT INTO Contient (idNumProduit, idImage) VALUES (26, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (26, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (26, );
+
+-- idProduit 27 : Watercooling
+INSERT INTO Contient (idNumProduit, idImage) VALUES (27, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (27, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (27, );
+
+-- idProduit 28 : Boitier PC
+INSERT INTO Contient (idNumProduit, idImage) VALUES (28, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (28, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (28, );
+
+-- idProduit 29 : Watercooling
+INSERT INTO Contient (idNumProduit, idImage) VALUES (29, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (29, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (29, );
+
+-- idProduit 30 : Carte mère
+INSERT INTO Contient (idNumProduit, idImage) VALUES (30, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (30, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (30, );
+
+-- idProduit 31 : Boitier PC
+INSERT INTO Contient (idNumProduit, idImage) VALUES (31, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (31, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (31, );
+
+-- idProduit 32 : Mémoire
+INSERT INTO Contient (idNumProduit, idImage) VALUES (32, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (32, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (32, );
+
+-- idProduit 33 : watercooling
+INSERT INTO Contient (idNumProduit, idImage) VALUES (33, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (33, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (33, );
+
+-- idProduit 34 : Processeur
+INSERT INTO Contient (idNumProduit, idImage) VALUES (34, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (34, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (34, );
+
+-- idProduit 35 : Watercooling
+INSERT INTO Contient (idNumProduit, idImage) VALUES (35, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (35, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (35, );
+
+-- idProduit 36 : PC portable
+INSERT INTO Contient (idNumProduit, idImage) VALUES (36, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (36, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (36, );
+
+-- idProduit 37 : PC portable
+INSERT INTO Contient (idNumProduit, idImage) VALUES (37, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (37, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (37, );
+
+-- idProduit 38 : Carte mère
+INSERT INTO Contient (idNumProduit, idImage) VALUES (38, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (38, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (38, );
+
+-- idProduit 39 : Mémoire
+INSERT INTO Contient (idNumProduit, idImage) VALUES (39, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (39, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (39, );
+
+-- idProduit 40 : Boitier PC
+INSERT INTO Contient (idNumProduit, idImage) VALUES (40, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (40, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (40, );
+
+-- idProduit 41 : Ventilateur
+INSERT INTO Contient (idNumProduit, idImage) VALUES (41, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (41, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (41, );
+
+-- idProduit 42 : Ventilateur
+INSERT INTO Contient (idNumProduit, idImage) VALUES (42, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (42, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (42, );
+
+-- idProduit 43 : PC portable
+INSERT INTO Contient (idNumProduit, idImage) VALUES (43, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (43, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (43, );
+
+-- idProduit 44 : Processeur
+INSERT INTO Contient (idNumProduit, idImage) VALUES (44, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (44, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (44, );
+
+-- idProduit 45 : Ventilateur
+INSERT INTO Contient (idNumProduit, idImage) VALUES (45, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (45, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (45, );
+
+-- idProduit 46 : Carte graphique
+INSERT INTO Contient (idNumProduit, idImage) VALUES (46, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (46, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (46, );
+
+-- idProduit 47 : Carte mère
+INSERT INTO Contient (idNumProduit, idImage) VALUES (47, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (47, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (47, );
+
+-- idProduit 48 : Boitier PC
+INSERT INTO Contient (idNumProduit, idImage) VALUES (48, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (48, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (48, );
+
+-- idProduit 49 : Ventilateur
+INSERT INTO Contient (idNumProduit, idImage) VALUES (49, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (49, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (49, );
+
+-- idProduit 50 : Processeur
+INSERT INTO Contient (idNumProduit, idImage) VALUES (50, 9);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (50, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (50, );
+
+-- idProduit 51 : PC Monté
+INSERT INTO Contient (idNumProduit, idImage) VALUES (51, 8);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (51, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (51, );
+
+-- idProduit 52 : PC Monté
+INSERT INTO Contient (idNumProduit, idImage) VALUES (52, 6);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (52, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (52, );
+
+-- idProduit 53 : PC Monté
+INSERT INTO Contient (idNumProduit, idImage) VALUES (53, 4);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (53, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (53, );
+
+-- idProduit 54 : PC Monté
+INSERT INTO Contient (idNumProduit, idImage) VALUES (54, 5);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (54, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (54, );
+
+-- idProduit 55 : PC Monté
+INSERT INTO Contient (idNumProduit, idImage) VALUES (55, 7);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (55, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (55, );
+
+-- idProduit 56 : PC Monté
+INSERT INTO Contient (idNumProduit, idImage) VALUES (56, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (56, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (56, );
+
+-- idProduit 57 : PC Monté
+INSERT INTO Contient (idNumProduit, idImage) VALUES (57, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (57, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (57, );
+
+-- idProduit 58 : PC Monté
+INSERT INTO Contient (idNumProduit, idImage) VALUES (58, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (58, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (58, );

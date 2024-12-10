@@ -63,6 +63,22 @@ BEGIN
     SET NEW.idCarte = (COALESCE(max_id, 3) + 3);
 END; $$
 
+CREATE TRIGGER t_u_produit_nbd
+BEFORE UPDATE ON Produit
+FOR EACH ROW
+BEGIN
+    IF UPDATING THEN
+        IF OLD.stock = 0 THEN
+            SIGNAL SQLSTATE '45000'
+            SET MESSAGE_TEXT = 'Insertion interdite : La quantité (qte) ne peut pas être 0.';
+        END IF;
+
+        IF NEW.stock = 0 THEN
+            SET MESSAGE_TEXT = 'besoin de restocks du produit';
+        END IF;
+    END IF;
+END$$
+
 DELIMITER ;
 
 
