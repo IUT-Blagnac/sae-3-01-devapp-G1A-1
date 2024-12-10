@@ -54,8 +54,10 @@ CREATE TABLE Produit (
     idCategorie INT,
     nomProduit VARCHAR(50) NOT NULL,
     prix DECIMAL(10, 2) NOT NULL,
+    stock INT NOT NULL,
     descriptionProduit VARCHAR(5000) NOT NULL,
-    FOREIGN KEY (idCategorie) REFERENCES Categorie(idCategorie)
+    FOREIGN KEY (idCategorie) REFERENCES Categorie(idCategorie),
+    CHECK(stock <= 0)
 );
 
 CREATE TABLE EnPromo (
@@ -158,6 +160,7 @@ CREATE TABLE Avis (
     idNumCli INT,
     idNumProduit INT,
     idNumEmploye INT,
+    note INT,
     txtAvis VARCHAR(500) NOT NULL,
     txtReponse VARCHAR(500),
     idImage INT,
@@ -165,5 +168,6 @@ CREATE TABLE Avis (
     FOREIGN KEY (idNumCli) REFERENCES Client(idNumCli),
     FOREIGN KEY (idNumProduit) REFERENCES Produit(idNumProduit),
     FOREIGN KEY (idNumEmploye) REFERENCES Employe(idNumEmploye),
-    FOREIGN KEY (idImage) REFERENCES Image(idImage)
+    FOREIGN KEY (idImage) REFERENCES Image(idImage),
+    CHECK(note < 0 AND note >= 5)
 );

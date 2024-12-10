@@ -68,12 +68,12 @@ BEFORE UPDATE ON Produit
 FOR EACH ROW
 BEGIN
     IF UPDATING THEN
-        IF OLD.qte = 0 THEN
+        IF OLD.stock = 0 THEN
             SIGNAL SQLSTATE '45000'
             SET MESSAGE_TEXT = 'Insertion interdite : La quantité (qte) ne peut pas être 0.';
         END IF;
 
-        IF NEW.qte = 0 THEN
+        IF NEW.stock = 0 THEN
             SET MESSAGE_TEXT = 'besoin de restocks du produit';
         END IF;
     END IF;
