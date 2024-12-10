@@ -158,7 +158,7 @@ Voici le lien vers le https://docs.google.com/document/d/1JXWsYDaT89UOSjPgRJJcoX
                 https://github.com/IUT-Blagnac/sae-3-01-devapp-G1A-1/blob/master/Communication/Compte%20rendu%20de%20r%C3%A9union%20du%2025-11-2024.pdf[Lien vers le CR]
                 
                 https://github.com/IUT-Blagnac/sae-3-01-devapp-G1A-1/blob/master/Communication/Difficult%C3%A9s%20_%20R%C3%A9ussites%20-%20Semaine%2049.pdf[Lien vers l'analyse]
-| |
+| ODJ et CR de la semaine précédente !! note 0/3|
 |===
 
 === Registre de télétravail
