@@ -10,3 +10,16 @@
 {"temperature": 21.7, "humidite": 55.5, "co2": 1325, "timestamp": "2024-12-06T14:56:13.516751"}
 {"temperature": 21.7, "humidite": 55, "co2": 1297, "timestamp": "2024-12-06T15:06:10.925562"}
 {"temperature": 21.8, "humidite": 55, "co2": 1282, "timestamp": "2024-12-06T15:16:05.109582"}
+{"temperature": 18.7, "humidite": 49, "co2": 1371, "timestamp": "2024-12-09T15:26:11.619685"}
+{"temperature": 17.7, "humidite": 44, "co2": 488, "timestamp": "2024-12-10T08:16:04.810884"}
+{"temperature": 17.7, "humidite": 44, "co2": 499, "timestamp": "2024-12-10T08:26:09.255776"}
+{"temperature": 17.8, "humidite": 44, "co2": 504, "timestamp": "2024-12-10T08:46:07.415684"}
+{"temperature": 17.8, "humidite": 44, "co2": 509, "timestamp": "2024-12-10T08:56:00.885035"}
+{"temperature": 18.6, "humidite": 46.5, "co2": 1020, "timestamp": "2024-12-10T10:06:13.299198"}
+{"temperature": 18.9, "humidite": 47, "co2": 1208, "timestamp": "2024-12-10T10:16:05.312427"}
+{"temperature": 19.3, "humidite": 47.5, "co2": 1366, "timestamp": "2024-12-10T10:26:04.072048"}
+{"temperature": 19.9, "humidite": 47.5, "co2": 1539, "timestamp": "2024-12-10T10:36:03.199205"}
+{"temperature": 20.2, "humidite": 48, "co2": 1633, "timestamp": "2024-12-10T10:46:02.909234"}
+{"temperature": 20.5, "humidite": 47.5, "co2": 1721, "timestamp": "2024-12-10T10:56:11.799765"}
+{"temperature": 20.3, "humidite": 47.5, "co2": 1691, "timestamp": "2024-12-10T11:06:04.505816"}
+{"temperature": 20.2, "humidite": 48.5, "co2": 1807, "timestamp": "2024-12-10T11:16:11.205278"}
