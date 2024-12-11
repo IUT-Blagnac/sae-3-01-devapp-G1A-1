@@ -9,7 +9,7 @@ CREATE TABLE Promotion (
     pourcentageReduction INT NOT NULL,
     CHECK(pourcentageReduction > 0 AND pourcentageReduction < 100)
 );
-
+ 
 CREATE TABLE MethodePaiement (
     idMethodePaiement INT PRIMARY KEY AUTO_INCREMENT,
     nomMethodePaiement VARCHAR(20) NOT NULL,

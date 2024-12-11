@@ -79,6 +79,15 @@ BEGIN
     END IF;
 END$$
 
+CREATE TRIGGER t_u_commande_nbd
+AFTER INSERT ON Client
+FOR EACH ROW
+BEGIN
+    IF INSERTING THEN
+        INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (Client.LAST_INSERT_ID(), true);
+    END IF;
+END$$
+
 DELIMITER ;
 
 

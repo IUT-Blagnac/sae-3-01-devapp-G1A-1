@@ -77,6 +77,16 @@ INSERT INTO Image (nomImage) VALUES ('PC Monté_id52_1.webp');
 INSERT INTO Image (nomImage) VALUES ('PC Monté_id52_2.webp');
 INSERT INTO Image (nomImage) VALUES ('PC Monté_id52_3.webp');
 
+INSERT INTO Image (nomImage) VALUES ('Watercooling_id18_1.webp');
+
+INSERT INTO Image (nomImage) VALUES ('Processeur_id44_1.webp');
+INSERT INTO Image (nomImage) VALUES ('Processeur_id44_2.webp');
+
+INSERT INTO Image (nomImage) VALUES ('Ventilateur-boitier_id13_1.webp');
+INSERT INTO Image (nomImage) VALUES ('Ventilateur-boitier_id13_2.webp');
+INSERT INTO Image (nomImage) VALUES ('Ventilateur-boitier_id13_3.webp');
+INSERT INTO Image (nomImage) VALUES ('Ventilateur-boitier_id13_4.webp');
+
 #/////////////////////////////////////////////////////////////////////////////////////--
 #                            insert AdressePostale                     
 #/////////////////////////////////////////////////////////////////////////////////////--
@@ -276,61 +286,6 @@ INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, n
 INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, nouveau) VALUES (10, 'MSI Infinite X 3D Max', 2499.99, 64, 'Pour les créateurs et gamers : Intel i7, RTX 4080, 32 Go de RAM et système LED RGB.', false);
 
 #/////////////////////////////////////////////////////////////////////////////////////--
-#                                 insert Commande                     
-#/////////////////////////////////////////////////////////////////////////////////////--
-
-INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (1, true);
-INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (2, true);
-INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (3, true);
-INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (4, true);
-INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (5, true);
-INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (6, true);
-INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (7, true);
-INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (8, true);
-INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (9, true);
-INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (10, true);
-INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (11, true);
-INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (12, true);
-INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (13, true);
-INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (14, true);
-INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (15, true);
-INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (16, true);
-INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (17, true);
-INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (18, true);
-INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (19, true);
-INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (20, true);
-INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (21, true);
-INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (22, true);
-INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (23, true);
-INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (24, true);
-INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (25, true);
-INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (26, true);
-INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (27, true);
-INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (28, true);
-INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (29, true);
-INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (30, true);
-INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (31, true);
-INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (32, true);
-INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (33, true);
-INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (34, true);
-INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (35, true);
-INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (36, true);
-INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (37, true);
-INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (38, true);
-INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (39, true);
-INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (40, true);
-INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (41, true);
-INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (42, true);
-INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (43, true);
-INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (44, true);
-INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (45, true);
-INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (46, true);
-INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (47, true);
-INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (48, true);
-INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (49, true);
-INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (50, true);
-
-#/////////////////////////////////////////////////////////////////////////////////////--
 #                              insert Commande passé                   
 #/////////////////////////////////////////////////////////////////////////////////////--
 
@@ -434,6 +389,61 @@ INSERT INTO Commande (idNumCli, idAdresse, idMethodePaiement, dateCommande, estP
 INSERT INTO Commande (idNumCli, idAdresse, idMethodePaiement, dateCommande, estPanierActuel) VALUES (15, 15, 2, '2024-08-02', false);
 INSERT INTO Commande (idNumCli, idAdresse, idMethodePaiement, dateCommande, estPanierActuel) VALUES (1, 1, 3, '2024-02-17', false);
 INSERT INTO Commande (idNumCli, idAdresse, idMethodePaiement, dateCommande, estPanierActuel) VALUES (38, 38, 1, '2024-09-06', false);
+
+#/////////////////////////////////////////////////////////////////////////////////////--
+#                                 insert Commande                     
+#/////////////////////////////////////////////////////////////////////////////////////--
+
+INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (1, true);
+INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (2, true);
+INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (3, true);
+INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (4, true);
+INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (5, true);
+INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (6, true);
+INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (7, true);
+INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (8, true);
+INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (9, true);
+INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (10, true);
+INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (11, true);
+INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (12, true);
+INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (13, true);
+INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (14, true);
+INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (15, true);
+INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (16, true);
+INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (17, true);
+INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (18, true);
+INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (19, true);
+INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (20, true);
+INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (21, true);
+INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (22, true);
+INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (23, true);
+INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (24, true);
+INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (25, true);
+INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (26, true);
+INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (27, true);
+INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (28, true);
+INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (29, true);
+INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (30, true);
+INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (31, true);
+INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (32, true);
+INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (33, true);
+INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (34, true);
+INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (35, true);
+INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (36, true);
+INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (37, true);
+INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (38, true);
+INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (39, true);
+INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (40, true);
+INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (41, true);
+INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (42, true);
+INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (43, true);
+INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (44, true);
+INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (45, true);
+INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (46, true);
+INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (47, true);
+INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (48, true);
+INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (49, true);
+INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (50, true);
 
 #/////////////////////////////////////////////////////////////////////////////////////--
 #                                 insert ACommande                     
@@ -832,11 +842,13 @@ INSERT INTO Contient (idNumProduit, idImage) VALUES (12, );
 INSERT INTO Contient (idNumProduit, idImage) VALUES (12, );
 
 -- idProduit 13 : Ventilateur
-INSERT INTO Contient (idNumProduit, idImage) VALUES (13, );
-INSERT INTO Contient (idNumProduit, idImage) VALUES (13, );
-INSERT INTO Contient (idNumProduit, idImage) VALUES (13, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (13, 33);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (13, 34);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (13, 35);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (13, 36);
 
 -- idProduit 14 : Boitier PC
+INSERT INTO Contient (idNumProduit, idImage) VALUES (14, );
 INSERT INTO Contient (idNumProduit, idImage) VALUES (14, );
 INSERT INTO Contient (idNumProduit, idImage) VALUES (14, );
 INSERT INTO Contient (idNumProduit, idImage) VALUES (14, );
@@ -857,7 +869,7 @@ INSERT INTO Contient (idNumProduit, idImage) VALUES (17, );
 INSERT INTO Contient (idNumProduit, idImage) VALUES (17, );
 
 -- idProduit 18 : watercooling
-INSERT INTO Contient (idNumProduit, idImage) VALUES (18, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (18, 30);
 INSERT INTO Contient (idNumProduit, idImage) VALUES (18, );
 INSERT INTO Contient (idNumProduit, idImage) VALUES (18, );
 
@@ -987,8 +999,8 @@ INSERT INTO Contient (idNumProduit, idImage) VALUES (43, );
 INSERT INTO Contient (idNumProduit, idImage) VALUES (43, );
 
 -- idProduit 44 : Processeur
-INSERT INTO Contient (idNumProduit, idImage) VALUES (44, );
-INSERT INTO Contient (idNumProduit, idImage) VALUES (44, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (44, 31);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (44, 32);
 INSERT INTO Contient (idNumProduit, idImage) VALUES (44, );
 
 -- idProduit 45 : Ventilateur
@@ -1060,3 +1072,15 @@ INSERT INTO Contient (idNumProduit, idImage) VALUES (57, );
 INSERT INTO Contient (idNumProduit, idImage) VALUES (58, );
 INSERT INTO Contient (idNumProduit, idImage) VALUES (58, );
 INSERT INTO Contient (idNumProduit, idImage) VALUES (58, );
+
+#/////////////////////////////////////////////////////////////////////////////////////--
+#                                 insert Promotion               
+#/////////////////////////////////////////////////////////////////////////////////////--
+
+INSERT INTO Promotion (nomPromotion, pourcentageReduction) VALUES ('test', 20);
+
+#/////////////////////////////////////////////////////////////////////////////////////--
+#                                 insert EnPromo               
+#/////////////////////////////////////////////////////////////////////////////////////--
+
+INSERT INTO EnPromo (idNumProduit, idPromotion) VALUES (1, 1);
