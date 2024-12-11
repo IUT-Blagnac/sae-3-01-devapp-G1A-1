@@ -19,18 +19,18 @@ INSERT INTO Carte_AE (idCarte, numCarte, dateExp, nomProprietaire) VALUES (3, '3
 #                                   insert Marque
 #/////////////////////////////////////////////////////////////////////////////////////--
 
-INSERT INTO Marque (nomMarque) VALUES ('MSI');        # Watercooling, Carte Mère, Boitier PC, , PC portable 
-INSERT INTO Marque (nomMarque) VALUES ('Acer');       # , PC portable
+INSERT INTO Marque (nomMarque) VALUES ('MSI');        # Watercooling, Carte Mère, Boitier PC, Carte graphique, PC portable 
+INSERT INTO Marque (nomMarque) VALUES ('Acer');       # Carte graphique, PC portable
 INSERT INTO Marque (nomMarque) VALUES ('Corsair');    # Mémoire, Ventilateur boitier, Boitier PC
 INSERT INTO Marque (nomMarque) VALUES ('Intel');      # Processeur
 INSERT INTO Marque (nomMarque) VALUES ('AMD');        # Processeur
-INSERT INTO Marque (nomMarque) VALUES ('Asus');       # Carte Mère, , PC portable
+INSERT INTO Marque (nomMarque) VALUES ('Asus');       # Carte Mère, Carte graphique, PC portable
 INSERT INTO Marque (nomMarque) VALUES ('Razer');      # Boitier PC
 INSERT INTO Marque (nomMarque) VALUES ('NZXT');       # Watercooling, 
 INSERT INTO Marque (nomMarque) VALUES ('Cooler');     # Watercooling, Ventilateur boitier, Boitier PC
 INSERT INTO Marque (nomMarque) VALUES ('Kingston');   # Mémoire
 INSERT INTO Marque (nomMarque) VALUES ('Gigabyte');   # Carte Mère,  
-INSERT INTO Marque (nomMarque) VALUES ('Sapphire');   #  
+INSERT INTO Marque (nomMarque) VALUES ('Sapphire');   # Carte graphique
 
 #/////////////////////////////////////////////////////////////////////////////////////--
 #                                 insert Categorie
@@ -40,7 +40,7 @@ INSERT INTO Categorie (nomCategorie) VALUES ('Composant');
 INSERT INTO Categorie (nomCategorie, idCategoriePere) VALUES ('Watercooling', 1);   
 INSERT INTO Categorie (nomCategorie, idCategoriePere) VALUES ('Carte Mère', 1);   
 INSERT INTO Categorie (nomCategorie, idCategoriePere) VALUES ('Boitier PC', 1);   
-INSERT INTO Categorie (nomCategorie, idCategoriePere) VALUES ('', 1);  
+INSERT INTO Categorie (nomCategorie, idCategoriePere) VALUES ('Carte graphique', 1);  
 INSERT INTO Categorie (nomCategorie) VALUES ('PC Portable');   
 INSERT INTO Categorie (nomCategorie, idCategoriePere) VALUES ('Mémoire', 1);   
 INSERT INTO Categorie (nomCategorie, idCategoriePere) VALUES ('Ventilateur boitier', 1);   
@@ -188,16 +188,16 @@ INSERT INTO infoPaiement (idNumCli, idCarte, idMethodePaiement) VALUES (3, 3, 4)
 #                                 insert Employe                     
 #/////////////////////////////////////////////////////////////////////////////////////--
 
-INSERT INTO Employe (nom, prenom, email, telephone, mdp, administrateur) VALUES ('Raynaud', 'Marguerite', 'marguerite.raynaud@buildMyPc.com', '0403572487', 'ef92b778bafe771e89245b89ecbc160a6e5b57a661d692ba39b2e9bd2f3fd91a', true);
-INSERT INTO Employe (nom, prenom, email, telephone, mdp, administrateur) VALUES ('Menard', 'René', 'rené.menard@buildMyPc.com', '0433562360', 'fc7c4e60c1ec62f7c75b1c04b8d43011d4355a473f004d1c4d5cb71d04f3bc5d', false);
-INSERT INTO Employe (nom, prenom, email, telephone, mdp, administrateur) VALUES ('Godard', 'Nicolas', 'nicolas.godard@buildMyPc.com', '0604279798', '8c6976e5b5410415bde908bd4dee15dfb16b6201e4e8a7001b5df7c43c8c741e', false);
-INSERT INTO Employe (nom, prenom, email, telephone, mdp, administrateur) VALUES ('Muller', 'Bertrand', 'bertrand.muller@buildMyPc.com', '0402854194', '5e884898da28047151d0e56f8dc6292773603d0d6aabbdd14dfd79c3c7f9e1f5', true);
-INSERT INTO Employe (nom, prenom, email, telephone, mdp, administrateur) VALUES ('Thierry', 'Xavier', 'xavier.thierry@buildMyPc.com', '0533034504', 'd8578edf8458ce06fbc5bb76a58c5ca4a6d22bf6b2c76f05c4ecca1d252b2955', false);
-INSERT INTO Employe (nom, prenom, email, telephone, mdp, administrateur) VALUES ('Lenoir', 'Clémence', 'clémence.lenoir@buildMyPc.com', '0403444782', 'd41d8cd98f00b204e9800998ecf8427e', false);
-INSERT INTO Employe (nom, prenom, email, telephone, mdp, administrateur) VALUES ('Pires', 'Thérèse', 'thérèse.pires@buildMyPc.com', '0633048266', '900150983cd24fb0d6963f7d28e17f72', false);
-INSERT INTO Employe (nom, prenom, email, telephone, mdp, administrateur) VALUES ('Gérard', 'Madeleine', 'madeleine.gérard@buildMyPc.com', '0504868398', 'e99a18c428cb38d5f260853678922e03', true);
-INSERT INTO Employe (nom, prenom, email, telephone, mdp, administrateur) VALUES ('Monnier', 'Élise', 'élise.monnier@buildMyPc.com', '0405086402', 'f7c3bc1d808e04732adf679965ccc34ca7ae3441dc70e2b86f698a36b0ebc123', false);
-INSERT INTO Employe (nom, prenom, email, telephone, mdp, administrateur) VALUES ('Dumas', 'Aurore', 'aurore.dumas@buildMyPc.com', '0703710344', '6cb75f652a9b52798eb6cf2201057c73e0677b4d80dbd42d2ce9913df25d8a71', false);
+INSERT INTO Employe (nom, prenom, email, telephone, mdp, administrateur) VALUES ('Raynaud', 'Marguerite', 'marguerite.raynaud@buildmypc.com', '0403572487', 'ef92b778bafe771e89245b89ecbc160a6e5b57a661d692ba39b2e9bd2f3fd91a', true);
+INSERT INTO Employe (nom, prenom, email, telephone, mdp, administrateur) VALUES ('Menard', 'René', 'rené.menard@buildmypc.com', '0433562360', 'fc7c4e60c1ec62f7c75b1c04b8d43011d4355a473f004d1c4d5cb71d04f3bc5d', false);
+INSERT INTO Employe (nom, prenom, email, telephone, mdp, administrateur) VALUES ('Godard', 'Nicolas', 'nicolas.godard@buildmypc.com', '0604279798', '8c6976e5b5410415bde908bd4dee15dfb16b6201e4e8a7001b5df7c43c8c741e', false);
+INSERT INTO Employe (nom, prenom, email, telephone, mdp, administrateur) VALUES ('Muller', 'Bertrand', 'bertrand.muller@buildmypc.com', '0402854194', '5e884898da28047151d0e56f8dc6292773603d0d6aabbdd14dfd79c3c7f9e1f5', true);
+INSERT INTO Employe (nom, prenom, email, telephone, mdp, administrateur) VALUES ('Thierry', 'Xavier', 'xavier.thierry@buildmypc.com', '0533034504', 'd8578edf8458ce06fbc5bb76a58c5ca4a6d22bf6b2c76f05c4ecca1d252b2955', false);
+INSERT INTO Employe (nom, prenom, email, telephone, mdp, administrateur) VALUES ('Lenoir', 'Clémence', 'clémence.lenoir@buildmypc.com', '0403444782', 'd41d8cd98f00b204e9800998ecf8427e', false);
+INSERT INTO Employe (nom, prenom, email, telephone, mdp, administrateur) VALUES ('Pires', 'Thérèse', 'thérèse.pires@buildmypc.com', '0633048266', '900150983cd24fb0d6963f7d28e17f72', false);
+INSERT INTO Employe (nom, prenom, email, telephone, mdp, administrateur) VALUES ('Gérard', 'Madeleine', 'madeleine.gérard@buildmypc.com', '0504868398', 'e99a18c428cb38d5f260853678922e03', true);
+INSERT INTO Employe (nom, prenom, email, telephone, mdp, administrateur) VALUES ('Monnier', 'Élise', 'élise.monnier@buildmypc.com', '0405086402', 'f7c3bc1d808e04732adf679965ccc34ca7ae3441dc70e2b86f698a36b0ebc123', false);
+INSERT INTO Employe (nom, prenom, email, telephone, mdp, administrateur) VALUES ('Dumas', 'Aurore', 'aurore.dumas@buildmypc.com', '0703710344', '6cb75f652a9b52798eb6cf2201057c73e0677b4d80dbd42d2ce9913df25d8a71', false);
 
 #/////////////////////////////////////////////////////////////////////////////////////--
 #                                 insert Produit                     

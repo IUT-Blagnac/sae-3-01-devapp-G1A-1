@@ -101,7 +101,7 @@ CREATE TABLE Employe (
     telephone CHAR(10),
     mdp VARCHAR(300) NOT NULL,
     administrateur BOOLEAN NOT NULL,
-    CHECK (email LIKE '%@buildMyPc.com')
+    CHECK (email LIKE '%@buildmypc.com')
 );
 
 CREATE TABLE Client (
