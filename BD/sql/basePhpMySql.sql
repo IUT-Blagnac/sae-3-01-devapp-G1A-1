@@ -56,8 +56,9 @@ CREATE TABLE Produit (
     prix DECIMAL(10, 2) NOT NULL,
     stock INT NOT NULL,
     descriptionProduit VARCHAR(5000) NOT NULL,
+    nouveau BOOLEAN,
     FOREIGN KEY (idCategorie) REFERENCES Categorie(idCategorie),
-    CHECK(stock <= 0)
+    CHECK(stock >= 0)
 );
 
 CREATE TABLE EnPromo (
@@ -112,7 +113,7 @@ CREATE TABLE Client (
     email VARCHAR(320) NOT NULL,
     telephone CHAR(13),
     mdp VARCHAR(300) NOT NULL,
-    FOREIGN KEY (idAdresse) REFERENCES AdressePostale(idAdresse),
+    FOREIGN KEY (idAdresse) REFERENCES AdressePostale(idAdresse)
 );
 
 CREATE TABLE infoPaiement (
@@ -169,5 +170,5 @@ CREATE TABLE Avis (
     FOREIGN KEY (idNumProduit) REFERENCES Produit(idNumProduit),
     FOREIGN KEY (idNumEmploye) REFERENCES Employe(idNumEmploye),
     FOREIGN KEY (idImage) REFERENCES Image(idImage),
-    CHECK(note < 0 AND note >= 5)
+    CHECK(note > 0 AND note <= 5)
 );
