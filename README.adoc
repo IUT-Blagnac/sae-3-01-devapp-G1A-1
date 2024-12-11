@@ -158,8 +158,8 @@ Voici le lien vers le https://docs.google.com/document/d/1JXWsYDaT89UOSjPgRJJcoX
                 https://github.com/IUT-Blagnac/sae-3-01-devapp-G1A-1/blob/master/Communication/Compte%20rendu%20de%20r%C3%A9union%20du%2003-12-2024.pdf[Lien vers le CR]
                 
                 https://github.com/IUT-Blagnac/sae-3-01-devapp-G1A-1/blob/master/Communication/Difficult%C3%A9s%20_%20R%C3%A9ussites%20-%20Semaine%2049.pdf[Lien vers l'analyse]
-| ODJ et CR de la semaine précédente !!
-| 0
+| ODJ Ok Attention l'analyse doit être incluse dans le CR de la réunion. Il manque les retours réunion clients. Si l'absence des membres à la réunion n'est pas excusée… ils prendront 0/3 sur ce CR de la semaine.  Note appel d'offre : 12,96/20
+| 2,24/3
 | Semaine 50  | https://github.com/IUT-Blagnac/sae-3-01-devapp-G1A-1/blob/master/Communication/Ordre%20du%20jour%20reunion%20du%2010-12-2024.pdf[Lien vers l'ODJ]
 
                 https://github.com/IUT-Blagnac/sae-3-01-devapp-G1A-1/blob/master/Communication/Compte%20rendu%20de%20r%C3%A9union%20du%2010-12-2024.pdf[Lien vers le CR]
