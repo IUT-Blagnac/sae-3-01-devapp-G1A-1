@@ -68,7 +68,7 @@ Cette section regroupe tous les documents liés à la conception, au développem
 
 |===
 | Nom du document | Description | Version |  Lien
-| Site Web "BuildMyPC" | URL pour consulter le site | V1.0 | http://193.54.227.208/~R2024SAE3007/index.php[Lien vers le site web extérieur à l'IUT]
+| Site Web "BuildMyPC" | URL pour consulter le site | V2.0 | http://193.54.227.208/~R2024SAE3007/index.php[Lien vers le site web extérieur à l'IUT]
                                                                
                                                                http://192.168.224.139/~R2024SAE3007/index.php[Lien vers le site web interne à l'IUT]
 |===
@@ -102,7 +102,7 @@ Documentation détaillant les fonctionnalités disponibles pour les utilisateurs
 
 |===
 | Nom | Description        |  Lien
-| Releases | Version actuelle du site | https://github.com/IUT-Blagnac/sae-3-01-devapp-G1A-1/releases/tag/V1.0[v1.0]
+| Releases | Version actuelle du site | https://github.com/IUT-Blagnac/sae-3-01-devapp-G1A-1/releases/tag/V2.0[v2.0]
 | Suivi des User Stories | Les User Stories sont disponibles et suivies dans le Project Board GitHub | https://github.com/IUT-Blagnac/sae-3-01-devapp-G1A-1/projects?query=is%3Aopen[Project Board]
 | Tests et Qualité |Les tests unitaires et les indicateurs de qualité sont accessibles ici | link:Documentation/tests/document_test_web.adoc[Cahier des tests]
                                                                                                               
@@ -127,7 +127,7 @@ Voici le lien vers le https://docs.google.com/document/d/1JXWsYDaT89UOSjPgRJJcoX
 
 |===
 | Nom | Description        |  Lien
-| Releases | Version actuelle de l'application | https://github.com/IUT-Blagnac/sae-3-01-devapp-G1A-1/releases/tag/V1.0[v1.0]
+| Releases | Version actuelle de l'application | https://github.com/IUT-Blagnac/sae-3-01-devapp-G1A-1/releases/tag/V2.0[v2.0]
 | Suivi des User Stories | Les User Stories sont disponibles et suivies dans le Project Board GitHub | https://github.com/orgs/IUT-Blagnac/projects/292/views/1[Project Board]
 | Tests et Qualité |Les tests unitaires sont accessibles ici | link:Documentation/tests/document_test_iot.adoc[Cahier des tests]
 |===
