@@ -189,6 +189,13 @@ Voici le lien vers le https://docs.google.com/document/d/1JXWsYDaT89UOSjPgRJJcoX
   * [x] Hugo Thollon, Pablo Marquet, Kilian Demangel, Titouan Gauze
   * [ ] Romain Grasseau--Picoreau
 
+- **Jeudi 12 novembre**
+  * [x] Hugo Thollon, Pablo Marquet, Kilian Demangel, Titouan Gauze, Romain Grasseau--Picoreau
+
+- **Vendredi 13 novembre**
+  * [x] Kilian Demangel
+  * [ ] Hugo Thollon, Pablo Marquet, Titouan Gauze, Romain Grasseau--Picoreau
+
 == Évaluations bi-hedomadaire
 
 ifdef::env-github[]
