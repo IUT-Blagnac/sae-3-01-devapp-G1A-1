@@ -68,45 +68,6 @@ html {
   --white-transparent-15: hsla(0, 0%, 100%, 0.15);
   --white-transparent-30: hsla(0, 0%, 100%, 0.3);
   --white-transparent-45: hsla(0, 0%, 100%, 0.45);
-  --grey-900: #111827;
-  --grey-700: #515766;
-  --grey-200: #b8babe;
-  --grey-50: #f3f3f3;
-  --white-87p: #e2e3e6;
-  --white-60p: #a6a8b3;
-  --white-40p: #737687;
-  --red-800: #eb0000;
-  --red-700: #ff2020;
-  --chillyred: #e26464;
-  --peppered: #c95151;
-  --red-soldes: #ae0000;
-  --like: #e07b94;
-  --orange: #ff8f00;
-  --orange-400: #ffca28;
-  --casablanca: #f3ac40;
-  --olivine: #8eaf6e;
-  --carrot: #eb862b;
-  --fiery: #aa5913;
-  --darkorange: #6d3402;
-  --deyork: #84c187;
-  --tomthumb: #415f43;
-  --asparagus: #6aa054;
-  --rainee: #66ba6a;
-  --forest: #368721;
-  --parsley: #32831d;
-  --carsal: #336a5f;
-  --plantation: #265c52;
-  --violet: #8b58b4;
-  --mint: #61c2a2;
-  --barley: #fff1cc;
-  --salomie: #ffdc83;
-  --bronze: #694d05;
-  --twitter-blue: #1da1f2;
-  --twitter-blue-dark: #1da1f2;
-  --twitter-blue-hover: #1a95e2;
-  --stock-blue: #52a9eb;
-  --blizzard: #b4dbf1;
-  --limed-spruce: #13415a;
 }
 
 body {
@@ -117,7 +78,7 @@ header {
   z-index: 100;
   top: 0;
   width: 100%;
-  position: fixed;
+  position: sticky;
 }
 
 * {
@@ -168,11 +129,23 @@ header {
   font-size: 20px;
 }
 
+.main-nav .navbar .nav-item .nav-title {
+  font-size: xx-large;
+  color: var(--white);
+
+}
+
 .main-nav .navbar .nav-item .dropdown-menu {
-  width: 100%;
+  width: auto; /* Largeur ajustée au contenu */
+  min-width: 200px; /* Taille minimale */
   position: absolute;
-  z-index: 999;
-  display: none;
+  left: 50%; /* Place au centre */
+  transform: translateX(-50%); /* Centre horizontalement */
+  top: 100%; /* Place sous l'élément parent */
+  background: #1e1d1d; /* Couleur de fond */
+  z-index: 999; /* Superposition prioritaire */
+  display: none; /* Masqué par défaut */
+  text-align: center; /* Aligne le contenu */
 }
 
 .main-nav .navbar .nav-link:hover,
@@ -221,6 +194,8 @@ header {
   font-family: var(--font-fam);
   font-size: 0.95rem;
 }
+
+
 
 #overlay,
 #sideMenu,
@@ -336,7 +311,7 @@ header {
     font-size: 30px;
     font-weight: bold;
     cursor: pointer;
-    color: var(--white-87p);
+    color: var(--white);
     position: absolute;
     top: -5px;
     right: 5px;
@@ -368,6 +343,7 @@ header {
     left: 20px;
     /* Ajustez pour un alignement parfait */
     font-size: 30px;
+    font-family: monospace;
     cursor: pointer;
     color: #fff;
     background: none;
@@ -399,20 +375,146 @@ header {
 
 :root {
   --rad: 3rem;
-  --dur: 0.3s;
-  --color-dark: #1a1c20;
+  --dur: .3s;
+  --color-dark: #1A1C20;
   --color-light: #fff;
-  --color-brand: linear-gradient(
-    to left,
-    #c3fead 16%,
-    #adff9d 32%,
-    #90ffa3 48%,
-    #77ffb3 64%,
-    #62ffca 80%,
-    #26fefe 100%
-  );
-  --font-fam: "Arial", sans-serif;
+  --color-brand: linear-gradient(to left,
+      #C3FEAD 16%,
+      #ADFF9D 32%,
+      #90FFA3 48%,
+      #77FFB3 64%,
+      #62FFCA 80%,
+      #26FEFE 100%);
+  --font-fam: 'Arial', sans-serif;
   --height: 3rem;
   --btn-width: 5rem;
   --bez: cubic-bezier(0, 0, 0.43, 1.49);
 }
+
+/* /////////////////////////////////////////////////////// */
+/* Partie Search Bar */
+/* /////////////////////////////////////////////////////// */
+
+.search-form {
+  position: relative;
+  width: 40vw;
+  background: var(--color-dark);
+  border-radius: var(--rad);
+  text-align: left;
+}
+
+.search-bar,
+.search-button {
+  height: 2.5rem;
+  font-family: var(--font-fam);
+  border: 0;
+  color: var(--color-dark);
+  font-size: 1.3rem;
+}
+
+.search-bar {
+  outline: 0;
+  width: 100%;
+  background: var(--color-light);
+  padding: 0 1.6rem;
+  border-radius: var(--rad);
+  appearance: none;
+  transition: all var(--dur) var(--bez);
+  transition-property: width, border-radius;
+  z-index: 1;
+  position: relative;
+}
+
+.search-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: var(--btn-width);
+  font-weight: bold;
+  background: var(--color-brand);
+  border-radius: 0 var(--rad) var(--rad) 0;
+  display: block;
+  cursor: pointer;
+}
+
+.search-button img {
+  margin: 0.37rem;
+  margin-right: 0.5rem;
+}
+
+.button-panier {
+  position: absolute;
+  padding: 0.5rem 1rem;
+  font-weight: bold;
+  background: var(--color-brand);
+  border-radius: var(--rad) var(--rad) var(--rad) var(--rad);
+  display: inline-block;
+}
+
+.text-panier {
+  font-weight: bold;
+  color: #000000;
+  font-size: 0.8vw;
+  text-align: center;
+}
+
+@media (max-width: 900px) {
+  .text-panier {
+    font-size: 0.6rem;
+  }
+}
+
+.search-bar:not(:placeholder-shown) {
+  border-radius: var(--rad) 0 0 var(--rad);
+  width: calc(100% - var(--btn-width));
+
+  + button {
+    display: block;
+  }
+}
+
+.search-bar-label {
+  position: absolute;
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 0;
+  border: 0;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+}
+
+/* Réorganisation de la disposition en fonction de la taille d'écran */
+@media (max-width: 900px) {
+  .header-top {
+    flex-wrap: wrap;
+  }
+
+  .search-form {
+    display: block;
+    /* Réaffiche la barre de recherche */
+    width: 100%;
+    /* Prend toute la largeur */
+    margin: 15px;
+    /* Ajoute un peu d'espace */
+    order: 2;
+    /* Assure que la barre de recherche passe en dessous */
+  }
+
+  .search-bar {
+    padding-right: 1rem;
+  }
+
+  .search-bar,
+  .search-button {
+    font-size: 1.2rem;
+  }
+
+  .header-top .icon-profil {
+    margin-left: auto;
+  }
+}
+
+/* /////////////////////////////////////////////////////// */
+/* Fin Search Bar */
+/* /////////////////////////////////////////////////////// */
+

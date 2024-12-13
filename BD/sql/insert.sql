@@ -77,6 +77,7 @@ INSERT INTO Image (nomImage) VALUES ('PC Monté_id52_1.webp');
 INSERT INTO Image (nomImage) VALUES ('PC Monté_id52_2.webp');
 INSERT INTO Image (nomImage) VALUES ('PC Monté_id52_3.webp');
 
+<<<<<<< HEAD
 INSERT INTO Image (nomImage) VALUES ('PC Monté_id57_1.webp');
 INSERT INTO Image (nomImage) VALUES ('PC Monté_id57_2.webp');
 INSERT INTO Image (nomImage) VALUES ('PC Monté_id57_3.webp');
@@ -91,6 +92,17 @@ INSERT INTO Image (nomImage) VALUES ('Boitier PC_id40_1.webp');
 INSERT INTO Image (nomImage) VALUES ('Boitier PC_id40_2.webp');
 INSERT INTO Image (nomImage) VALUES ('Boitier PC_id40_3.webp');
 INSERT INTO Image (nomImage) VALUES ('Boitier PC_id40_4.webp');
+=======
+INSERT INTO Image (nomImage) VALUES ('Watercooling_id18_1.webp');
+
+INSERT INTO Image (nomImage) VALUES ('Processeur_id44_1.webp');
+INSERT INTO Image (nomImage) VALUES ('Processeur_id44_2.webp');
+
+INSERT INTO Image (nomImage) VALUES ('Ventilateur-boitier_id13_1.webp');
+INSERT INTO Image (nomImage) VALUES ('Ventilateur-boitier_id13_2.webp');
+INSERT INTO Image (nomImage) VALUES ('Ventilateur-boitier_id13_3.webp');
+INSERT INTO Image (nomImage) VALUES ('Ventilateur-boitier_id13_4.webp');
+>>>>>>> 5ae1c3ee5473a32ecffd71a52f58d8fc7b5565ca
 
 #/////////////////////////////////////////////////////////////////////////////////////--
 #                            insert AdressePostale                     
@@ -230,120 +242,66 @@ INSERT INTO Employe (nom, prenom, email, telephone, mdp, administrateur) VALUES 
 #                                 insert Produit                     
 #/////////////////////////////////////////////////////////////////////////////////////--
 
-INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, nouveau) VALUES (9, 'Acer Intel Core i9-13900K', 599.99, 50, 'Processeur haut de gamme Intel Core i9', false);
-INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, nouveau) VALUES (6, 'MSI MacBook Pro 16', 2499.99, 25, 'PC portable haute performance pour professionnels', false);
-INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, nouveau) VALUES (4, 'Corsair Corsair 4000D', 89.99, 30, 'Boitier PC spacieux avec bonne ventilation', false);
-INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, nouveau) VALUES (7, 'Corsair HyperX Fury 8GB', 39.99, 60, 'Mémoire DDR4 de 8GB pour PC gamer', false);
-INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, nouveau) VALUES (3, 'MSI Z590 AORUS', 249.99, 15, 'Carte mère compatible Intel Z590', false);
-INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, nouveau) VALUES (3, 'NZXT TUF Gaming X570', 179.99, 45, 'Carte mère AMD X570 pour PC gamer', false);
-INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, nouveau) VALUES (6, 'Acer XPS 13', 1499.99, 20, 'PC portable léger et performant', false);
-INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, nouveau) VALUES (5, 'MSI GTX 1660 Ti', 299.99, 35, 'GTX 1660 Ti pour gaming', false);
-INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, nouveau) VALUES (7, 'Kingston Ripjaws V 32GB', 119.99, 80, 'Mémoire DDR4 32GB pour gaming', false);
-INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, nouveau) VALUES (5, 'Acer Radeon RX 7800 XT', 1299.99, 18, 'Haut de gamme Radeon RX 7800', false);
-INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, nouveau) VALUES (6, 'Asus MacBook Pro 16', 2499.99, 40, 'PC portable haute performance Asus', false);
-INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, nouveau) VALUES (9, 'Razer Intel Core i7-12700K', 399.99, 55, 'Processeur Intel Core i7-12700K', false);
-INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, nouveau) VALUES (8, 'AMD NZXT Aer P', 49.99, 25, 'Ventilateur boitier de 120mm pour refroidissement', false);
-INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, nouveau) VALUES (4, 'Sapphire MasterBox Q300L', 79.99, 22, 'Boitier PC compact et fonctionnel', false);
-INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, nouveau) VALUES (8, 'Corsair Corsair LL120 RGB', 59.99, 35, 'Ventilateur RGB de 120mm', false);
-INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, nouveau) VALUES (2, 'Corsair CoolerPro 120', 99.99, 50, 'Système de refroidissement liquide pour CPU', false);
-INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, nouveau) VALUES (4, 'Kingston Phanteks Eclipse P400A', 89.99, 65, 'Boitier PC avec panneaux en mesh et bonne ventilation', false);
-INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, nouveau) VALUES (2, 'Acer HydroBoost 360', 149.99, 15, 'Système de watercooling 360mm pour CPU', false);
-INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, nouveau) VALUES (2, 'Corsair XtremeFlow 240', 119.99, 25, 'Système de watercooling 240mm', false);
-INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, nouveau) VALUES (7, 'MSI Trident Z RGB 64GB', 249.99, 80, 'Mémoire DDR4 64GB pour gaming', false);
-INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, nouveau) VALUES (5, 'Intel GeForce RTX 4080', 1599.99, 12, 'Haut de gamme RTX 4080', false);
-INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, nouveau) VALUES (3, 'Asus Z490 Pro WiFi', 249.99, 30, 'Carte mère avec support WiFi et Intel Z490', false);
-INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, nouveau) VALUES (8, 'MSI Be Quiet! Pure Wings 2', 29.99, 45, 'Ventilateur PC silencieux de 120mm', false);
-INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, nouveau) VALUES (3, 'Intel Z590 AORUS', 349.99, 30, 'Carte mère Intel Z590 AORUS', false);
-INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, nouveau) VALUES (6, 'Razer MacBook Pro 16', 2499.99, 25, 'PC portable performant Razer', false);
-INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, nouveau) VALUES (7, 'Gigabyte Ripjaws V 32GB', 119.99, 75, 'Mémoire DDR4 32GB', false);
-INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, nouveau) VALUES (2, 'MSI XtremeFlow 240', 129.99, 40, 'Watercooling 240mm', false);
-INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, nouveau) VALUES (4, 'Kingston Corsair 4000D', 109.99, 25, 'Boitier PC de grande capacité', false);
-INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, nouveau) VALUES (2, 'Kingston UltraCool 240', 89.99, 60, 'Système de refroidissement liquide 240mm', false);
-INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, nouveau) VALUES (3, 'Sapphire ROG Strix B550', 179.99, 55, 'Carte mère AMD B550 ROG Strix', false);
-INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, nouveau) VALUES (4, 'Asus Corsair 4000D', 119.99, 65, 'Boitier PC solide avec bonne ventilation', false);
-INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, nouveau) VALUES (7, 'Gigabyte HyperX Fury 8GB', 39.99, 50, 'Mémoire DDR4 8GB pour PC', false);
-INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, nouveau) VALUES (2, 'Acer UltraCool 240', 99.99, 70, 'Système de watercooling 240mm', false);
-INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, nouveau) VALUES (9, 'Razer Intel Core i9-13900K', 599.99, 50, 'Processeur Intel Core i9-13900K', false);
-INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, nouveau) VALUES (2, 'Sapphire XtremeFlow 240', 119.99, 45, 'Watercooling 240mm', false);
-INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, nouveau) VALUES (6, 'Kingston XPS 13', 1599.99, 30, 'PC portable performant Kingston', false);
-INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, nouveau) VALUES (6, 'Corsair Predator Helios 300', 1699.99, 40, 'PC portable gaming Corsair', false);
-INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, nouveau) VALUES (3, 'Kingston Z490 Pro WiFi', 249.99, 30, 'Carte mère Kingston Z490 avec WiFi', false);
-INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, nouveau) VALUES (7, 'Acer Trident Z RGB 64GB', 249.99, 20, 'Mémoire DDR4 64GB pour PC gaming', false);
-INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, nouveau) VALUES (4, 'Acer Corsair 4000D', 99.99, 35, 'Boitier PC avec bonne gestion de l’airflow', false);
-INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, nouveau) VALUES (8, 'Corsair NZXT Aer P', 39.99, 25, 'Ventilateur PC efficace de 120mm', false);
-INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, nouveau) VALUES (8, 'Asus Be Quiet! Pure Wings 2', 19.99, 20, 'Ventilateur de boitier silencieux', false);
-INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, nouveau) VALUES (6, 'MSI ROG Zephyrus G14', 1499.99, 40, 'PC portable haute performance pour gaming', false);
-INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, nouveau) VALUES (9, 'Acer AMD Ryzen 5 5600X', 299.99, 50, 'Processeur AMD Ryzen 5 5600X', false);
-INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, nouveau) VALUES (8, 'Gigabyte Corsair LL120 RGB', 59.99, 15, 'Ventilateur RGB Corsair 120mm', false);
-INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, nouveau) VALUES (5, 'Asus GeForce RTX 4080', 1599.99, 30, 'Asus GeForce RTX 4080', false);
-INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, nouveau) VALUES (3, 'Sapphire Z590 AORUS', 329.99, 40, 'Carte mère Intel Z590 AORUS', false);
-INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, nouveau) VALUES (4, 'Corsair Phanteks Eclipse P400A', 99.99, 25, 'Boitier PC Phanteks Eclipse P400A', false);
-INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, nouveau) VALUES (8, 'Sapphire Cooler Master MasterFan', 49.99, 18, 'Ventilateur de boitier Cooler Master 120mm', false);
-INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, nouveau) VALUES (9, 'NZXT Intel Core i7-12700K', 399.99, 70, 'Processeur Intel Core i7-12700K', false);
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, idMarque) VALUES (9, 'Acer Intel Core i9-13900K', 599.99, 50, 'Processeur haut de gamme Intel Core i9', 2);
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, idMarque) VALUES (6, 'MSI MacBook Pro 16', 2499.99, 25, 'PC portable haute performance pour professionnels', 1);
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, idMarque) VALUES (4, 'Corsair Corsair 4000D', 89.99, 30, 'Boitier PC spacieux avec bonne ventilation', 3);
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, idMarque) VALUES (7, 'Corsair HyperX Fury 8GB', 39.99, 60, 'Mémoire DDR4 de 8GB pour PC gamer', 3);
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, idMarque) VALUES (3, 'MSI Z590 AORUS', 249.99, 15, 'Carte mère compatible Intel Z590', 1);
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, idMarque) VALUES (3, 'NZXT TUF Gaming X570', 179.99, 45, 'Carte mère AMD X570 pour PC gamer', 8);
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, idMarque) VALUES (6, 'Acer XPS 13', 1499.99, 20, 'PC portable léger et performant', 2);
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, idMarque) VALUES (5, 'MSI GTX 1660 Ti', 299.99, 35, 'GTX 1660 Ti pour gaming', 1);
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, idMarque) VALUES (7, 'Kingston Ripjaws V 32GB', 119.99, 80, 'Mémoire DDR4 32GB pour gaming', 10);
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, idMarque) VALUES (5, 'Acer Radeon RX 7800 XT', 1299.99, 18, 'Haut de gamme Radeon RX 7800', 2);
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, idMarque) VALUES (6, 'Asus MacBook Pro 16', 2499.99, 40, 'PC portable haute performance Asus', 6);
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, idMarque) VALUES (9, 'Razer Intel Core i7-12700K', 399.99, 55, 'Processeur Intel Core i7-12700K', 7);
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, idMarque) VALUES (8, 'AMD NZXT Aer P', 49.99, 25, 'Ventilateur boitier de 120mm pour refroidissement', 5);
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, idMarque) VALUES (4, 'Sapphire MasterBox Q300L', 79.99, 22, 'Boitier PC compact et fonctionnel', 12);
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, idMarque) VALUES (8, 'Corsair Corsair LL120 RGB', 59.99, 35, 'Ventilateur RGB de 120mm', 3);
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, idMarque) VALUES (2, 'Corsair CoolerPro 120', 99.99, 50, 'Système de refroidissement liquide pour CPU', 9);
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, idMarque) VALUES (4, 'Kingston Phanteks Eclipse P400A', 89.99, 65, 'Boitier PC avec panneaux en mesh et bonne ventilation', 10);
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, idMarque) VALUES (2, 'Acer HydroBoost 360', 149.99, 15, 'Système de watercooling 360mm pour CPU', 2);
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, idMarque) VALUES (2, 'Corsair XtremeFlow 240', 119.99, 25, 'Système de watercooling 240mm', 3);
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, idMarque) VALUES (7, 'MSI Trident Z RGB 64GB', 249.99, 80, 'Mémoire DDR4 64GB pour gaming', 1);
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, idMarque) VALUES (5, 'Intel GeForce RTX 4080', 1599.99, 12, 'Haut de gamme RTX 4080', 4);
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, idMarque) VALUES (3, 'Asus Z490 Pro WiFi', 249.99, 30, 'Carte mère avec support WiFi et Intel Z490', 6);
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, idMarque) VALUES (8, 'MSI Be Quiet! Pure Wings 2', 29.99, 45, 'Ventilateur PC silencieux de 120mm', 1);
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, idMarque) VALUES (3, 'Intel Z590 AORUS', 349.99, 30, 'Carte mère Intel Z590 AORUS', 4);
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, idMarque) VALUES (6, 'Razer MacBook Pro 16', 2499.99, 25, 'PC portable performant Razer', 7);
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, idMarque) VALUES (7, 'Gigabyte Ripjaws V 32GB', 119.99, 75, 'Mémoire DDR4 32GB', 11);
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, idMarque) VALUES (2, 'MSI XtremeFlow 240', 129.99, 40, 'Watercooling 240mm', 1);
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, idMarque) VALUES (4, 'Kingston Corsair 4000D', 109.99, 25, 'Boitier PC de grande capacité', 10);
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, idMarque) VALUES (2, 'Kingston UltraCool 240', 89.99, 60, 'Système de refroidissement liquide 240mm', 10);
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, idMarque) VALUES (3, 'Sapphire ROG Strix B550', 179.99, 55, 'Carte mère AMD B550 ROG Strix', 12);
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, idMarque) VALUES (4, 'Asus Corsair 4000D', 119.99, 65, 'Boitier PC solide avec bonne ventilation', 6);
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, idMarque) VALUES (7, 'Gigabyte HyperX Fury 8GB', 39.99, 50, 'Mémoire DDR4 8GB pour PC', 11);
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, idMarque) VALUES (2, 'Acer UltraCool 240', 99.99, 70, 'Système de watercooling 240mm', 2);
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, idMarque) VALUES (9, 'Razer Intel Core i9-13900K', 599.99, 50, 'Processeur Intel Core i9-13900K', 7);
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, idMarque) VALUES (2, 'Sapphire XtremeFlow 240', 119.99, 45, 'Watercooling 240mm', 12);
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, idMarque) VALUES (6, 'Kingston XPS 13', 1599.99, 30, 'PC portable performant Kingston', 10);
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, idMarque) VALUES (6, 'Corsair Predator Helios 300', 1699.99, 40, 'PC portable gaming Corsair', 3);
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, idMarque) VALUES (3, 'Kingston Z490 Pro WiFi', 249.99, 30, 'Carte mère Kingston Z490 avec WiFi', 10);
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, idMarque) VALUES (7, 'Acer Trident Z RGB 64GB', 249.99, 20, 'Mémoire DDR4 64GB pour PC gaming', 2);
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, idMarque) VALUES (4, 'Acer Corsair 4000D', 99.99, 35, 'Boitier PC avec bonne gestion de l’airflow', 2);
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, idMarque) VALUES (8, 'Corsair NZXT Aer P', 39.99, 25, 'Ventilateur PC efficace de 120mm', 3);
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, idMarque) VALUES (8, 'Asus Be Quiet! Pure Wings 2', 19.99, 20, 'Ventilateur de boitier silencieux', 6);
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, idMarque) VALUES (6, 'MSI ROG Zephyrus G14', 1499.99, 40, 'PC portable haute performance pour gaming', 1);
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, idMarque) VALUES (9, 'Acer AMD Ryzen 5 5600X', 299.99, 50, 'Processeur AMD Ryzen 5 5600X', 2);
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, idMarque) VALUES (8, 'Gigabyte Corsair LL120 RGB', 59.99, 15, 'Ventilateur RGB Corsair 120mm', 11);
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, idMarque) VALUES (5, 'Asus GeForce RTX 4080', 1599.99, 30, 'Asus GeForce RTX 4080', 6);
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, idMarque) VALUES (3, 'Sapphire Z590 AORUS', 329.99, 40, 'Carte mère Intel Z590 AORUS', 12);
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, idMarque) VALUES (4, 'Corsair Phanteks Eclipse P400A', 99.99, 25, 'Boitier PC Phanteks Eclipse P400A', 3);
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, idMarque) VALUES (8, 'Sapphire Cooler Master MasterFan', 49.99, 18, 'Ventilateur de boitier Cooler Master 120mm', 9);
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, idMarque) VALUES (9, 'NZXT Intel Core i7-12700K', 399.99, 70, 'Processeur Intel Core i7-12700K', 8);
 
-INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, nouveau) VALUES (10, 'PC Gamer RTX 4080 Beast', 2799.99, 30, 'Performance ultime avec carte RTX 4080, Intel i7, 32 Go de RAM et refroidissement liquide.', false);
-INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, nouveau) VALUES (10, 'HP Omen Envy Pro X', 1899.99, 50, 'Tour élégante et puissante avec RTX 3070, Intel i5 et SSD 1 To.', false);
-INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, nouveau) VALUES (10, 'Lenovo Legion Tower X', 1599.99, 40, 'Idéal pour les gamers : Ryzen 7, GTX 1660 Ti, 16 Go de RAM et design LED.', false);
-INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, nouveau) VALUES (10, 'PC Gamer RTX 4090 Mega Power', 3599.99, 20, 'Config ultra-haut de gamme : RTX 4090, Intel i9, 64 Go de RAM et boîtier RGB premium.', false);
-INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, nouveau) VALUES (10, 'Dell Alienware Aurora', 2399.99, 15, 'Futuriste et puissant avec RTX 4080, Intel i7 et système de refroidissement avancé.', false);
-INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, nouveau) VALUES (10, 'Gigabyte Aorus Extreme', 2199.99, 55, 'Performance équilibrée : Ryzen 9, RTX 4070, SSD 2 To et design compact.', false);
-INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, nouveau) VALUES (10, 'PC Gamer Ryzen 5 Shadow', 1299.99, 76, 'Tour silencieuse et efficace : Ryzen 5, RTX 3060, SSD 512 Go.', false);
-INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, nouveau) VALUES (10, 'MSI Infinite X 3D Max', 2499.99, 64, 'Pour les créateurs et gamers : Intel i7, RTX 4080, 32 Go de RAM et système LED RGB.', false);
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, idMarque) VALUES (11, 'PC Gamer RTX 4080 Beast', 2799.99, 30, 'Performance ultime avec carte graphique RTX 4080, processeur Intel i7, 32 Go de RAM et refroidissement liquide.', 4);
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, idMarque) VALUES (11, 'HP Omen Envy Pro X', 1899.99, 50, 'Tour élégante et puissante avec processeur Intel i5, carte graphique RTX 3070 et SSD 1 To.', 4);
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, idMarque) VALUES (11, 'Lenovo Legion Tower X', 1599.99, 40, 'Idéal pour les gamers : processeur Ryzen 7, carte graphique GTX 1660 Ti, 16 Go de RAM et design LED.', 5);
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, idMarque) VALUES (11, 'PC Gamer RTX 4090 Mega Power', 3599.99, 20, 'Configuration ultra-haut de gamme avec carte graphique RTX 4090, processeur Intel i9, 64 Go de RAM et boîtier RGB premium.', 4);
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, idMarque) VALUES (11, 'Dell Alienware Aurora', 2399.99, 15, 'Futuriste et puissant avec processeur Intel i7, carte graphique RTX 4080 et système de refroidissement avancé.', 5);
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, idMarque) VALUES (11, 'Gigabyte Aorus Extreme', 2199.99, 55, 'Performance équilibrée avec processeur Ryzen 9, carte graphique RTX 4070, SSD 2 To et design compact.', 4);
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, idMarque) VALUES (11, 'PC Gamer Ryzen 5 Shadow', 1299.99, 76, 'Tour silencieuse et efficace avec processeur Ryzen 5, carte graphique RTX 3060 et SSD 512 Go.', 5);
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, idMarque) VALUES (11, 'MSI Infinite X 3D Max', 2499.99, 64, 'Pour les créateurs et gamers avec processeur Intel i7, carte graphique RTX 4080, 32 Go de RAM et système LED RGB.', 1);
 
-#/////////////////////////////////////////////////////////////////////////////////////--
-#                                 insert Commande                     
-#/////////////////////////////////////////////////////////////////////////////////////--
-
-INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (1, true);
-INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (2, true);
-INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (3, true);
-INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (4, true);
-INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (5, true);
-INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (6, true);
-INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (7, true);
-INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (8, true);
-INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (9, true);
-INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (10, true);
-INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (11, true);
-INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (12, true);
-INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (13, true);
-INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (14, true);
-INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (15, true);
-INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (16, true);
-INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (17, true);
-INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (18, true);
-INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (19, true);
-INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (20, true);
-INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (21, true);
-INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (22, true);
-INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (23, true);
-INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (24, true);
-INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (25, true);
-INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (26, true);
-INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (27, true);
-INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (28, true);
-INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (29, true);
-INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (30, true);
-INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (31, true);
-INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (32, true);
-INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (33, true);
-INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (34, true);
-INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (35, true);
-INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (36, true);
-INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (37, true);
-INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (38, true);
-INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (39, true);
-INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (40, true);
-INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (41, true);
-INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (42, true);
-INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (43, true);
-INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (44, true);
-INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (45, true);
-INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (46, true);
-INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (47, true);
-INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (48, true);
-INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (49, true);
-INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (50, true);
 
 #/////////////////////////////////////////////////////////////////////////////////////--
 #                              insert Commande passé                   
@@ -449,6 +407,61 @@ INSERT INTO Commande (idNumCli, idAdresse, idMethodePaiement, dateCommande, estP
 INSERT INTO Commande (idNumCli, idAdresse, idMethodePaiement, dateCommande, estPanierActuel) VALUES (15, 15, 2, '2024-08-02', false);
 INSERT INTO Commande (idNumCli, idAdresse, idMethodePaiement, dateCommande, estPanierActuel) VALUES (1, 1, 3, '2024-02-17', false);
 INSERT INTO Commande (idNumCli, idAdresse, idMethodePaiement, dateCommande, estPanierActuel) VALUES (38, 38, 1, '2024-09-06', false);
+
+#/////////////////////////////////////////////////////////////////////////////////////--
+#                                 insert Commande                     
+#/////////////////////////////////////////////////////////////////////////////////////--
+
+INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (1, true);
+INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (2, true);
+INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (3, true);
+INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (4, true);
+INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (5, true);
+INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (6, true);
+INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (7, true);
+INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (8, true);
+INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (9, true);
+INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (10, true);
+INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (11, true);
+INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (12, true);
+INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (13, true);
+INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (14, true);
+INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (15, true);
+INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (16, true);
+INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (17, true);
+INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (18, true);
+INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (19, true);
+INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (20, true);
+INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (21, true);
+INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (22, true);
+INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (23, true);
+INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (24, true);
+INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (25, true);
+INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (26, true);
+INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (27, true);
+INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (28, true);
+INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (29, true);
+INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (30, true);
+INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (31, true);
+INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (32, true);
+INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (33, true);
+INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (34, true);
+INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (35, true);
+INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (36, true);
+INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (37, true);
+INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (38, true);
+INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (39, true);
+INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (40, true);
+INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (41, true);
+INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (42, true);
+INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (43, true);
+INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (44, true);
+INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (45, true);
+INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (46, true);
+INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (47, true);
+INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (48, true);
+INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (49, true);
+INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (50, true);
 
 #/////////////////////////////////////////////////////////////////////////////////////--
 #                                 insert ACommande                     
@@ -854,11 +867,13 @@ INSERT INTO Contient (idNumProduit, idImage) VALUES (12, );
 INSERT INTO Contient (idNumProduit, idImage) VALUES (12, );
 
 -- idProduit 13 : Ventilateur
-INSERT INTO Contient (idNumProduit, idImage) VALUES (13, );
-INSERT INTO Contient (idNumProduit, idImage) VALUES (13, );
-INSERT INTO Contient (idNumProduit, idImage) VALUES (13, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (13, 33);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (13, 34);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (13, 35);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (13, 36);
 
 -- idProduit 14 : Boitier PC
+INSERT INTO Contient (idNumProduit, idImage) VALUES (14, );
 INSERT INTO Contient (idNumProduit, idImage) VALUES (14, );
 INSERT INTO Contient (idNumProduit, idImage) VALUES (14, );
 INSERT INTO Contient (idNumProduit, idImage) VALUES (14, );
@@ -879,7 +894,7 @@ INSERT INTO Contient (idNumProduit, idImage) VALUES (17, );
 INSERT INTO Contient (idNumProduit, idImage) VALUES (17, );
 
 -- idProduit 18 : watercooling
-INSERT INTO Contient (idNumProduit, idImage) VALUES (18, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (18, 30);
 INSERT INTO Contient (idNumProduit, idImage) VALUES (18, );
 INSERT INTO Contient (idNumProduit, idImage) VALUES (18, );
 
@@ -1010,8 +1025,8 @@ INSERT INTO Contient (idNumProduit, idImage) VALUES (43, );
 INSERT INTO Contient (idNumProduit, idImage) VALUES (43, );
 
 -- idProduit 44 : Processeur
-INSERT INTO Contient (idNumProduit, idImage) VALUES (44, );
-INSERT INTO Contient (idNumProduit, idImage) VALUES (44, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (44, 31);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (44, 32);
 INSERT INTO Contient (idNumProduit, idImage) VALUES (44, );
 
 -- idProduit 45 : Ventilateur
@@ -1083,3 +1098,15 @@ INSERT INTO Contient (idNumProduit, idImage) VALUES (57, 20);
 INSERT INTO Contient (idNumProduit, idImage) VALUES (58, );
 INSERT INTO Contient (idNumProduit, idImage) VALUES (58, );
 INSERT INTO Contient (idNumProduit, idImage) VALUES (58, );
+
+#/////////////////////////////////////////////////////////////////////////////////////--
+#                                 insert Promotion               
+#/////////////////////////////////////////////////////////////////////////////////////--
+
+INSERT INTO Promotion (nomPromotion, pourcentageReduction) VALUES ('test', 20);
+
+#/////////////////////////////////////////////////////////////////////////////////////--
+#                                 insert EnPromo               
+#/////////////////////////////////////////////////////////////////////////////////////--
+
+INSERT INTO EnPromo (idNumProduit, idPromotion) VALUES (1, 1);

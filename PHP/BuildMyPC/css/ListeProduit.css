@@ -4,7 +4,7 @@
 
 main {
   overflow: auto;
-  margin-top: 150px;
+  /* margin-top: 150px; */
   margin-bottom: 100px;
   padding: 5vw;
   font-family: var(--font-fam);
@@ -82,6 +82,10 @@ li.selection.title {
 li.selection.content {
   padding-top: 0;
   padding-bottom: 0;
+}
+
+li.selection.content ul.selection {
+  width: 100%;
 }
 
 li.selection:not(li.selection.content) {
