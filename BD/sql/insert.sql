@@ -92,7 +92,7 @@ INSERT INTO Image (nomImage) VALUES ('Boitier PC_id40_1.webp');
 INSERT INTO Image (nomImage) VALUES ('Boitier PC_id40_2.webp');
 INSERT INTO Image (nomImage) VALUES ('Boitier PC_id40_3.webp');
 INSERT INTO Image (nomImage) VALUES ('Boitier PC_id40_4.webp');
-=======
+
 INSERT INTO Image (nomImage) VALUES ('Watercooling_id18_1.webp');
 
 INSERT INTO Image (nomImage) VALUES ('Processeur_id44_1.webp');
@@ -102,7 +102,42 @@ INSERT INTO Image (nomImage) VALUES ('Ventilateur-boitier_id13_1.webp');
 INSERT INTO Image (nomImage) VALUES ('Ventilateur-boitier_id13_2.webp');
 INSERT INTO Image (nomImage) VALUES ('Ventilateur-boitier_id13_3.webp');
 INSERT INTO Image (nomImage) VALUES ('Ventilateur-boitier_id13_4.webp');
->>>>>>> 5ae1c3ee5473a32ecffd71a52f58d8fc7b5565ca
+
+INSERT INTO Image (nomImage) VALUES ('Ventilateur-boitier_id42_1.webp');
+INSERT INTO Image (nomImage) VALUES ('Ventilateur-boitier_id42_2.webp');
+INSERT INTO Image (nomImage) VALUES ('Ventilateur-boitier_id42_3.webp');
+INSERT INTO Image (nomImage) VALUES ('Ventilateur-boitier_id42_4.webp');
+
+INSERT INTO Image (nomImage) VALUES ('Boitier PC_id31_1.webp');
+INSERT INTO Image (nomImage) VALUES ('Boitier PC_id31_2.webp');
+INSERT INTO Image (nomImage) VALUES ('Boitier PC_id31_3.webp');
+INSERT INTO Image (nomImage) VALUES ('Boitier PC_id31_4.webp');
+INSERT INTO Image (nomImage) VALUES ('Boitier PC_id31_5.webp');
+
+INSERT INTO Image (nomImage) VALUES ('carteGraphique_id46_1.webp');
+INSERT INTO Image (nomImage) VALUES ('carteGraphique_id46_2.webp');
+INSERT INTO Image (nomImage) VALUES ('carteGraphique_id46_3.webp');
+INSERT INTO Image (nomImage) VALUES ('carteGraphique_id46_4.webp');
+INSERT INTO Image (nomImage) VALUES ('carteGraphique_id46_5.webp');
+INSERT INTO Image (nomImage) VALUES ('carteGraphique_id46_6.webp');
+
+INSERT INTO Image (nomImage) VALUES ('PC Portable_id11_1.webp');
+INSERT INTO Image (nomImage) VALUES ('PC Portable_id11_2.webp');
+INSERT INTO Image (nomImage) VALUES ('PC Portable_id11_3.webp');
+INSERT INTO Image (nomImage) VALUES ('PC Portable_id11_4.webp'); 
+INSERT INTO Image (nomImage) VALUES ('PC Portable_id11_5.webp'); 
+
+INSERT INTO Image (nomImage) VALUES ('PC Portable_id2_1.webp');
+INSERT INTO Image (nomImage) VALUES ('PC Portable_id2_2.webp');
+INSERT INTO Image (nomImage) VALUES ('PC Portable_id2_3.webp');
+INSERT INTO Image (nomImage) VALUES ('PC Portable_id2_4.webp'); 
+INSERT INTO Image (nomImage) VALUES ('PC Portable_id2_5.webp');
+
+INSERT INTO Image (nomImage) VALUES ('Carte Mère_id22_1.webp');
+INSERT INTO Image (nomImage) VALUES ('Carte Mère_id22_2.webp');
+INSERT INTO Image (nomImage) VALUES ('Carte Mère_id22_3.webp');
+INSERT INTO Image (nomImage) VALUES ('Carte Mère_id22_4.webp'); 
+INSERT INTO Image (nomImage) VALUES ('Carte Mère_id22_5.webp'); 
 
 #/////////////////////////////////////////////////////////////////////////////////////--
 #                            insert AdressePostale                     
@@ -463,6 +498,10 @@ INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (48, true);
 INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (49, true);
 INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (50, true);
 
+# test
+INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (51, true);
+INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (76, true);
+
 #/////////////////////////////////////////////////////////////////////////////////////--
 #                                 insert ACommande                     
 #/////////////////////////////////////////////////////////////////////////////////////--
@@ -810,9 +849,11 @@ INSERT INTO Contient (idNumProduit, idImage) VALUES (1, 14);
 INSERT INTO Contient (idNumProduit, idImage) VALUES (1, );
 
 -- idProduit 2 : PC portable
-INSERT INTO Contient (idNumProduit, idImage) VALUES (2, );
-INSERT INTO Contient (idNumProduit, idImage) VALUES (2, );
-INSERT INTO Contient (idNumProduit, idImage) VALUES (2, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (2, 57);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (2, 58);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (2, 59);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (2, 60);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (2, 61);
 
 -- idProduit 3 : Boitier PC
 INSERT INTO Contient (idNumProduit, idImage) VALUES (3, );
@@ -857,9 +898,11 @@ INSERT INTO Contient (idNumProduit, idImage) VALUES (10, );
 INSERT INTO Contient (idNumProduit, idImage) VALUES (10, );
 
 -- idProduit 11 : PC portable
-INSERT INTO Contient (idNumProduit, idImage) VALUES (11, );
-INSERT INTO Contient (idNumProduit, idImage) VALUES (11, );
-INSERT INTO Contient (idNumProduit, idImage) VALUES (11, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (11, 52);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (11, 53);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (11, 54);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (11, 55);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (11, 56);
 
 -- idProduit 12 : Processeur
 INSERT INTO Contient (idNumProduit, idImage) VALUES (12, );
@@ -914,9 +957,11 @@ INSERT INTO Contient (idNumProduit, idImage) VALUES (21, );
 INSERT INTO Contient (idNumProduit, idImage) VALUES (21, );
 
 -- idProduit 22 : Carte mère
-INSERT INTO Contient (idNumProduit, idImage) VALUES (22, );
-INSERT INTO Contient (idNumProduit, idImage) VALUES (22, );
-INSERT INTO Contient (idNumProduit, idImage) VALUES (22, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (22, 62);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (22, 63);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (22, 64);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (22, 65);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (22, 66);
 
 -- idProduit 23 : Ventilateur
 INSERT INTO Contient (idNumProduit, idImage) VALUES (23, );
@@ -959,9 +1004,11 @@ INSERT INTO Contient (idNumProduit, idImage) VALUES (30, );
 INSERT INTO Contient (idNumProduit, idImage) VALUES (30, );
 
 -- idProduit 31 : Boitier PC
-INSERT INTO Contient (idNumProduit, idImage) VALUES (31, );
-INSERT INTO Contient (idNumProduit, idImage) VALUES (31, );
-INSERT INTO Contient (idNumProduit, idImage) VALUES (31, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (31, 41);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (31, 42);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (31, 43);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (31, 44);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (31, 45);
 
 -- idProduit 32 : Mémoire
 INSERT INTO Contient (idNumProduit, idImage) VALUES (32, );
@@ -1015,9 +1062,10 @@ INSERT INTO Contient (idNumProduit, idImage) VALUES (41, );
 INSERT INTO Contient (idNumProduit, idImage) VALUES (41, );
 
 -- idProduit 42 : Ventilateur
-INSERT INTO Contient (idNumProduit, idImage) VALUES (42, );
-INSERT INTO Contient (idNumProduit, idImage) VALUES (42, );
-INSERT INTO Contient (idNumProduit, idImage) VALUES (42, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (42, 37);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (42, 38);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (42, 39);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (42, 40);
 
 -- idProduit 43 : PC portable
 INSERT INTO Contient (idNumProduit, idImage) VALUES (43, );
@@ -1035,9 +1083,12 @@ INSERT INTO Contient (idNumProduit, idImage) VALUES (45, );
 INSERT INTO Contient (idNumProduit, idImage) VALUES (45, );
 
 -- idProduit 46 : Carte graphique
-INSERT INTO Contient (idNumProduit, idImage) VALUES (46, );
-INSERT INTO Contient (idNumProduit, idImage) VALUES (46, );
-INSERT INTO Contient (idNumProduit, idImage) VALUES (46, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (46, 46);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (46, 47);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (46, 48);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (46, 49);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (46, 50);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (46, 51);
 
 -- idProduit 47 : Carte mère
 INSERT INTO Contient (idNumProduit, idImage) VALUES (47, );
