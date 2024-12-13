@@ -77,6 +77,21 @@ INSERT INTO Image (nomImage) VALUES ('PC Monté_id52_1.webp');
 INSERT INTO Image (nomImage) VALUES ('PC Monté_id52_2.webp');
 INSERT INTO Image (nomImage) VALUES ('PC Monté_id52_3.webp');
 
+INSERT INTO Image (nomImage) VALUES ('PC Monté_id57_1.webp');
+INSERT INTO Image (nomImage) VALUES ('PC Monté_id57_2.webp');
+INSERT INTO Image (nomImage) VALUES ('PC Monté_id57_3.webp');
+
+INSERT INTO Image (nomImage) VALUES ('PC Portable_id7_1.webp');
+INSERT INTO Image (nomImage) VALUES ('PC Portable_id7_2.webp');
+INSERT INTO Image (nomImage) VALUES ('PC Portable_id7_3.webp');
+INSERT INTO Image (nomImage) VALUES ('PC Portable_id7_4.webp');
+INSERT INTO Image (nomImage) VALUES ('PC Portable_id7_5.webp');
+
+INSERT INTO Image (nomImage) VALUES ('Boitier PC_id40_1.webp');
+INSERT INTO Image (nomImage) VALUES ('Boitier PC_id40_2.webp');
+INSERT INTO Image (nomImage) VALUES ('Boitier PC_id40_3.webp');
+INSERT INTO Image (nomImage) VALUES ('Boitier PC_id40_4.webp');
+
 #/////////////////////////////////////////////////////////////////////////////////////--
 #                            insert AdressePostale                     
 #/////////////////////////////////////////////////////////////////////////////////////--
@@ -682,6 +697,11 @@ INSERT INTO ACommande (idCommande, idNumProduit, qte, prixAchat) VALUES (9, 10, 
 INSERT INTO ACommande (idCommande, idNumProduit, qte, prixAchat) VALUES (9, 36, 4, 1599.99);
 INSERT INTO ACommande (idCommande, idNumProduit, qte, prixAchat) VALUES (45, 24, 2, 349.99);
 
+# test insert
+
+INSERT INTO ACommande (idCommande, idNumProduit, qte, prixAchat) VALUES (152, 1, 1, 599.99);
+INSERT INTO ACommande (idCommande, idNumProduit, qte, prixAchat) VALUES (152, 56, 1, 2199.99);
+
 #/////////////////////////////////////////////////////////////////////////////////////--
 #                                   insert Avis               
 #/////////////////////////////////////////////////////////////////////////////////////--
@@ -802,9 +822,11 @@ INSERT INTO Contient (idNumProduit, idImage) VALUES (6, );
 INSERT INTO Contient (idNumProduit, idImage) VALUES (6, );
 
 -- idProduit 7 : PC portable
-INSERT INTO Contient (idNumProduit, idImage) VALUES (7, );
-INSERT INTO Contient (idNumProduit, idImage) VALUES (7, );
-INSERT INTO Contient (idNumProduit, idImage) VALUES (7, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (7, 21);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (7, 22);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (7, 23);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (7, 24);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (7, 25);
 
 -- idProduit 8 : Carte graphique
 INSERT INTO Contient (idNumProduit, idImage) VALUES (8, );
@@ -967,9 +989,10 @@ INSERT INTO Contient (idNumProduit, idImage) VALUES (39, );
 INSERT INTO Contient (idNumProduit, idImage) VALUES (39, );
 
 -- idProduit 40 : Boitier PC
-INSERT INTO Contient (idNumProduit, idImage) VALUES (40, );
-INSERT INTO Contient (idNumProduit, idImage) VALUES (40, );
-INSERT INTO Contient (idNumProduit, idImage) VALUES (40, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (40, 26);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (40, 27);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (40, 28);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (40, 29);
 
 -- idProduit 41 : Ventilateur
 INSERT INTO Contient (idNumProduit, idImage) VALUES (41, );
@@ -1052,9 +1075,9 @@ INSERT INTO Contient (idNumProduit, idImage) VALUES (56, );
 INSERT INTO Contient (idNumProduit, idImage) VALUES (56, );
 
 -- idProduit 57 : PC Monté
-INSERT INTO Contient (idNumProduit, idImage) VALUES (57, );
-INSERT INTO Contient (idNumProduit, idImage) VALUES (57, );
-INSERT INTO Contient (idNumProduit, idImage) VALUES (57, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (57, 18);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (57, 19);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (57, 20);
 
 -- idProduit 58 : PC Monté
 INSERT INTO Contient (idNumProduit, idImage) VALUES (58, );
