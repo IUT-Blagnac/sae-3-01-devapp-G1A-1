@@ -1,28 +1,23 @@
-SET serveroutput ON;
-create or replace PROCEDURE NouvelleCommande 
-    (p_idNumCli COMMANDE.idNumCli%TYPE) IS
+DROP PROCEDURE Payer;
+DELIMITER $$
 
-enfant_sans_parent EXCEPTION;
-PRAGMA EXCEPTION_INIT(enfant_sans_parent, -2291);
-erreur_ck EXCEPTION;
-PRAGMA EXCEPTION_INIT(erreur_ck, -2290);
-
-BEGIN 
+CREATE PROCEDURE NouvelleCommande (p_idNumCli INT)
+BEGIN
+    DECLARE EXIT HANDLER FOR SQLEXCEPTION
+    BEGIN
+        DECLARE msg VARCHAR(255);
+        GET DIAGNOSTICS CONDITION 1 msg = MESSAGE_TEXT;
+        SELECT CONCAT('Erreur : ', msg);
+    END;
 
     UPDATE Commande
     SET panierActuel = FALSE
-    WHERE idNumCli = p_idNumCli
-    AND panierActuel = TRUE;
+    WHERE idNumCli = p_idNumCli AND panierActuel = TRUE;
 
-    INSERT INTO Commande (idCommande, idNumCli, panierActuel)VALUES (seq_id_commande.NEXTVAL, p_idNumCli, TRUE);
+    INSERT INTO Commande (idNumCli, panierActuel) VALUES (p_idNumCli, TRUE);
+    
+END $$
 
-EXCEPTION
+-- commander
 
-    WHEN NO_DATA_FOUND THEN 
-         DBMS_OUTPUT.PUT_LINE('Erreur : Client inconnue');
-    WHEN enfant_sans_parent THEN
-        DBMS_OUTPUT.PUT_LINE('Erreur : enfant sans parent');
-    DBMS_OUTPUT.PUT_LINE(SQLCODE || SQLERRM);
-
-END;
-/
+DELIMITER ;

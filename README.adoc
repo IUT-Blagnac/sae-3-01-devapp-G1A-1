@@ -68,7 +68,7 @@ Cette section regroupe tous les documents liés à la conception, au développem
 
 |===
 | Nom du document | Description | Version |  Lien
-| Site Web "BuildMyPC" | URL pour consulter le site | V1.0 | http://193.54.227.208/~R2024SAE3007/index.php[Lien vers le site web extérieur à l'IUT]
+| Site Web "BuildMyPC" | URL pour consulter le site | V2.0 | http://193.54.227.208/~R2024SAE3007/index.php[Lien vers le site web extérieur à l'IUT]
                                                                
                                                                http://192.168.224.139/~R2024SAE3007/index.php[Lien vers le site web interne à l'IUT]
 |===
@@ -102,7 +102,7 @@ Documentation détaillant les fonctionnalités disponibles pour les utilisateurs
 
 |===
 | Nom | Description        |  Lien
-| Releases | Version actuelle du site | https://github.com/IUT-Blagnac/sae-3-01-devapp-G1A-1/releases/tag/V1.0[v1.0]
+| Releases | Version actuelle du site | https://github.com/IUT-Blagnac/sae-3-01-devapp-G1A-1/releases/tag/V2.0[v2.0]
 | Suivi des User Stories | Les User Stories sont disponibles et suivies dans le Project Board GitHub | https://github.com/IUT-Blagnac/sae-3-01-devapp-G1A-1/projects?query=is%3Aopen[Project Board]
 | Tests et Qualité |Les tests unitaires et les indicateurs de qualité sont accessibles ici | link:Documentation/tests/document_test_web.adoc[Cahier des tests]
                                                                                                               
@@ -127,7 +127,7 @@ Voici le lien vers le https://docs.google.com/document/d/1JXWsYDaT89UOSjPgRJJcoX
 
 |===
 | Nom | Description        |  Lien
-| Releases | Version actuelle de l'application | https://github.com/IUT-Blagnac/sae-3-01-devapp-G1A-1/releases/tag/V1.0[v1.0]
+| Releases | Version actuelle de l'application | https://github.com/IUT-Blagnac/sae-3-01-devapp-G1A-1/releases/tag/V2.0[v2.0]
 | Suivi des User Stories | Les User Stories sont disponibles et suivies dans le Project Board GitHub | https://github.com/orgs/IUT-Blagnac/projects/292/views/1[Project Board]
 | Tests et Qualité |Les tests unitaires sont accessibles ici | link:Documentation/tests/document_test_iot.adoc[Cahier des tests]
 |===
@@ -158,8 +158,15 @@ Voici le lien vers le https://docs.google.com/document/d/1JXWsYDaT89UOSjPgRJJcoX
                 https://github.com/IUT-Blagnac/sae-3-01-devapp-G1A-1/blob/master/Communication/Compte%20rendu%20de%20r%C3%A9union%20du%2003-12-2024.pdf[Lien vers le CR]
                 
                 https://github.com/IUT-Blagnac/sae-3-01-devapp-G1A-1/blob/master/Communication/Difficult%C3%A9s%20_%20R%C3%A9ussites%20-%20Semaine%2049.pdf[Lien vers l'analyse]
-| ODJ et CR de la semaine précédente !!
-| 0
+| ODJ Ok Attention l'analyse doit être incluse dans le CR de la réunion. Il manque les retours réunion clients. Si l'absence des membres à la réunion n'est pas excusée… ils prendront 0/3 sur ce CR de la semaine.  Note appel d'offre : 12,96/20
+| 2,24/3
+| Semaine 50  | https://github.com/IUT-Blagnac/sae-3-01-devapp-G1A-1/blob/master/Communication/Ordre%20du%20jour%20reunion%20du%2010-12-2024.pdf[Lien vers l'ODJ]
+
+                https://github.com/IUT-Blagnac/sae-3-01-devapp-G1A-1/blob/master/Communication/Compte%20rendu%20de%20r%C3%A9union%20du%2010-12-2024.pdf[Lien vers le CR]
+                
+                https://github.com/IUT-Blagnac/sae-3-01-devapp-G1A-1/blob/master/Communication/Difficult%C3%A9s%20_%20R%C3%A9ussites%20-%20Semaine%2050.pdf[Lien vers l'analyse]
+| 
+| 
 |===
 
 === Registre de télétravail
@@ -181,6 +188,13 @@ Voici le lien vers le https://docs.google.com/document/d/1JXWsYDaT89UOSjPgRJJcoX
 - **Mardi 3 Decembre**
   * [x] Hugo Thollon, Pablo Marquet, Kilian Demangel, Titouan Gauze
   * [ ] Romain Grasseau--Picoreau
+
+- **Jeudi 12 novembre**
+  * [x] Hugo Thollon, Pablo Marquet, Kilian Demangel, Titouan Gauze, Romain Grasseau--Picoreau
+
+- **Vendredi 13 novembre**
+  * [x] Kilian Demangel
+  * [ ] Hugo Thollon, Pablo Marquet, Titouan Gauze, Romain Grasseau--Picoreau
 
 == Évaluations bi-hedomadaire
 
