@@ -1,35 +1,26 @@
+DROP PROCEDURE ValiderCommande;
 DELIMITER $$
 
-CREATE PROCEDURE NouvelleCommande (p_idNumCli INT)
+CREATE PROCEDURE ValiderCommande (IN p_idNumCli INT)
 BEGIN
     DECLARE EXIT HANDLER FOR SQLEXCEPTION
     BEGIN
-        DECLARE msg VARCHAR(255);
-        GET DIAGNOSTICS CONDITION 1 msg = MESSAGE_TEXT;
-        SELECT CONCAT('Erreur : ', msg);
+        ROLLBACK;
+        SELECT 'Erreur : Une erreur est survenue lors de la validation de la commande.';
     END;
+
+    START TRANSACTION;
 
     UPDATE Commande
-    SET panierActuel = FALSE
-    WHERE idNumCli = p_idNumCli AND panierActuel = TRUE;
+    SET estPanierActuel  = 0,
+        dateCommande = NOW()
+    WHERE idNumCli = p_idNumCli 
+    AND panierActuel = 1;
 
     INSERT INTO Commande (idNumCli, panierActuel) VALUES (p_idNumCli, TRUE);
-    
+
+    COMMIT;
 END $$
 
--- pros enlever qte 
-CREATE PROCEDURE EnleverQte (p_idNumCli INT, qteAchat INT)
-BEGIN
-    DECLARE EXIT HANDLER FOR SQLEXCEPTION
-    BEGIN
-        DECLARE msg VARCHAR(255);
-        GET DIAGNOSTICS CONDITION 1 msg = MESSAGE_TEXT;
-        SELECT CONCAT('Erreur : ', msg);
-    END;
-
-    UPDATE Produit
-    SET qte = qte - qteAchat
-    WHERE idNumCli = p_idNumCli AND panierActuel = TRUE;
-    
-END $$
 DELIMITER ;
+
