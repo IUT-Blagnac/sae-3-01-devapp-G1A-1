@@ -51,15 +51,33 @@ Pour des informations supplémentaires :
 
 === Accès à la page d'acceuil
 
-TODO
+L'utilisateur accède au site.
+
+|=======
+|Test |Attendu |Résultat
+|Accès au site |Redirection vers accueil | Ok
+|=======
 
 === Création de compte
 
-TODO
+L'utilisateur entre différentes informations via un formulaire de création de compte.
+
+|=======
+|Test |Attendu |Résultat
+|Création compte client correct |Redirection vers accueil| Ok
+|=======
 
 === Connexion/Déconnexion
 
-TODO
+L'utilisateur entre son adresse-mail et son mot de passe dans le formulaire de connexion ou tente de se déconnecter si déja connecté.
+
+|=======
+|Test |Attendu |Résultat
+|Connexion avec compte client |Redirection vers accueil avec message de bienvenue sur header |Ok
+|Connexion avec mdp incorrect|Redirection vers formulaire de connexion avec message d'erreur explicite |Ok
+|Connexion avec compte inexistant |Redirection vers formulaire de connexion avec message d'erreur explicite|Ok
+|Déconnexion du compte |Redirection vers accueil | Ok
+|=======
 
 === Espace membre : Modification des informations
 
@@ -73,10 +91,52 @@ TODO
 
 === Avis sur les produits
 
-TODO
+L'utilisateur peut voir les avis laisser par les autres utilisateurs du site ainsi que d'en poster un.
+
+|=======
+|Test |Attendu |Résultat
+|Voir les avis| Les avis sont visibles qu'on soit connecté ou non|Ok
+|Poster un avis sur un article acheté |Une fois connecté et après avoir acheté l'article, je peux laissé un avis|Ok
+|Ne peux pas poster un avis sur un article n'ayant pas été acheté |Le bouton pour ajouter un avis n'est pas disponible|Ok
+|Peut modifier l'avis qu'il a laisser sur un produit |Le formulaire d'avis se re affiche avec ses anciennes infos enregistré|Ok
+|=======
 
 === Commande et paiement
 
-TODO
+L'utilisateur peut ajouter des articles à son panier, les supprimer, valider son panier ou supprimer l'intégralité du panier. Il peut également finaliser et commander ses articles.
+
+|=======
+|Test |Attendu |Résultat
+| Ajouter un article au panier| Si l'utilisateur n'a pas de panier, un panier est créé, comportant l'article choisi par l'utilisateur. Il est redirigé vers la page panier.php| Pas Ok
+| Ajouter un même article en plusieurs exemplaires| L'utilisateur peut choisir plusieurs quantités de l'article dans le panier.| ?
+| Supprimer un article du panier| L'utilisateur clique sur le bouton 'Supprimer' présent sur chaque article du panier. L'article est supprimé du panier| ?
+| Afficher aucun article dans le panier| Si l'utilisateur n'a pas d'article dans son panier, il est indiqué que son panier est vide | ?
+| Prix du panier| Le prix du panier varie en fonction des articles & de leurs quantités, il est affiché en dessous des articles du panier|?
+| Valider le panier| L'utilisateur clique sur le bouton 'Valider le panier', il est ensuite redirigé vers la page qui s'occupe de prendre les informations de paiement| ?
+| Récapitulatif des articles| Les articles des paniers sont affichés afin de voir pour une dernière fois les articles sans quitter la page| ?
+| Payer la commande| L'utilisateur est envoyé sur une dernière page afin de valider la paiement | ?
+| Voir le statut de la commande| Une fois la commande passé l'utilisateur peut aller sur son compte pour voir qu'il a bien payé sa commande| ?
+|=======
+
+=== Consulter le détail d'un produit
+
+L'utilisateur peut accéder aux informations d'un produit en cliquant dessus.
+
+|=======
+|Test |Attendu |Résultat
+|Cliquer sur un produit |Ouverture de la page du produit 'detailProduit.php'|Ok
+|Cliquer sur un composant dans le detail d'un PC|Ouverture de la page du produit 'detailProduit.php'|Ok
+|=======
+
+=== Réponse sur les avis
+
+Un employé peut répondre a un avis.
+
+|=======
+|Test |Attendu |Résultat
+|Voir les réponses sous les avis| Les réponses sont visibles qu'on soit connecté ou non|Ok
+|Poster une réponse sous un avis |Une fois connecté avec un compte employé je peux laissé une réponse|Ok
+|Ne peux pas poster une réponse si ce n'est pas un employé |Le bouton pour ajouter une réponse n'est pas disponible|Ok
+|=======
 
 A COMPLETER
