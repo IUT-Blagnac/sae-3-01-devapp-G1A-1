@@ -47,36 +47,116 @@ Pour des informations supplémentaires :
 - Documentation technique : link:documentation_technique_web.adoc[SOON]
 - Documentation utilisateur : link:documentation_utilisateur_web.adoc[SOON]
 
-== Tests
+Voici une version améliorée de votre contenu, avec l'ajout d'un ID pour chaque test, une section "Scénario de Test" complète, et quelques ajustements pour une meilleure lisibilité.  
 
-=== Accès à la page d'acceuil
+== Tests  
 
-TODO
+#### Accès à la page d'accueil  
 
-=== Création de compte
+L'utilisateur accède au site.  
 
-TODO
+|=======  
+|ID |Test | Scénario de Test |Attendu |Résultat  
+|1 |Accès au site |L'utilisateur saisit l'URL dans son navigateur et accède au site |Redirection vers la page d'accueil |Ok  
+|=======  
 
-=== Connexion/Déconnexion
+#### Création de compte  
 
-TODO
+L'utilisateur entre différentes informations via un formulaire de création de compte.  
 
-=== Espace membre : Modification des informations
+|=======  
+|ID |Test | Scénario de Test |Attendu |Résultat  
+|2 |Création compte client correct |L'utilisateur remplit tous les champs obligatoires avec des données valides et soumet le formulaire |Redirection vers la page d'accueil |Ok
+|3 |Création compte client incorrect |L'utilisateur remplit tous les champs obligatoires avec des données valides sauf le champ email ou il oubli le @ puis soumet le formulaire |Redirection vers la page de création de compte avec erreur |Ok  
+|=======  
 
-TODO
+#### Connexion/Déconnexion  
 
-=== Espace Produit
+L'utilisateur entre son adresse e-mail et son mot de passe dans le formulaire de connexion ou tente de se déconnecter s'il est déjà connecté.  
 
-==== Afficher les produits
+|=======  
+|ID |Test | Scénario de Test |Attendu |Résultat  
+|4 |Connexion avec compte client |Saisir un e-mail valide et un mot de passe correct |Redirection vers l'accueil avec l'icone "profil" affichée en verte sur le header avec son nom |Ok  
+|5 |Connexion avec mdp incorrect |Saisir un e-mail valide et un mot de passe incorrect |Redirection vers le formulaire de connexion avec un message d'erreur explicite |Ok  
+|6 |Connexion avec compte inexistant |Saisir un e-mail qui ne correspond à aucun compte existant |Redirection vers le formulaire de connexion avec un message d'erreur explicite |Ok  
+|7 |Déconnexion du compte |L'utilisateur clique sur le bouton "Déconnexion" |Redirection vers la page d'accueil |Ok  
+|=======  
 
-TODO
+#### Espace membre : Modification des informations  
 
-=== Avis sur les produits
+L'utilisateur peut modifier ses informations personnelles, ses informations de livraison, son mot de passe, consulter ses commandes passées, gérer ses moyens de paiement, et consulter son solde de fidélité.  
 
-TODO
+|=======  
+|ID |Test | Scénario de Test |Attendu |Résultat  
+|8 |Modifier nom/prénom/email |Accéder à l'espace membre, section "Mes informations", et modifier nom/prénom/email |Les modifications sont enregistrées et affichées immédiatement |Ok  
+|9 |Modifier numéro de téléphone |Accéder à l'espace membre, section "Mes informations", et modifier le numéro de téléphone |Le numéro est mis à jour et affiché immédiatement |Ok  
+|10 |Modifier adresse de livraison |Accéder à l'espace membre, section "Adresse de livraison", et modifier l'adresse |L'adresse est mise à jour et affichée immédiatement |Ok  
+|11 |Modifier code postal et ville |Accéder à l'espace membre, section "Adresse de livraison", et modifier le code postal et la ville |Les modifications sont enregistrées et affichées immédiatement |Ok  
+|12 |Changer le mot de passe |Accéder à la section "Sécurité" et modifier le mot de passe en respectant les critères de complexité |Le mot de passe est modifié avec confirmation |Ok  
+|13 |Consultation des commandes passées |Accéder à l'espace membre, section "Mes commandes" |Toutes les commandes passées sont affichées avec leur statut |Ok  
+|14 |Consultation des moyens de paiement enregistrés |Accéder à l'espace membre, section "Moyens de paiement" |Tous les moyens de paiement enregistrés sont affichés |Ok  
+|15 |Modifier un moyen de paiement |Sélectionner un moyen de paiement existant et modifier ses informations |Les modifications sont enregistrées et affichées immédiatement | Pas Ok  
+|16 |Supprimer un moyen de paiement |Cliquer sur "Supprimer" pour un moyen de paiement enregistré |Le moyen de paiement est supprimé et n'apparaît plus dans la liste | Pas Ok  
+|17 |Consulter le solde de fidélité |Accéder à l'espace membre, section "Fidélité" |Le solde de points fidélité est affiché avec les détails des gains et utilisations | Pas Ok  
+|18 |Utiliser des points de fidélité |Simuler une commande et appliquer des points de fidélité disponibles |La réduction est appliquée correctement au total | Pas Ok  
+|=======
 
-=== Commande et paiement
+#### Espace Produit  
 
-TODO
+##### Afficher les produits  
 
-A COMPLETER
+**TODO**  
+
+#### Avis sur les produits  
+
+L'utilisateur peut voir les avis laissés par les autres utilisateurs du site ainsi qu'en poster un.  
+
+|=======  
+|ID |Test | Scénario de Test |Attendu |Résultat  
+|19 |Voir les avis |Consulter la page détail produit, connecté ou non |Les avis sont visibles |Ok  
+|20 |Poster un avis sur un article acheté |Une fois connecté et après avoir acheté l'article, l'utilisateur clique sur le bouton pour ajouter un avis |L'avis est publié |Ok  
+|21 |Ne peut pas poster un avis sur un article non acheté |Essayer de poster un avis sur un produit sans l'avoir acheté |Le bouton pour ajouter un avis n'est pas disponible |Ok  
+|22 |Modifier un avis |Cliquer sur le bouton "Modifier" sur son propre avis |Le formulaire d'avis s'affiche avec les informations déjà enregistrées |Ok  
+|=======  
+
+#### Commande et paiement  
+
+L'utilisateur peut ajouter des articles à son panier, les supprimer, valider son panier ou supprimer l'intégralité du panier. Il peut également finaliser et commander ses articles.  
+
+|=======  
+|ID |Test | Scénario de Test |Attendu |Résultat  
+|23 |Ajouter un article au panier |Sélectionner un article et cliquer sur "Ajouter au panier" |Un panier est créé si nécessaire, et l'article y est ajouté. Redirection vers `panier.php` |Pas Ok  
+|24 |Ajouter un même article en plusieurs exemplaires |Choisir une quantité supérieure à 1 pour un article déjà présent dans le panier |L'article est ajouté avec la quantité choisie |?  
+|25 |Supprimer un article du panier |Cliquer sur le bouton "Supprimer" pour un article spécifique dans le panier |L'article est supprimé du panier | Ok  
+|26 |Afficher un panier vide |Accéder au panier sans y avoir ajouté d'article |Le message "Votre panier est vide" s'affiche | Ok 
+|27 |Prix du panier |Ajouter plusieurs articles au panier |Le prix total s'affiche et est recalculé correctement | Ok  
+|28 |Valider le panier |Cliquer sur "Valider le panier" |Redirection vers la page de paiement | Pas ok 
+|29 |Récapitulatif des articles |Accéder à la page de validation du panier |Les articles et leurs quantités sont affichés | Pas ok 
+|30 |Payer la commande |Saisir les informations de paiement et valider |Redirection vers une page de confirmation de commande | Pas ok 
+|31 |Voir le statut de la commande |Accéder à l'espace personnel après avoir passé une commande |Le statut de la commande s'affiche comme "Payé" | Ok
+|=======  
+
+#### Consulter le détail d'un produit  
+
+L'utilisateur peut accéder aux informations d'un produit en cliquant dessus.  
+
+|=======  
+|ID |Test | Scénario de Test |Attendu |Résultat  
+|32 |Cliquer sur un produit |Cliquer sur l'image ou le titre d'un produit dans une liste |Redirection vers `detailProduit.php` | Ok  
+|33 |Cliquer sur un composant dans le détail d'un PC | Cliquer sur le lien d'un composant dans la description d'un PC |Redirection vers `detailProduit.php` du composant | Ok  
+|34 |Cliquer sur ajout au panier si "Pas de Stock" | Cliquer sur le bouton ajouter au panier | Bouton non cliquable | Pas ok
+|=======  
+
+#### Réponse sur les avis  
+
+Un employé peut répondre à un avis.  
+
+|=======  
+|ID |Test | Scénario de Test |Attendu |Résultat  
+|35 |Voir les réponses sous les avis |Accéder à la page produit, connecté ou non |Les réponses sont visibles |Ok  
+|36 |Poster une réponse sous un avis |Se connecter avec un compte employé et soumettre une réponse à un avis |La réponse est publiée sous l'avis correspondant |Ok  
+|37 |Ne peut pas poster une réponse si ce n'est pas un employé |Se connecter avec un compte client et essayer de répondre à un avis |Le bouton pour ajouter une réponse n'est pas disponible |Ok
+|38 |Ne peut pas poster une réponse si il y en a déjà une |Se connecter avec un compte employé et essayer de répondre à un avis qui à déjà une réponse | Le bouton pour ajouter une réponse n'est pas disponible |Ok
+|=======  
+
+**A compléter**  
