@@ -125,7 +125,7 @@ L'utilisateur peut ajouter des articles à son panier, les supprimer, valider so
 
 |=======  
 |ID |Test | Scénario de Test |Attendu |Résultat  
-|23 |Ajouter un article au panier |Sélectionner un article et cliquer sur "Ajouter au panier" |Un panier est créé si nécessaire, et l'article y est ajouté. Redirection vers `panier.php` |Pas Ok  
+|23 |Ajouter un article au panier |Sélectionner un article et cliquer sur "Ajouter au panier" |Un panier est créé si nécessaire, et l'article y est ajouté. Redirection vers `panier.php` |Ok  
 |24 |Ajouter un même article en plusieurs exemplaires |Choisir une quantité supérieure à 1 pour un article déjà présent dans le panier |L'article est ajouté avec la quantité choisie |?  
 |25 |Supprimer un article du panier |Cliquer sur le bouton "Supprimer" pour un article spécifique dans le panier |L'article est supprimé du panier | Ok  
 |26 |Afficher un panier vide |Accéder au panier sans y avoir ajouté d'article |Le message "Votre panier est vide" s'affiche | Ok 
