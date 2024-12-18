@@ -74,10 +74,8 @@ Alignement avec les objectifs de l’entreprise :
 
 Pour des informations supplémentaires :
 
-- Documentation technique : link:documentation_technique_web.adoc[SOON]
-- Documentation utilisateur : link:documentation_utilisateur_web.adoc[SOON]
-
-Voici une version améliorée de votre contenu, avec l'ajout d'un ID pour chaque test, une section "Scénario de Test" complète, et quelques ajustements pour une meilleure lisibilité.  
+- Documentation technique : link:documentation_technique_web.adoc[Lien]
+- Documentation utilisateur : link:documentation_utilisateur_web.adoc[Lien]
 
 == Tests  
 
