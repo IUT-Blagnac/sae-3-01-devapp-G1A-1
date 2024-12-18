@@ -47,7 +47,7 @@ Projet réalisé par:
 | https://github.com/HugoTHOLLON[Hugo Thollon] | Scrum master et développeur  
 | https://github.com/KilianDemangel[Kilian Demangel] | Développeur  
 | https://github.com/RomainGrassaudPicoreau[Romain Grasseau--Picoreau] | Product Owner et développeur  
-| https://github.com/ElPoraz[Pablo Marquet] | Développeur  
+| https://github.com/ElPoraz[Pablo Marquet] | Développeur et Gestion Github 
 | https://github.com/titouangauze[Titouan Gauze] | Développeur  
 |===
 
