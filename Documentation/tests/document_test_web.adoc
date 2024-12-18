@@ -10,8 +10,8 @@
 
 toc::[]
 
-Version du site : V0.1.2 +
-Date : 23/11/2024 +
+Version du site : V2.0 +
+Date : 18/12/2024 +
 Equipe : 1A-1 +
 Client : BuildMyPC +
 Projet : Site web e-commerce +
