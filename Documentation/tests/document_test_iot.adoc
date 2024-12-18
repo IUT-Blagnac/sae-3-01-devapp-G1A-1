@@ -10,7 +10,7 @@
 
 toc::[]
 
-Version de l'application : V1.0 +
+Version de l'application : V2.0 +
 Date : 04/12/2024 +
 Equipe : 1A-1 +
 Client : BuildMyPC +
