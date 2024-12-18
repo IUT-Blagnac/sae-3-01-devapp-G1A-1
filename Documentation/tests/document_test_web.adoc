@@ -74,8 +74,8 @@ Alignement avec les objectifs de l’entreprise :
 
 Pour des informations supplémentaires :
 
-- Documentation technique : link:documentation_technique_web.adoc[Lien]
-- Documentation utilisateur : link:documentation_utilisateur_web.adoc[Lien]
+- Documentation technique : link:document_technique_web.adoc[Lien]
+- Documentation utilisateur : link:document_utilisateur_web.adoc[Lien]
 
 == Tests  
 
