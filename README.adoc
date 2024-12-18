@@ -88,15 +88,15 @@ Ces documents détaillent les aspects architecturaux et fonctionnels du projet.
 
 Cette section inclut les informations techniques nécessaires pour la compréhension et le développement du projet.
 
-- **link:Documentation/TODO.adoc[SOON - Documentation Technique]** : Détails de l'architecture, des technologies utilisées, des choix de conception, et des fonctionnalités principales.
+- **link:Documentation/document_technique_web.adoc[Documentation Technique]** : Détails de l'architecture, des technologies utilisées, des choix de conception, et des fonctionnalités principales.
 - **link:https://github.com/IUT-Blagnac/sae-3-01-devapp-G1A-1/tree/master/BD[Base de Données]** : Schéma de la base de données et script de création.
   
 ==== Documentation Utilisateur
 
 Documentation détaillant les fonctionnalités disponibles pour les utilisateurs finaux.
 
-- **link:Documentation/TODO.adoc[SOON - Guide Utilisateur]** : Instructions pour les clients du site, incluant la création de compte, la gestion du panier, le passage de commandes, et la consultation de l’historique.
-- **link:Documentation/TODO.adoc[SOON - Guide Administrateur et Employé]** : Guide des fonctionnalités accessibles aux administrateurs et employés, telles que la gestion des produits, promotions et utilisateurs.
+- **link:Documentation/documentation_utilisateur_web.adoc[Guide Utilisateur]** : Instructions pour les clients du site, incluant la création de compte, la gestion du panier, le passage de commandes, et la consultation de l’historique.
+- **link:Documentation/documentation_utilisateur_employe_web.adoc[Guide Administrateur et Employé]** : Guide des fonctionnalités accessibles aux administrateurs et employés, telles que la gestion des produits, promotions et utilisateurs.
 
 ==== Gestion de projet & Qualité
 
@@ -104,7 +104,7 @@ Documentation détaillant les fonctionnalités disponibles pour les utilisateurs
 | Nom | Description        |  Lien
 | Releases | Version actuelle du site | https://github.com/IUT-Blagnac/sae-3-01-devapp-G1A-1/releases/tag/V2.0[v2.0]
 | Suivi des User Stories | Les User Stories sont disponibles et suivies dans le Project Board GitHub | https://github.com/IUT-Blagnac/sae-3-01-devapp-G1A-1/projects?query=is%3Aopen[Project Board]
-| Tests et Qualité |Les tests unitaires et les indicateurs de qualité sont accessibles ici | link:Documentation/tests/document_test_web.adoc[Cahier des tests]
+| Tests et Qualité |Les tests unitaires et les indicateurs de qualité sont accessibles ici | link:Documentation/tests/document_test_web.adoc[Cahier des tests/recettes]
                                                                                                               
                                                                                             link:tests/TODO.adoc[SOON - Résultat des tests de qualité]  
 |===
