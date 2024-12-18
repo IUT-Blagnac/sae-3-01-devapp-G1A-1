@@ -95,8 +95,8 @@ Cette section inclut les informations techniques nécessaires pour la compréhen
 
 Documentation détaillant les fonctionnalités disponibles pour les utilisateurs finaux.
 
-- **link:Documentation/documentation_utilisateur_web.adoc[Guide Utilisateur]** : Instructions pour les clients du site, incluant la création de compte, la gestion du panier, le passage de commandes, et la consultation de l’historique.
-- **link:Documentation/documentation_utilisateur_employe_web.adoc[Guide Administrateur et Employé]** : Guide des fonctionnalités accessibles aux administrateurs et employés, telles que la gestion des produits, promotions et utilisateurs.
+- **link:Documentation/document_utilisateur_web.adoc[Guide Utilisateur]** : Instructions pour les clients du site, incluant la création de compte, la gestion du panier, le passage de commandes, et la consultation de l’historique.
+- **link:Documentation/document_utilisateur_employe_web.adoc[Guide Administrateur et Employé]** : Guide des fonctionnalités accessibles aux administrateurs et employés, telles que la gestion des produits, promotions et utilisateurs.
 
 ==== Gestion de projet & Qualité
 
