@@ -74,4 +74,4 @@ Alignement avec les objectifs de l’entreprise :
 
 Pour des informations supplémentaires :
 
-- Documentation technique : link:documentation_technique_web.adoc[Lien]
+- Documentation technique : link:document_technique_web.adoc[Lien]
