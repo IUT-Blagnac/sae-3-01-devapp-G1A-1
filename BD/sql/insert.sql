@@ -501,6 +501,7 @@ INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (50, true);
 # test
 INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (51, true);
 INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (76, true);
+INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (75, true);
 
 #/////////////////////////////////////////////////////////////////////////////////////--
 #                                 insert ACommande                     
@@ -751,8 +752,8 @@ INSERT INTO ACommande (idCommande, idNumProduit, qte, prixAchat) VALUES (45, 24,
 
 # test insert
 
-INSERT INTO ACommande (idCommande, idNumProduit, qte, prixAchat) VALUES (152, 1, 1, 599.99);
-INSERT INTO ACommande (idCommande, idNumProduit, qte, prixAchat) VALUES (152, 56, 1, 2199.99);
+INSERT INTO ACommande (idCommande, idNumProduit, qte, prixAchat) VALUES (172, 1, 1, 599.99);
+INSERT INTO ACommande (idCommande, idNumProduit, qte, prixAchat) VALUES (172, 56, 1, 2199.99);
 
 #/////////////////////////////////////////////////////////////////////////////////////--
 #                                   insert Avis               

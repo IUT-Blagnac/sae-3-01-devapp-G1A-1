@@ -1,26 +1,27 @@
-DROP PROCEDURE ValiderCommande;
+DROP PROCEDURE IF EXISTS ValiderCommande;
 DELIMITER $$
 
-CREATE PROCEDURE ValiderCommande (IN p_idNumCli INT)
+CREATE PROCEDURE ValiderCommande(IN p_idNumCli INT)
 BEGIN
     DECLARE EXIT HANDLER FOR SQLEXCEPTION
     BEGIN
         ROLLBACK;
-        SELECT 'Erreur : Une erreur est survenue lors de la validation de la commande.';
     END;
 
     START TRANSACTION;
 
     UPDATE Commande
-    SET estPanierActuel  = 0,
+    SET estPanierActuel = FALSE,
         dateCommande = NOW()
-    WHERE idNumCli = p_idNumCli 
-    AND panierActuel = 1;
+    WHERE idNumCli = p_idNumCli
+      AND estPanierActuel = TRUE;
 
-    INSERT INTO Commande (idNumCli, panierActuel) VALUES (p_idNumCli, TRUE);
+    INSERT INTO Commande (idNumCli, estPanierActuel)
+    VALUES (p_idNumCli, TRUE);
 
     COMMIT;
 END $$
 
 DELIMITER ;
+
 
