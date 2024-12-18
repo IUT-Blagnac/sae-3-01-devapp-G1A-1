@@ -165,8 +165,9 @@ Voici le lien vers le https://docs.google.com/document/d/1JXWsYDaT89UOSjPgRJJcoX
                 https://github.com/IUT-Blagnac/sae-3-01-devapp-G1A-1/blob/master/Communication/Compte%20rendu%20de%20r%C3%A9union%20du%2010-12-2024.pdf[Lien vers le CR]
                 
                 https://github.com/IUT-Blagnac/sae-3-01-devapp-G1A-1/blob/master/Communication/Difficult%C3%A9s%20_%20R%C3%A9ussites%20-%20Semaine%2050.pdf[Lien vers l'analyse]
-| 
-| 
+| Odj ok, attention phrases très succinctes, le lien dans le CR vers l'analyse ne marche pas. Difficultés dans le groupe, attention les notes seront différenciées et les difficultés seront à l'ordre du jour semaine 3 pour la réunion postmortem du projet, nous analyserons ainsi les moyens mis en oeuvre pour résoudre les conflits. Je vous souhaite néammoins de bonnes fêtes ... et prenez de bonnes résolutions pour l'an prochain !
+
+| 2,5/3
 | Semaine 51  | https://github.com/IUT-Blagnac/sae-3-01-devapp-G1A-1/blob/master/Communication/Ordre%20du%20jour%20reunion%20du%2017-12-2024.pdf[Lien vers l'ODJ]
 
                 https://github.com/IUT-Blagnac/sae-3-01-devapp-G1A-1/blob/master/Communication/Compte%20rendu%20de%20r%C3%A9union%20du%2017-12-2024.pdf[Lien vers le CR]
