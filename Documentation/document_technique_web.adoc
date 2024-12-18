@@ -74,4 +74,5 @@ Alignement avec les objectifs de l’entreprise :
 
 Pour des informations supplémentaires :
 
-- Documentation utilisateur : link:documentation_utilisateur_web.adoc[Lien]
+- Documentation utilisateur : link:document_utilisateur_web.adoc[Lien]
+- Documentation utilisateur (employés/administrateurs) : link:document_utilisateur_employe_web.adoc[Lien]
