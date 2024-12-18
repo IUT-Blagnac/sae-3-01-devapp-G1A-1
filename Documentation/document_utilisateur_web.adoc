@@ -1,4 +1,4 @@
-= Documentation utilisateur du site web
+= Documentation utilisateur (client) du site web
 :icons: font
 :models: models
 :experimental:
