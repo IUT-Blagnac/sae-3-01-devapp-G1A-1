@@ -1,0 +1,198 @@
+main {
+    display: flex;
+    width: 100%;
+    /* margin-top: 167px; */
+    padding: 0;
+    background: #363636;
+    /* Assortir au fond du site */
+    font-family: var(--font-fam);
+}
+
+.hidden {
+    display: none;
+}
+
+.sidebar {
+    width: 20%;
+    background-color: #1e1d1d;
+    /* Fond de la sidebar assorti au menu principal */
+    color: #fff;
+    /* Texte en blanc pour le contraste */
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    position: sticky;
+    top: 150px;
+    border: 1px solid #77FFB3;
+    /* Accent de couleur */
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5);
+    /* Ajouter un effet de profondeur */
+    min-height: 78vh;
+}
+
+.user-info {
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.user-info img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+    border: 2px solid #77FFB3;
+    /* Accent de couleur */
+}
+
+.sidebar a {
+    color: #C3FEAD;
+    /* Utilisation des tons du dégradé principal */
+    text-decoration: none;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background 0.3s;
+    cursor: pointer;
+}
+
+.sidebar a:hover,
+.sidebar a.active {
+    background: linear-gradient(to right, #C3FEAD, #90FFA3);
+    color: #000;
+    /* Contraste inversé */
+}
+
+.content {
+    width: 80%;
+    padding: 5vw;
+    background-color: #363636;
+    /* Assortir au menu principal */
+    color: #fff;
+    /* Texte clair pour le contraste */
+    overflow-y: auto;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
+    /* Légère ombre intérieure */
+}
+
+.content h2 {
+    font-size: 35px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.form-section {
+    display: none;
+    /* Masqué par défaut */
+}
+
+.form-section.active {
+    display: block;
+}
+
+.form-section input,
+.form-section button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #77FFB3;
+    /* Accent de couleur */
+    border-radius: 5px;
+    background: #363636;
+    /* Assortir au fond principal */
+    color: #fff;
+    /* Texte clair */
+}
+
+.form-section button {
+    background: linear-gradient(to left,
+            #C3FEAD 16%,
+            #ADFF9D 32%,
+            #90FFA3 48%,
+            #77FFB3 64%);
+    color: #000;
+    /* Texte sombre */
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.form-section button:hover {
+    background: linear-gradient(to left,
+            #C3FEAD 16%,
+            #ADFF9D 32%,
+            #90FFA3 48%,
+            #77FFB3 64%);
+}
+
+.danger-zone button {
+    background-color: #e74c3c;
+    /* Rouge d'alerte */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.danger-zone button:hover {
+    background-color: #c0392b;
+    /* Assombrir au hover */
+}
+
+/* Boîte contenant chaque section */
+.form-section .view-mode,
+.form-section .edit-mode {
+    background-color: #1e1d1d;
+    /* Couleur similaire à celle de la sidebar */
+    border-radius: 22px;
+    /* Bords arrondis */
+    padding: 20px;
+    /* Espacement interne pour aérer */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* Ombre subtile */
+    margin-bottom: 20px;
+    /* Espacement entre les boîtes */
+}
+
+/* Style pour le titre dans les boîtes */
+.form-section .view-mode h2,
+.form-section .edit-mode h2 {
+    margin-top: 0;
+    font-size: 1.5em;
+    color: #ffffff;
+    /* Couleur du texte */
+}
+
+/* Alignement des boutons Modifier */
+.form-section .view-mode button,
+.form-section .edit-mode button {
+    margin-top: 20px;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    /* Bords arrondis des boutons */
+    color: #000;
+    /* Texte sombre pour contraste */
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+/* Espacement entre chaque donnée */
+.form-section .view-mode p,
+.form-section .edit-mode label {
+    margin: 10px 0;
+    font-size: 1em;
+}
+
+/* Espacement et alignement des champs de formulaire */
+.form-section .edit-mode input {
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #77FFB3;
+    border-radius: 5px;
+    box-sizing: border-box;
+}

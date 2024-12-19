@@ -1,0 +1,168 @@
+body {
+  background: #292929;
+  overflow: hidden;
+}
+
+.formulaire-creamod .comeback span {
+  background: linear-gradient(to left,
+      #c3fead 16%,
+      #adff9d 32%,
+      #90ffa3 48%,
+      #77ffb3 64%,
+      #62ffca 80%,
+      #26fefe 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-size: 1rem;
+}
+
+.formulaire-creamod a {
+  text-decoration: none;
+}
+
+.formulaire-creamod {
+  font-family: "Roboto", sans-serif;
+  background-color: #292929;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.formulaire-creamod .form-container-2 {
+  background-color: #1A1C20;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.formulaire-creamod h1 {
+  text-align: center;
+  background: linear-gradient(to left,
+      #c3fead 16%,
+      #adff9d 32%,
+      #90ffa3 48%,
+      #77ffb3 64%,
+      #62ffca 80%,
+      #26fefe 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.formulaire-creamod label {
+  display: block;
+  font-size: 14px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  color: #bbbbbb;
+}
+
+.formulaire-creamod input:not(input[type="checkbox"]) {
+  width: 95.5%;
+  padding: 10px;
+  border: 1px solid #000000;
+  border-radius: 5px;
+  font-size: 14px;
+  background-color: #bbbbbb;
+  transition: border-color 0.3s;
+}
+
+.formulaire-creamod input:not(input[type="checkbox"]):focus {
+  border-color: #63d294;
+  border-width: medium;
+  outline: none;
+}
+
+.formulaire-creamod .container {
+  display: flex;
+  align-items: center;
+}
+
+.formulaire-creamod input[type="password"] {
+  margin-top: 13px;
+}
+
+.formulaire-creamod input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+.formulaire-creamod input[type="checkbox"]:checked::after {
+  background-color: green;
+}
+
+.formulaire-creamod .redirection p {
+  font-size: 14px;
+  color: #bbbbbb;
+  position: relative;
+  top: 5px;
+}
+
+.formulaire-creamod .redirection a {
+  font-size: 14px;
+  background: linear-gradient(to left,
+      #c3fead 16%,
+      #adff9d 32%,
+      #90ffa3 48%,
+      #77ffb3 64%,
+      #62ffca 80%,
+      #26fefe 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  position: relative;
+}
+
+.formulaire-creamod button {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(to left,
+      #c3fead 16%,
+      #adff9d 32%,
+      #90ffa3 48%,
+      #77ffb3 64%,
+      #62ffca 80%,
+      #26fefe 100%);
+  color: #292929;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.formulaire-creamod button:hover {
+  background: linear-gradient(to left,
+      #9dc58b 16%,
+      #91d084 32%,
+      #74d088 48%,
+      #63d294 64%,
+      #4dbba9 80%,
+      #1fbebe 100%);
+}
+
+.formulaire-creamod button:active {
+  background: linear-gradient(to left,
+      #7a9a6f 16%,
+      #75a46b 32%,
+      #5eaa70 48%,
+      #4b9d78 64%,
+      #3a9a8c 80%,
+      #159e9e 100%);
+}
+
+@media (max-width: 600px) {
+  .form-container {
+    padding: 20px;
+    padding-right: 40px;
+    max-width: 90%;
+  }
+}
