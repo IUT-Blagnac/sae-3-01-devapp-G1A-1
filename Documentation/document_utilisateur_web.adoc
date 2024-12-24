@@ -75,3 +75,39 @@ Alignement avec les objectifs de l’entreprise :
 Pour des informations supplémentaires :
 
 - Documentation technique : link:document_technique_web.adoc[Lien]
+
+== Fonctionnalités pour les clients non connectés
+
+=== Navigation et Recherche
+- Page d'accueil
+- Recherche de produits
+- Catégories de produits
+
+=== Détails des Produits
+- Page de détails du produit
+
+=== Connexion et Inscription
+- Formulaire de connexion
+- Formulaire d'inscription
+
+== Fonctionnalités pour les clients connectés
+
+=== Gestion du Compte
+- Consultation du compte
+- Sécurité
+
+=== Gestion des Commandes
+- Panier
+- Historique des commandes
+
+=== Programme de Fidélité
+- Points de fidélité
+
+=== Historique de Navigation
+- Historique de navigation
+
+== Support et Contact
+Pour toute question ou assistance, veuillez contacter notre support client à l'adresse suivante: *support@buildmypc.com*
+
+== Conclusion
+Nous espérons que cette documentation vous aidera à tirer le meilleur parti du site web BuildMyPC.
