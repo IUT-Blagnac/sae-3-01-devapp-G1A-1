@@ -2,6 +2,10 @@
 /* Style général du panier */
 /* /////////////////////////////////////////////////////// */
 
+* {
+  box-sizing: border-box;
+}
+
 main {
   overflow: auto;
   /* margin-top: 150px; */
@@ -19,39 +23,49 @@ main {
 }
 
 /* Container du panier */
-.panier-container {
+.panier-main-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 3rem;
+  margin-top: 30px; 
+}
+
+.panier-container.left {
+  width: 70%;
   display: flex;
   flex-direction: column;
-  gap: 3rem;
-  padding: 30px;
-  margin: 0 auto;
-  max-width: 900px;
-  font-family: Arial, sans-serif;
-  float: left;
+  gap: 2rem; 
 }
 
-.left {
-  width: 70%;
+.panier-item:first-child {
+  margin-top: 1.5rem;
 }
 
-.right {
-  width: 25%;
+.panier-container.right {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-right: 20px;
+  margin-top: 25px;
 }
 
 .panier-item {
   display: flex;
-  align-items: center;
+  align-items: center; 
   justify-content: space-between;
   background-color: #282828;
   padding: 15px;
   margin-left: 50px;
   border-radius: 10px;
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.4);
+  margin-bottom: 1.5rem; 
 }
 
 .panier-image {
-  width: 200px;
-  height: 200px;
+  width: 150px;
+  height: 150px;
+  padding: 20px;
   object-fit: cover;
   border-radius: 10px;
   aspect-ratio: 1/1;
@@ -65,6 +79,12 @@ main {
 }
 
 .panier-nom {
+  font-size: 1.3em;
+  color: #ffffff;
+  margin: 0;
+}
+
+.panier-vide {
   font-size: 1.3em;
   color: #ffffff;
   margin: 0;
@@ -91,7 +111,6 @@ main {
   background-color: #ff1a1a;
 }
 
-/* Total et bouton valider */
 .panier-total {
   background-color: #282828;
   padding: 20px;
@@ -105,6 +124,13 @@ main {
 .total {
   font-size: 1.8em;
   color: #ffffff;
+  margin-bottom: 10px; 
+}
+
+.montant-total {
+  font-size: 1.8em;
+  color: #ffffff;
+  margin-right: 40px;
 }
 
 .panier-valider {
@@ -131,15 +157,11 @@ ul {
 }
 
 input[type="number"].selection {
-  width: 6%;
+  width: 50px;
 }
 
 /* Responsiveness pour petits écrans */
 @media (max-width: 768px) {
-  .panier-section {
-    width: 90%;
-  }
-
   .panier-item {
     flex-direction: column;
     align-items: flex-start;
@@ -160,17 +182,76 @@ input[type="number"].selection {
     margin-top: 10px;
   }
 
-  .panier-supprimer {
-    margin-top: 10px;
-  }
-
   main {
-    margin-top: 120px;
+    /* margin-top: 120px; */
     margin-bottom: 100px;
   }
+}
 
-  main {
-    margin-top: 180px;
-    margin-bottom: 100px;
+.row {
+  display: -ms-flexbox; /* IE10 */
+  display: flex;
+  -ms-flex-wrap: wrap; /* IE10 */
+  flex-wrap: wrap;
+  margin: 0 -16px;
+}
+
+.col-50 {
+  -ms-flex: 50%; /* IE10 */
+  flex: 50%;
+}
+
+.col-50{
+  padding: 0 16px;
+}
+
+.container {
+  padding: 5px 20px 15px 20px;
+  border-radius: 3px;
+}
+
+input[type=text] {
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 12px;
+  border-radius: 3px;
+}
+
+.icon-container {
+  margin-bottom: 20px;
+  padding: 7px 0;
+  font-size: 24px;
+}
+
+.texte-payment {
+  color: #ffffff;
+}
+
+.btn {
+  background-color: #04AA6D;
+  padding: 12px;
+  margin: 10px 0;
+  border: none;
+  width: 100%;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 17px;
+}
+
+.btn:hover {
+  background-color: #45a049;
+}
+
+span.price {
+  float: right;
+  color: grey;
+}
+
+@media (max-width: 800px) {
+  .row {
+    flex-direction: column-reverse;
+  }
+  .col-25 {
+    margin-bottom: 20px;
   }
 }

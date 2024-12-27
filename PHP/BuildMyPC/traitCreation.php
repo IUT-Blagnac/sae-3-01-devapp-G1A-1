@@ -3,8 +3,6 @@ session_start();
 include("include/connect.inc.php");
     if (isset($_POST['nom']) && ($_POST['prenom']) && ($_POST['pays']) && ($_POST['cdpostal']) && ($_POST['ville']) &&($_POST['adr']) && ($_POST['numtel']) && ($_POST['mail']) && ($_POST['mdp'])){
         try{
-            $conn->beginTransaction();
-
             $nom=htmlspecialchars($_POST['nom']);
 
             $prenom=htmlspecialchars($_POST['prenom']);
@@ -48,6 +46,7 @@ include("include/connect.inc.php");
                         $reqDept2->bindParam(':idmail', $mail);
                         $reqDept2->bindParam(':idnumtel', $numtel);
                         $reqDept2->bindParam(':idmdp', $mdpH);
+                        $reqDept2->execute();
                         $insertID = $conn->lastInsertId();
                         $reqDept3 = $conn->prepare("INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (:id, true);");
                         $reqDept3->bindParam(':id',$insertID, PDO::PARAM_INT);
@@ -64,7 +63,7 @@ include("include/connect.inc.php");
         }
         catch(Exception $e){
             $conn->rollBack();
-            header('location: formCreation.php?Erreur=FmailEXI&Err='.$insertID);
+            header('location: formCreation.php?Erreur=FmailEXI&Err='.$insertID.'&Er='.$e);
         }
         } 
         else{

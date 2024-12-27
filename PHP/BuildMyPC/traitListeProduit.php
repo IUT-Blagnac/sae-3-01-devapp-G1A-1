@@ -1,12 +1,6 @@
 <?php
 include "include/connect.inc.php";
 
-//////////////////////////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// Get datas from header /////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////////////////////////
-
 function addToURL(string $strToAdd)
 {
     global $url;
@@ -16,6 +10,26 @@ function addToURL(string $strToAdd)
         $url = "$strToAdd";
     }
 }
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////// Get datas from header /////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+// Search bar
+if (isset($_POST['search-bar'])) {
+    $searchBar = htmlspecialchars($_POST['search-bar']);
+    addToURL("searchbar=$searchBar");
+    addToURL("sort=pertinence");
+    // Quand search bar est dans POST, on n'est pas sensé recevoir d'autres informations. On redirige donc directement sur la page ListeProduit
+    if (isset($url)) {
+        header("location:ListeProduit.php?$url");
+        die();
+    }
+}
+
 
 $newest = false;
 $categ_id;
@@ -28,7 +42,7 @@ if (isset($_GET['newest'])) {
     // Check if newest is a boolean. Returns true if newest is "1", "true", "on" and "yes" if not returns false
     $newest = filter_var(htmlspecialchars($_GET['newest']), FILTER_VALIDATE_BOOLEAN);
     if ($newest) {
-        $url = "newest=$newest";
+        addToURL("newest=$newest");
     }
 }
 // Promotion
@@ -69,17 +83,6 @@ if (isset($_GET['categ_id'])) {
     }
     unset($categories);
     addToURL("categ_id=" . implode("+", $categs));
-}
-
-// Search bar
-if (isset($_POST['search-bar'])) {
-    $searchBar = htmlspecialchars($_POST['search-bar']);
-    addToURL("searchbar=$searchBar");
-}
-
-if (isset($url)) {
-    header("location:ListeProduit.php?$url");
-    die();
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -177,13 +180,14 @@ if ($prix = $pdo->fetch()) {
 addToURL("min=" . $min . "&max=" . $max);
 
 // Promotion
-$promo = "both";
-$pro = 0;
 if (isset($_POST['promo1']) and htmlentities($_POST['promo1']) === 'on') {
     $promo = "only";
+} else {
+    $promo = "both";
 }
-
-addToURL("promo=$promo");
+if (!$promotion) {
+    addToURL("promo=$promo");
+}
 
 if (!isset($url)) {
     $url = "";

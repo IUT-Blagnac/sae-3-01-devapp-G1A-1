@@ -1,5 +1,5 @@
 // Récupération de toutes les images avec la classe "icon"
-const icons = document.querySelectorAll(".icon-profil, .icon-panier");
+const icons = document.querySelectorAll(".icon-profil, .icon-panier, .icon-dashboard");
 
 // Parcours des images pour attacher les événements
 icons.forEach(icon => {
@@ -11,6 +11,8 @@ icons.forEach(icon => {
       icon.src = "image/profil_vert.png"; // Change l'image pour celle en vert
     } else if (icon.alt === "Shopping Cart") {
       icon.src = "image/panier_vert.png"; // Change l'image pour celle en vert
+    }else if (icon.alt === "Dashboard") {
+      icon.src = "image/dashboard-icon-green.png"; // Change l'image pour celle en vert
     }
   });
 

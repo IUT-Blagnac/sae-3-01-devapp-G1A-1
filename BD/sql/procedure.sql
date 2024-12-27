@@ -1,23 +1,27 @@
-DROP PROCEDURE Payer;
+DROP PROCEDURE IF EXISTS ValiderCommande;
 DELIMITER $$
 
-CREATE PROCEDURE NouvelleCommande (p_idNumCli INT)
+CREATE PROCEDURE ValiderCommande(IN p_idNumCli INT)
 BEGIN
     DECLARE EXIT HANDLER FOR SQLEXCEPTION
     BEGIN
-        DECLARE msg VARCHAR(255);
-        GET DIAGNOSTICS CONDITION 1 msg = MESSAGE_TEXT;
-        SELECT CONCAT('Erreur : ', msg);
+        ROLLBACK;
     END;
 
-    UPDATE Commande
-    SET panierActuel = FALSE
-    WHERE idNumCli = p_idNumCli AND panierActuel = TRUE;
+    START TRANSACTION;
 
-    INSERT INTO Commande (idNumCli, panierActuel) VALUES (p_idNumCli, TRUE);
-    
+    UPDATE Commande
+    SET estPanierActuel = FALSE,
+        dateCommande = NOW()
+    WHERE idNumCli = p_idNumCli
+      AND estPanierActuel = TRUE;
+
+    INSERT INTO Commande (idNumCli, estPanierActuel)
+    VALUES (p_idNumCli, TRUE);
+
+    COMMIT;
 END $$
 
--- commander
-
 DELIMITER ;
+
+

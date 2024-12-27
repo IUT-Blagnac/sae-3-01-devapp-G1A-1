@@ -27,7 +27,7 @@ if (!isset($_SESSION['login']) || $_SESSION['login'] != 'OK') {
     <main>
         <div class="sidebar">
             <div class="user-info">
-                <img src="https://via.placeholder.com/80" alt="Photo de profil">
+                <img src="image/BuildMyPC_logo.png" alt="Photo de profil">
                 <h3><?php echo $_SESSION['prenom'] ?></h3>
             </div>
             <a href="consultCompte.php">Informations personnelles</a>
@@ -35,9 +35,12 @@ if (!isset($_SESSION['login']) || $_SESSION['login'] != 'OK') {
             <a href="security.php">Sécurité</a>
             <a href="order.php">Historique des commandes</a>
             <a href="fidelity.php" class="active">Programme de fidélité</a>
+            <a href="historique.php">Historique de navigation</a>
             <a href="logout.php">Se Déconnecter</a>
         </div>
         <div class="content">
+            <h2>Programme de fidélité</h2>
+            <p>Soon</p>
         </div>
     </main>
 

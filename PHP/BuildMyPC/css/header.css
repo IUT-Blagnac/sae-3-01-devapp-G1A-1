@@ -89,6 +89,7 @@ header {
 .logo {
   margin-right: 2.5rem;
   margin-left: 2rem;
+  /* margin-top: auto; */
   cursor: pointer;
 }
 
@@ -132,7 +133,6 @@ header {
 .main-nav .navbar .nav-item .nav-title {
   font-size: xx-large;
   color: var(--white);
-
 }
 
 .main-nav .navbar .nav-item .dropdown-menu {
@@ -143,7 +143,7 @@ header {
   transform: translateX(-50%); /* Centre horizontalement */
   top: 100%; /* Place sous l'élément parent */
   background: #1e1d1d; /* Couleur de fond */
-  z-index: 999; /* Superposition prioritaire */
+  z-index: 998; /* Superposition prioritaire */
   display: none; /* Masqué par défaut */
   text-align: center; /* Aligne le contenu */
 }
@@ -174,7 +174,7 @@ header {
 }
 
 .header-top .icon-profil {
-  margin-right: 2%;
+  margin-right: 3%;
   margin-left: 3%;
   cursor: pointer;
 }
@@ -184,18 +184,42 @@ header {
   cursor: pointer;
 }
 
+.header-top .icon-dashboard {
+  width: 40;
+  height: 35;
+  margin-right: 3%;
+  cursor: pointer;
+}
+
 .header-top .double-icon {
   text-align: center;
   display: flex;
   align-items: center;
   margin-right: 2%;
-  position: sticky;
-  left: 1000px;
+  position: relative;
+  margin-left: auto;
   font-family: var(--font-fam);
   font-size: 0.95rem;
 }
 
-
+.badge-panier {
+  position: absolute;
+  transform: translate(-50%, -50%); /* places the span in the top-right*/
+  top: 15px;
+  right: -14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: black;
+  background-color: #90ffa3;
+  border-radius: 50%;
+  font-size: 0.8rem;
+  padding-left: 7px;
+  padding-right: 7px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
 
 #overlay,
 #sideMenu,
@@ -281,7 +305,7 @@ header {
   .main-nav-side .navbar-side .nav-item .dropdown-menu {
     width: 100%;
     position: absolute;
-    z-index: 999;
+    z-index: 998;
     display: none;
   }
 
@@ -308,13 +332,13 @@ header {
     display: inline-block;
     background: none;
     border: none;
-    font-size: 30px;
+    font-size: 50px;
     font-weight: bold;
     cursor: pointer;
     color: var(--white);
     position: absolute;
-    top: -5px;
-    right: 5px;
+    top: -2px;
+    right: 10px;
   }
 
   /* Overlay pour la transition */
@@ -339,17 +363,14 @@ header {
   #backBtn {
     position: absolute;
     top: 110px;
-    /* Ajustez pour un alignement parfait */
     left: 20px;
-    /* Ajustez pour un alignement parfait */
-    font-size: 30px;
+    font-size: 50px;
     font-family: monospace;
     cursor: pointer;
     color: #fff;
     background: none;
     border: none;
-    z-index: 1000;
-    /* Assurez-vous qu'il reste au-dessus des menus */
+    z-index: 999;
   }
 }
 
@@ -368,24 +389,32 @@ header {
   }
 
   .header-top .icon-panier {
-    height: 20px;
+    height: 22px;
     width: 25px;
+  }
+
+  .header-top .icon-dashboard {
+    width: 25px;
+    height: 22px;
+    cursor: pointer;
   }
 }
 
 :root {
   --rad: 3rem;
-  --dur: .3s;
-  --color-dark: #1A1C20;
+  --dur: 0.3s;
+  --color-dark: #1a1c20;
   --color-light: #fff;
-  --color-brand: linear-gradient(to left,
-      #C3FEAD 16%,
-      #ADFF9D 32%,
-      #90FFA3 48%,
-      #77FFB3 64%,
-      #62FFCA 80%,
-      #26FEFE 100%);
-  --font-fam: 'Arial', sans-serif;
+  --color-brand: linear-gradient(
+    to left,
+    #c3fead 16%,
+    #adff9d 32%,
+    #90ffa3 48%,
+    #77ffb3 64%,
+    #62ffca 80%,
+    #26fefe 100%
+  );
+  --font-fam: "Arial", sans-serif;
   --height: 3rem;
   --btn-width: 5rem;
   --bez: cubic-bezier(0, 0, 0.43, 1.49);
@@ -454,7 +483,7 @@ header {
 .text-panier {
   font-weight: bold;
   color: #000000;
-  font-size: 0.8vw;
+  font-size: 1vw;
   text-align: center;
 }
 
@@ -512,9 +541,49 @@ header {
   .header-top .icon-profil {
     margin-left: auto;
   }
+
+  .header-top .double-icon {
+    font-size: 1rem;
+  }
 }
 
 /* /////////////////////////////////////////////////////// */
 /* Fin Search Bar */
 /* /////////////////////////////////////////////////////// */
 
+.dropdown-menu-profil {
+  position: absolute;
+  background-color: #31343b;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 9999;
+  margin-top: 10px;
+  padding: 10px 0;
+  transform: translateX(-50%);
+  left: 50%;
+  width: 170px;
+  border-radius: 6px;
+  text-align: center;
+  font-size: 1.1rem;
+}
+
+.dropdown-menu-profil a {
+  display: block;
+  padding: 10px;
+  color: #fff;
+  text-decoration: none;
+  z-index: 9999;
+}
+
+.dropdown-menu-profil a:hover {
+  background-color: #484b52;
+  margin-left: 7%;
+  margin-right: 7%;
+  border-radius: 8px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown-toggle {
+  cursor: pointer;
+  border: none;
+  background-color: none;
+}
