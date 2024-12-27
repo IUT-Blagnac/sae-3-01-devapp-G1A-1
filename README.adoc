@@ -68,7 +68,7 @@ Cette section regroupe tous les documents liés à la conception, au développem
 
 |===
 | Nom du document | Description | Version |  Lien
-| Site Web "BuildMyPC" | URL pour consulter le site | V2.0 | http://193.54.227.208/~R2024SAE3007/index.php[Lien vers le site web extérieur à l'IUT]
+| Site Web "BuildMyPC" | URL pour consulter le site | V3.0 | http://193.54.227.208/~R2024SAE3007/index.php[Lien vers le site web extérieur à l'IUT]
                                                                
                                                                http://192.168.224.139/~R2024SAE3007/index.php[Lien vers le site web interne à l'IUT]
 |===
@@ -102,7 +102,7 @@ Documentation détaillant les fonctionnalités disponibles pour les utilisateurs
 
 |===
 | Nom | Description        |  Lien
-| Releases | Version actuelle du site | https://github.com/IUT-Blagnac/sae-3-01-devapp-G1A-1/releases/tag/V2.0[v2.0]
+| Releases | Version actuelle du site | https://github.com/IUT-Blagnac/sae-3-01-devapp-G1A-1/releases/tag/V3.0[v3.0]
 | Suivi des User Stories | Les User Stories sont disponibles et suivies dans le Project Board GitHub | https://github.com/IUT-Blagnac/sae-3-01-devapp-G1A-1/projects?query=is%3Aopen[Project Board]
 | Tests et Qualité |Les tests unitaires et les indicateurs de qualité sont accessibles ici | link:Documentation/tests/document_test_web.adoc[Cahier des tests/recettes]
                                                                                                               
