@@ -22,43 +22,43 @@
             <h1>Page de création de compte</h1>
             <form method="post" id="creaCompte" action="traitCreation.php" onsubmit="process()">
                 <label for="prenom">Prenom * :</label>
-                <input type="prenom" id="prenom" name="prenom" placeholder="Prenom"  required>
+                <input type="prenom" id="prenom" name="prenom" placeholder="Prenom" required>
                 <label for="nom">Nom * :</label>
-                <input type="nom" id="nom" name="nom" placeholder="Nom"  required>
+                <input type="nom" id="nom" name="nom" placeholder="Nom" required>
                 <label for="pays">Pays * :</label>
-                <input type="pays" id="pays" name="pays" placeholder="Pays"  required>
+                <input type="pays" id="pays" name="pays" placeholder="Pays" required>
                 <label for="cdpostal">Code postal * :</label>
-                <input type="cdpostal" id="cdpostal" name="cdpostal" placeholder="Code postal"  required>
+                <input type="cdpostal" id="cdpostal" name="cdpostal" placeholder="Code postal" required>
                 <label for="ville">Ville * :</label>
-                <input type="ville" id="ville" name="ville" placeholder="Ville"  required>
+                <input type="ville" id="ville" name="ville" placeholder="Ville" required>
                 <label for="adr">Adresse * :</label>
-                <input type="adr" id="adr" name="adr" placeholder="Rue et n° de rue"  required>
+                <input type="adr" id="adr" name="adr" placeholder="Rue et n° de rue" required>
                 <label for="phone">Numéro de téléphone * :</label>
                 <input type="tel" id="phone" name="numtel" required>
                 <?php
-                    if(isset($_GET['Erreur']) && $_GET['Erreur']=="Ftel"){
-                        echo ("<label for='phone' style='color : RED; weight : Bold'> numero de téléphone incorrect </label>");
-                    }
+                if (isset($_GET['Erreur']) && $_GET['Erreur'] == "Ftel") {
+                    echo ("<label for='phone' style='color : RED; weight : Bold'> numero de téléphone incorrect </label>");
+                }
                 ?>
                 <label for="mail">Adresse mail * :</label>
                 <input type="email" id="mail" name="mail" placeholder="Exemple@typemail.com" required>
                 <?php
-                    if(isset($_GET['Erreur'])){ 
-                        if($_GET['Erreur']=="Fmail"){
-                            echo ("<label for='phone' style='color : RED; weight : Bold'> mail incorrect </label>");
-                        }
-                        elseif($_GET['Erreur']=="FmailEXI"){
-                            echo ("<label for='phone' style='color : RED; weight : Bold'> mail deja existant, veuillez vous connecter </label>");
-                        }
+                if (isset($_GET['Erreur'])) {
+                    if ($_GET['Erreur'] == "Fmail") {
+                        echo ("<label for='phone' style='color : RED; weight : Bold'> mail incorrect </label>");
+                    } elseif ($_GET['Erreur'] == "FmailEXI") {
+                        echo ("<label for='phone' style='color : RED; weight : Bold'> mail deja existant, veuillez vous connecter </label>");
                     }
+                }
                 ?>
                 <div class="password-container">
                     <label for="mdp">Mot de passe * :</label>
-                    <input type="password" id="mdp" name="mdp" placeholder="Minimum 8 caractères, 1 majuscule et 1 chiffre" required>
+                    <input type="password" id="mdp" name="mdp"
+                        placeholder="Minimum 8 caractères, 1 majuscule et 1 chiffre" required>
                     <?php
-                        if(isset($_GET['Erreur']) && $_GET['Erreur']=="Fmdp"){
-                            echo ("<label for='phone' style='color : RED; weight : Bold'> mot de passe incorrect </label>");
-                        }
+                    if (isset($_GET['Erreur']) && $_GET['Erreur'] == "Fmdp") {
+                        echo ("<label for='phone' style='color : RED; weight : Bold'> mot de passe incorrect </label>");
+                    }
                     ?>
                     <div class="container">
                         <input type="checkbox" onclick="myFunction()" id="show" name="show">

@@ -4,258 +4,295 @@
 <html lang="fr">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BuildMyPC</title>
-  <link rel="stylesheet" href="css/header.css">
-  <link rel="stylesheet" href="css/footer.css">
-  <link rel="stylesheet" href="css/main.css">
-  <link rel="icon" href="image/BuildMyPC_logo.png" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BuildMyPC</title>
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="icon" href="image/BuildMyPC_logo.png" />
 
 </head>
 
 <body>
-  <!-- Header principal -->
-  <?php include 'include/header.php'; ?>
+    <!-- Header principal -->
+    <?php include 'include/header.php'; ?>
 
-  <!-- Contenu principal -->
-  <main>
-    
-    <!-- Test Pablo  -->
-    <section>
-      <h2 class="popular-categ">Catégories populaires</h2>
+    <!-- Contenu principal -->
+    <main>
 
-      <div class="row">
-        <a href="traitListeProduit.php" class="column column-left" style="background-color:#74FFA9;">
-          <img class="pcGaming-img" src="image/produits/pcGaming.webp" alt="PC Gaming">
-          <div class="text-container">
-            <h2>PC GAMING</h2>
-            <p>Découvrez notre large gamme de PC Fixes Gaming prémontés.
-              Vous retrouverez différentes configurations qui sauront convenir à tous les budgets !</p>
-          </div>
-        </a>
-        <a href="traitListeProduit.php" class="column column-right" style="background-color:#212121;">
-          <img class="pcBureautique-img" src="image/produits/pcBureautique.png" alt="PC Bureautique">
-          <h2 class="text-column-2">PC Bureautique</h2>
-        </a>
-        <a href="traitListeProduit.php" class="column column-right" style="background-color:#212121;">
-          <img class="carteGraphique-img" src="image/produits/carteGraphique.webp" alt="Carte Graphique">
-          <h2 class="text-column-3">Carte Graphique</h2>
-        </a>
-      </div>
-    </section>
+        <section>
+            <h2 class="popular-categ">Catégories populaires</h2>
 
-    <!-- fin test Pablo -->
-
-    <section>
-      <!-- /////////////////////////////////
-       /////////////// Grid ////////////////
-       ///////////////////////////////// -->
-      </div>
-      <h2 class="titre-produit">Meilleures promotions</h2>
-
-
-      <div class="gallery js-flickity" data-flickity-options='{ "wrapAround": true }'>
-        <div class="gallery-cell">
-          <div class="grid-item item1">
-            <a href="#" class="product image">
-              <img src="image/produits/pcGaming2.png" alt="imgProduit" class="product" />
-              <span class="product badge">-20%</span>
-            </a>
-            <div class="product name">PC Gamer 4070 super powa</div>
-            <div class="product components">
-              AMD Ryzen 7 - 32Go - AMD Radeon RX7900XT
+            <div class="row">
+                <a href="traitListeProduit.php?categ_id=11" class="column column-left"
+                    style="background-color:#74FFA9;">
+                    <img class="pcGaming-img" src="image/produits/pcGaming.webp" alt="PC Gaming">
+                    <div class="text-container">
+                        <h2>PC GAMING</h2>
+                        <p>Découvrez notre large gamme de PC Fixes Gaming prémontés.
+                            Vous retrouverez différentes configurations qui sauront convenir à tous les budgets !</p>
+                    </div>
+                </a>
+                <a href="traitListeProduit.php?categ_id=12" class="column column-right"
+                    style="background-color:#212121;">
+                    <img class="pcBureautique-img" src="image/produits/pcBureautique.png" alt="PC Bureautique">
+                    <h2 class="text-column-2">PC Bureautique</h2>
+                </a>
+                <a href="traitListeProduit.php?categ_id=5" class="column column-right"
+                    style="background-color:#212121;">
+                    <img class="carteGraphique-img" src="image/produits/carteGraphique.webp" alt="Carte Graphique">
+                    <h2 class="text-column-3">Carte Graphique</h2>
+                </a>
             </div>
-            <div class="product category">PC Gaming</div>
-            <div class="product normal-price">2079€99</div>
-            <div class="product promotion">1663€99</div>
-            <button class="product btnPanier" type="submit">
-              <div class="product btnPanier">Ajouter au panier</div>
-            </button>
-          </div>
-        </div>
+        </section>
 
+        <section>
 
-        <div class="gallery-cell">
-          <div class="grid-item item2">
-            <a href="#" class="product image">
-              <img src="image/produits/pcGaming3.png" alt="imgProduit" class="product" />
-              <span class="product badge">-11%</span>
-            </a>
-            <div class="product name">PC GAMER THUNDER</div>
-            <div class="product components">
-              Intel Core i7 - 32Go - nVidia GF RTX 4080 SUPER
+            <!-- /////////////////////////////////
+            /////////////// Grid ////////////////
+            ///////////////////////////////// -->
+
+            <!-- Requete préparée pour récupérer les produits en promotion -->
+            <?php
+            include "include/connect.inc.php";
+            $req = $conn->prepare("SELECT idNumProduit, idPromotion FROM EnPromo");
+            $req->execute();
+            $enPromo = $req->fetchAll(PDO::FETCH_ASSOC);
+
+            // Initialiser un tableau pour stocker les données
+            $data = [];
+
+            // Parcourir chaque enregistrement de EnPromo
+            foreach ($enPromo as $row) {
+                $idNumProduit = $row['idNumProduit'];
+                $idPromotion = $row['idPromotion'];
+
+                // Récupérer les informations du produit
+                $reqProduit = $conn->prepare("SELECT P.idNumProduit, P.nomProduit, C.nomCategorie, P.prix, P.stock  FROM Categorie C, Produit P WHERE idNumProduit = :idNumProduit AND P.idCategorie = C.idCategorie");
+                $reqProduit->execute(['idNumProduit' => $idNumProduit]);
+                $produit = $reqProduit->fetch(PDO::FETCH_ASSOC);
+
+                // Récupérer le pourcentage de la promotion
+                $reqPromotion = $conn->prepare("SELECT pourcentageReduction FROM Promotion WHERE idPromotion = :idPromotion");
+                $reqPromotion->execute(['idPromotion' => $idPromotion]);
+                $promotion = $reqPromotion->fetch(PDO::FETCH_ASSOC);
+
+                // Récupérer les produits liés (nomProduit) depuis la table Comporte
+                $reqComporte = $conn->prepare("
+                    SELECT P.nomProduit AS nomProduit
+                    FROM Comporte C, Produit P
+                    WHERE P.idNumProduit = C.idNumProduitComporte 
+                    AND C.idNumProduitComportant = :idNumProduit
+                    ORDER BY P.nomProduit ASC
+                ");
+                $reqComporte->execute(['idNumProduit' => $idNumProduit]);
+                $produitsLies = $reqComporte->fetchAll(PDO::FETCH_COLUMN); // Récupérer uniquement les noms des produits
+            
+                // Récupérer les images associées depuis la table Contient
+                $reqContient = $conn->prepare("
+                    SELECT I.nomImage AS image
+                    FROM Contient C, Image I
+                    WHERE I.idImage = C.idImage 
+                    AND C.idNumProduit = :idNumProduit
+                    ORDER BY I.idImage ASC
+                ");
+                $reqContient->execute(['idNumProduit' => $idNumProduit]);
+                $images = $reqContient->fetchAll(PDO::FETCH_COLUMN); // Récupérer uniquement les noms des images
+            
+
+                // Ajouter les données dans le tableau
+                if ($produit && $promotion) {
+                    $data[] = [
+                        'produit' => $produit,
+                        'promotion' => $promotion['pourcentageReduction'],
+                        'produits_lies' => $produitsLies,
+                        'images' => $images
+                    ];
+                }
+            }
+            ?>
+
+            <!-- Requete préparée pour récupérer les produits les plus populaires -->
+
+            <?php
+            $sql = "
+                SELECT p.idNumProduit, p.nomProduit, p.prix, p.stock, c.nomCategorie, SUM(ac.qte) AS totalQuantite
+                FROM Produit p
+                JOIN ACommande ac ON p.idNumProduit = ac.idNumProduit
+                JOIN Categorie c ON p.idCategorie = c.idCategorie
+                GROUP BY p.idNumProduit
+                ORDER BY totalQuantite DESC
+                LIMIT 6
+            ";
+
+            // Préparation et exécution de la requête
+            $stmt = $conn->prepare($sql);
+            $stmt->execute();
+            $topProduits = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            // Étape 2 : Initialiser un tableau pour stocker les données
+            $data2 = [];
+
+            foreach ($topProduits as $produit) {
+                $idNumProduit = $produit['idNumProduit'];
+
+                // Récupérer les produits liés
+                $reqComporte = $conn->prepare("
+                    SELECT P.nomProduit AS nomProduit
+                    FROM Comporte C
+                    JOIN Produit P ON P.idNumProduit = C.idNumProduitComporte
+                    WHERE C.idNumProduitComportant = :idNumProduit
+                    ORDER BY P.nomProduit ASC
+                ");
+                $reqComporte->execute(['idNumProduit' => $idNumProduit]);
+                $produitsLies = $reqComporte->fetchAll(PDO::FETCH_COLUMN);
+
+                // Récupérer les images associées
+                $reqContient = $conn->prepare("
+                    SELECT I.nomImage AS image
+                    FROM Contient C
+                    JOIN Image I ON I.idImage = C.idImage
+                    WHERE C.idNumProduit = :idNumProduit
+                    ORDER BY I.idImage ASC
+                ");
+                $reqContient->execute(['idNumProduit' => $idNumProduit]);
+                $images = $reqContient->fetchAll(PDO::FETCH_COLUMN);
+
+                // Récupérer la promotion (si disponible)
+                $reqPromotion = $conn->prepare("
+                    SELECT E.idPromotion, P.pourcentageReduction
+                    FROM EnPromo E
+                    JOIN Promotion P ON P.idPromotion = E.idPromotion
+                    WHERE E.idNumProduit = :idNumProduit
+                ");
+                $reqPromotion->execute(['idNumProduit' => $idNumProduit]);
+                $promotion = $reqPromotion->fetch(PDO::FETCH_ASSOC);
+
+                // Ajouter toutes les données pour ce produit
+                $data2[] = [
+                    'produit' => $produit,
+                    'promotion' => $promotion ? $promotion['pourcentageReduction'] : null,
+                    'produits_lies' => $produitsLies,
+                    'images' => $images
+                ];
+            }
+            ?>
+
+            <!-- Partie Meilleures promotions -->
+            <h2 class="titre-produit">Meilleures promotions</h2>
+
+            <div class="gallery js-flickity" data-flickity-options='{ "wrapAround": true, "draggable": false }'>
+
+                <?php foreach ($data as $row) { ?>
+                    <div class="gallery-cell">
+                        <div class="grid-item item4">
+                            <a href="detailsProduit.php?id=<?= $row['produit']['idNumProduit'] ?>" class="product image">
+                                <img src="image/produits/<?php echo $row['images'][0] ?? "no-image.jpg" ?>" alt="imgProduit"
+                                    class="product" />
+                                <span class="product badge">-<?= $row['promotion'] ?>%</span>
+                            </a>
+                            <div class="product name"><?= $row['produit']['nomProduit'] ?></div>
+                            <div class="product components">
+                                <?php
+                                if (!empty($row['produits_lies'])) {
+                                    echo implode(" - ", $row['produits_lies']);
+                                }
+                                ?>
+                            </div>
+                            <div class="product category"><?= $row['produit']['nomCategorie'] ?></div>
+                            <div class="product normal-price">
+                                <?= str_replace(".", "€", number_format($row['produit']['prix'], 2)) ?>
+                            </div>
+                            <div class="product promotion">
+                                <?= str_replace(".", "€", number_format($row['produit']['prix'] - ($row['produit']['prix'] * ($row['promotion'] / 100)), 2)) ?>
+                            </div>
+                            <?php
+                            if ($row['produit']['stock'] > 0) {
+                                ?>
+                                <a class='product btnPanier' href='ajoutProduit.php?id=<?= $row['produit']['idNumProduit'] ?>'>
+                                    <div class='product btnPanier'>Ajouter au panier</div>
+                                </a>
+                                <?php
+                            } else {
+                                ?>
+                                <a class='product btnPanier disabled' href='#'>
+                                    <div class='product btnPanier'>Rupture de stock</div>
+                                </a>
+                                <?php
+                            }
+                            ?>
+                        </div>
+                    </div>
+                <?php } ?>
             </div>
-            <div class="product category">PC Gaming</div>
-            <div class="product normal-price">2649€99</div>
-            <div class="product promotion">2349€99</div>
-            <button class="product btnPanier" type="submit">
-              <div class="product btnPanier">Ajouter au panier</div>
-            </button>
-          </div>
-        </div>
 
+            <!-- Partie Produits les plus populaires -->
+            <h2 class="titre-produit">Produits les plus populaires</h2>
 
-        <div class="gallery-cell">
-          <div class="grid-item item3">
-            <a href="#" class="product image">
-              <img src="image/produits/carteGraphique.webp" alt="imgProduit" class="product" />
-              <span class="product badge">-40%</span>
-            </a>
-            <div class="product name">MSI GeForce RTX 4060 SUPER 16G VENTUS 3X OC</div>
-            <br>
-            <div class="product category">Carte graphique</div>
-            <div class="product normal-price">1199€99</div>
-            <div class="product promotion">719€99</div>
-            <button class="product btnPanier" type="submit">
-              <div class="product btnPanier">Ajouter au panier</div>
-            </button>
-          </div>
-        </div>
+            <div class="gallery js-flickity" data-flickity-options='{ "wrapAround": true, "draggable": false }'>
 
+                <?php foreach ($data2 as $item) { ?>
+                    <div class="gallery-cell">
+                        <div class="grid-item item1">
+                            <a href="detailsProduit.php?id=<?= $item['produit']['idNumProduit'] ?>" class="product image">
+                                <img src="image/produits/<?php echo $item['images'][0] ?? "no-image.jpg" ?>"
+                                    alt="imgProduit" class="product" />
+                                <?php if ($item['promotion'] != null) { ?>
+                                    <span class="product badge">-<?= $item['promotion'] ?>%</span>
+                                <?php } ?>
 
-        <div class="gallery-cell">
-          <div class="grid-item item3">
-            <a href="#" class="product image">
-              <img src="image/produits/pcGaming2.png" alt="imgProduit" class="product" />
-              <span class="product badge">-5%</span>
-            </a>
-            <div class="product name">Asus Corsair 4000D</div>
-            <div class="product components">
-              NZXT Intel Core i7- 16Go - MSI GTX 1660 Ti
+                            </a>
+                            <div class="product name"><?= htmlspecialchars($item['produit']['nomProduit']) ?></div>
+                            <div class="product components">
+                                <?php
+                                if (!empty($item['produits_lies'])) {
+                                    echo implode(" - ", $item['produits_lies']);
+                                }
+                                ?>
+                            </div>
+                            <div class="product category"><?= htmlspecialchars($item['produit']['nomCategorie']) ?></div>
+                            <?php if ($item['promotion'] == null) { ?>
+                                <div class="product price">
+                                    <?= str_replace(".", "€", number_format(htmlspecialchars($item['produit']['prix']), 2)) ?>
+                                </div>
+                            <?php } else { ?>
+                                <div class="product normal-price">
+                                    <?= str_replace(".", "€", number_format(htmlspecialchars($item['produit']['prix']), 2)) ?>
+                                </div>
+                                <div class="product promotion">
+                                    <?= str_replace(".", "€", number_format(($item['produit']['prix']) - ($item['produit']['prix']) * (($item['promotion']) / 100), 2)) ?>
+                                </div>
+                            <?php } ?>
+                            <?php
+                            if ($item['produit']['stock'] > 0) {
+                                ?>
+                                <a class='product btnPanier' href='ajoutProduit.php?id=<?= $row['produit']['idNumProduit'] ?>'>
+                                    <div class='product btnPanier'>Ajouter au panier</div>
+                                </a>
+                                <?php
+                            } else {
+                                ?>
+                                <a class='product btnPanier disabled' href='#'>
+                                    <div class='product btnPanier'>Rupture de stock</div>
+                                </a>
+                                <?php
+                            }
+                            ?>
+                        </div>
+                    </div>
+                <?php } ?>
             </div>
-            <div class="product category">PC Gaming</div>
-            <div class="product normal-price">1429€99</div>
-            <div class="product promotion">1358€49</div>
-            <button class="product btnPanier" type="submit">
-              <div class="product btnPanier">Ajouter au panier</div>
-            </button>
-          </div>
-        </div>
+        </section>
 
+    </main>
 
-        <div class="gallery-cell">
-          <div class="grid-item item3">
-            <a href="#" class="product image">
-              <img src="image/produits/pcGaming.webp" alt="imgProduit" class="product" />
-              <span class="product badge">-40%</span>
-            </a>
-            <div class="product name">MSI Trident Z RGB super</div>
-            <div class="product components">
-              Intel Core Ultra 7 - 32Go - MSI GeForce RTX 4080 SUPER 34G
-            </div>
-            <div class="product category">PC Gaming</div>
-            <div class="product normal-price">2502€99</div>
-            <div class="product promotion">1501€79</div>
-            <button class="product btnPanier" type="submit">
-              <div class="product btnPanier">Ajouter au panier</div>
-            </button>
-          </div>
-        </div>
-      </div>
+    <?php
+    include "include/footer.php";
+    ?>
 
-      <h2 class="titre-produit">Produits les plus populaires</h2>
-
-      <div class="gallery js-flickity" data-flickity-options='{ "wrapAround": true }'>
-        <div class="gallery-cell">
-          <div class="grid-item item1">
-            <a href="#" class="product image">
-              <img src="image/produits/carteGraphique3.webp" alt="imgProduit" class="product" />
-            </a>
-            <div class="product name">Sapphire Pulse Radeon RX 7800 XT GAMING 16GB</div>
-            <div class="product category">Carte Graphique</div>
-            <div class="product price">569€99</div>
-            <button class="product btnPanier" type="submit">
-              <div class="product btnPanier">Ajouter au panier</div>
-            </button>
-          </div>
-        </div>
-
-        <div class="gallery-cell">
-          <div class="grid-item item2">
-            <a href="#" class="product image">
-              <img src="image/produits/pcGaming4.webp" alt="imgProduit" class="product" />
-            </a>
-            <div class="product name">PC Gamer 4070 super powa</div>
-            <div class="product components">
-              Intel Core i5 - 16Go - RTX 4070 SUPER
-            </div>
-            <div class="product category">PC Gaming</div>
-            <div class="product price">1399€99</div>
-            <button class="product btnPanier" type="submit">
-              <div class="product btnPanier">Ajouter au panier</div>
-            </button>
-          </div>
-        </div>
-
-        <div class="gallery-cell">
-          <div class="grid-item item3">
-            <a href="#" class="product image">
-              <img src="image/produits/carteGraphique2.webp" alt="imgProduit" class="product" />
-            </a>
-            <div class="product name">MSI GeForce RTX 4080 SUPER 34G</div>
-            <div class="product category">Carte graphique</div>
-            <div class="product price">1199€99</div>
-            <button class="product btnPanier" type="submit">
-              <div class="product btnPanier">Ajouter au panier</div>
-            </button>
-          </div>
-        </div>
-
-        <div class="gallery-cell">
-          <div class="grid-item item3">
-            <a href="#" class="product image">
-              <img src="image/produits/processeurIntel.webp" alt="imgProduit" class="product" />
-            </a>
-            <div class="product name">Intel Core Ultra 7 265K - LGA1851/Sans boite</div>
-            <div class="product category">Processeur</div>
-            <div class="product price">479€99</div>
-            <button class="product btnPanier" type="submit">
-              <div class="product btnPanier">Ajouter au panier</div>
-            </button>
-          </div>
-        </div>
-
-        <div class="gallery-cell">
-          <div class="grid-item">
-            <a href="#" class="product image">
-              <img src="image/produits/pcBureautique.png" alt="imgProduit" class="product" />
-            </a>
-            <div class="product name">PC FIXE PRO BUREAUTIQUE I3</div>
-            <div class="product components">
-              Intel Core i3 - 4Go - COOLER MASTER
-            </div>
-            <div class="product category">PC Bureautique</div>
-            <div class="product price">489€99</div>
-            <button class="product btnPanier" type="submit">
-              <div class="product btnPanier">Ajouter au panier</div>
-            </button>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!--
-    <img class="d-block w-100" src="image/produits/carteGraphique3.webp" alt="First slide">
-    <img class="d-block w-100" src="image/produits/pcGaming4.webp" alt="Second slide">
-    <img class="d-block w-100" src="image/produits/processeurIntel.webp" alt="Third slide">
-    -->
-
-    <!-- test titouan -->
-
-    <!-- Flickity HTML init -->
-
-    <!-- fin test titouan -->
-  </main>
-
-  <?php
-  include "include/footer.php";
-  ?>
-
-  <!-- Lien vers le fichier JavaScript -->
-  <script src="js/carousel.js"></script>
-
+    <!-- Lien vers le fichier JavaScript -->
+    <script src="js/carousel.js"></script>
+    <script src="js/carousel_height.js"></script>
 </body>
 
 </html>

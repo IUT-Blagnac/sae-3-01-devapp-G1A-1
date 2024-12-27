@@ -10,14 +10,14 @@
       $result = $conn->query($sql);
 
       // Organisation initiale des catégories
-      $categories = [];
+      $categoriesHeader = [];
       $sousCategories = []; // Stockage temporaire des sous-catégories
-
+    
       while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
         $id = $row['idCategorie'];
         $pere = $row['idCategoriePere'];
 
-        $categories[$id] = [
+        $categoriesHeader[$id] = [
           'nom' => $row['nomCategorie'],
           'pere' => $pere,
           'sousCategories' => []
@@ -31,9 +31,9 @@
 
       // Associer les sous-catégories à leurs parents
       foreach ($sousCategories as $id => $pere) {
-        if (isset($categories[$pere])) {
-          $categories[$pere]['sousCategories'][$id] = $categories[$id];
-          unset($categories[$id]); // Retirer de la liste des catégories principales
+        if (isset($categoriesHeader[$pere])) {
+          $categoriesHeader[$pere]['sousCategories'][$id] = $categoriesHeader[$id];
+          unset($categoriesHeader[$id]); // Retirer de la liste des catégories principales
         }
       }
     } catch (PDOException $e) {
@@ -55,7 +55,7 @@
           </li>
           <?php
           // Affichage des catégories principales
-          foreach ($categories as $id => $category) {
+          foreach ($categoriesHeader as $id => $category) {
             echo "<li class='nav-item'>";
 
             // Si la catégorie principale a des sous-catégories, afficher le lien avec data-target
@@ -79,9 +79,10 @@
         <!-- Sous-menus -->
         <?php
         // Affichage des sous-catégories pour chaque catégorie principale
-        foreach ($categories as $id => $category) {
+        foreach ($categoriesHeader as $id => $category) {
           if (!empty($category['sousCategories'])) {
             echo "<ul class='navbar-side hidden' id='category-$id'>";
+            echo "<li><a href='traitListeProduit.php?categ_id=$id' class='dropdown-item'>Tous</a></li>";
             foreach ($category['sousCategories'] as $subId => $subcategory) {
               echo "<li><a href='traitListeProduit.php?categ_id=$subId' class='dropdown-item'>{$subcategory['nom']}</a></li>";
             }
@@ -106,7 +107,8 @@
     <!-- Formulaire de recherche -->
     <form action="traitListeProduit.php" method="POST" class="search-form" role="search" style="flex-grow: 1;">
       <label class="search-bar-label" for="search-bar">Search for stuff</label>
-      <input class="search-bar" type="search" name="search-bar" placeholder="Cherche un produit, une marque..." autofocus required />
+      <input class="search-bar" type="search" name="search-bar" placeholder="Cherche un produit, une marque..."
+        autocomplete="off" autofocus required />
       <button class="search-button" type="submit">
         <img src="image/loupe.png" alt="Search Icon" width="37%">
       </button>
@@ -114,22 +116,79 @@
 
     <!-- Icônes utilisateur et panier -->
     <div class="double-icon">
-      <div>
-        <?php if (isset($_SESSION['login'])) { ?>
-          <a href="consultCompte.php"><img src="image/profil_vert.png" alt="User Profile" class="icon-profil" width="50" height="50" loading="auto"></a>
-          <label class="text-icon-profil"><?php echo $_SESSION['prenom']; ?></label>
+      <?php if (isset($_SESSION['login'])) {
+
+        if (!isset($_SESSION['idEmp'])) { ?>
+
+          <!-- Requete SQL pour récupérer le nombre de produits dans le panier -->
+          <?php
+          $sql = "SELECT COUNT(*) as nbProduits FROM ACommande ac, Commande c WHERE c.idNumCli = :idClient AND c.idCommande = ac.idCommande AND c.estPanierActuel = '1'";
+          $stmt = $conn->prepare($sql);
+          $stmt->bindParam(':idClient', $_SESSION['idClient']);
+          $stmt->execute();
+          $result = $stmt->fetch(PDO::FETCH_ASSOC);
+          ?>
+          <div style="position: relative; display: inline-block;">
+            <a class="profile-trigger" onclick="toggleDropdown(event)">
+              <img src="image/profil_vert.png" alt="User Profile" class="icon-profil" width="50" height="50" loading="auto">
+            </a>
+            <label class="text-icon-profil"><?php echo $_SESSION['prenom']; ?></label>
+            <div id="dropdown-menu-profil" class="dropdown-menu-profil" style="display: none;">
+              <a href="consultCompte.php">Voir profil</a>
+              <a href="logout.php">Se déconnecter</a>
+            </div>
+          </div>
+          <div>
+            <?php if ($result['nbProduits'] > 0) { ?>
+              <a href="panier.php"><img src="image/panier_vert.png" alt="Shopping Cart" class="icon-panier" width="40"
+                  height="35" loading="auto" style="margin-top: 8px;">
+              </a>
+              <span class="badge-panier"><?php echo $result['nbProduits']; ?></span>
+            <?php } else { ?>
+              <a href="panier.php"><img src="image/panier_blanc.png" alt="Shopping Cart" class="icon-panier" width="40"
+                  height="35" loading="auto" style="margin-top: 8px;">
+              </a>
+            <?php } ?>
+
+            <label class="text-icon-panier">
+              <div style="padding-top: 7px;">Panier</div>
+            </label>
+          </div>
         <?php } else { ?>
-          <a href="formConnexion.php"><img src="image/profil_blanc.png" alt="User Profile" class="icon-profil" width="50" height="50" loading="auto"></a>
+          <div style="position: relative; display: inline-block;">
+            <a class="profile-trigger" onclick="toggleDropdown(event)">
+              <img src="image/profil_vert.png" alt="User Profile" class="icon-profil" width="50" height="50" loading="auto">
+            </a>
+            <label class="text-icon-profil"><?php echo $_SESSION['prenom']; ?></label>
+            <div id="dropdown-menu-profil" class="dropdown-menu-profil" style="display: none;">
+              <a href="#">A changer</a>
+              <a href="logout.php">Se déconnecter</a>
+            </div>
+          </div>
+          <div>
+            <a href="dashboard.php"><img src="image/dashboard-icon-white.png" alt="Dashboard" class="icon-dashboard"
+                width="40" height="35" loading="auto" style="margin-top: 8px;">
+            </a>
+            <label class="text-icon-panier">
+              <div style="padding-top: 7px;">Gestion</div>
+            </label>
+          </div>
+        <?php }
+      } else { ?>
+        <div>
+          <a href="formConnexion.php"><img src="image/profil_blanc.png" alt="User Profile" class="icon-profil" width="50"
+              height="50" loading="auto"></a>
           <label class="text-icon-profil">Compte</label>
-        <?php } ?>
-      </div>
-      <div>
-        <a href="panier.php"><img src="image/panier_blanc.png" alt="Shopping Cart" class="icon-panier" width="40"
-            height="35" loading="auto" style="margin-top: 8px;"></a>
-        <label class="text-icon-panier">
-          <div style="padding-top: 7px;">Panier</div>
-        </label>
-      </div>
+        </div>
+        <div>
+          <a href="formConnexion.php"><img src="image/panier_blanc.png" alt="Shopping Cart" class="icon-panier" width="40"
+              height="35" loading="auto" style="margin-top: 8px;">
+          </a>
+          <label class="text-icon-panier">
+            <div style="padding-top: 7px;">Panier</div>
+          </label>
+        </div>
+      <?php } ?>
     </div>
   </div>
 
@@ -144,7 +203,7 @@
       </li>
       <?php
       // Affichage des catégories principales avec dropdown
-      foreach ($categories as $id => $category) {
+      foreach ($categoriesHeader as $id => $category) {
         echo "<li class='nav-item'>";
 
         // Si c'est une catégorie Promotions, ajouter la classe colored
@@ -182,3 +241,33 @@
 <script src="js/icon_navbar.js"></script>
 <script src="js/menu_lateral.js"></script>
 <script src="js/submenu_lateral.js"></script>
+<script>
+  //Compte le nombre de produits dans le panier
+  function count() {
+    var nbProduits = 0;
+    var panier = JSON.parse(localStorage.getItem('panier'));
+    if (panier != null) {
+      for (var i = 0; i < panier.length; i++) {
+        nbProduits += panier[i].quantite;
+      }
+    }
+
+    return nbProduits;
+  }
+</script>
+
+<script>
+  function toggleDropdown() {
+    const dropdownMenu = document.getElementById('dropdown-menu-profil');
+    dropdownMenu.style.display = dropdownMenu.style.display === 'none' ? 'block' : 'none';
+  }
+
+  document.addEventListener('click', function (event) {
+    const dropdownMenu = document.getElementById('dropdown-menu-profil');
+    const isClickInside = event.target.closest('.profile-trigger');
+
+    if (!isClickInside && dropdownMenu.style.display === 'block') {
+      dropdownMenu.style.display = 'none';
+    }
+  });
+</script>

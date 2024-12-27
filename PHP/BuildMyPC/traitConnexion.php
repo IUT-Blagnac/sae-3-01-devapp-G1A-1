@@ -13,12 +13,12 @@ if (isset($_POST['login']) && ($_POST['mdp'])) {
     $mdpH = hash('sha256', $mdp);
     $login = strtolower($l);
     if (preg_match("#@buildmypc.com$#", $login)) {
-        $testLog = $conn->prepare("SELECT idNumEmploye,mdp, prenom, administrateur FROM Employe WHERE email = :idMail");
+        $testLog = $conn->prepare("SELECT email,idNumEmploye,mdp, prenom, administrateur FROM Employe WHERE email = :idMail");
         $testLog->bindParam(':idMail', $login);
         $testLog->execute();
         $result = $testLog->fetch(PDO::FETCH_ASSOC);
     } else {
-        $testLog = $conn->prepare("SELECT idNumCli,mdp, prenom FROM Client WHERE email = :idMail");
+        $testLog = $conn->prepare("SELECT email,idNumCli,mdp, prenom FROM Client WHERE email = :idMail");
         $testLog->bindParam(':idMail', $login);
         $testLog->execute();
         $result = $testLog->fetch(PDO::FETCH_ASSOC);
@@ -28,6 +28,7 @@ if (isset($_POST['login']) && ($_POST['mdp'])) {
             if ($result['mdp'] == $mdpH) {
                 $_SESSION['login'] = 'OK';
                 $_SESSION['prenom'] = $result['prenom'];
+                $_SESSION['email'] = $result['email'];
                 if (isset($result['administrateur'])) {
                     $_SESSION['idEmp'] = $result['idNumEmploye'];
                     if ($result['administrateur'] == 1) {
