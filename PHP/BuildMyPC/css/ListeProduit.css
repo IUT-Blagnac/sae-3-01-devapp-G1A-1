@@ -12,14 +12,14 @@ main {
 
 @media (max-width: 1220px) {
   main {
-    margin-top: 120px;
+    /* margin-top: 120px; */
     margin-bottom: 100px;
   }
 }
 
 @media (max-width: 900px) {
   main {
-    margin-top: 180px;
+    /* margin-top: 180px; */
     margin-bottom: 100px;
   }
 }
@@ -61,7 +61,9 @@ label.selection {
 input[type="checkbox"].selection {
   width: 1.5em;
   height: 1.5em;
-  accent-color: #62ffca;
+  /* accent-color: #62ffca;
+  accent-color: #48c377; */
+  accent-color: #66dc93;
 }
 
 input[type="number"].selection {
@@ -138,8 +140,8 @@ input[type="checkbox"].selection.title.small.button {
 }
 
 span.arrow {
-  font-size: 0.67rem;
-  margin-top: -3px;
+  font-size: 1rem;
+  margin-top: 1px;
   margin-left: 0.7rem;
 }
 
@@ -208,6 +210,16 @@ select.sorting:focus {
 }
 
 /* Grid */
+.infoMessage {
+  width: 65%;
+  float: left;
+  margin-left: 7%;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+  /* background-color: red; */
+}
+
 .grid-container {
   width: 70%;
   float: left;
@@ -243,6 +255,11 @@ select.sorting:focus {
 
 .item3 {
   grid-column: 3;
+}
+
+div.grid-item.empty {
+  background-color: #00000000;
+  width: 100%;
 }
 
 /* Product */
@@ -328,7 +345,9 @@ div.product.promotion {
   color: transparent;
 }
 
-button.product.btnPanier {
+a.product.btnPanier {
+  text-decoration: none;
+  color:black;
   font-size: 1.3rem;
   font-weight: bold;
   padding: 0.6rem 0;
@@ -342,13 +361,19 @@ button.product.btnPanier {
   /* margin-top: auto; */
 }
 
+a.product.btnPanier.disabled{
+  background: linear-gradient(to right, #cccccc, #999999);
+  pointer-events: none;
+  cursor: default;
+}
+
 /* Petites animations */
 
-.grid-item:hover {
+.grid-item:hover:not(div.grid-item.empty) {
   box-shadow: 0px 0px 15px rgba(4, 4, 4, 0.3);
 }
 
-button.product.btnPanier:hover,
+a.product.btnPanier:hover,
 button.selection.affiner:hover {
   box-shadow: 0px 0px 5px #62ffca;
 }
@@ -380,6 +405,11 @@ button.selection.affiner:hover {
   button.selection.affiner {
     font-size: 1.4rem;
     width: 50%;
+  }
+
+  .infoMessage {
+    width: 90%;
+    margin-top: 20px;
   }
 
   .grid-container {
@@ -419,11 +449,5 @@ button.selection.affiner:hover {
     padding-top: 0.65em;
     padding-bottom: 0.6em;
     border-radius: 5px;
-  }
-
-  span.arrow {
-    font-size: 0.67rem;
-    margin-top: -3px;
-    margin-left: 0.7rem;
   }
 }

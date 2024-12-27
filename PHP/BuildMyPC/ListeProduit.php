@@ -3,10 +3,6 @@
 <!DOCTYPE html>
 <html lang="fr">
 
-<?php
-// Récuperations des informations de l'url
-?>
-
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -16,7 +12,7 @@
     <link rel="stylesheet" href="css/ListeProduit.css" />
     <link rel="icon" href="image/BuildMyPC_logo.png" />
     <?php
-    include "include/ListeProduit.inc.php";
+    require "include/ListeProduit.inc.php";
     ?>
 </head>
 
@@ -37,9 +33,13 @@
             if (isset($_GET['searchbar'])) {
                 $searchbarToURL = "?searchbar=" . htmlentities($_GET['searchbar']);
             }
+            $newestToURL = "";
+            if (isset($_GET['newest'])) {
+                $newestToURL = empty($searchbarToURL) ? "?newest=1" : "&newest=1";
+            }
             ?>
 
-            <form action=<?php echo "'traitListeProduit.php$searchbarToURL'"; ?> class="selection"
+            <form action=<?php echo "'traitListeProduit.php$searchbarToURL$newestToURL'"; ?> class="selection"
                 id="form-selection-big" method="POST">
                 <?php
                 setSelectionCriterias(false);
@@ -51,7 +51,7 @@
        ///////////////////////////////// -->
         <div class="selection small button">
             <label class="selection title small button" for="toggle-list-small">
-                Affiner <span class="arrow">&#11206;</span>
+                Affiner <span class="arrow">&#x25BC;</span>
             </label>
             <input class="selection title small button" type="checkbox" name="toggle-list-small"
                 id="toggle-list-small" />
@@ -65,23 +65,34 @@
                 id="sortingForm" method="POST">
                 <select class="sorting" name="sorting-mode" id="sorting-mode" onchange="sortingForm.submit()">
                     <option class="sorting" selected disabled>Trier par</option>
-                    <option class="sorting" value="pertinence">Pertinence</option>
-                    <option class="sorting" value="nomProduit_ASC">
+                    <option class="sorting" value="pertinence" <?php if ($sortMode == $sortingList[0])
+                        echo "selected"; ?>>
+                        Pertinence
+                    </option>
+                    <option class="sorting" value="nomProduit_ASC" <?php if ($sortMode == $sortingList[1])
+                        echo "selected"; ?>>
                         Nom Croissant
                     </option>
-                    <option class="sorting" value="nomProduit_DESC">
+                    <option class="sorting" value="nomProduit_DESC" <?php if ($sortMode == $sortingList[2])
+                        echo "selected"; ?>>
                         Nom Décroissant
                     </option>
-                    <option class="sorting" value="prix_ASC">
+                    <option class="sorting" value="prix_ASC" <?php if ($sortMode == $sortingList[3])
+                        echo "selected"; ?>>
                         Prix Croissant
                     </option>
-                    <option class="sorting" value="prix_DESC">
+                    <option class="sorting" value="prix_DESC" <?php if ($sortMode == $sortingList[4])
+                        echo "selected"; ?>>
                         Prix Décroissant
                     </option>
-                    <option class="sorting" value="bestVentes">
+                    <option class="sorting" value="bestVentes" <?php if ($sortMode == $sortingList[5])
+                        echo "selected"; ?>>
                         Meilleures Ventes
                     </option>
-                    <option class="sorting" value="bestNotes">Meilleures Notes</option>
+                    <option class="sorting" value="bestNotes" <?php if ($sortMode == $sortingList[6])
+                        echo "selected"; ?>>
+                        Meilleures Notes
+                    </option>
                 </select>
             </form>
         </div>
@@ -99,71 +110,23 @@
         <!-- /////////////////////////////////
        /////////////// Grid ////////////////
        ///////////////////////////////// -->
+        <div class="infoMessage" style="color:white;">
+            <?php
+            $nbProducts = sizeof($products);
+            $message = $nbProducts > 0 ? $nbProducts : "Aucun";
+            $message .= $nbProducts > 1 ? " produits trouvés" : " produit trouvé";
+            if (!empty($exactWord)) {
+                $message .= " pour la recherche &laquo;" . htmlentities(implode(' ', $exactWord)) . "&raquo;";
+            }
+            $message .= ".";
+            echo $message;
+            ?>
+        </div>
+
         <div class="main grid-container">
             <?php
-            displayAllProducts();
+            displayProducts();
             ?>
-            <?php
-            // new_product(1, 200, "PC GAMER ARMOR", "PC Gaming", 2079.9919, "image/produits/pcGaming2.png", ["AMD Ryzen 7", "32Go", "AMD Radeon RX7900XT"], 20);
-            // new_product(2, 300, "PC Gamer 4070 super powa", "PC Gaming", 1399.99, "image/produits/pcGaming4.webp", ["Intel Core i5", "16Go", "RTX 4070 SUPER"]);
-            // new_product(3, 10, "MSI GeForce RTX 4060 SUPER 16G VENTUS 3X OC", "Carte graphique", 1000.99, "image/produits/carteGraphique.webp");
-            ?>
-            <!-- <div class="grid-item">
-        <a href="#" class="product image">
-          <img src="image/produits/carteGraphique3.webp" alt="imgProduit" class="product" />
-        </a>
-        <div class="product name">
-          Sapphire Pulse Radeon RX 7800 XT GAMING 16GB
-        </div>
-        <div class="product category">Carte graphique</div>
-        <div class="product price">569€99</div>
-        <button class="product btnPanier" type="submit">
-          <div class="product btnPanier">Ajouter au panier</div>
-        </button>
-      </div>
-      <div class="grid-item">
-        <a href="#" class="product image">
-          <img src="image/produits/processeurIntel.webp" alt="imgProduit" class="product" />
-          <span class="product badge">-30%</span>
-        </a>
-        <div class="product name">
-          Intel Core Ultra 7 265K - LGA1851/Sans boite
-        </div>
-        <div class="product category">Processeur</div>
-        <div class="product normal-price">479€99</div>
-        <div class="product promotion">335€99</div>
-        <button class="product btnPanier" type="submit">
-          <div class="product btnPanier">Ajouter au panier</div>
-        </button>
-      </div>
-      <div class="grid-item">
-        <a href="#" class="product image">
-          <img src="image/produits/pcGaming3.png" alt="imgProduit" class="product" />
-        </a>
-        <div class="product name">PC GAMER THUNDER</div>
-        <div class="product components">
-          Intel Core i7 - 32Go - nVidia GF RTX 4080 SUPER
-        </div>
-        <div class="product category">PC Gaming</div>
-        <div class="product price">2349€99</div>
-        <button class="product btnPanier" type="submit">
-          <div class="product btnPanier">Ajouter au panier</div>
-        </button>
-      </div>
-      <div class="grid-item">
-        <a href="#" class="product image">
-          <img src="image/produits/pcBureautique.png" alt="imgProduit" class="product" />
-        </a>
-        <div class="product name">PC FIXE PRO BUREAUTIQUE I3</div>
-        <div class="product components">
-          Intel Core i3 - 4Go - COOLER MASTER
-        </div>
-        <div class="product category">PC Bureautique</div>
-        <div class="product price">489€99</div>
-        <button class="product btnPanier" type="submit">
-          <div class="product btnPanier">Ajouter au panier</div>
-        </button>
-      </div> -->
         </div>
     </main>
 
@@ -174,9 +137,9 @@
     <!-- JavaScript -->
     <script>
     /* -----------------------------------------------------
-                                        Script qui permet de réduire les catégories de sélection
-                                        pour le bloc .selection.
-                                        ----------------------------------------------------- */
+     * Script qui permet de réduire les catégories de sélection
+     * pour le bloc .selection.
+     * ----------------------------------------------------- */
     document.addEventListener("DOMContentLoaded", () => {
         // On récupère toutes les checkbox de titre
         const checkboxes = document.querySelectorAll(
@@ -212,9 +175,9 @@
     </script>
     <script>
     /* ---------------------------------------------------------------------
-                                        Script qui affiche le bloc .selection.small lorsque la checkbox "Affiner" 
-                                        de .selection.small.button est cochée 
-                                        --------------------------------------------------------------------- */
+     * Script qui affiche le bloc .selection.small lorsque la checkbox "Affiner" 
+     * de .selection.small.button est cochée 
+     * --------------------------------------------------------------------- */
     document.addEventListener("DOMContentLoaded", () => {
         // On va chercher la checkbox qui agit comme une sorte de bouton
         const smallButtonCheckbox = document.querySelector(
@@ -245,9 +208,9 @@
     </script>
     <script>
     /* -----------------------------------------------------
-                                        Script qui permet de réduire les catégories de séléction
-                                        pour le bloc .selection.small.
-                                        ----------------------------------------------------- */
+     * Script qui permet de réduire les catégories de séléction
+     * pour le bloc .selection.small.
+     * ----------------------------------------------------- */
     document.addEventListener("DOMContentLoaded", () => {
         // On récupère toutes les checkbox de titre
         const checkboxes = document.querySelectorAll(
@@ -285,11 +248,11 @@
     </script>
     <script>
     /* -----------------------------------------------------
-                                        Script qui permet de uncheck la checkbox .selection.title.small.button
-                                        quand la taille de l'écran est > 950px. Permet d'éviter que
-                                        les éléments .selection.small restent visibles alors qu'ils sont
-                                        sensé être remplacé par leur version .selection normale.
-                                        ----------------------------------------------------- */
+     * Script qui permet de uncheck la checkbox .selection.title.small.button
+     * quand la taille de l'écran est > 950px. Permet d'éviter que
+     * les éléments .selection.small restent visibles alors qu'ils sont
+     * sensé être remplacé par leur version .selection normale.
+     * ----------------------------------------------------- */
     document.addEventListener("DOMContentLoaded", () => {
         const smallButtonCheckbox = document.querySelector(
             'input[type="checkbox"].selection.title.small.button'
@@ -319,10 +282,10 @@
 
     <script>
     /* -----------------------------------------------------
-                                        Script qui permet de synchroniser les deux form de 
-                                        selection pour que les valeurs dans les 2 formulaires
-                                        soient les même.
-                                        ----------------------------------------------------- */
+     * Script qui permet de synchroniser les deux form de 
+     * selection pour que les valeurs dans les 2 formulaires
+     * soient les même.
+     * ----------------------------------------------------- */
     document.addEventListener("DOMContentLoaded", () => {
         const form1 = document.getElementById("form-selection-big");
         const form2 = document.getElementById("form-selection-small");

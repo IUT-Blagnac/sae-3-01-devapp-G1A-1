@@ -1,14 +1,14 @@
 function changeMainImage(thumbnail) {
-  // Récupère la source de l'image miniature cliquée
+  // Rï¿½cupï¿½re la source de l'image miniature cliquï¿½e
   const newSrc = thumbnail.src;
 
-  // Sélectionne l'image principale
+  // Sï¿½lectionne l'image principale
   const mainImage = document.querySelector(".main-image img");
 
   if (mainImage) {
-    // Si l'image principale est trouvée, modifie sa source
+    // Si l'image principale est trouvï¿½e, modifie sa source
     mainImage.src = newSrc;
   } else {
-    console.error("L'image principale n'a pas été trouvée dans le DOM.");
+    console.error("L'image principale n'a pas ï¿½tï¿½ trouvï¿½e dans le DOM.");
   }
 }
