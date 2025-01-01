@@ -99,7 +99,7 @@ CREATE TABLE Employe (
     nom VARCHAR(25) NOT NULL,
     prenom VARCHAR(15) NOT NULL,
     email VARCHAR(320) NOT NULL,
-    telephone CHAR(10),
+    telephone CHAR(13),
     mdp VARCHAR(300) NOT NULL,
     administrateur BOOLEAN NOT NULL,
     CHECK (email LIKE '%@buildmypc.com')
