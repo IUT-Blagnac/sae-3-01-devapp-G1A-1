@@ -1,0 +1,132 @@
+= Documentation des tests application IOT
+:icons: font
+:models: models
+:experimental:
+:incremental:
+:numbered:
+:toc: macro
+:window: _blank
+:correction!:
+
+toc::[]
+
+Version de l'application : V2.0 +
+Date : 04/12/2024 +
+Equipe : 1A-1 +
+Client : BuildMyPC +
+Projet : Application de gestion d'entrepôt +
+
+== Description du projet
+
+=== Équipe
+
+L'équipe est composée de cinq membres avec les rôles suivants :
+
+- *Romain* : Product Owner et Développeur
+- *Kilian* : Développeur
+- *Titouan* : Développeur
+- *Pablo* : Développeur
+- *Hugo* : Scrum Master et Développeur
+
+=== Contexte du projet
+
+Le projet a pour objectif de développer une application de gestion d’entrepôt pour l’entreprise BuildMyPC, spécialisée dans la vente de composants informatiques et d’ordinateurs montés. Bien que son activité principale ne soit pas le stockage, l’entreprise doit gérer des locaux pour stocker les produits nécessaires à son activité. BuildMyPC souhaite donc intégrer une solution logicielle complémentaire pour surveiller les conditions environnementales de ses entrepôts, telles que la température, l'humidité et le niveau de CO2, afin de garantir la qualité de ses produits. + 
+L'application devra également inclure un module pour suivre la production et la consommation énergétique des panneaux solaires de l'entreprise, permettant une gestion optimisée de l’énergie et une approche écoresponsable. Ce projet vise à renforcer l'efficacité opérationnelle de l’entreprise tout en soutenant ses engagements en matière de durabilité.
+
+=== Objectifs du projet
+
+**Problématique :**  
+
+Garantir la fiabilité et l’efficacité de l’application IoT de gestion d’entrepôt pour assurer la qualité des produits et optimiser la gestion énergétique, tout en offrant une expérience utilisateur optimale. +
+
+**Objectifs :**
+
+- Valider le fonctionnement des connexions, des capteurs et des modules énergétiques.
+
+- Assurer l’affichage précis et en temps réel des données, même en cas d’erreurs ou de données manquantes.
+
+- Tester les mécanismes d’alerte et de visualisation pour une prise de décision rapide.
+
+- Renforcer la robustesse du système face aux erreurs et interruptions.
+
+- Aligner l’application avec les objectifs de durabilité et d’efficacité opérationnelle de BuildMyPC.
+
+== Fonctionnement du projet Web
+
+Pour des informations supplémentaires :
+
+- Documentation technique : link:https://github.com/IUT-Blagnac/sae-3-01-devapp-G1A-1/blob/master/Documentation/document_technique_iot.adoc[ICI]
+- Documentation utilisateur : link:https://github.com/IUT-Blagnac/sae-3-01-devapp-G1A-1/blob/master/Documentation/document_utilisateur_iot.adoc[ICI]
+
+== Tests
+
+=== Test MQTT
+[cols="^1,^2,^1,^3,^2,^1", options="header"]
+|===
+|ID du Test |Fonctionnalité |Priorité |Scénario de Test |Résultat Attendu |Résultat du test
+
+|TC-MQTT-001-1 |Tester la connexion au serveur MQTT |1 
+|Cliquer sur "Tester la connexion" avec connexion. 
+|Notification visuelle "Connexion réussie" en moins de 3 secondes.
+|OK
+
+|TC-MQTT-001-2 |Tester la connexion au serveur MQTT |1 
+|Cliquer sur "Tester la connexion" sans connexion.
+|Notification visuelle "Connexion échouée".
+|OK
+
+|TC-MQTT-001-3 |Tester la connexion au serveur MQTT |1 
+|Cliquer sur "Tester la connexion" avec une erreur dans le code.
+|Notification visuelle "Chargement infinie".
+|OK
+|===
+=== Tests Java
+
+[cols="^1,^2,^1,^3,^2,^1", options="header"]
+|===
+| ID du Test | Fonctionnalité | Priorité | Scénario de Test | Résultat Attendu | Résultat du Test
+| TC-JAVA-001-1 | Lancer le programme Python à partir de Java | 1 | Lancer l'application Java. | Le programme Python démarre automatiquement, et l'indicateur de statut affiche "Actif". | OK
+| TC-JAVA-001-2 | Relancer le programme Python via le menu | 1 | Cliquer sur "Relancer le programme Python". | Une fenêtre s'ouvre, et après quelques secondes, une image (check/cross) indique si le démarrage a réussi ou échoué. | OK
+| TC-JAVA-001-3 | Gestion des erreurs de lancement | 1 | Supprimer les permissions du script Python et relancer via le menu. | Notification "Erreur : Permission refusée". | OK
+| TC-JAVA-001-4 | Statut après arrêt de Python | 2 | Arrêter manuellement le programme Python. | Le statut change en "Inactif". | OK
+|===
+
+=== Tests Configuration des capteurs
+
+[cols="^1,^2,^1,^3,^2,^1", options="header"]
+|===
+| ID du Test | Fonctionnalité | Priorité | Scénario de Test | Résultat Attendu | Résultat du Test
+| TC-CONFIG-002-1 | Configurer le fichier `config.json` | 1 | Modifier les capteurs et seuils, puis sauvegarder. | Les modifications sont écrites dans `config.json`, et l’application retourne au menu principal. | OK
+| TC-CONFIG-002-2 | Validation des données | 1 | Entrer une valeur invalide dans un seuil. | Message d’erreur "Valeur invalide". | NOK
+| TC-CONFIG-002-3 | Relancer après configuration | 1 | Sauvegarder le fichier `config.json`, puis relancer le programme Python. | Le programme utilise les nouvelles configurations. | OK
+|===
+
+=== Tests Données des capteurs
+
+[cols="^1,^2,^1,^3,^2,^1", options="header"]
+|===
+| ID du Test | Fonctionnalité | Priorité | Scénario de Test | Résultat Attendu | Résultat du Test
+| TC-DATA-003-1 | Consulter les données en temps réel | 1 | Ouvrir la page de données en temps réel. | Les données des capteurs s’affichent et sont mises à jour toutes les 10 secondes. | OK
+| TC-DATA-003-2 | Gestion des données manquantes | 1 | Consulter les données lorsqu’aucune n’est disponible. | Message "Aucune donnée disponible". | OK
+| TC-DATA-003-3 | Filtrer les données affichées | 2 | Afficher uniquement les salles définies dans le fichier `config.json` dans l'affichage par courbes | Seules les données des salles sélectionnées s’affichent. | OK
+|===
+
+=== Tests Graphiques
+
+[cols="^1,^2,^1,^3,^2,^1", options="header"]
+|===
+| ID du Test | Fonctionnalité | Priorité | Scénario de Test | Résultat Attendu | Résultat du Test
+| TC-GRAPH-004-1 | Afficher les données historiques | 2 | Consulter les graphiques pour une période donnée. | Les données s’affichent sous forme de courbes avec une légende claire. | OK
+| TC-GRAPH-004-2 | Visualisation par salle | 2 | Sélectionner plusieurs salles dans `config.json`. | Un graphique par salle s’affiche. | OK
+| TC-GRAPH-004-3 | Pas de donnée dans le code | 3 | Aucunes donnée sur la salle. | Un message signale que des valeurs nulles seront utilisées. | OK
+|===
+
+=== Tests Alertes
+
+[cols="^1,^2,^1,^3,^2,^1", options="header"]
+|===
+| ID du Test | Fonctionnalité | Priorité | Scénario de Test | Résultat Attendu | Résultat du Test
+| TC-ALERT-005-1 | Afficher les alertes en temps réel | 1 | Simuler un dépassement de seuil. | Un pop-up d’alerte apparaît pendant 10 secondes. | OK
+| TC-ALERT-005-2 | Naviguer vers l’historique des alertes | 1 | Cliquer sur "Voir détail" dans une alerte active. | Redirection vers la page d’historique des alertes. | OK
+| TC-ALERT-005-3 | Trier les alertes | 2 | Filtrer les alertes par capteur, seuil ou date. | Les alertes sont triées correctement dans la liste. | OK
+|===
