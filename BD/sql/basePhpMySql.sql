@@ -113,6 +113,7 @@ CREATE TABLE Client (
     email VARCHAR(320) NOT NULL,
     telephone CHAR(15),
     mdp VARCHAR(300) NOT NULL,
+    desactive BOOLEAN NOT NULL,
     FOREIGN KEY (idAdresse) REFERENCES AdressePostale(idAdresse)
 );
 
