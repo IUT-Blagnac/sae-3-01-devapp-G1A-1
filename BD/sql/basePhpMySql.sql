@@ -113,6 +113,7 @@ CREATE TABLE Client (
     email VARCHAR(320) NOT NULL,
     telephone CHAR(13),
     mdp VARCHAR(300) NOT NULL,
+    pointsFidelite INT DEFAULT 0,
     FOREIGN KEY (idAdresse) REFERENCES AdressePostale(idAdresse)
 );
 
