@@ -139,6 +139,17 @@ INSERT INTO Image (nomImage) VALUES ('Carte Mère_id22_3.webp');
 INSERT INTO Image (nomImage) VALUES ('Carte Mère_id22_4.webp'); 
 INSERT INTO Image (nomImage) VALUES ('Carte Mère_id22_5.webp'); 
 
+INSERT INTO `Image`(`nomImage`) VALUES ('PC Bureautique_id62_1.webp');
+INSERT INTO `Image`(`nomImage`) VALUES ('PC Bureautique_id62_2.webp');
+INSERT INTO `Image`(`nomImage`) VALUES ('PC Bureautique_id62_3.webp');
+INSERT INTO `Image`(`nomImage`) VALUES ('PC Bureautique_id62_4.webp');
+
+INSERT INTO `Image`(`nomImage`) VALUES ('PC Bureautique_id63_1.webp');
+INSERT INTO `Image`(`nomImage`) VALUES ('PC Bureautique_id63_2.webp');
+INSERT INTO `Image`(`nomImage`) VALUES ('PC Bureautique_id63_3.webp');
+INSERT INTO `Image`(`nomImage`) VALUES ('PC Bureautique_id63_4.webp');
+INSERT INTO `Image`(`nomImage`) VALUES ('PC Bureautique_id63_5.webp');
+
 #/////////////////////////////////////////////////////////////////////////////////////--
 #                            insert AdressePostale                     
 #/////////////////////////////////////////////////////////////////////////////////////--
@@ -1155,6 +1166,18 @@ INSERT INTO Contient (idNumProduit, idImage) VALUES (57, 20);
 INSERT INTO Contient (idNumProduit, idImage) VALUES (58, );
 INSERT INTO Contient (idNumProduit, idImage) VALUES (58, );
 INSERT INTO Contient (idNumProduit, idImage) VALUES (58, );
+
+-- idProduit 62 : PC Bureautique
+INSERT INTO `Contient`(`idNumProduit`, `idImage`) VALUES ('62','169');
+INSERT INTO `Contient`(`idNumProduit`, `idImage`) VALUES ('62','170');
+INSERT INTO `Contient`(`idNumProduit`, `idImage`) VALUES ('62','171');
+INSERT INTO `Contient`(`idNumProduit`, `idImage`) VALUES ('62','172');
+
+-- idProduit 63 : PC Bureautique
+INSERT INTO `Contient`(`idNumProduit`, `idImage`) VALUES ('63','173');
+INSERT INTO `Contient`(`idNumProduit`, `idImage`) VALUES ('63','174');
+INSERT INTO `Contient`(`idNumProduit`, `idImage`) VALUES ('63','175');
+INSERT INTO `Contient`(`idNumProduit`, `idImage`) VALUES ('63','176');
 
 #/////////////////////////////////////////////////////////////////////////////////////--
 #                                 insert Promotion               
