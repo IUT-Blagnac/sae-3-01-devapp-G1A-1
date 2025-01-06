@@ -337,6 +337,11 @@ INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, i
 INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, idMarque) VALUES (11, 'PC Gamer Ryzen 5 Shadow', 1299.99, 76, 'Tour silencieuse et efficace avec processeur Ryzen 5, carte graphique RTX 3060 et SSD 512 Go.', 5);
 INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, idMarque) VALUES (11, 'MSI Infinite X 3D Max', 2499.99, 64, 'Pour les créateurs et gamers avec processeur Intel i7, carte graphique RTX 4080, 32 Go de RAM et système LED RGB.', 1);
 
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, idMarque) VALUES (12, 'HP ProDesk 400 G6', 799.99, 50, 'PC compact et performant avec Intel i5, 8 Go de RAM et SSD 256 Go, idéal pour les bureaux.', 2);
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, idMarque) VALUES (12, 'Lenovo ThinkCentre M70s', 899.99, 30, 'Ordinateur bureautique robuste avec Intel i7, 16 Go de RAM et SSD 512 Go.', 3);
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, idMarque) VALUES (12, 'Dell OptiPlex 3080', 649.99, 20, 'PC conçu pour le travail quotidien avec Intel i3, 4 Go de RAM et HDD 1 To.', 4);
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, idMarque) VALUES (12, 'Acer Veriton X4660G', 749.99, 25, 'PC bureautique compact avec Intel i5, 8 Go de RAM et disque dur hybride de 1 To.', 5);
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, idMarque) VALUES (12, 'ASUS ExpertCenter D500SC', 899.99, 40, 'Ordinateur fiable et sécurisé avec Intel i5, 16 Go de RAM et SSD 256 Go.', 6);
 
 #/////////////////////////////////////////////////////////////////////////////////////--
 #                              insert Commande passé                   
