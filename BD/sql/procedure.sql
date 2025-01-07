@@ -28,10 +28,15 @@ BEGIN
     WHERE idNumCli = p_idNumCli
       AND estPanierActuel = TRUE;
 
-    INSERT INTO Commande (idNumCli, idAdresse, estPanierActuel) VALUES (p_idNumCli, v_idAdresse, TRUE);
+    INSERT INTO Commande (idNumCli, estPanierActuel) VALUES (p_idNumCli, TRUE);
 
     COMMIT;
 END $$
+
+DELIMITER ;
+
+DROP PROCEDURE IF EXISTS ValiderCommandeChangementAdresse;
+DELIMITER $$
 
 CREATE PROCEDURE ValiderCommandeChangementAdresse (
     IN p_idNumCli INT,
@@ -71,11 +76,16 @@ BEGIN
     WHERE idNumCli = p_idNumCli
       AND estPanierActuel = TRUE;
 
-    INSERT INTO Commande (idNumCli, idAdresse, estPanierActuel)
-    VALUES (p_idNumCli, v_idAdresse, TRUE);
+    INSERT INTO Commande (idNumCli, estPanierActuel)
+    VALUES (p_idNumCli, TRUE);
 
     COMMIT;
 END $$
+
+DELIMITER ;
+
+DROP PROCEDURE IF EXISTS InsertAdressePostale;
+DELIMITER $$
 
 CREATE PROCEDURE InsertAdressePostale (
     IN p_pays VARCHAR,

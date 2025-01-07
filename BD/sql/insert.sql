@@ -139,6 +139,143 @@ INSERT INTO Image (nomImage) VALUES ('Carte Mère_id22_3.webp');
 INSERT INTO Image (nomImage) VALUES ('Carte Mère_id22_4.webp'); 
 INSERT INTO Image (nomImage) VALUES ('Carte Mère_id22_5.webp'); 
 
+INSERT INTO Image (nomImage) VALUES ('Mémoire_id39_1.webp'); 
+
+INSERT INTO Image (nomImage) VALUES ('Watercooling_id16_1.webp');
+INSERT INTO Image (nomImage) VALUES ('Watercooling_id16_2.webp');
+INSERT INTO Image (nomImage) VALUES ('Watercooling_id16_3.webp');
+
+INSERT INTO Image (nomImage) VALUES ('Boitier PC_id3_1.webp');
+INSERT INTO Image (nomImage) VALUES ('Boitier PC_id3_2.webp');
+INSERT INTO Image (nomImage) VALUES ('Boitier PC_id3_3.webp');
+
+INSERT INTO Image (nomImage) VALUES ('Ventilateur-boitier_id15_1.webp');
+INSERT INTO Image (nomImage) VALUES ('Ventilateur-boitier_id15_2.webp');
+INSERT INTO Image (nomImage) VALUES ('Ventilateur-boitier_id15_3.webp');
+INSERT INTO Image (nomImage) VALUES ('Ventilateur-boitier_id15_4.webp');
+INSERT INTO Image (nomImage) VALUES ('Ventilateur-boitier_id15_5.webp');
+INSERT INTO Image (nomImage) VALUES ('Ventilateur-boitier_id15_6.webp');
+
+INSERT INTO Image (nomImage) VALUES ('Mémoire_id4_1.webp');   
+
+INSERT INTO Image (nomImage) VALUES ('Ventilateur-boitier_id41_1.webp');
+INSERT INTO Image (nomImage) VALUES ('Ventilateur-boitier_id41_2.webp');
+INSERT INTO Image (nomImage) VALUES ('Ventilateur-boitier_id41_3.webp');
+
+INSERT INTO Image (nomImage) VALUES ('Boitier PC_id48_1.webp');
+INSERT INTO Image (nomImage) VALUES ('Boitier PC_id48_2.webp');
+INSERT INTO Image (nomImage) VALUES ('Boitier PC_id48_3.webp');
+INSERT INTO Image (nomImage) VALUES ('Boitier PC_id48_4.webp');
+INSERT INTO Image (nomImage) VALUES ('Boitier PC_id48_5.webp');
+
+INSERT INTO Image (nomImage) VALUES ('PC Portable_id37_1.webp');
+INSERT INTO Image (nomImage) VALUES ('PC Portable_id37_2.webp');
+INSERT INTO Image (nomImage) VALUES ('PC Portable_id37_3.webp');
+INSERT INTO Image (nomImage) VALUES ('PC Portable_id37_4.webp');
+INSERT INTO Image (nomImage) VALUES ('PC Portable_id37_5.webp');
+
+INSERT INTO Image (nomImage) VALUES ('Watercooling_id19_1.webp');
+INSERT INTO Image (nomImage) VALUES ('Watercooling_id19_2.webp');
+INSERT INTO Image (nomImage) VALUES ('Watercooling_id19_3.webp');
+
+INSERT INTO Image (nomImage) VALUES ('Ventilateur-boitier_id45_1.webp');
+INSERT INTO Image (nomImage) VALUES ('Ventilateur-boitier_id45_2.webp');
+INSERT INTO Image (nomImage) VALUES ('Ventilateur-boitier_id45_3.webp');
+
+INSERT INTO Image (nomImage) VALUES ('Mémoire_id32_1.webp');   
+INSERT INTO Image (nomImage) VALUES ('Mémoire_id32_2.webp');   
+INSERT INTO Image (nomImage) VALUES ('Mémoire_id32_3.webp');   
+
+INSERT INTO Image (nomImage) VALUES ('Mémoire_id26_1.webp');   
+INSERT INTO Image (nomImage) VALUES ('Mémoire_id26_2.webp');
+
+INSERT INTO Image (nomImage) VALUES ('Carte Mère_id24_1.webp');
+
+INSERT INTO Image (nomImage) VALUES ('Boitier PC_id28_1.webp');
+INSERT INTO Image (nomImage) VALUES ('Boitier PC_id28_2.webp');
+INSERT INTO Image (nomImage) VALUES ('Boitier PC_id28_3.webp');
+
+INSERT INTO Image (nomImage) VALUES ('Boitier PC_id17_1.webp');
+INSERT INTO Image (nomImage) VALUES ('Boitier PC_id17_2.webp');
+INSERT INTO Image (nomImage) VALUES ('Boitier PC_id17_3.webp');
+
+INSERT INTO Image (nomImage) VALUES ('Mémoire_id9_1.webp');   
+INSERT INTO Image (nomImage) VALUES ('Mémoire_id9_2.webp');   
+INSERT INTO Image (nomImage) VALUES ('Mémoire_id9_3.webp'); 
+
+INSERT INTO Image (nomImage) VALUES ('Watercooling_id29_1.webp');
+INSERT INTO Image (nomImage) VALUES ('Watercooling_id29_2.webp');
+INSERT INTO Image (nomImage) VALUES ('Watercooling_id29_3.webp');
+
+INSERT INTO Image (nomImage) VALUES ('PC Portable_id36_1.webp');
+INSERT INTO Image (nomImage) VALUES ('PC Portable_id36_2.webp');
+INSERT INTO Image (nomImage) VALUES ('PC Portable_id36_3.webp');
+
+INSERT INTO Image (nomImage) VALUES ('Carte Mère_id38_1.webp');
+INSERT INTO Image (nomImage) VALUES ('Carte Mère_id38_2.webp');
+INSERT INTO Image (nomImage) VALUES ('Carte Mère_id38_3.webp');
+
+INSERT INTO Image (nomImage) VALUES ('Ventilateur-boitier_id23_1.webp');
+INSERT INTO Image (nomImage) VALUES ('Ventilateur-boitier_id23_2.webp');
+INSERT INTO Image (nomImage) VALUES ('Ventilateur-boitier_id23_3.webp');
+
+INSERT INTO Image (nomImage) VALUES ('carteGraphique_id8_1.webp');
+INSERT INTO Image (nomImage) VALUES ('carteGraphique_id8_2.webp');
+INSERT INTO Image (nomImage) VALUES ('carteGraphique_id8_3.webp');
+INSERT INTO Image (nomImage) VALUES ('carteGraphique_id8_4.webp');
+
+INSERT INTO Image (nomImage) VALUES ('PC Monté_id58_1.webp');
+INSERT INTO Image (nomImage) VALUES ('PC Monté_id58_2.webp');
+INSERT INTO Image (nomImage) VALUES ('PC Monté_id58_3.webp');
+
+INSERT INTO Image (nomImage) VALUES ('PC Portable_id43_1.webp');
+INSERT INTO Image (nomImage) VALUES ('PC Portable_id43_2.webp');
+INSERT INTO Image (nomImage) VALUES ('PC Portable_id43_3.webp');
+
+INSERT INTO Image (nomImage) VALUES ('Mémoire_id20_1.webp');  
+
+INSERT INTO Image (nomImage) VALUES ('Watercooling_id27_1.webp');
+INSERT INTO Image (nomImage) VALUES ('Watercooling_id27_2.webp');
+INSERT INTO Image (nomImage) VALUES ('Watercooling_id27_3.webp');
+
+INSERT INTO Image (nomImage) VALUES ('Carte Mère_id5_1.webp');
+INSERT INTO Image (nomImage) VALUES ('Carte Mère_id5_2.webp');
+INSERT INTO Image (nomImage) VALUES ('Carte Mère_id5_3.webp');
+
+INSERT INTO Image (nomImage) VALUES ('Carte Mère_id6_1.webp');
+
+INSERT INTO Image (nomImage) VALUES ('Processeur_id12_1.webp');
+INSERT INTO Image (nomImage) VALUES ('Processeur_id12_2.webp');
+
+INSERT INTO Image (nomImage) VALUES ('Processeur_id34_1.webp');
+
+INSERT INTO Image (nomImage) VALUES ('PC Portable_id25_1.webp');
+INSERT INTO Image (nomImage) VALUES ('PC Portable_id25_2.webp');
+INSERT INTO Image (nomImage) VALUES ('PC Portable_id25_3.webp');
+
+INSERT INTO Image (nomImage) VALUES ('Ventilateur-boitier_id49_1.webp');
+INSERT INTO Image (nomImage) VALUES ('Ventilateur-boitier_id49_2.webp');
+INSERT INTO Image (nomImage) VALUES ('Ventilateur-boitier_id49_3.webp');
+INSERT INTO Image (nomImage) VALUES ('Ventilateur-boitier_id49_3.webp');
+
+INSERT INTO Image (nomImage) VALUES ('Boitier PC_id14_1.webp');
+INSERT INTO Image (nomImage) VALUES ('Boitier PC_id14_2.webp');
+INSERT INTO Image (nomImage) VALUES ('Boitier PC_id14_3.webp');
+
+INSERT INTO Image (nomImage) VALUES ('Carte Mère_id30_1.webp');
+INSERT INTO Image (nomImage) VALUES ('Carte Mère_id30_2.webp');
+
+INSERT INTO Image (nomImage) VALUES ('Watercooling_id35_1.webp');
+INSERT INTO Image (nomImage) VALUES ('Watercooling_id35_2.webp');
+INSERT INTO Image (nomImage) VALUES ('Watercooling_id35_3.webp');
+INSERT INTO Image (nomImage) VALUES ('Watercooling_id35_4.webp');
+
+INSERT INTO Image (nomImage) VALUES ('Carte Mère_id47_1.webp');
+INSERT INTO Image (nomImage) VALUES ('Carte Mère_id47_2.webp');
+INSERT INTO Image (nomImage) VALUES ('Carte Mère_id47_3.webp');
+INSERT INTO Image (nomImage) VALUES ('Carte Mère_id47_4.webp');
+INSERT INTO Image (nomImage) VALUES ('Carte Mère_id47_5.webp');
+
 #/////////////////////////////////////////////////////////////////////////////////////--
 #                            insert AdressePostale                     
 #/////////////////////////////////////////////////////////////////////////////////////--
@@ -857,22 +994,22 @@ INSERT INTO Contient (idNumProduit, idImage) VALUES (2, 60);
 INSERT INTO Contient (idNumProduit, idImage) VALUES (2, 61);
 
 -- idProduit 3 : Boitier PC
-INSERT INTO Contient (idNumProduit, idImage) VALUES (3, );
-INSERT INTO Contient (idNumProduit, idImage) VALUES (3, );
-INSERT INTO Contient (idNumProduit, idImage) VALUES (3, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (3, 71);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (3, 72);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (3, 73);
 
 -- idProduit 4 : Mémoire
-INSERT INTO Contient (idNumProduit, idImage) VALUES (4, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (4, 80);
 INSERT INTO Contient (idNumProduit, idImage) VALUES (4, );
 INSERT INTO Contient (idNumProduit, idImage) VALUES (4, );
 
 -- idProduit 5 : Carte mère
-INSERT INTO Contient (idNumProduit, idImage) VALUES (5, );
-INSERT INTO Contient (idNumProduit, idImage) VALUES (5, );
-INSERT INTO Contient (idNumProduit, idImage) VALUES (5, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (5, 141);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (5, 142);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (5, 143);
 
 -- idProduit 6 : Carte mère
-INSERT INTO Contient (idNumProduit, idImage) VALUES (6, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (6, 144);
 INSERT INTO Contient (idNumProduit, idImage) VALUES (6, );
 INSERT INTO Contient (idNumProduit, idImage) VALUES (6, );
 
@@ -884,14 +1021,15 @@ INSERT INTO Contient (idNumProduit, idImage) VALUES (7, 24);
 INSERT INTO Contient (idNumProduit, idImage) VALUES (7, 25);
 
 -- idProduit 8 : Carte graphique
-INSERT INTO Contient (idNumProduit, idImage) VALUES (8, );
-INSERT INTO Contient (idNumProduit, idImage) VALUES (8, );
-INSERT INTO Contient (idNumProduit, idImage) VALUES (8, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (8, 127);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (8, 128);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (8, 129);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (8, 130);
 
 -- idProduit 9 : Mémoire
-INSERT INTO Contient (idNumProduit, idImage) VALUES (9, );
-INSERT INTO Contient (idNumProduit, idImage) VALUES (9, );
-INSERT INTO Contient (idNumProduit, idImage) VALUES (9, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (9, 112);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (9, 113);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (9, 114);
 
 -- idProduit 10 : Carte graphique
 INSERT INTO Contient (idNumProduit, idImage) VALUES (10, 3);
@@ -906,8 +1044,8 @@ INSERT INTO Contient (idNumProduit, idImage) VALUES (11, 55);
 INSERT INTO Contient (idNumProduit, idImage) VALUES (11, 56);
 
 -- idProduit 12 : Processeur
-INSERT INTO Contient (idNumProduit, idImage) VALUES (12, );
-INSERT INTO Contient (idNumProduit, idImage) VALUES (12, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (12, 145);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (12, 146);
 INSERT INTO Contient (idNumProduit, idImage) VALUES (12, );
 
 -- idProduit 13 : Ventilateur
@@ -917,25 +1055,27 @@ INSERT INTO Contient (idNumProduit, idImage) VALUES (13, 35);
 INSERT INTO Contient (idNumProduit, idImage) VALUES (13, 36);
 
 -- idProduit 14 : Boitier PC
-INSERT INTO Contient (idNumProduit, idImage) VALUES (14, );
-INSERT INTO Contient (idNumProduit, idImage) VALUES (14, );
-INSERT INTO Contient (idNumProduit, idImage) VALUES (14, );
-INSERT INTO Contient (idNumProduit, idImage) VALUES (14, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (14, 155);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (14, 156);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (14, 157);
 
 -- idProduit 15 : Ventilateur
-INSERT INTO Contient (idNumProduit, idImage) VALUES (15, );
-INSERT INTO Contient (idNumProduit, idImage) VALUES (15, );
-INSERT INTO Contient (idNumProduit, idImage) VALUES (15, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (15, 74);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (15, 75);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (15, 76);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (15, 77);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (15, 78);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (15, 79);
 
 -- idProduit 16 : watercooling
-INSERT INTO Contient (idNumProduit, idImage) VALUES (16, );
-INSERT INTO Contient (idNumProduit, idImage) VALUES (16, );
-INSERT INTO Contient (idNumProduit, idImage) VALUES (16, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (16, 68);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (16, 69);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (16, 70);
 
 -- idProduit 17 : Boitier PC
-INSERT INTO Contient (idNumProduit, idImage) VALUES (17, );
-INSERT INTO Contient (idNumProduit, idImage) VALUES (17, );
-INSERT INTO Contient (idNumProduit, idImage) VALUES (17, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (17, 109);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (17, 110);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (17, 111);
 
 -- idProduit 18 : watercooling
 INSERT INTO Contient (idNumProduit, idImage) VALUES (18, 30);
@@ -943,12 +1083,12 @@ INSERT INTO Contient (idNumProduit, idImage) VALUES (18, );
 INSERT INTO Contient (idNumProduit, idImage) VALUES (18, );
 
 -- idProduit 19 : watercooling
-INSERT INTO Contient (idNumProduit, idImage) VALUES (19, );
-INSERT INTO Contient (idNumProduit, idImage) VALUES (19, );
-INSERT INTO Contient (idNumProduit, idImage) VALUES (19, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (19, 94);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (19, 95);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (19, 96);
 
 -- idProduit 20 : Mémoire
-INSERT INTO Contient (idNumProduit, idImage) VALUES (20, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (20, 137);
 INSERT INTO Contient (idNumProduit, idImage) VALUES (20, );
 INSERT INTO Contient (idNumProduit, idImage) VALUES (20, );
 
@@ -965,43 +1105,43 @@ INSERT INTO Contient (idNumProduit, idImage) VALUES (22, 65);
 INSERT INTO Contient (idNumProduit, idImage) VALUES (22, 66);
 
 -- idProduit 23 : Ventilateur
-INSERT INTO Contient (idNumProduit, idImage) VALUES (23, );
-INSERT INTO Contient (idNumProduit, idImage) VALUES (23, );
-INSERT INTO Contient (idNumProduit, idImage) VALUES (23, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (23, 124);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (23, 125);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (23, 126);
 
 -- idProduit 24 : Carte mère
-INSERT INTO Contient (idNumProduit, idImage) VALUES (24, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (24, 105);
 INSERT INTO Contient (idNumProduit, idImage) VALUES (24, );
 INSERT INTO Contient (idNumProduit, idImage) VALUES (24, );
 
 -- idProduit 25 : PC portable
-INSERT INTO Contient (idNumProduit, idImage) VALUES (25, );
-INSERT INTO Contient (idNumProduit, idImage) VALUES (25, );
-INSERT INTO Contient (idNumProduit, idImage) VALUES (25, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (25, 148);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (25, 149);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (25, 150);
 
 -- idProduit 26 : Mémoire
-INSERT INTO Contient (idNumProduit, idImage) VALUES (26, );
-INSERT INTO Contient (idNumProduit, idImage) VALUES (26, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (26, 103);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (26, 104);
 INSERT INTO Contient (idNumProduit, idImage) VALUES (26, );
 
 -- idProduit 27 : Watercooling
-INSERT INTO Contient (idNumProduit, idImage) VALUES (27, );
-INSERT INTO Contient (idNumProduit, idImage) VALUES (27, );
-INSERT INTO Contient (idNumProduit, idImage) VALUES (27, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (27, 138);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (27, 139);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (27, 140);
 
 -- idProduit 28 : Boitier PC
-INSERT INTO Contient (idNumProduit, idImage) VALUES (28, );
-INSERT INTO Contient (idNumProduit, idImage) VALUES (28, );
-INSERT INTO Contient (idNumProduit, idImage) VALUES (28, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (28, 106);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (28, 107);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (28, 108);
 
 -- idProduit 29 : Watercooling
-INSERT INTO Contient (idNumProduit, idImage) VALUES (29, );
-INSERT INTO Contient (idNumProduit, idImage) VALUES (29, );
-INSERT INTO Contient (idNumProduit, idImage) VALUES (29, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (29, 115);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (29, 116);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (29, 117);
 
 -- idProduit 30 : Carte mère
-INSERT INTO Contient (idNumProduit, idImage) VALUES (30, );
-INSERT INTO Contient (idNumProduit, idImage) VALUES (30, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (30, 158);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (30, 159);
 INSERT INTO Contient (idNumProduit, idImage) VALUES (30, );
 
 -- idProduit 31 : Boitier PC
@@ -1012,9 +1152,9 @@ INSERT INTO Contient (idNumProduit, idImage) VALUES (31, 44);
 INSERT INTO Contient (idNumProduit, idImage) VALUES (31, 45);
 
 -- idProduit 32 : Mémoire
-INSERT INTO Contient (idNumProduit, idImage) VALUES (32, );
-INSERT INTO Contient (idNumProduit, idImage) VALUES (32, );
-INSERT INTO Contient (idNumProduit, idImage) VALUES (32, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (32, 100);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (32, 101);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (32, 102);
 
 -- idProduit 33 : watercooling
 INSERT INTO Contient (idNumProduit, idImage) VALUES (33, 10);
@@ -1022,32 +1162,35 @@ INSERT INTO Contient (idNumProduit, idImage) VALUES (33, 11);
 INSERT INTO Contient (idNumProduit, idImage) VALUES (33, 12);
 
 -- idProduit 34 : Processeur
-INSERT INTO Contient (idNumProduit, idImage) VALUES (34, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (34, 147);
 INSERT INTO Contient (idNumProduit, idImage) VALUES (34, );
 INSERT INTO Contient (idNumProduit, idImage) VALUES (34, );
 
 -- idProduit 35 : Watercooling
-INSERT INTO Contient (idNumProduit, idImage) VALUES (35, );
-INSERT INTO Contient (idNumProduit, idImage) VALUES (35, );
-INSERT INTO Contient (idNumProduit, idImage) VALUES (35, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (35, 160);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (35, 161);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (35, 162);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (35, 163);
 
 -- idProduit 36 : PC portable
-INSERT INTO Contient (idNumProduit, idImage) VALUES (36, );
-INSERT INTO Contient (idNumProduit, idImage) VALUES (36, );
-INSERT INTO Contient (idNumProduit, idImage) VALUES (36, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (36, 118);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (36, 119);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (36, 120);
 
 -- idProduit 37 : PC portable
-INSERT INTO Contient (idNumProduit, idImage) VALUES (37, );
-INSERT INTO Contient (idNumProduit, idImage) VALUES (37, );
-INSERT INTO Contient (idNumProduit, idImage) VALUES (37, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (37, 89);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (37, 90);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (37, 91);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (37, 92);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (37, 93);
 
 -- idProduit 38 : Carte mère
-INSERT INTO Contient (idNumProduit, idImage) VALUES (38, );
-INSERT INTO Contient (idNumProduit, idImage) VALUES (38, );
-INSERT INTO Contient (idNumProduit, idImage) VALUES (38, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (38, 121);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (38, 122);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (38, 123);
 
 -- idProduit 39 : Mémoire
-INSERT INTO Contient (idNumProduit, idImage) VALUES (39, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (39, 67);
 INSERT INTO Contient (idNumProduit, idImage) VALUES (39, );
 INSERT INTO Contient (idNumProduit, idImage) VALUES (39, );
 
@@ -1058,9 +1201,9 @@ INSERT INTO Contient (idNumProduit, idImage) VALUES (40, 28);
 INSERT INTO Contient (idNumProduit, idImage) VALUES (40, 29);
 
 -- idProduit 41 : Ventilateur
-INSERT INTO Contient (idNumProduit, idImage) VALUES (41, );
-INSERT INTO Contient (idNumProduit, idImage) VALUES (41, );
-INSERT INTO Contient (idNumProduit, idImage) VALUES (41, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (41, 81);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (41, 82);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (41, 83);
 
 -- idProduit 42 : Ventilateur
 INSERT INTO Contient (idNumProduit, idImage) VALUES (42, 37);
@@ -1069,9 +1212,9 @@ INSERT INTO Contient (idNumProduit, idImage) VALUES (42, 39);
 INSERT INTO Contient (idNumProduit, idImage) VALUES (42, 40);
 
 -- idProduit 43 : PC portable
-INSERT INTO Contient (idNumProduit, idImage) VALUES (43, );
-INSERT INTO Contient (idNumProduit, idImage) VALUES (43, );
-INSERT INTO Contient (idNumProduit, idImage) VALUES (43, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (43, 134);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (43, 135);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (43, 136);
 
 -- idProduit 44 : Processeur
 INSERT INTO Contient (idNumProduit, idImage) VALUES (44, 31);
@@ -1079,9 +1222,9 @@ INSERT INTO Contient (idNumProduit, idImage) VALUES (44, 32);
 INSERT INTO Contient (idNumProduit, idImage) VALUES (44, );
 
 -- idProduit 45 : Ventilateur
-INSERT INTO Contient (idNumProduit, idImage) VALUES (45, );
-INSERT INTO Contient (idNumProduit, idImage) VALUES (45, );
-INSERT INTO Contient (idNumProduit, idImage) VALUES (45, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (45, 97);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (45, 98);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (45, 99);
 
 -- idProduit 46 : Carte graphique
 INSERT INTO Contient (idNumProduit, idImage) VALUES (46, 46);
@@ -1092,19 +1235,24 @@ INSERT INTO Contient (idNumProduit, idImage) VALUES (46, 50);
 INSERT INTO Contient (idNumProduit, idImage) VALUES (46, 51);
 
 -- idProduit 47 : Carte mère
-INSERT INTO Contient (idNumProduit, idImage) VALUES (47, );
-INSERT INTO Contient (idNumProduit, idImage) VALUES (47, );
-INSERT INTO Contient (idNumProduit, idImage) VALUES (47, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (47, 164);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (47, 165);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (47, 166);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (47, 167);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (47, 168);
 
 -- idProduit 48 : Boitier PC
-INSERT INTO Contient (idNumProduit, idImage) VALUES (48, );
-INSERT INTO Contient (idNumProduit, idImage) VALUES (48, );
-INSERT INTO Contient (idNumProduit, idImage) VALUES (48, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (48, 84);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (48, 85);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (48, 86);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (48, 87);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (48, 88);
 
 -- idProduit 49 : Ventilateur
-INSERT INTO Contient (idNumProduit, idImage) VALUES (49, );
-INSERT INTO Contient (idNumProduit, idImage) VALUES (49, );
-INSERT INTO Contient (idNumProduit, idImage) VALUES (49, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (49, 151);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (49, 152);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (49, 153);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (49, 154);
 
 -- idProduit 50 : Processeur
 INSERT INTO Contient (idNumProduit, idImage) VALUES (50, 9);
@@ -1147,9 +1295,9 @@ INSERT INTO Contient (idNumProduit, idImage) VALUES (57, 19);
 INSERT INTO Contient (idNumProduit, idImage) VALUES (57, 20);
 
 -- idProduit 58 : PC Monté
-INSERT INTO Contient (idNumProduit, idImage) VALUES (58, );
-INSERT INTO Contient (idNumProduit, idImage) VALUES (58, );
-INSERT INTO Contient (idNumProduit, idImage) VALUES (58, );
+INSERT INTO Contient (idNumProduit, idImage) VALUES (58, 131);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (58, 132);
+INSERT INTO Contient (idNumProduit, idImage) VALUES (58, 133);
 
 #/////////////////////////////////////////////////////////////////////////////////////--
 #                                 insert Promotion               
