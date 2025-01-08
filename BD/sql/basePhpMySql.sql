@@ -134,6 +134,7 @@ CREATE TABLE Commande (
     dateCommande DATE,
     estPanierActuel BOOLEAN NOT NULL,
     ptn_donner BOOLEAN DEFAULT FALSE,
+    ptn_utilises INT DEFAULT 0,
     FOREIGN KEY (idNumCli) REFERENCES Client(idNumCli),
     FOREIGN KEY (idAdresse) REFERENCES AdressePostale(idAdresse),
     FOREIGN KEY (idMethodePaiement) REFERENCES MethodePaiement(idMethodePaiement)
