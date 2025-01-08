@@ -17,20 +17,20 @@ CREATE TABLE MethodePaiement (
 );
 
 CREATE TABLE Paypal (
-    idCarte INT PRIMARY KEY,
+    idCarte INT PRIMARY KEY AUTO_INCREMENT,
     email VARCHAR(320) NOT NULL,
     mdp VARCHAR(25) NOT NULL
 );
 
 CREATE TABLE Carte_EU (
-    idCarte INT PRIMARY KEY,
+    idCarte INT PRIMARY KEY AUTO_INCREMENT,
     numCarte CHAR(15) NOT NULL,
     dateExp DATE NOT NULL,
     nomProprietaire VARCHAR(50) NOT NULL
 );
 
 CREATE TABLE Carte_AE (
-    idCarte INT PRIMARY KEY,
+    idCarte INT PRIMARY KEY AUTO_INCREMENT,
     numCarte CHAR(15) NOT NULL,
     dateExp DATE NOT NULL,
     nomProprietaire VARCHAR(50) NOT NULL,
