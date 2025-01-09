@@ -98,6 +98,12 @@ Documentation détaillant les fonctionnalités disponibles pour les utilisateurs
 - **link:Documentation/document_utilisateur_web.adoc[Guide Utilisateur]** : Instructions pour les clients du site, incluant la création de compte, la gestion du panier, le passage de commandes, et la consultation de l’historique.
 - **link:Documentation/document_utilisateur_employe_web.adoc[Guide Administrateur et Employé]** : Guide des fonctionnalités accessibles aux administrateurs et employés, telles que la gestion des produits, promotions et utilisateurs.
 
+==== Partie Juridique
+
+Document concernant le droit du numérique applicable au site BuildMyPC.
+
+- **link:Droit/fiche_de_conseils_juridiques_et_de_sécurité_G1A-1.pdf[Synthèse de droit]** : Différentes mentions légales et actions mise en œuvre concernant la protection des données
+
 ==== Gestion de projet & Qualité
 
 |===
