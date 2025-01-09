@@ -123,10 +123,10 @@ L'utilisateur peut modifier ses informations personnelles, ses informations de l
 |12 |Changer le mot de passe |Accéder à la section "Sécurité" et modifier le mot de passe en respectant les critères de complexité |Le mot de passe est modifié avec confirmation |Ok  
 |13 |Consultation des commandes passées |Accéder à l'espace membre, section "Mes commandes" |Toutes les commandes passées sont affichées avec leur statut |Ok  
 |14 |Consultation des moyens de paiement enregistrés |Accéder à l'espace membre, section "Moyens de paiement" |Tous les moyens de paiement enregistrés sont affichés |Ok  
-|15 |Modifier un moyen de paiement |Sélectionner un moyen de paiement existant et modifier ses informations |Les modifications sont enregistrées et affichées immédiatement | Pas Ok  
+|15 |Modifier un moyen de paiement |Sélectionner un moyen de paiement existant et modifier ses informations |Les modifications sont enregistrées et affichées immédiatement |Ok  
 |16 |Supprimer un moyen de paiement |Cliquer sur "Supprimer" pour un moyen de paiement enregistré |Le moyen de paiement est supprimé et n'apparaît plus dans la liste | Pas Ok  
-|17 |Consulter le solde de fidélité |Accéder à l'espace membre, section "Fidélité" |Le solde de points fidélité est affiché avec les détails des gains et utilisations | Pas Ok  
-|18 |Utiliser des points de fidélité |Simuler une commande et appliquer des points de fidélité disponibles |La réduction est appliquée correctement au total | Pas Ok  
+|17 |Consulter le solde de fidélité |Accéder à l'espace membre, section "Fidélité" |Le solde de points fidélité est affiché avec les détails des gains et utilisations | Ok  
+|18 |Utiliser des points de fidélité |Simuler une commande et appliquer des points de fidélité disponibles |La réduction est appliquée correctement au total | Ok  
 |=======
 
 ### Espace Produit  
@@ -161,14 +161,14 @@ L'utilisateur peut ajouter des articles à son panier, les supprimer, valider so
 
 |=======  
 |ID |Test | Scénario de Test |Attendu |Résultat  
-|29 |Ajouter un article au panier |Sélectionner un article et cliquer sur "Ajouter au panier" |Un panier est créé si nécessaire, et l'article y est ajouté. Redirection vers `panier.php` |Pas Ok  
-|30 |Ajouter un même article en plusieurs exemplaires |Choisir une quantité supérieure à 1 pour un article déjà présent dans le panier |L'article est ajouté avec la quantité choisie |?  
+|29 |Ajouter un article au panier |Sélectionner un article et cliquer sur "Ajouter au panier" |Un panier est créé si nécessaire, et l'article y est ajouté. Redirection vers `panier.php` |Ok  
+|30 |Ajouter un même article en plusieurs exemplaires |Choisir une quantité supérieure à 1 pour un article déjà présent dans le panier |L'article est ajouté avec la quantité choisie |Ok  
 |31 |Supprimer un article du panier |Cliquer sur le bouton "Supprimer" pour un article spécifique dans le panier |L'article est supprimé du panier | Ok  
 |32 |Afficher un panier vide |Accéder au panier sans y avoir ajouté d'article |Le message "Votre panier est vide" s'affiche | Ok 
 |33 |Prix du panier |Ajouter plusieurs articles au panier |Le prix total s'affiche et est recalculé correctement | Ok  
-|34 |Valider le panier |Cliquer sur "Valider le panier" |Redirection vers la page de paiement | Pas ok 
-|35 |Récapitulatif des articles |Accéder à la page de validation du panier |Les articles et leurs quantités sont affichés | Pas ok 
-|36 |Payer la commande |Saisir les informations de paiement et valider |Redirection vers une page de confirmation de commande | Pas ok 
+|34 |Valider le panier |Cliquer sur "Valider le panier" |Redirection vers la page de paiement |Ok 
+|35 |Récapitulatif des articles |Accéder à la page de validation du panier |Les articles et leurs quantités sont affichés | Ok 
+|36 |Payer la commande |Saisir les informations de paiement et valider |Redirection vers une page de confirmation de commande | Ok 
 |37 |Voir le statut de la commande |Accéder à l'espace personnel après avoir passé une commande |Le statut de la commande s'affiche comme "Payé" | Ok
 |=======  
 
@@ -201,8 +201,8 @@ Un administrateur peut créer et gérer des évenements, un employé peut les g�
 
 |=======  
 |ID |Test | Scénario de Test |Attendu |Résultat  
-|45 |Créer des évenements |En étant connecté en administrateur, sur la page de gestion des évenements, cliquer sur ajouter un évenement et saisir les bonnes informations |Le nouvel évenement est créé et a été appliqué aux différents articles concernés |Pas ok
-|46 |Modifier des évenements |En étant connecté en employé, sur la page de gestion des évenements, cliquer sur modifier un évenement et changer ses informations ou le désactiver |L'évenement est modifié ou n'est plus actif et les changements ont été appliqués aux différents articles concernés |Pas ok
+|45 |Créer des évenements |En étant connecté en administrateur, sur la page de gestion des évenements, cliquer sur ajouter un évenement et saisir les bonnes informations |Le nouvel évenement est créé et a été appliqué aux différents articles concernés |Ok
+|46 |Modifier des évenements |En étant connecté en employé, sur la page de gestion des évenements, cliquer sur modifier un évenement et changer ses informations ou le désactiver |L'évenement est modifié ou n'est plus actif et les changements ont été appliqués aux différents articles concernés |Ok
 |=======  
 
 ### Gérer des comptes client et employé
@@ -211,11 +211,12 @@ Un administrateur peut créer, modifier et supprimer des comptes employé. Un ad
 
 |=======  
 |ID |Test | Scénario de Test |Attendu |Résultat 
-|47 |Créer un compte employé |En étant connecté en administrateur, sur la page de gestion des employés, cliquer sur le bouton nouvel employé et saisir les informations de cet employé |L'employé est créé et apparait dans la base de données |Pas ok 
-|48 |Supprimer un compte employé |En étant connecté en administrateur, sur la page de gestion des employés, cliquer sur le bouton supprimer à coté du compte d'un employé |L'employé est supprimé et n'apparait plus dans la base de données |Pas ok
-|49 |Modifier un compte employé |En étant connecté en administrateur, sur la page de gestion des employés, cliquer sur le bouton modifier à coté du compte d'un employé et changer une des informations |Les informations de l'employé sont modifié sur le site et dans la base de données |Pas ok
-|50 |Modifier un compte client |En étant connecté en administrateur, sur la page de gestion des comptes client, cliquer sur le bouton modifier à coté du compte d'un client et changer une ou plusieurs de ses informations |Les informations de paiement ne sont pas modifiable, les autres informations du client ont été modifiées sur le site et dans la base de données |Pas ok
+|47 |Créer un compte employé |En étant connecté en administrateur, sur la page de gestion des employés, cliquer sur le bouton nouvel employé et saisir les informations de cet employé |L'employé est créé et apparait dans la base de données |Ok 
+|48 |Supprimer un compte employé |En étant connecté en administrateur, sur la page de gestion des employés, cliquer sur le bouton supprimer à coté du compte d'un employé |L'employé est supprimé et n'apparait plus dans la base de données |Ok
+|49 |Modifier un compte employé |En étant connecté en administrateur, sur la page de gestion des employés, cliquer sur le bouton modifier à coté du compte d'un employé et changer une des informations |Les informations de l'employé sont modifié sur le site et dans la base de données |Ok
+|50 |Modifier un compte client |En étant connecté en administrateur, sur la page de gestion des comptes client, cliquer sur le bouton modifier à coté du compte d'un client et changer une ou plusieurs de ses informations |Les informations de paiement ne sont pas modifiable, les autres informations du client ont été modifiées sur le site et dans la base de données |Ok
 |51 |Supprimer des informations de paiement d'un client |En étant connecté en administrateur, sur la page de gestion des comptes client, cliquer sur le bouton modifier à coté du compte d'un client et sur le bouton supprimer à coté des informations de paiement |Les informations de paiement ont été supprimées sur le site et en base de données. Si il y avait plusieurs informations de paiement, seule celle sélectionnée à été supprimée |Pas ok
-|52 |Supprimer un compte client |En étant connecté en administrateur, sur la page de gestion des comptes client, cliquer sur le bouton supprimer à coté du compte d'un client |Le compte du client n'apparait plus ni sur le site ni dans la base de données |Pas ok
+|52 |Désactiver un compte client |En étant connecté en administrateur, sur la page de gestion des comptes client, cliquer sur le bouton désactiver à coté du compte d'un client. Le compte choisi doit être actif |Le compte du client apparait comme désactivé sur le site et il n'est plus possible de s'y connecter |Ok
+|52 |Réactiver un compte client |En étant connecté en administrateur, sur la page de gestion des comptes client, cliquer sur le bouton réactiver à coté du compte d'un client. Le compte choisi doit être désactivé |Le compte du client apparait comme actif sur le site et il est possible de s'y connecter et d'effectuer des opérations avec |Ok
 |=======  
 
