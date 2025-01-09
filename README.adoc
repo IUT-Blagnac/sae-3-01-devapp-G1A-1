@@ -98,6 +98,12 @@ Documentation détaillant les fonctionnalités disponibles pour les utilisateurs
 - **link:Documentation/document_utilisateur_web.adoc[Guide Utilisateur]** : Instructions pour les clients du site, incluant la création de compte, la gestion du panier, le passage de commandes, et la consultation de l’historique.
 - **link:Documentation/document_utilisateur_employe_web.adoc[Guide Administrateur et Employé]** : Guide des fonctionnalités accessibles aux administrateurs et employés, telles que la gestion des produits, promotions et utilisateurs.
 
+==== Partie Juridique
+
+Document concernant le droit du numérique applicable au site BuildMyPC.
+
+- **link:Droit/fiche_de_conseils_juridiques_et_de_sécurité_G1A-1.pdf[Synthèse de droit]** : Différentes mentions légales et actions mises en œuvre concernant la protection des données
+
 ==== Gestion de projet & Qualité
 
 |===
@@ -137,15 +143,15 @@ Voici le lien vers le https://docs.google.com/document/d/1JXWsYDaT89UOSjPgRJJcoX
 === ODJ/CR
 
 |===
-| Date  |  Lien | retour EP | note/3
+| Date  |  Lien | Retour EP | Note/3
 | Semaine 45  | https://github.com/IUT-Blagnac/sae-3-01-devapp-G1A-1/blob/master/Communication/Ordre%20du%20jour%20reunion%20du%2008-11-2024.pdf[Lien vers l'ODJ]
               
                 https://github.com/IUT-Blagnac/sae-3-01-devapp-G1A-1/blob/master/Communication/Compte%20rendu%20de%20r%C3%A9union%20du%2008-11-2024.pdf[Lien vers le CR]
-| | 
+|Pas de retour | N/A
 | Semaine 47  | https://github.com/IUT-Blagnac/sae-3-01-devapp-G1A-1/blob/master/Communication/Ordre%20du%20jour%20reunion%20du%2019-11-2024.pdf[Lien vers l'ODJ]
 
                 https://github.com/IUT-Blagnac/sae-3-01-devapp-G1A-1/blob/master/Communication/Compte%20rendu%20de%20r%C3%A9union%20du%2019-11-2024.pdf[Lien vers le CR]
-| |
+|Pas de retour | N/A
 | Semaine 48  | https://github.com/IUT-Blagnac/sae-3-01-devapp-G1A-1/blob/master/Communication/Ordre%20du%20jour%20reunion%20du%2025-11-2024.pdf[Lien vers l'ODJ]
 
                 https://github.com/IUT-Blagnac/sae-3-01-devapp-G1A-1/blob/master/Communication/Compte%20rendu%20de%20r%C3%A9union%20du%2025-11-2024.pdf[Lien vers le CR]
@@ -175,6 +181,13 @@ Voici le lien vers le https://docs.google.com/document/d/1JXWsYDaT89UOSjPgRJJcoX
                 https://github.com/IUT-Blagnac/sae-3-01-devapp-G1A-1/blob/master/Communication/Difficult%C3%A9s%20_%20R%C3%A9ussites%20-%20Semaine%2051.pdf[Lien vers l'analyse]
 | OK, juste qq fautes. Pensez à me faire passer l'ODJ de la semaine prochaine, vous pouvez mettre à l'ODJ une clé de répartition des notes de Com et de Projet en cas de disparité de travail dans l'équipe. Attention je n'ai pas trouvé la fiche de synthèse en droit !
 | 2,75/3
+| Semaine 3  | https://github.com/IUT-Blagnac/sae-3-01-devapp-G1A-1/blob/master/Communication/Ordre%20du%20jour%20reunion%20du%2006-01-2025.pdf[Lien vers l'ODJ]
+
+                https://github.com/IUT-Blagnac/sae-3-01-devapp-G1A-1/blob/master/Communication/Compte%20rendu%20de%20r%C3%A9union%20du%2006-01-2025.pdf[Lien vers le CR]
+                
+                https://github.com/IUT-Blagnac/sae-3-01-devapp-G1A-1/blob/master/Communication/Difficult%C3%A9s%20_%20R%C3%A9ussites%20-%20Semaine%203.pdf[Lien vers l'analyse]
+| 
+|
 |===
 
 === Registre de télétravail
