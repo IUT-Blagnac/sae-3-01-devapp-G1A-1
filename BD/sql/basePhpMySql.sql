@@ -7,6 +7,7 @@ CREATE TABLE Promotion (
     idPromotion INT PRIMARY KEY AUTO_INCREMENT,
     nomPromotion VARCHAR(20) NOT NULL,
     pourcentageReduction INT NOT NULL,
+    active TINYINT(1),
     CHECK(pourcentageReduction > 0 AND pourcentageReduction < 100)
 );
  
@@ -64,6 +65,7 @@ CREATE TABLE Produit (
 CREATE TABLE EnPromo (
     idNumProduit INT,
     idPromotion INT,
+    active TINYINT(1),
     PRIMARY KEY (idNumProduit, idPromotion),
     FOREIGN KEY (idNumProduit) REFERENCES Produit(idNumProduit),
     FOREIGN KEY (idPromotion) REFERENCES Promotion(idPromotion)

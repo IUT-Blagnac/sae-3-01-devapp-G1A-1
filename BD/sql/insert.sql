@@ -139,6 +139,17 @@ INSERT INTO Image (nomImage) VALUES ('Carte Mère_id22_3.webp');
 INSERT INTO Image (nomImage) VALUES ('Carte Mère_id22_4.webp'); 
 INSERT INTO Image (nomImage) VALUES ('Carte Mère_id22_5.webp'); 
 
+INSERT INTO `Image`(`nomImage`) VALUES ('PC Bureautique_id62_1.webp');
+INSERT INTO `Image`(`nomImage`) VALUES ('PC Bureautique_id62_2.webp');
+INSERT INTO `Image`(`nomImage`) VALUES ('PC Bureautique_id62_3.webp');
+INSERT INTO `Image`(`nomImage`) VALUES ('PC Bureautique_id62_4.webp');
+
+INSERT INTO `Image`(`nomImage`) VALUES ('PC Bureautique_id63_1.webp');
+INSERT INTO `Image`(`nomImage`) VALUES ('PC Bureautique_id63_2.webp');
+INSERT INTO `Image`(`nomImage`) VALUES ('PC Bureautique_id63_3.webp');
+INSERT INTO `Image`(`nomImage`) VALUES ('PC Bureautique_id63_4.webp');
+INSERT INTO `Image`(`nomImage`) VALUES ('PC Bureautique_id63_5.webp');
+
 #/////////////////////////////////////////////////////////////////////////////////////--
 #                            insert AdressePostale                     
 #/////////////////////////////////////////////////////////////////////////////////////--
@@ -337,6 +348,11 @@ INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, i
 INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, idMarque) VALUES (11, 'PC Gamer Ryzen 5 Shadow', 1299.99, 76, 'Tour silencieuse et efficace avec processeur Ryzen 5, carte graphique RTX 3060 et SSD 512 Go.', 5);
 INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, idMarque) VALUES (11, 'MSI Infinite X 3D Max', 2499.99, 64, 'Pour les créateurs et gamers avec processeur Intel i7, carte graphique RTX 4080, 32 Go de RAM et système LED RGB.', 1);
 
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, idMarque) VALUES (12, 'HP ProDesk 400 G6', 799.99, 50, 'PC compact et performant avec Intel i5, 8 Go de RAM et SSD 256 Go, idéal pour les bureaux.', 2);
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, idMarque) VALUES (12, 'Lenovo ThinkCentre M70s', 899.99, 30, 'Ordinateur bureautique robuste avec Intel i7, 16 Go de RAM et SSD 512 Go.', 3);
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, idMarque) VALUES (12, 'Dell OptiPlex 3080', 649.99, 20, 'PC conçu pour le travail quotidien avec Intel i3, 4 Go de RAM et HDD 1 To.', 4);
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, idMarque) VALUES (12, 'Acer Veriton X4660G', 749.99, 25, 'PC bureautique compact avec Intel i5, 8 Go de RAM et disque dur hybride de 1 To.', 5);
+INSERT INTO Produit (idCategorie, nomProduit, prix, stock, descriptionProduit, idMarque) VALUES (12, 'ASUS ExpertCenter D500SC', 899.99, 40, 'Ordinateur fiable et sécurisé avec Intel i5, 16 Go de RAM et SSD 256 Go.', 6);
 
 #/////////////////////////////////////////////////////////////////////////////////////--
 #                              insert Commande passé                   
@@ -1150,6 +1166,18 @@ INSERT INTO Contient (idNumProduit, idImage) VALUES (57, 20);
 INSERT INTO Contient (idNumProduit, idImage) VALUES (58, );
 INSERT INTO Contient (idNumProduit, idImage) VALUES (58, );
 INSERT INTO Contient (idNumProduit, idImage) VALUES (58, );
+
+-- idProduit 62 : PC Bureautique
+INSERT INTO `Contient`(`idNumProduit`, `idImage`) VALUES ('62','169');
+INSERT INTO `Contient`(`idNumProduit`, `idImage`) VALUES ('62','170');
+INSERT INTO `Contient`(`idNumProduit`, `idImage`) VALUES ('62','171');
+INSERT INTO `Contient`(`idNumProduit`, `idImage`) VALUES ('62','172');
+
+-- idProduit 63 : PC Bureautique
+INSERT INTO `Contient`(`idNumProduit`, `idImage`) VALUES ('63','173');
+INSERT INTO `Contient`(`idNumProduit`, `idImage`) VALUES ('63','174');
+INSERT INTO `Contient`(`idNumProduit`, `idImage`) VALUES ('63','175');
+INSERT INTO `Contient`(`idNumProduit`, `idImage`) VALUES ('63','176');
 
 #/////////////////////////////////////////////////////////////////////////////////////--
 #                                 insert Promotion               
