@@ -143,15 +143,15 @@ Voici le lien vers le https://docs.google.com/document/d/1JXWsYDaT89UOSjPgRJJcoX
 === ODJ/CR
 
 |===
-| Date  |  Lien | retour EP | note/3
+| Date  |  Lien | Retour EP | Note/3
 | Semaine 45  | https://github.com/IUT-Blagnac/sae-3-01-devapp-G1A-1/blob/master/Communication/Ordre%20du%20jour%20reunion%20du%2008-11-2024.pdf[Lien vers l'ODJ]
               
                 https://github.com/IUT-Blagnac/sae-3-01-devapp-G1A-1/blob/master/Communication/Compte%20rendu%20de%20r%C3%A9union%20du%2008-11-2024.pdf[Lien vers le CR]
-| | 
+|Pas de retour | N/A
 | Semaine 47  | https://github.com/IUT-Blagnac/sae-3-01-devapp-G1A-1/blob/master/Communication/Ordre%20du%20jour%20reunion%20du%2019-11-2024.pdf[Lien vers l'ODJ]
 
                 https://github.com/IUT-Blagnac/sae-3-01-devapp-G1A-1/blob/master/Communication/Compte%20rendu%20de%20r%C3%A9union%20du%2019-11-2024.pdf[Lien vers le CR]
-| |
+|Pas de retour | N/A
 | Semaine 48  | https://github.com/IUT-Blagnac/sae-3-01-devapp-G1A-1/blob/master/Communication/Ordre%20du%20jour%20reunion%20du%2025-11-2024.pdf[Lien vers l'ODJ]
 
                 https://github.com/IUT-Blagnac/sae-3-01-devapp-G1A-1/blob/master/Communication/Compte%20rendu%20de%20r%C3%A9union%20du%2025-11-2024.pdf[Lien vers le CR]
