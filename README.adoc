@@ -102,7 +102,7 @@ Documentation détaillant les fonctionnalités disponibles pour les utilisateurs
 
 Document concernant le droit du numérique applicable au site BuildMyPC.
 
-- **link:Droit/fiche_de_conseils_juridiques_et_de_sécurité_G1A-1.pdf[Synthèse de droit]** : Différentes mentions légales et actions mise en œuvre concernant la protection des données
+- **link:Droit/fiche_de_conseils_juridiques_et_de_sécurité_G1A-1.pdf[Synthèse de droit]** : Différentes mentions légales et actions mises en œuvre concernant la protection des données
 
 ==== Gestion de projet & Qualité
 
