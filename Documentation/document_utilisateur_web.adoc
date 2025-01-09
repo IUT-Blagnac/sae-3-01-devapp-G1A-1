@@ -88,6 +88,11 @@ Pour des informations supplémentaires :
 
 === Connexion et Inscription
 - Formulaire de connexion
+
+  Si vous cliquez sur le bouton compte ou panier de la page principale(1) en n'étant pas connecté, vous serez redirigé vers le formulaire de connexion(2) ou vous serez inviter à entrer le mail ainsi que le mot de passe du compte auxquel vous voulez vous connecter.
+
+image::images/doc_user_web/from_inde_to_connexion[1]
+
 - Formulaire d'inscription
 
 == Fonctionnalités pour les clients connectés
