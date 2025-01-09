@@ -91,23 +91,23 @@ Pour des informations supplémentaires :
 
 Si vous cliquez sur le bouton compte ou panier de la page principale(1) en n'étant pas connecté, vous serez redirigé vers le formulaire de connexion(2) ou vous serez inviter à entrer le mail ainsi que le mot de passe du compte auxquel vous voulez vous connecter. en cas d'erruer ou de désactivation de compte, le formulaire vous l'informera via des messages rouge(3,4,5) présents sous les cases de connexion associées. 
 
-image::images/doc_user_web/from_index_to_connexion.png
+image::images/doc_user_web/from_index_to_connexion.png[1]
 
 (1 : bouton compte et panier)
 
-image::images/doc_user_web/form_conn.png
+image::images/doc_user_web/form_conn.png[2]
 
 (2 : formulaire de connexion)
 
-image::images/doc_user_web/err_log.png
+image::images/doc_user_web/err_log.png[3]
 
 (3 : erreur identifiant incorrect)
 
-image::images/doc_user_web/err_mdp.png
+image::images/doc_user_web/err_mdp.png[4]
 
 (4 : erreur mot de passe incorrect)
 
-image::images/doc_user_web/compte_desa.png
+image::images/doc_user_web/compte_desa.png[5]
 
 (5 : erreur compte désactivé)
 
