@@ -181,7 +181,7 @@ Voici le lien vers le https://docs.google.com/document/d/1JXWsYDaT89UOSjPgRJJcoX
                 https://github.com/IUT-Blagnac/sae-3-01-devapp-G1A-1/blob/master/Communication/Difficult%C3%A9s%20_%20R%C3%A9ussites%20-%20Semaine%2051.pdf[Lien vers l'analyse]
 | OK, juste qq fautes. Pensez à me faire passer l'ODJ de la semaine prochaine, vous pouvez mettre à l'ODJ une clé de répartition des notes de Com et de Projet en cas de disparité de travail dans l'équipe. Attention je n'ai pas trouvé la fiche de synthèse en droit !
 | 2,75/3
-| Semaine 3  | https://github.com/IUT-Blagnac/sae-3-01-devapp-G1A-1/blob/master/Communication/Ordre%20du%20jour%20reunion%20du%2006-01-2025.pdf[Lien vers l'ODJ]
+| Semaine 2  | https://github.com/IUT-Blagnac/sae-3-01-devapp-G1A-1/blob/master/Communication/Ordre%20du%20jour%20reunion%20du%2006-01-2025.pdf[Lien vers l'ODJ]
 
                 https://github.com/IUT-Blagnac/sae-3-01-devapp-G1A-1/blob/master/Communication/Compte%20rendu%20de%20r%C3%A9union%20du%2006-01-2025.pdf[Lien vers le CR]
                 
