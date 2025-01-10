@@ -190,17 +190,70 @@ image::images/doc_user_web/creer_compte.png[8]
 
 === Gestion du Compte
 - Consultation du compte
+
+Lorsque vous êtes connecté, l'icône "Compte" s'affiche en couleur avec votre nom. Vous pouvez cliquer dessus pour voir deux options :
+
+image::images/doc_user_web/gestion_user.png[User]
+
+La première option vous permet de consulter votre profil, tandis que la seconde vous permet de vous déconnecter.
+
+image::images/doc_user_web/gestion_user1.png[User1]
+
+Une fois le bouton "Voir profil" cliqué, vous arrivez sur cette page contenant vos informations personnelles :
+
+image::images/doc_user_web/gestion_user2.png[User2]
+
+Vous pourrez cliquer sur le bouton "Modifier" :
+
+image::images/doc_user_web/gestion_user3.png[User3]
+
+Cela vous permettra de changer vos informations personnelles, ainsi que vos informations de livraison (votre adresse) :
+
+image::images/doc_user_web/gestion_user4.png[User4]
+
 - Sécurité
+
+La section "Sécurité" vous permettra de changer votre mot de passe :
+
+image::images/doc_user_web/gestion_user5.png[User5]
+
+De même, vous pouvez modifier votre mot de passe en cliquant sur le bouton. Bien évidemment, celui-ci sera enregistré de manière sécurisée.
+
+image::images/doc_user_web/gestion_user6.png[User6]
 
 === Gestion des Commandes
 - Panier
 - Historique des commandes
 
+En cliquant sur la section "Historique des commandes", vous arriverez ici :
+
+image::images/doc_user_web/gestion_user7.png[User7]
+
+Vous verrez toutes vos commandes passées précédemment, et en cliquant sur "Détails commande", vous pourrez voir les articles commandés.
+
+image::images/doc_user_web/gestion_user8.png[User8]
+
+Voici l'interface que vous aurez :
+
+image::images/doc_user_web/gestion_user9.png[User9]
+
 === Programme de Fidélité
 - Points de fidélité
 
+Pour le programme de fidélité, vous avez une page dédiée avec vos points affichés, une explication du fonctionnement et un historique des gains et utilisations de vos points.
+
+image::images/doc_user_web/gestion_user10.png[User10]
+
 === Historique de Navigation
 - Historique de navigation
+
+Votre historique de consultations est disponible pour les 16 derniers articles visualisés.
+
+image::images/doc_user_web/gestion_user11.png[User11]
+
+Plus précisément, chaque article possédera ses attributs, ainsi que la date et l'heure de consultation. Vous aurez également la possibilité de le supprimer de votre historique de consultation.
+
+image::images/doc_user_web/gestion_user12.png[User12]
 
 == Support et Contact
 Pour toute question ou assistance, veuillez contacter notre support client à l'adresse suivante: *support@buildmypc.com*
