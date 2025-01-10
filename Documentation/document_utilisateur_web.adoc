@@ -252,7 +252,46 @@ De même, vous pouvez modifier votre mot de passe en cliquant sur le bouton. Bie
 image::images/doc_user_web/gestion_user6.png[User6]
 
 === Gestion des Commandes
+
 - Panier
+Pour accéder à l'onglet "Panier", il faut cliquer sur l'icône correspondante en haut à droite de l'écran. Vous devez bien sûr être connecté et avoir ajouté un produit au panier.
+
+image::images/doc_user_web/panier.png[Panier]
+
+Une fois sur la page, vous trouverez vos articles présents à gauche, une section "Points de fidélité" et le total de la commande.
+
+image::images/doc_user_web/panier2.png[Panier2]
+
+Pour modifier la quantité souhaitée, il faut cliquer sur les boutons "+" ou "-". La quantité maximale est automatiquement limitée au stock disponible.
+
+image::images/doc_user_web/panier3.png[Panier3]
+
+Pour commander, il faudra cliquer ici :
+
+image::images/doc_user_web/panier4.png[Panier4]
+
+Une fois le bouton "Commander" cliqué, il vous sera demandé de saisir l'adresse où vous souhaitez être livré. Si votre adresse enregistrée par défaut ne vous convient pas, vous pouvez bien évidemment la changer pour cette commande.
+
+image::images/doc_user_web/panier5.png[Panier5]
+
+Vous aurez ensuite le choix parmi 3 moyens de paiement. Partons du principe que vous choisissez PayPal :
+
+image::images/doc_user_web/panier6.png[Panier6]
+
+Vous devrez remplir les informations si vous ne les avez pas déjà enregistrées sur le site auparavant.
+
+Il y a deux boutons : "Valider" pour payer sans enregistrer.
+
+image::images/doc_user_web/panier7.png[Panier7]
+
+Ou bien "Enregistrer et valider" pour enregistrer la méthode de paiement pour les commandes ultérieures.
+
+image::images/doc_user_web/panier8.png[Panier8]
+
+Finalement, un pop-up de validation apparaîtra pour confirmer.
+
+image::images/doc_user_web/panier9.png[Panier9]
+
 - Historique des commandes
 
 En cliquant sur la section "Historique des commandes", vous arriverez ici :
