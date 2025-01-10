@@ -138,6 +138,36 @@ image::images/doc_user_web/categ5.png[categorie5]
 === Détails des Produits
 - Page de détails du produit
 
+Depuis la page d'accueil ou la liste des produits, vous pouvez cliquer sur un produit pour afficher ses détails, vous arrivez alors sur une nouvelle page qui détaille le produit.
+
+image::images/doc_user_web/detail_produit_debut_page.png[début de page]
+
+Quand on descend dans la page, on à accès à d'autres informations sur le produit telles que un description et, si le produit est un pc monté, la liste de ses composants. 
+
+image::images/doc_user_web/detail_produit_descript+composants.png[description du produit + composants]
+
+Si le produit n'est pas composé d'autre produits, la liste n'est pas affichée.
+
+image::images/doc_user_web/detail_produit_produit_non_compos%C3%A9.png[produit sans composant]
+
+Comme vous pouvez le voir sur l'image ci-dessus, un produit peut aussi posséder plusieurs images.
+
+Si l'on descend encore plus, on peut trouver les avis d'autres clients sur le produit et parfois, des réponses d'un employé. Vous ne pouvez pas écrire d'avis sans être connecté et avoir acheté le produit au moins une fois.
+
+image::images/doc_user_web/detail_produit_avis_non_vide.png[avis produit]
+
+image::images/doc_user_web/detail_produit_add_avis.png[ajout avis]
+
+image::images/doc_user_web/detail_produit_add_avis_write.png[écriture de l'avis]
+
+Il est aussi possible d'ajouter une image à l'avis et de le modifier après l'avoir écrit.
+
+image::images/doc_user_web/detail_produit_modif_avis.png[modification de l'avis]
+
+Enfin, au bas de la page, on trouve une liste des produits similaire à celui consulté.
+
+image::images/doc_user_web/detail_produit_produit_similaire.png[produits similaires]
+
 === Connexion et Inscription
 - Formulaire de connexion
 
