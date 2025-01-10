@@ -131,6 +131,10 @@ Puis:
 
 image::images/doc_user_web/categ4.png[categorie4]
 
+Sur la page d'accueil, vous avez aussi ces pannels cliquables:
+
+image::images/doc_user_web/categ5.png[categorie5]
+
 === Détails des Produits
 - Page de détails du produit
 
