@@ -80,8 +80,56 @@ Pour des informations supplémentaires :
 
 === Navigation et Recherche
 - Page d'accueil
+
+Pour lancer le site, il vous faudra entrer l'une des URL suivante:
+
+image::images/doc_user_web/url_co.png[url1]
+
+Ou celle-ci:
+
+image::images/doc_user_web/url_co_2.png[url2]
+
+Vous voila arriver sur la page d'accueil du site BuildMyPC.
+
 - Recherche de produits
+
+Pour rechercher un produit, vous pourrez utiliser la barre de recherche située dans la partie supérieure de la page d'accueil.
+
+image::images/doc_user_web/search-bar.png[search-bar]
+
+Une fois votre recherche tapée, vous avez le choix de supprimer la recherche ou de la valider. Pour valider, le bouton est fonctionnel, tout comme la touche "ENTRÉE".
+
+image::images/doc_user_web/search-bar2.png[search-bar2]
+
+Vous voilà désormais sur la liste des produits correspondant à votre recherche. Ici, un seul produit correspond à votre recherche.
+
+image::images/doc_user_web/search-bar3.png[search-bar3]
+
+Sur cette page, vous pouvez également affiner votre recherche en utilisant des filtres :
+
+image::images/doc_user_web/search-bar4.png[search-bar4]
+
+Vous avez ensuite la possibilité de trier les résultats selon plusieurs critères :
+
+image::images/doc_user_web/search-bar5.png[search-bar5]
+
 - Catégories de produits
+
+Pour les catégories, vous pouvez les voir en haut de votre écran, sous la barre de recherche.
+
+image::images/doc_user_web/categ.png[categorie]
+
+En survolant ces catégories, certaines afficheront un menu déroulant vous permettant de chercher dans les sous-catégories qui vous intéressent :
+
+image::images/doc_user_web/categ2.png[categorie2]
+
+Sur la version mobile, les catégories seront accessibles depuis le bouton situé en haut à gauche de votre écran. De la même manière, vous pourrez cliquer sur les catégories qui vous intéressent.
+
+image::images/doc_user_web/categ3.png[categorie3]
+
+Puis:
+
+image::images/doc_user_web/categ4.png[categorie4]
 
 === Détails des Produits
 - Page de détails du produit
