@@ -90,8 +90,14 @@ Pour des informations supplémentaires :
 - Formulaire de connexion
 
 Si vous cliquez sur le bouton compte ou panier de la page principale (1) en n'étant pas connecté, vous serez redirigé vers le formulaire de connexion (2) ou vous serez invité à entrer l'adresse email ainsi que le mot de passe du compte auxquel vous souhaitez vous connecter.
+
 En cas d'erreur ou si le compte est désactivé, le formulaire vous le signalera via des messages rouge (3,4,5) présents sous les cases de connexion associées.
+
 Si vous avez saisi une adresse email et un mot de passe valide, vous serez renvoyé vers la page d'accueil où vous pourrez voir le bouton Compte en couleur avec le nom que vous avez saisi lors de la création de votre compte (6).
+
+Si sur le formulaire, vous souhaitez revenir à le page principale depuis le formulaire de connexion sans vous connecter, vous pouvez cliquer sur la flèche "back" (7) pour revenir en arrière.
+
+Pour pouvoir acceder au formualire de création de compte depuis le formulaire de connexion, vous devrez cliquer sur le mot "ici" (8) mis en surbrillance.
 
 
 image::images/doc_user_web/from_index_to_connexion.png[1]
@@ -117,6 +123,14 @@ image::images/doc_user_web/compte_desa.png[5]
 image::images/doc_user_web/conn_succes.png[6]
 
 (6 : connexion réussite)
+
+image::images/doc_user_web/return_main.png[7]
+
+(7 : retour sur la page principale)
+
+image::images/doc_user_web/creer_compte.png[8]
+
+(8 : acces au formulaire de création de compte)
 
 - Formulaire d'inscription
 
