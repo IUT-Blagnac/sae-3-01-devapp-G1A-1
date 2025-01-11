@@ -76,3 +76,33 @@ Pour des informations supplémentaires :
 
 - Documentation technique : link:document_technique_web.adoc[Lien]
 
+== Fonctionnalités pour les employés
+
+=== Répondre à des avis
+
+
+=== Gérer des événements spéciaux
+
+
+=== Gérer les produits et catégories du site
+
+
+=== Créer des événements spéciaux
+
+
+
+== Fonctionnalités pour les administrateurs
+
+=== Gérer les comptes des employés
+
+
+=== Gérer les comptes clients
+
+
+=== Gérer les produits et catégories du site
+
+
+=== Gérer les stocks
+
+
+
