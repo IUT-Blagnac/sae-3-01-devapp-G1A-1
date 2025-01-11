@@ -178,9 +178,63 @@ image::images/doc_user_web/event12.png[Event12]
 
 === Gérer les comptes des employés
 
+Pour gérer les comptes des employés, allez sur la page de gestion et cliquez sur 'Gestion des employés' :
+
+image::images/doc_user_web/dashboard_employee_management.png[dashboard bouton gestion employés]
+
+Une fois sur la page de gestion des employés, vous aurez accès à la liste de tous les employés. vous pourrez effectuer les actions suivantes : 
+
+- Ajouter un nouvel employé,
+- Modifier les informations d'un employé existant,
+- Supprimer le compte d'un employé.
+
+A noter, en tant qu'administrateur il n'est pas possible de modifier ou de supprimer les informations d'un autre administrateur.
+
+image::images/doc_user_web/employee_management_page.png[page gestion des employés]
+
+==== Ajout d'un nouvel employé
+
+image::images/doc_user_web/employee_management_zoom_btn_ajout.png[bouton ajouter un employé]
+
+En cliquant sur le bouton un formulaire va s'afficher. Vous allez pouvoir remplir les différentes informations du nouvel employé puis les valider. Vous serez arrêté avant la validation si certaines informations ne sont pas valides. S'il reste des erreurs après, vous recevrez un message qui vous signalera d'où provient le problème.
+
+image::images/doc_user_web/employee_management_new_empty.png[formulaire vide nouvel employé]
+
+image::images/doc_user_web/employee_management_new_with_infos_filled.png[formulaire rempli nouvel employé]
+
+Quand l'ajout est réussit, il vous le sera indiqué avec un popup d'information.
+
+image::images/doc_user_web/employee_management_new_popup_info.png[popup réussite nouvel employé]
+
+==== Modification des informations d'un employé
+
+image::images/doc_user_web/employee_management_zoom_btn_modif.png[bouton modifier un employé]
+
+En cliquant sur le bouton un formulaire prérempli avec les informations de l'employé va s'afficher. Vous allez pouvoir modifier les différentes informations de employé puis les valider. Vous serez arrêté avant la validation si certaines informations ne sont pas valides. S'il reste des erreurs après, vous recevrez un message qui vous signalera d'où provient le problème. Vous ne pouvez pas modifier le mot de passe d'un employé et vous ne pouvez pas modifier les informations d'un administrateur.
+
+image::images/doc_user_web/employee_management_modif.png[formulaire de modification]
+
+image::images/doc_user_web/employee_management_modif_btn.png[valider formulaire de modification]
+
+image::images/doc_user_web/employee_management_modif_popup_info.png[réussite modifier employé]
+
+==== Suppression d'un compte employé
+
+image::images/doc_user_web/employee_management_zoom_btn_suppr.png[bouton supprimer un employé]
+
+En cliquant sur le bouton, un popup de confirmation va être affiché à l'écran. Vous recevrez ensuite un message pour vous informer du succès ou de l'échec de l'opération.
+
+image::images/doc_user_web/employee_management_suppr_confirm.png[confirmation de suppression]
+
+image::images/doc_user_web/employee_management_suppr_popup_info.png[réussite de la suppression]
 
 === Gérer les comptes clients
 
+Pour gérer les comptes des clients, allez sur la page de gestion et cliquez sur 'Gestion des comptes clients' :
+
+image::images/doc_user_web/dashboard_client_management.png[dashboard bouton gestion compte client]
+
+TODO
 
 === Gérer les produits et catégories du site
 
