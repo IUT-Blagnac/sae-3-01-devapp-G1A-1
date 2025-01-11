@@ -83,13 +83,89 @@ Pour des informations supplémentaires :
 
 === Gérer des événements spéciaux
 
+Une fois connecté, et en tant qu'employé ou administrateur, cliquez sur le logo du tableau de bord situé en haut à droite de votre écran.
+
+image::images/doc_user_web/event.png[Event]
+
+Vous arriverez sur cette page et pourrez cliquer sur 'Gestion des promotions':
+
+image::images/doc_user_web/event2.png[Event2]
+
+Vous voilà sur la page des promotions côté employés:
+
+image::images/doc_user_web/event3.png[Event3]
+
+Pour gérer une promotion, cliquez sur 'Modifier':
+
+image::images/doc_user_web/event4.png[Event4]
+
+Vous serez ensuite invité à modifier uniquement la réduction:
+
+image::images/doc_user_web/event5.png[Event5]
+
+Enfin, après validation, un popup vous informera de la réussite ou non de la modification:
+
+image::images/doc_user_web/event6.png[Event6]
+
+Il vous sera également possible de désactiver une promotion en cliquant sur le bouton 'Désactiver':
+
+image::images/doc_user_web/event7.png[Event7]
+
+Puis validez en cliquant sur le bouton 'OUI':
+
+image::images/doc_user_web/event8.png[Event8]
+
+Enfin, le popup de validation:
+
+image::images/doc_user_web/event9.png[Event9]
 
 === Gérer les produits et catégories du site
 
+Pour gérer les produits, même étape que pour la gestion, sauf qu'une fois sur la page de choix de la gestion, vous cliquerez sur 'Gestion des produits' :
+
+image::images/doc_user_web/gestion_prod.png[Produit]
+
+Vous arriverez ici :
+
+image::images/doc_user_web/gestion_prod2.png[Produit2]
+
+Pour créer un nouveau produit, cliquez ici :
+
+image::images/doc_user_web/gestion_prod3.png[Produit3]
+
+Remplissez le formulaire :
+
+image::images/doc_user_web/gestion_prod4.png[Produit4]
+
+Le popup de validation arrive, c'est donc bien créé :
+
+image::images/doc_user_web/gestion_prod5.png[Produit5]
+
+Vous pouvez également modifier un produit déjà présent :
+
+image::images/doc_user_web/gestion_prod6.png[Produit6]
+
+Changez les informations que vous souhaitez et cliquez sur Enregistrer :
+
+image::images/doc_user_web/gestion_prod7.png[Produit7]
+
+Puis, le popup de réussite s'affiche :
+
+image::images/doc_user_web/gestion_prod8.png[Produit8]
 
 === Créer des événements spéciaux
 
+Pour la création d'un événement, même étape que pour la gestion, sauf qu'une fois sur la page de gestion, il vous faudra cliquer sur 'Ajouter un produit à la promotion':
 
+image::images/doc_user_web/event10.png[Event10]
+
+Remplissez le formulaire, qui se complétera automatiquement une fois le produit sélectionné:
+
+image::images/doc_user_web/event11.png[Event11]
+
+Puis, le popup de réussite apparaîtra:
+
+image::images/doc_user_web/event12.png[Event12]
 
 == Fonctionnalités pour les administrateurs
 
@@ -101,8 +177,36 @@ Pour des informations supplémentaires :
 
 === Gérer les produits et catégories du site
 
+Un administrateur, en plus des options accessibles par l'employé sur la partie produit, pourra supprimer le produit :
+
+Pour supprimer le produit, cliquez ici :
+
+image::images/doc_user_web/gestion_prod9.png[Produit9]
+
+Puis, validez :
+
+image::images/doc_user_web/gestion_prod10.png[Produit10]
+
+Enfin, le popup apparaît :
+
+image::images/doc_user_web/gestion_prod11.png[Produit11]
 
 === Gérer les stocks
 
+Un administrateur, en plus des options accessibles par l'employé sur la partie produit, pourra modifier les stocks :
 
+Il lui suffit de cliquer sur "Modifier" sur l'article de son choix. De plus, un visuel rouge apparaît sur les articles sans stock :
 
+image::images/doc_user_web/gestion_prod12.png[Produit12]
+
+Dans le formulaire, une case "Stock" est remplissable pour le réajuster :
+
+image::images/doc_user_web/gestion_prod13.png[Produit13]
+
+Il lui suffira de valider pour restocker :
+
+== Support et Contact
+Pour toute question ou assistance, veuillez contacter notre support client à l'adresse suivante: *support@buildmypc.com*
+
+== Conclusion
+Nous espérons que cette documentation vous aidera à tirer le meilleur parti du site web BuildMyPC.
