@@ -80,6 +80,13 @@ Pour des informations supplémentaires :
 
 === Répondre à des avis
 
+Sur la page de détail d'un produit, vous pouvez répondre aux avis laissés par des clients. Si un cet avis a déjà une réponse, vous ne pouvez pas en ajouter une autre.
+
+image::images/doc_user_web/employee_answer.png[avis bouton réponse]
+
+image::images/doc_user_web/employee_writing_answer.png[écriture de la réponse]
+
+image::images/doc_user_web/employee_answer_written.png[réponse écrite]
 
 === Gérer des événements spéciaux
 
