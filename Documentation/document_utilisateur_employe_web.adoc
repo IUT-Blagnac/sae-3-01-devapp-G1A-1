@@ -234,7 +234,83 @@ Pour gérer les comptes des clients, allez sur la page de gestion et cliquez sur
 
 image::images/doc_user_web/dashboard_client_management.png[dashboard bouton gestion compte client]
 
-TODO
+Une fois sur la page de gestion des comptes client, vous aurez accès à la liste de tous les clients. vous pourrez effectuer les actions suivantes : 
+
+- Rechercher un client avec différentes options de tri,
+- Voir les détails d'un compte,
+- Modifier certaines informations d'un compte,
+- Désactiver/Réactiver un compte.
+
+image::images/doc_user_web/client_m_page.png[page de gestion des comptes client]
+
+==== Rechercher un client
+
+Vous pouvez utiliser la barre recherche pour ne selectionner qu'un seul ou plusieurs clients précis. Vous pouvez aussi réinitialiser votre recherche pour afficher tous les clients à nouveau. Vous pouvez aussi utiliser différentes options de tri pour afficher les clients dans l'ordre que vous souhaitez.
+
+image::images/doc_user_web/client_m_search.png[barre de recherche]
+
+image::images/doc_user_web/client_m_search_btn.png[bouton barre de recherche]
+
+==== Voir les détails d'un compte
+
+Vous pouvez voir les informations d'un client en cliquant sur le bouton "Détails". Une page s'affichera et vous pourrez voir les informations suivantes : 
+
+- L'ID du client,
+- Le nom du client,
+- Le prénom du client,
+- L'adresse email du client,
+- Le numéro de téléphone,
+- L'adresse du client,
+- L'état du compte (actif ou désactivé),
+- L'historique de commande du client.
+
+image::images/doc_user_web/client_m_detail.png[détails client]
+
+==== Modifier les informations d'un compte
+
+Depuis la page de détail client, vous pourrez modifier les ses informations en cliquant sur le bouton 
+
+image::images/doc_user_web/client_m_btn_modif.png[bouton de modification]
+
+Vous ne pouvez pas modifier les informations qui ne possèdent pas ce bouton.
+
+Lorsque vous modifiez une information, une vérification sera faite avant la validation et un popup vous indiquera si l'opération à été réussite ou non.
+
+image::images/doc_user_web/client_m_going_to_modif.png[utilisation du bouton de modification]
+
+image::images/doc_user_web/client_m_modifying.png[modification du nom]
+
+image::images/doc_user_web/client_m_modif_popup.png[réussite de la modification]
+
+==== Désactiver/Réactiver un compte
+
+Vous pouvez désactiver ou réactiver un compte directement depuis la page de gestion des comptes client ou depuis la page de détail d'un client. Lorsqu'un compte est désactivé, il n'est pas possible de se connecter avec.
+
+Lors qu'un compte est actif, le bouton "Désactiver" sera affiché. A l'inverse, lorsqu'un compte est désactivé, le bouton "Réactiver" sera affiché.
+
+Compte actif : 
+
+image::images/doc_user_web/client_m_enable.png[compte actif]
+
+Compte désactivé : 
+
+image::images/doc_user_web/client_m_disable.png[compte désactivé]
+
+Lorsque vous souhaitez activer ou désactiver un compte, vous recevrez un message de confirmation. Vous recevrez ensuite un message pour vous informer de la réussite (ou l'échec) de l'opération.
+
+Désactivation d'un compte :
+
+image::images/doc_user_web/client_m_confirm_disable.png[confirmation de désactivation]
+
+image::images/doc_user_web/client_m_disabled_popup.png[résultat de désactivation]
+
+
+Réactivation d'un compte :
+
+image::images/doc_user_web/client_m_confirm_enable.png[confirmation de réactivation]
+
+image::images/doc_user_web/client_m_enabled_popup.png[résultat de réactivation]
+
 
 === Gérer les produits et catégories du site
 
