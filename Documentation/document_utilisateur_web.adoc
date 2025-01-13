@@ -171,15 +171,15 @@ image::images/doc_user_web/detail_produit_produit_similaire.png[produits similai
 === Connexion et Inscription
 - Formulaire de connexion
 
-Si vous cliquez sur le bouton compte ou panier de la page principale (1) en n'étant pas connecté, vous serez redirigé vers le formulaire de connexion (2) ou vous serez invité à entrer l'adresse email ainsi que le mot de passe du compte auxquel vous souhaitez vous connecter.
+Si vous cliquez sur le bouton compte ou panier de la page principale (1) en n'étant pas connecté, vous serez redirigé vers le formulaire de connexion (2) ou vous serez invité à entrer l'adresse email ainsi que le mot de passe du compte auquel vous souhaitez vous connecter.
 
-En cas d'erreur ou si le compte est désactivé, le formulaire vous le signalera via des messages rouge (3,4,5) présents sous les cases de connexion associées.
+En cas d'erreur ou si le compte est désactivé, le formulaire vous le signalera via des messages rouges (3,4,5) présents sous les cases de connexion associées.
 
 Si vous avez saisi une adresse email et un mot de passe valide, vous serez renvoyé vers la page d'accueil où vous pourrez voir le bouton Compte en couleur avec le nom que vous avez saisi lors de la création de votre compte (6).
 
-Si sur le formulaire, vous souhaitez revenir à le page principale depuis le formulaire de connexion sans vous connecter, vous pouvez cliquer sur la flèche "back" (7) pour revenir en arrière.
+Si sur le formulaire, vous souhaitez revenir à la page principale depuis le formulaire de connexion sans vous connecter, vous pouvez cliquer sur la flèche "back" (7) pour revenir en arrière.
 
-Pour pouvoir acceder au formualire de création de compte depuis le formulaire de connexion, vous devrez cliquer sur le mot "ici" (8) mis en surbrillance.
+Pour pouvoir accéder au formulaire de création de compte depuis le formulaire de connexion, vous devrez cliquer sur le mot "ici" (8) mis en surbrillance.
 
 
 image::images/doc_user_web/from_index_to_connexion.png[1]
@@ -217,23 +217,39 @@ image::images/doc_user_web/creer_compte.png[8]
 - Formulaire d'inscription
 
 Une fois que vous avez cliqué sur le bouton d'accès au formulaire d'inscription (8 du précédent), vous serez amené sur la page du formulaire d'inscription (1).
-Pour pouvoir remplir correctement le formulaire, vous devrez suivre les instructions indiquées dans les bulles. En csa d'erreur, le formulaire vous renverra une erreur une fois la demande de création effectué en fonction de l'erreur effectué (2,3,4). Precision pour le numero de téléphone, si votre numero de téléphone n'est pas français, vous devrez d'abord cliquez sur le petit drapeau à gauche (5) puis sélectionner votre pays (6). Une fois cela fait l'instruction dans la bulle changera pour s'adapter au numero de téléphone de votre pays, vous devrez alors rentrer votre numéro *AU FORMAT NATIONAL* (7) pour que notre formulaire le convertisse manuellement. Si tout c'est bien passé, vous devrez être redirigé sur l'index avec l'icone compte changé pour y voir apparaitre votre nom (8).
+Pour pouvoir remplir correctement le formulaire, vous devrez suivre les instructions indiquées dans les bulles. En cas d'erreur, le formulaire vous renverra une erreur une fois la demande de création effectuée en fonction de l'erreur effectuée (2,3,4). Précision pour le numéro de téléphone, si votre numéro de téléphone n'est pas français, vous devrez d'abord cliquer sur le petit drapeau à gauche (5) puis sélectionner votre pays (6). Une fois cela fait l'instruction dans la bulle changera pour s'adapter au numéro de téléphone de votre pays, vous devrez alors rentrer votre numéro *AU FORMAT NATIONAL* (7) pour que notre formulaire le convertisse manuellement. Si tout c'est bien passé, vous devrez être redirigé sur l'index avec l'icône compte changé pour y voir apparaître votre nom (8).
 
 image::images/doc_user_web/crea_compte.png[1]
 
+(1 : formulaire de création de compte)
+
 image::images/doc_user_web/err_num.png[2]
+
+(2 : erreur, numero de téléphone)
 
 image::images/doc_user_web/err_mail.png[3]
 
+(3 : erreur, mail)
+
 image::images/doc_user_web/err_nmdp.png[4]
+
+(4 : erreur, mot de passe)
 
 image::images/doc_user_web/tel_balise.png[5]
 
+(5 : balise drapeau)
+
 image::images/doc_user_web/tel_formu.png[6]
+
+(6 : formaulaire selection drapeau)
 
 image::images/doc_user_web/tel_ex.png[7]
 
+(7 : exemple de numero de téléphone valide)
+
 image::images/doc_user_web/conn_succes.png[8]
+
+(8 : création réussite)
 
 == Fonctionnalités pour les clients connectés
 
