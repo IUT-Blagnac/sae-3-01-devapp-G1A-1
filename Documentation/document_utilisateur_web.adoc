@@ -216,6 +216,25 @@ image::images/doc_user_web/creer_compte.png[8]
 
 - Formulaire d'inscription
 
+Une fois que vous avez cliqué sur le bouton d'accès au formulaire d'inscription (8 du précédent), vous serez amené sur la page du formulaire d'inscription (1).
+Pour pouvoir remplir correctement le formulaire, vous devrez suivre les instructions indiquées dans les bulles. En csa d'erreur, le formulaire vous renverra une erreur une fois la demande de création effectué en fonction de l'erreur effectué (2,3,4). Precision pour le numero de téléphone, si votre numero de téléphone n'est pas français, vous devrez d'abord cliquez sur le petit drapeau à gauche (5) puis sélectionner votre pays (6). Une fois cela fait l'instruction dans la bulle changera pour s'adapter au numero de téléphone de votre pays, vous devrez alors rentrer votre numéro *AU FORMAT NATIONAL* (7) pour que notre formulaire le convertisse manuellement. Si tout c'est bien passé, vous devrez être redirigé sur l'index avec l'icone compte changé pour y voir apparaitre votre nom (8).
+
+image::images/doc_user_web/crea_compte.png[1]
+
+image::images/doc_user_web/err_num.png[2]
+
+image::images/doc_user_web/err_mail.png[3]
+
+image::images/doc_user_web/err_nmdp.png[4]
+
+image::images/doc_user_web/tel_balise.png[5]
+
+image::images/doc_user_web/tel_formu.png[6]
+
+image::images/doc_user_web/tel_ex.png[7]
+
+image::images/doc_user_web/conn_succes.png[8]
+
 == Fonctionnalités pour les clients connectés
 
 === Gestion du Compte
