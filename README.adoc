@@ -192,6 +192,10 @@ Voici le lien vers le https://docs.google.com/document/d/1JXWsYDaT89UOSjPgRJJcoX
 
 https://docs.google.com/spreadsheets/d/1_6H4rPvIQ6bIXZPS3Jdd0YjtbRpe2_eXml5OersTU-8/edit?usp=sharing[Lien vers le registre]
 
+== note fiche conseil droit
+
+13/20
+
 == Évaluations bi-hedomadaire
 
 ifdef::env-github[]
