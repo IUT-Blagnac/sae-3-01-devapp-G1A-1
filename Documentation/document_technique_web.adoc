@@ -1,0 +1,368 @@
+= Documentation technique du site web
+:icons: font
+:models: models
+:experimental:
+:incremental:
+:numbered:
+:toc: macro
+:window: _blank
+:correction!:
+
+toc::[]
+
+Version du site : V4.0 +
+Date : 18/12/2024 +
+Equipe : 1A-1 +
+Client : BuildMyPC +
+Projet : Site web e-commerce +
+
+== Description du projet
+
+=== Équipe
+
+L'équipe était composée de cinq membres avec les rôles suivants :
+
+- *Romain* : Product Owner et Développeur
+- *Kilian* : Développeur
+- *Titouan* : Développeur
+- *Pablo* : Développeur
+- *Hugo* : Scrum Master et Développeur
+
+=== Contexte du projet
+
+Le projet a pour objectif de développer une solution e-commerce pour l’entreprise **BuildMyPC**, spécialisée dans la vente de composants informatiques et d’ordinateurs montés. L’entreprise souhaite élargir son marché en passant d’un modèle B2B à une offre B2C, ciblant les particuliers pour augmenter sa visibilité et sa part de marché en Europe.
+
+=== Objectifs du projet
+
+**Problématique :**  
+Garantir la fiabilité et l’efficacité du site web de e-commerce afin d’optimiser l’expérience utilisateur, d’améliorer la gestion des commandes et de répondre aux besoins des clients de manière rapide et intuitive, tout en respectant les contraintes techniques et opérationnelles.
+
+**Objectif :**  
+
+Validation technique :
+
+- Assurer le bon fonctionnement de la navigation sur le site, y compris sur différents navigateurs et appareils (desktop, mobile).
+- Vérifier l’intégration des bases de données pour le stockage des produits, commandes, et comptes utilisateurs.
+
+Expérience utilisateur :
+
+- Concevoir une interface ergonomique et intuitive pour permettre une navigation fluide et efficace.
+- Mettre en place des fonctionnalités essentielles, telles que la recherche par catégorie, les filtres, et un processus de commande simplifié.
+
+Affichage et contenu :
+
+- Garantir un affichage rapide et cohérent des pages produit, des descriptions, et des visuels, même en cas de forte affluence sur le site.
+- Optimiser le contenu pour une meilleure accessibilité et un référencement naturel (SEO) performant.
+
+Fonctionnalités clés :
+
+- Tester les mécanismes de gestion des paniers, des paiements sécurisés et des confirmations de commande en temps réel.
+- Implémenter des outils de suivi des commandes et de communication avec les clients (notifications, suivi des livraisons).
+
+Robustesse et sécurité :
+
+- Renforcer la sécurité du site web pour protéger les données sensibles des utilisateurs (RGPD, protection contre les attaques).
+- Garantir la disponibilité et la stabilité du site face à des pics de trafic ou à des interruptions techniques.
+
+Alignement avec les objectifs de l’entreprise :
+
+- Créer un site qui reflète les valeurs et les objectifs commerciaux de BuildMyPC.
+- Permettre une gestion efficace des stocks et des commandes pour soutenir la croissance de l’activité e-commerce.
+
+
+== Fonctionnement du projet Web
+
+Pour des informations supplémentaires :
+
+- Documentation utilisateur : link:document_utilisateur_web.adoc[Lien]
+- Documentation utilisateur (employés/administrateurs) : link:document_utilisateur_employe_web.adoc[Lien]
+
+== Description des Fichiers
+
+=== ajoutProduit.php
+
+Ce fichier gère l'ajout de produits au panier d'un utilisateur. Il vérifie si l'utilisateur est connecté, récupère l'ID du produit depuis l'URL, et ajoute le produit à la commande active de l'utilisateur.
+
+=== avisCollec.php
+
+Ce fichier permet aux utilisateurs de laisser des avis sur les produits qu'ils ont achetés.
+
+=== choisirBMP.php
+
+Ce fichier fait partie des liens dans le footer pour plus de détails sur le site.
+
+=== clientManagement.php
+
+Ce fichier gère les opérations liées aux comptes clients, telles que la création, la modification et la suppression de comptes. (Pour les admins)
+
+=== conditionUtilisation.php
+
+Ce fichier contient les conditions d'utilisation du site web.
+
+=== conditionVente.php
+
+Ce fichier contient les conditions de vente du site web.
+
+=== confirmationCommande.php
+
+Ce fichier gère la confirmation des commandes et met à jour les stocks en conséquence.
+
+=== consultCompte.php
+
+Ce fichier permet aux utilisateurs de consulter et de modifier les informations de leur compte.
+
+=== contact.php
+
+Ce fichier contient un formulaire de contact permettant aux utilisateurs de contacter le support client.
+
+=== createEmployee.php
+
+Ce fichier permet de créer de nouveaux comptes employés. (admin)
+
+=== createProduct.php
+
+Ce fichier permet de créer de nouveaux produits dans la base de données.
+
+=== createPromotion.php
+
+Ce fichier permet de créer de nouvelles promotions pour les produits.
+
+=== css/
+
+Ce répertoire contient les fichiers CSS utilisés pour le style des pages web.
+
+- `header.css` : Style pour l'en-tête du site.
+- `footer.css` : Style pour le pied de page du site.
+- `main.css` : Style principal du site.
+- `panier.css` : Style pour la page du panier.
+- `detailsProduit.css` : Style pour la page des détails du produit.
+- etc...
+
+=== dashboard.php
+
+Ce fichier affiche un tableau de bord avec des options importantes pour les administrateurs et employés.
+
+=== deleteAllPromotion.php
+
+Ce fichier permet de supprimer toutes les promotions d'une catégorie.
+
+=== deleteEmployee.php
+
+Ce fichier permet de supprimer des comptes employés.
+
+=== deleteHistorique.php
+
+Ce fichier permet de supprimer l'historique de navigation.
+
+=== deleteProduct.php
+
+Ce fichier permet de supprimer des produits de la base de données.
+
+=== deletePromotion.php
+
+Ce fichier permet de supprimer des promotions spécifiques.
+
+=== detailsProduit.php
+
+Ce fichier affiche les détails d'un produit spécifique. (page détail)
+
+=== disableAllPromotion.php
+
+Ce fichier permet de désactiver toutes les promotions en cours.
+
+=== disableClient.php
+
+Ce fichier permet de désactiver des comptes clients.
+
+=== disablePromotion.php
+
+Ce fichier permet de désactiver des promotions spécifiques.
+
+=== employeeManagement.php
+
+Ce fichier gère les opérations liées aux comptes employés, telles que la création, la modification et la suppression de comptes.
+
+=== faq.php
+
+Ce fichier contient une liste de questions fréquemment posées et leurs réponses.
+
+=== fidelity.php
+
+Ce fichier gère le programme de fidélité des clients.
+
+=== formConnexion.php
+
+Ce fichier contient le formulaire de connexion pour les utilisateurs.
+
+=== formCreation.php
+
+Ce fichier contient le formulaire de création pour les utilisateurs.
+
+=== getProducts.php
+
+Ce fichier récupère et affiche la liste des produits disponibles dans la base de données.
+
+=== historique.php
+
+Ce fichier affiche l'historique des commandes passées par l'utilisateur.
+
+=== index.php
+
+La page d'accueil du site web. Elle affiche les produits en vedette et les promotions actuelles.
+
+=== ListeProduit.php
+
+Ce fichier affiche une liste de tous les produits disponibles sur le site. Et permet également la recherche.
+
+=== logout.php
+
+Ce fichier gère la déconnexion des utilisateurs en détruisant leur session.
+
+=== mentionLegales.php
+
+Ce fichier contient les mentions légales du site web.
+
+=== modifierQuantite.php
+
+Ce fichier permet de modifier la quantité d'un produit dans le panier de l'utilisateur.
+
+=== order.php
+
+Ce fichier gère le processus de commande, y compris la sélection des produits et la confirmation de la commande.
+
+=== paiementSec.php
+
+Ce fichier contient des informations sur les méthodes de paiement sécurisées disponibles sur le site.
+
+=== panier.php
+
+Ce fichier affiche le panier de l'utilisateur et permet de modifier les quantités de produits ou de supprimer des produits du panier.
+
+=== panierLivraison.php
+
+Ce fichier gère les informations de livraison pour les produits dans le panier de l'utilisateur.
+
+=== payment.php
+
+Ce fichier gère le processus de paiement pour les commandes passées par les utilisateurs.
+
+=== productManagement.php
+
+Ce fichier permet aux administrateurs de gérer les produits, y compris la création, la modification et la suppression de produits.
+
+=== promotionManagement.php
+
+Ce fichier permet aux administrateurs de gérer les promotions, y compris la création, la modification et la suppression de promotions.
+
+=== security.php
+
+Ce fichier contient des informations sur les mesures de sécurité mises en place sur le site.
+
+=== supprimer_produit.php
+
+Ce fichier permet de supprimer un produit du panier de l'utilisateur.
+
+=== traitClientManagement.php
+
+Ce fichier traite les opérations liées à la gestion des comptes clients, telles que la création, la modification et la suppression de comptes.
+
+=== traitConnexion.php
+
+Ce fichier traite les informations de connexion des utilisateurs et crée une session en cas de succès.
+
+=== traitCreation.php
+
+Ce fichier traite les informations d'inscription des nouveaux utilisateurs et crée un compte en base de données.
+
+=== traitListeProduit.php
+
+Ce fichier traite les opérations liées à la liste des produits, telles que la recherche et le filtrage.
+
+=== traitPtFidelite.php
+
+Ce fichier gère les points de fidélité des clients, y compris l'accumulation et l'utilisation des points.
+
+=== update_adresse.php
+
+Ce fichier permet aux utilisateurs de mettre à jour leur adresse de livraison.
+
+=== update_payment.php
+
+Ce fichier permet aux utilisateurs de mettre à jour leurs informations de paiement.
+
+=== update_profile.php
+
+Ce fichier permet aux utilisateurs de mettre à jour les informations de leur profil.
+
+=== update_security.php
+
+Ce fichier permet aux utilisateurs de mettre à jour leurs paramètres de sécurité, tels que le mot de passe.
+
+=== updateEmployee.php
+
+Ce fichier permet aux administrateurs de mettre à jour les informations des employés.
+
+=== updateProduct.php
+
+Ce fichier permet aux administrateurs de mettre à jour les informations des produits existants.
+
+=== updatePromotion.php
+
+Ce fichier permet aux administrateurs de mettre à jour les informations des promotions existantes.
+
+=== validerCommande.php
+
+Ce fichier valide la commande de l'utilisateur et met à jour les stocks en conséquence.
+
+=== Gestion des Produits
+
+- `createProduct.php` : Permet de créer un nouveau produit.
+- `deleteProduct.php` : Permet de supprimer un produit existant.
+- `detailsProduit.php` : Affiche les détails d'un produit spécifique.
+
+=== Gestion des Clients
+
+- `clientManagement.php` : Permet de gérer les comptes clients.
+- `disableClient.php` : Permet de désactiver un compte client.
+
+=== Gestion des Commandes
+
+- `confirmationCommande.php` : Confirme une commande et met à jour les stocks.
+- `panier.php` : Affiche le panier de l'utilisateur et permet de modifier les quantités de produits.
+
+=== Gestion des Promotions
+
+- `createPromotion.php` : Permet de créer une nouvelle promotion.
+- `deletePromotion.php` : Permet de supprimer une promotion existante.
+- `disablePromotion.php` : Permet de désactiver une promotion.
+
+== Dépendances
+
+Le projet utilise les dépendances suivantes :
+
+- PHP : Langage de programmation principal.
+- MySQL : Base de données pour stocker les informations des produits, clients, commandes, etc.
+- CSS : Pour le style des pages web.
+- JavaScript : Pour les interactions dynamiques sur les pages web.
+
+== Instructions de Déploiement
+
+1. Cloner le dépôt du projet :
+2. Configurer la base de données MySQL en important le fichier `database.sql`.
+3. Mettre à jour les informations de connexion à la base de données dans `include/connect.inc.php`.
+4. Déployer les fichiers sur un serveur web compatible avec PHP.
+
+== Maintenance
+
+Pour maintenir le projet, suivez ces étapes :
+
+1. Effectuer des sauvegardes régulières de la base de données.
+2. Mettre à jour les dépendances et les bibliothèques utilisées.
+3. Tester les nouvelles fonctionnalités dans un environnement de développement avant de les déployer en production.
+4. Surveiller les journaux d'erreurs et corriger les bugs rapidement.
+
+== Conclusion
+
+Cette documentation technique fournit une vue d'ensemble complète du site web BuildMyPC. Pour toute question ou assistance supplémentaire, veuillez contacter l'équipe de développement.
+
+

@@ -1,0 +1,222 @@
+= Documentation des tests web
+:icons: font
+:models: models
+:experimental:
+:incremental:
+:numbered:
+:toc: macro
+:window: _blank
+:correction!:
+
+toc::[]
+
+Version du site : V4.0 +
+Date : 18/12/2024 +
+Equipe : 1A-1 +
+Client : BuildMyPC +
+Projet : Site web e-commerce +
+
+== Description du projet
+
+=== Équipe
+
+L'équipe était composée de cinq membres avec les rôles suivants :
+
+- *Romain* : Product Owner et Développeur
+- *Kilian* : Développeur
+- *Titouan* : Développeur
+- *Pablo* : Développeur
+- *Hugo* : Scrum Master et Développeur
+
+=== Contexte du projet
+
+Le projet a pour objectif de développer une solution e-commerce pour l’entreprise **BuildMyPC**, spécialisée dans la vente de composants informatiques et d’ordinateurs montés. L’entreprise souhaite élargir son marché en passant d’un modèle B2B à une offre B2C, ciblant les particuliers pour augmenter sa visibilité et sa part de marché en Europe.
+
+=== Objectifs du projet
+
+**Problématique :**  
+Garantir la fiabilité et l’efficacité du site web de e-commerce afin d’optimiser l’expérience utilisateur, d’améliorer la gestion des commandes et de répondre aux besoins des clients de manière rapide et intuitive, tout en respectant les contraintes techniques et opérationnelles.
+
+**Objectif :**  
+
+Validation technique :
+
+- Assurer le bon fonctionnement de la navigation sur le site, y compris sur différents navigateurs et appareils (desktop, mobile).
+- Vérifier l’intégration des bases de données pour le stockage des produits, commandes, et comptes utilisateurs.
+
+Expérience utilisateur :
+
+- Concevoir une interface ergonomique et intuitive pour permettre une navigation fluide et efficace.
+- Mettre en place des fonctionnalités essentielles, telles que la recherche par catégorie, les filtres, et un processus de commande simplifié.
+
+Affichage et contenu :
+
+- Garantir un affichage rapide et cohérent des pages produit, des descriptions, et des visuels, même en cas de forte affluence sur le site.
+- Optimiser le contenu pour une meilleure accessibilité et un référencement naturel (SEO) performant.
+
+Fonctionnalités clés :
+
+- Tester les mécanismes de gestion des paniers, des paiements sécurisés et des confirmations de commande en temps réel.
+- Implémenter des outils de suivi des commandes et de communication avec les clients (notifications, suivi des livraisons).
+
+Robustesse et sécurité :
+
+- Renforcer la sécurité du site web pour protéger les données sensibles des utilisateurs (RGPD, protection contre les attaques).
+- Garantir la disponibilité et la stabilité du site face à des pics de trafic ou à des interruptions techniques.
+
+Alignement avec les objectifs de l’entreprise :
+
+- Créer un site qui reflète les valeurs et les objectifs commerciaux de BuildMyPC.
+- Permettre une gestion efficace des stocks et des commandes pour soutenir la croissance de l’activité e-commerce.
+
+
+== Fonctionnement du projet Web
+
+Pour des informations supplémentaires :
+
+- Documentation technique : link:document_technique_web.adoc[Lien]
+- Documentation utilisateur : link:document_utilisateur_web.adoc[Lien]
+
+== Tests  
+
+### Accès à la page d'accueil  
+
+L'utilisateur accède au site.  
+
+|=======  
+|ID |Test | Scénario de Test |Attendu |Résultat  
+|1 |Accès au site |L'utilisateur saisit l'URL dans son navigateur et accède au site |Redirection vers la page d'accueil |Ok  
+|=======  
+
+### Création de compte  
+
+L'utilisateur entre différentes informations via un formulaire de création de compte.  
+
+|=======  
+|ID |Test | Scénario de Test |Attendu |Résultat  
+|2 |Création compte client correct |L'utilisateur remplit tous les champs obligatoires avec des données valides et soumet le formulaire |Redirection vers la page d'accueil |Ok
+|3 |Création compte client incorrect |L'utilisateur remplit tous les champs obligatoires avec des données valides sauf le champ email ou il oubli le @ puis soumet le formulaire |Redirection vers la page de création de compte avec erreur |Ok  
+|=======  
+
+### Connexion/Déconnexion  
+
+L'utilisateur entre son adresse e-mail et son mot de passe dans le formulaire de connexion ou tente de se déconnecter s'il est déjà connecté.  
+
+|=======  
+|ID |Test | Scénario de Test |Attendu |Résultat  
+|4 |Connexion avec compte client |Saisir un e-mail valide et un mot de passe correct |Redirection vers l'accueil avec l'icone "profil" affichée en verte sur le header avec son nom |Ok  
+|5 |Connexion avec mdp incorrect |Saisir un e-mail valide et un mot de passe incorrect |Redirection vers le formulaire de connexion avec un message d'erreur explicite |Ok  
+|6 |Connexion avec compte inexistant |Saisir un e-mail qui ne correspond à aucun compte existant |Redirection vers le formulaire de connexion avec un message d'erreur explicite |Ok  
+|7 |Déconnexion du compte |L'utilisateur clique sur le bouton "Déconnexion" |Redirection vers la page d'accueil |Ok  
+|=======  
+
+### Espace membre : Modification des informations  
+
+L'utilisateur peut modifier ses informations personnelles, ses informations de livraison, son mot de passe, consulter ses commandes passées, gérer ses moyens de paiement, et consulter son solde de fidélité.  
+
+|=======  
+|ID |Test | Scénario de Test |Attendu |Résultat  
+|8 |Modifier nom/prénom/email |Accéder à l'espace membre, section "Mes informations", et modifier nom/prénom/email |Les modifications sont enregistrées et affichées immédiatement |Ok  
+|9 |Modifier numéro de téléphone |Accéder à l'espace membre, section "Mes informations", et modifier le numéro de téléphone |Le numéro est mis à jour et affiché immédiatement |Ok  
+|10 |Modifier adresse de livraison |Accéder à l'espace membre, section "Adresse de livraison", et modifier l'adresse |L'adresse est mise à jour et affichée immédiatement |Ok  
+|11 |Modifier code postal et ville |Accéder à l'espace membre, section "Adresse de livraison", et modifier le code postal et la ville |Les modifications sont enregistrées et affichées immédiatement |Ok  
+|12 |Changer le mot de passe |Accéder à la section "Sécurité" et modifier le mot de passe en respectant les critères de complexité |Le mot de passe est modifié avec confirmation |Ok  
+|13 |Consultation des commandes passées |Accéder à l'espace membre, section "Mes commandes" |Toutes les commandes passées sont affichées avec leur statut |Ok  
+|14 |Consultation des moyens de paiement enregistrés |Accéder à l'espace membre, section "Moyens de paiement" |Tous les moyens de paiement enregistrés sont affichés |Ok  
+|15 |Modifier un moyen de paiement |Sélectionner un moyen de paiement existant et modifier ses informations |Les modifications sont enregistrées et affichées immédiatement |Ok  
+|16 |Supprimer un moyen de paiement |Cliquer sur "Supprimer" pour un moyen de paiement enregistré |Le moyen de paiement est supprimé et n'apparaît plus dans la liste | Pas Ok  
+|17 |Consulter le solde de fidélité |Accéder à l'espace membre, section "Fidélité" |Le solde de points fidélité est affiché avec les détails des gains et utilisations | Ok  
+|18 |Utiliser des points de fidélité |Simuler une commande et appliquer des points de fidélité disponibles |La réduction est appliquée correctement au total | Ok  
+|=======
+
+### Espace Produit  
+
+#### Afficher les produits  
+
+|=======  
+|ID |Test | Scénario de Test |Attendu |Résultat  
+|19 |Recherche d'un produit existant | Dans la barre de recherche, saisir le nom exact du produit (il faut s'assurer qu'il existe) | Le produit est affiché en premier, si d'autres produits ont des noms similaire ou un mot en commun, ils sont aussi affichés |Ok  
+|20 |Recherche d'un produit inexistant | Dans la barre de recherche, saisir un ou plusieurs mots/suite de lettre aléatoire (sugestion : asdezzf) | Aucun produit ne s'affiche | Ok
+|21 |Sélection d'une catégorie ou marque spécifique | Sur la page ListeProduit, cocher une seule marque ou catégorie | Seuls les produits apparentenant à cette catégorie ou marque apparaissent | Ok
+|22 |Sélection du prix | Sur la page ListeProduit, changez les valeurs du prix minimum et maximum | Seuls les produits dont le prix est compris entre le minimum et maximum apparaissent | Ok
+|23 |Sélection des promotions | Sur la page ListeProduit, cocher "Articles en promotion" | Seuls les produits en promotion apparaissent | Ok
+|24 |Tri des produits | Sur la page ListeProduit, selectionner une option de tri | Les produits apparaissent dans l'ordre de ce tri (ex : prix croissant : le prix des produits est croissant) | Ok
+|=======
+
+### Avis sur les produits  
+
+L'utilisateur peut voir les avis laissés par les autres utilisateurs du site ainsi qu'en poster un.  
+
+|=======  
+|ID |Test | Scénario de Test |Attendu |Résultat  
+|25 |Voir les avis |Consulter la page détail produit, connecté ou non |Les avis sont visibles |Ok  
+|26 |Poster un avis sur un article acheté |Une fois connecté et après avoir acheté l'article, l'utilisateur clique sur le bouton pour ajouter un avis |L'avis est publié |Ok  
+|27 |Ne peut pas poster un avis sur un article non acheté |Essayer de poster un avis sur un produit sans l'avoir acheté |Le bouton pour ajouter un avis n'est pas disponible |Ok  
+|28 |Modifier un avis |Cliquer sur le bouton "Modifier" sur son propre avis |Le formulaire d'avis s'affiche avec les informations déjà enregistrées |Ok  
+|=======  
+
+### Commande et paiement  
+
+L'utilisateur peut ajouter des articles à son panier, les supprimer, valider son panier ou supprimer l'intégralité du panier. Il peut également finaliser et commander ses articles.  
+
+|=======  
+|ID |Test | Scénario de Test |Attendu |Résultat  
+|29 |Ajouter un article au panier |Sélectionner un article et cliquer sur "Ajouter au panier" |Un panier est créé si nécessaire, et l'article y est ajouté. Redirection vers `panier.php` |Ok  
+|30 |Ajouter un même article en plusieurs exemplaires |Choisir une quantité supérieure à 1 pour un article déjà présent dans le panier |L'article est ajouté avec la quantité choisie |Ok  
+|31 |Supprimer un article du panier |Cliquer sur le bouton "Supprimer" pour un article spécifique dans le panier |L'article est supprimé du panier | Ok  
+|32 |Afficher un panier vide |Accéder au panier sans y avoir ajouté d'article |Le message "Votre panier est vide" s'affiche | Ok 
+|33 |Prix du panier |Ajouter plusieurs articles au panier |Le prix total s'affiche et est recalculé correctement | Ok  
+|34 |Valider le panier |Cliquer sur "Valider le panier" |Redirection vers la page de paiement |Ok 
+|35 |Récapitulatif des articles |Accéder à la page de validation du panier |Les articles et leurs quantités sont affichés | Ok 
+|36 |Payer la commande |Saisir les informations de paiement et valider |Redirection vers une page de confirmation de commande | Ok 
+|37 |Voir le statut de la commande |Accéder à l'espace personnel après avoir passé une commande |Le statut de la commande s'affiche comme "Payé" | Ok
+|=======  
+
+### Consulter le détail d'un produit  
+
+L'utilisateur peut accéder aux informations d'un produit en cliquant dessus.  
+
+|=======  
+|ID |Test | Scénario de Test |Attendu |Résultat  
+|38 |Cliquer sur un produit |Cliquer sur l'image ou le titre d'un produit dans une liste |Redirection vers `detailProduit.php` | Ok  
+|39 |Cliquer sur un composant dans le détail d'un PC | Cliquer sur le lien d'un composant dans la description d'un PC |Redirection vers `detailProduit.php` du composant | Ok  
+|40 |Cliquer sur ajout au panier si "Pas de Stock" | Cliquer sur le bouton ajouter au panier | Bouton non cliquable | Ok
+|=======  
+
+### Réponse sur les avis  
+
+Un employé peut répondre à un avis.  
+
+|=======  
+|ID |Test | Scénario de Test |Attendu |Résultat  
+|41 |Voir les réponses sous les avis |Accéder à la page produit, connecté ou non |Les réponses sont visibles |Ok  
+|42 |Poster une réponse sous un avis |Se connecter avec un compte employé et soumettre une réponse à un avis |La réponse est publiée sous l'avis correspondant |Ok  
+|43 |Ne peut pas poster une réponse si ce n'est pas un employé |Se connecter avec un compte client et essayer de répondre à un avis |Le bouton pour ajouter une réponse n'est pas disponible |Ok
+|44 |Ne peut pas poster une réponse si il y en a déjà une |Se connecter avec un compte employé et essayer de répondre à un avis qui à déjà une réponse | Le bouton pour ajouter une réponse n'est pas disponible |Ok
+|=======  
+
+### Création et gestion d'évenement
+
+Un administrateur peut créer et gérer des évenements, un employé peut les gérer.  
+
+|=======  
+|ID |Test | Scénario de Test |Attendu |Résultat  
+|45 |Créer des évenements |En étant connecté en administrateur, sur la page de gestion des évenements, cliquer sur ajouter un évenement et saisir les bonnes informations |Le nouvel évenement est créé et a été appliqué aux différents articles concernés |Ok
+|46 |Modifier des évenements |En étant connecté en employé, sur la page de gestion des évenements, cliquer sur modifier un évenement et changer ses informations ou le désactiver |L'évenement est modifié ou n'est plus actif et les changements ont été appliqués aux différents articles concernés |Ok
+|=======  
+
+### Gérer des comptes client et employé
+
+Un administrateur peut créer, modifier et supprimer des comptes employé. Un administrateur peut supprimer des comptes client et les modifier (dans une certaine mesure, il ne peut pas modifier ou accéder aux informations de paiement mais il peut les supprimer).  
+
+|=======  
+|ID |Test | Scénario de Test |Attendu |Résultat 
+|47 |Créer un compte employé |En étant connecté en administrateur, sur la page de gestion des employés, cliquer sur le bouton nouvel employé et saisir les informations de cet employé |L'employé est créé et apparait dans la base de données |Ok 
+|48 |Supprimer un compte employé |En étant connecté en administrateur, sur la page de gestion des employés, cliquer sur le bouton supprimer à coté du compte d'un employé |L'employé est supprimé et n'apparait plus dans la base de données |Ok
+|49 |Modifier un compte employé |En étant connecté en administrateur, sur la page de gestion des employés, cliquer sur le bouton modifier à coté du compte d'un employé et changer une des informations |Les informations de l'employé sont modifié sur le site et dans la base de données |Ok
+|50 |Modifier un compte client |En étant connecté en administrateur, sur la page de gestion des comptes client, cliquer sur le bouton modifier à coté du compte d'un client et changer une ou plusieurs de ses informations |Les informations de paiement ne sont pas modifiable, les autres informations du client ont été modifiées sur le site et dans la base de données |Ok
+|51 |Supprimer des informations de paiement d'un client |En étant connecté en administrateur, sur la page de gestion des comptes client, cliquer sur le bouton modifier à coté du compte d'un client et sur le bouton supprimer à coté des informations de paiement |Les informations de paiement ont été supprimées sur le site et en base de données. Si il y avait plusieurs informations de paiement, seule celle sélectionnée à été supprimée |Pas ok
+|52 |Désactiver un compte client |En étant connecté en administrateur, sur la page de gestion des comptes client, cliquer sur le bouton désactiver à coté du compte d'un client. Le compte choisi doit être actif |Le compte du client apparait comme désactivé sur le site et il n'est plus possible de s'y connecter |Ok
+|52 |Réactiver un compte client |En étant connecté en administrateur, sur la page de gestion des comptes client, cliquer sur le bouton réactiver à coté du compte d'un client. Le compte choisi doit être désactivé |Le compte du client apparait comme actif sur le site et il est possible de s'y connecter et d'effectuer des opérations avec |Ok
+|=======  
+
