@@ -60,15 +60,6 @@ BEGIN
 
     SET v_idAdresse = LAST_INSERT_ID();
 
-    IF NOT EXISTS (
-        SELECT 1
-        FROM Commande
-        WHERE idNumCli = p_idNumCli AND estPanierActuel = TRUE
-    ) THEN
-        SIGNAL SQLSTATE '45000'
-        SET MESSAGE_TEXT = 'Aucune commande en cours pour ce client.';
-    END IF;
-
     UPDATE Commande
     SET estPanierActuel = FALSE,
         dateCommande = NOW(),
