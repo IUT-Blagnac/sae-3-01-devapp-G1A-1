@@ -1,0 +1,12 @@
+# JMB 2022 -- Taken from https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository
+name: Tâche
+description: Une tâche associée à une US
+title: "[TASK]: "
+labels: ["task"]
+body:
+  - type: input
+    id: task
+    attributes:
+      label: Tâche
+      description: Description de la tâche
+      placeholder: Remplir ici

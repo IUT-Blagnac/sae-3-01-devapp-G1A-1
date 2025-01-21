@@ -1,0 +1,36 @@
+/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+
+.root {
+	-fx-font-size:12pt;
+}
+
+.bold {
+	-fx-font-weight: bold;
+}
+
+.borderlight {
+	-fx-border-color:black;
+}
+
+.courrierNew {
+	-fx-font-family:"Courier New";
+}
+
+.borderred {
+	-fx-text-fill: red;
+}
+
+.salle-box {
+    -fx-border-color: black;
+    -fx-border-width: 2px;
+    -fx-padding: 10px;
+    -fx-background-color: #f9f9f9;
+}
+
+.alert-overlay {
+    -fx-padding: 10px;
+    -fx-max-width: 300px;
+    -fx-alignment: top-right;
+    -fx-spacing: 10px;
+    -fx-border-radius: 10px;
+}
